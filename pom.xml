@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.github.nilcy</groupId>
+  <artifactId>zeroth</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <properties>
+    <!-- <maven.compiler.encoding>UTF-8</maven.compiler.encoding> -->
+    <maven.compiler.source>1.7</maven.compiler.source>
+    <maven.compiler.target>1.7</maven.compiler.target>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+  </properties>
+  <modules>
+    <module>zeroth-fw</module>
+  </modules>
+  <url>http://nilcy.github.io/zeroth/</url>
+  <name>zeroth</name>
+  <description>Enterprise Business Application Bootstrap.</description>
+  <inceptionYear>2013</inceptionYear>
+  <organization>
+    <name>nilcy</name>
+    <url>https://github.com/nilcy</url>
+  </organization>
+  <scm>
+    <url>https://github.com/nilcy/zeroth</url>
+    <connection>https://github.com/nilcy/zeroth.git</connection>
+  </scm>
+  <issueManagement>
+    <url>https://github.com/nilcy/zeroth/issues</url>
+    <system>GitHub Issues</system>
+  </issueManagement>
+</project>
