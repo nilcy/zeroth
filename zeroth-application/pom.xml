@@ -8,11 +8,8 @@
     <artifactId>zeroth</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>zeroth-actor</artifactId>
+  <artifactId>zeroth-application</artifactId>
   <modules>
-    <module>zeroth-actor-service-api</module>
-    <module>zeroth-actor-service</module>
-    <module>zeroth-actor-screen</module>
-    <module>zeroth-actor-cui</module>
+    <module>zeroth-application-allinone</module>
   </modules>
 </project>

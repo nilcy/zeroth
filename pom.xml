@@ -15,9 +15,10 @@
     <junit.version>4.11</junit.version>
   </properties>
   <modules>
-    <module>zeroth-shared</module>
+    <module>zeroth-framework</module>
     <module>zeroth-actor</module>
     <module>zeroth-sales</module>
+    <module>zeroth-application</module>
   </modules>
   <url>http://nilcy.github.io/zeroth/</url>
   <name>zeroth</name>
