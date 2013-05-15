@@ -8,5 +8,5 @@
     <artifactId>zeroth</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>zeroth-fw</artifactId>
+  <artifactId>zeroth-sales</artifactId>
 </project>

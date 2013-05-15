@@ -12,9 +12,12 @@
     <maven.compiler.target>1.7</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <junit.version>4.11</junit.version>
   </properties>
   <modules>
-    <module>zeroth-fw</module>
+    <module>zeroth-shared</module>
+    <module>zeroth-actor</module>
+    <module>zeroth-sales</module>
   </modules>
   <url>http://nilcy.github.io/zeroth/</url>
   <name>zeroth</name>
