@@ -10,4 +10,10 @@
   </parent>
   <artifactId>zeroth-sales</artifactId>
   <packaging>pom</packaging>
+  <modules>
+    <module>zeroth-sales-service-api</module>
+    <module>zeroth-sales-service</module>
+    <module>zeroth-sales-screen</module>
+    <module>zeroth-sales-cui</module>
+  </modules>
 </project>

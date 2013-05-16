@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+  xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.github.nilcy</groupId>
+    <artifactId>zeroth-sales</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <artifactId>zeroth-sales-cui</artifactId>
+  <properties>
+    <zeroth-framework-cui.version>0.0.1-SNAPSHOT</zeroth-framework-cui.version>
+  </properties>
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>${junit.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.github.nilcy</groupId>
+      <artifactId>zeroth-framework-cui</artifactId>
+      <version>${zeroth-framework-cui.version}</version>
+      <scope>compile</scope>
+    </dependency>
+  </dependencies>
+</project>

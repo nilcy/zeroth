@@ -14,6 +14,8 @@
     <zeroth-framework-screen.version>0.0.1-SNAPSHOT</zeroth-framework-screen.version>
     <zeroth-actor-service.version>0.0.1-SNAPSHOT</zeroth-actor-service.version>
     <zeroth-actor-screen.version>0.0.1-SNAPSHOT</zeroth-actor-screen.version>
+    <zeroth-sales-service.version>0.0.1-SNAPSHOT</zeroth-sales-service.version>
+    <zeroth-sales-screen.version>0.0.1-SNAPSHOT</zeroth-sales-screen.version>
   </properties>
   <dependencies>
     <dependency>
@@ -32,6 +34,20 @@
       <groupId>com.github.nilcy</groupId>
       <artifactId>zeroth-actor-screen</artifactId>
       <version>${zeroth-actor-screen.version}</version>
+      <type>war</type>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.github.nilcy</groupId>
+      <artifactId>zeroth-sales-service</artifactId>
+      <version>${zeroth-sales-service.version}</version>
+      <type>ejb</type>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.github.nilcy</groupId>
+      <artifactId>zeroth-sales-screen</artifactId>
+      <version>${zeroth-sales-screen.version}</version>
       <type>war</type>
       <scope>compile</scope>
     </dependency>
@@ -55,6 +71,14 @@
             <ejbModule>
               <groupId>com.github.nilcy</groupId>
               <artifactId>zeroth-actor-service</artifactId>
+            </ejbModule>
+            <webModule>
+              <groupId>com.github.nilcy</groupId>
+              <artifactId>zeroth-sales-screen</artifactId>
+            </webModule>
+            <ejbModule>
+              <groupId>com.github.nilcy</groupId>
+              <artifactId>zeroth-sales-service</artifactId>
             </ejbModule>
           </modules>
           <archive>
