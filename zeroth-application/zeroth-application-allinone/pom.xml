@@ -37,20 +37,6 @@
       <type>war</type>
       <scope>compile</scope>
     </dependency>
-    <dependency>
-      <groupId>com.github.nilcy</groupId>
-      <artifactId>zeroth-sales-service</artifactId>
-      <version>${zeroth-sales-service.version}</version>
-      <type>ejb</type>
-      <scope>compile</scope>
-    </dependency>
-    <dependency>
-      <groupId>com.github.nilcy</groupId>
-      <artifactId>zeroth-sales-screen</artifactId>
-      <version>${zeroth-sales-screen.version}</version>
-      <type>war</type>
-      <scope>compile</scope>
-    </dependency>
   </dependencies>
   <build>
     <finalName>${project.artifactId}</finalName>
@@ -71,14 +57,6 @@
             <ejbModule>
               <groupId>com.github.nilcy</groupId>
               <artifactId>zeroth-actor-service</artifactId>
-            </ejbModule>
-            <webModule>
-              <groupId>com.github.nilcy</groupId>
-              <artifactId>zeroth-sales-screen</artifactId>
-            </webModule>
-            <ejbModule>
-              <groupId>com.github.nilcy</groupId>
-              <artifactId>zeroth-sales-service</artifactId>
             </ejbModule>
           </modules>
           <archive>
