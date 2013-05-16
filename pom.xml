@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<project
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
   xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.github.nilcy</groupId>
@@ -15,6 +14,32 @@
     <name>nilcy</name>
     <url>https://github.com/nilcy</url>
   </organization>
+  <licenses>
+    <license>
+      <name>Affero GPL3</name>
+      <url>http://www.gnu.org/licenses/agpl.html</url>
+      <distribution>repo</distribution>
+      <comments>The GNU Affero General Public License is a free, copyleft license for software and other kinds of works, specifically designed to ensure cooperation with the community in the case of network server software.</comments>
+    </license>
+  </licenses>
+  <developers>
+    <developer>
+      <id>nilcy</id>
+      <name>Takehiro Shimokawa</name>
+      <email>nilcy@mac.com</email>
+      <roles>
+        <role>SPONSOR</role>
+        <role>DIRECTOR</role>
+        <role>CREATOR</role>
+        <role>EDITOR</role>
+        <role>AUDITOR</role>
+        <role>READER</role>
+      </roles>
+      <timezone>-9</timezone>
+    </developer>
+  </developers>
+  <contributors />
+  <mailingLists />
   <modules>
     <module>zeroth-framework</module>
     <module>zeroth-actor</module>
@@ -22,13 +47,28 @@
     <module>zeroth-application</module>
   </modules>
   <scm>
-    <connection>https://github.com/nilcy/zeroth.git</connection>
+    <connection>scm:git:https://github.com/nilcy/zeroth.git</connection>
     <url>https://github.com/nilcy/zeroth</url>
   </scm>
+  <ciManagement />
   <issueManagement>
     <system>GitHub Issues</system>
     <url>https://github.com/nilcy/zeroth/issues</url>
   </issueManagement>
+  <distributionManagement>
+    <site>
+      <id>site-repository</id>
+      <url>file:///home.nilcy/git/zeroth-pages/maven/site</url>
+    </site>
+    <repository>
+      <id>release-repository</id>
+      <url>file:///home.nilcy/git/zeroth-pages/maven/release</url>
+    </repository>
+    <snapshotRepository>
+      <id>snapshot-repository</id>
+      <url>file:///home.nilcy/git/zeroth-pages/maven/snapshot/</url>
+    </snapshotRepository>
+  </distributionManagement>
   <properties>
     <maven.compiler.source>1.7</maven.compiler.source>
     <maven.compiler.target>1.7</maven.compiler.target>
@@ -159,6 +199,7 @@
                 <reportPlugin>
                   <groupId>org.apache.maven.plugins</groupId>
                   <artifactId>maven-project-info-reports-plugin</artifactId>
+                  <version>2.6</version>
                 </reportPlugin>
               </reportPlugins>
             </configuration>
