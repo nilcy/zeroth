@@ -35,6 +35,11 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <junit.version>4.11</junit.version>
+    <jeeunit-glassfish.version>1.0.0</jeeunit-glassfish.version>
+    <jeeunit-cdi.version>1.0.0</jeeunit-cdi.version>
+    <glassfish-embedded-all.version>3.1.2.2</glassfish-embedded-all.version>
+    <postgresql.version>9.2-1002-jdbc4</postgresql.version>
+    <javaee-api.version>6.0</javaee-api.version>
   </properties>
   <repositories>
     <repository>

@@ -20,6 +20,36 @@
       <scope>test</scope>
     </dependency>
     <dependency>
+      <groupId>com.googlecode.jeeunit</groupId>
+      <artifactId>jeeunit-glassfish</artifactId>
+      <version>${jeeunit-glassfish.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.googlecode.jeeunit</groupId>
+      <artifactId>jeeunit-cdi</artifactId>
+      <version>${jeeunit-cdi.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.glassfish.main.extras</groupId>
+      <artifactId>glassfish-embedded-all</artifactId>
+      <version>${glassfish-embedded-all.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.postgresql</groupId>
+      <artifactId>postgresql</artifactId>
+      <version>${postgresql.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>javax</groupId>
+      <artifactId>javaee-api</artifactId>
+      <version>${javaee-api.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
       <groupId>com.github.nilcy</groupId>
       <artifactId>zeroth-framework-service-api</artifactId>
       <version>${zeroth-framework-service-api.version}</version>
