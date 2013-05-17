@@ -4,7 +4,7 @@
 // http://www.gnu.org/licenses/agpl-3.0.txt
 // ========================================================================
 /**
- * コーディングフレームワーク
+ * 関係先コマンドライン
  * @author nilcy
  */
-package zeroth.actor.cli;
+package zeroth.actor.command;

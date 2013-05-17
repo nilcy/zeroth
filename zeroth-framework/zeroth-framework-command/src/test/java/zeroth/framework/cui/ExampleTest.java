@@ -7,6 +7,7 @@ package zeroth.framework.cui;
 import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;
 import org.junit.Test;
+import zeroth.framework.command.Example;
 /**
  * Test {@link Example}.
  * @author nilcy

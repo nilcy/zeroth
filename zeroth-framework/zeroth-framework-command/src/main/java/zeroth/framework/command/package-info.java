@@ -7,4 +7,4 @@
  * コマンドラインフレームワーク
  * @author nilcy
  */
-package zeroth.framework.cui;
+package zeroth.framework.command;

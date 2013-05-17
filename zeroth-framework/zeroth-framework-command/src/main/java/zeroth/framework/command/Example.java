@@ -3,7 +3,7 @@
 // GNU AFFERO GENERAL PUBLIC LICENSE Version 3, 19 November 2007
 // http://www.gnu.org/licenses/agpl-3.0.txt
 // ========================================================================
-package zeroth.framework.cui;
+package zeroth.framework.command;
 /**
  * Example.
  * @author nilcy

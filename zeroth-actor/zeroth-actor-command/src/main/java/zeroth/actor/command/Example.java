@@ -3,8 +3,20 @@
 // GNU AFFERO GENERAL PUBLIC LICENSE Version 3, 19 November 2007
 // http://www.gnu.org/licenses/agpl-3.0.txt
 // ========================================================================
+package zeroth.actor.command;
 /**
- * コーディングフレームワーク
+ * Example.
  * @author nilcy
  */
-package zeroth.actor.service;
+public final class Example {
+    /** Constructor. */
+    private Example() {
+    }
+    /**
+     * Say hello.
+     * @return hello
+     */
+    public static String sayHello() {
+        return "Hello";
+    }
+}
