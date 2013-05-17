@@ -4,17 +4,19 @@
 // http://www.gnu.org/licenses/agpl-3.0.txt
 // ========================================================================
 package zeroth.framework.coding;
-import static org.hamcrest.CoreMatchers.*;
-import static org.junit.Assert.*;
-import org.junit.Test;
 /**
- * Test {@link Example}.
+ * Example.
  * @author nilcy
  */
-@SuppressWarnings("all")
-public class ExampleTest {
-    @Test
-    public void testSayHello() {
-        assertThat(Example.sayHello(), is("Hello"));
+public final class Example {
+    /** Constructor. */
+    private Example() {
+    }
+    /**
+     * Say hello.
+     * @return hello
+     */
+    public static String sayHello() {
+        return "Hello";
     }
 }

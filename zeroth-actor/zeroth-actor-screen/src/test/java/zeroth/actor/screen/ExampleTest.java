@@ -13,14 +13,8 @@ import org.junit.Test;
  */
 @SuppressWarnings("all")
 public class ExampleTest {
-    Example testee = new Example();
     @Test
     public void testSayHello() {
-        assertThat(this.testee.sayHello(), is("Hello"));
-    }
-    private class Example {
-        String sayHello() {
-            return "Hello";
-        }
+        assertThat(Example.sayHello(), is("Hello"));
     }
 }

@@ -202,18 +202,6 @@
             <goals>
               <goal>jar</goal>
             </goals>
-            <configuration>
-              <locale>en</locale>
-              <author>true</author>
-              <show>private</show>
-              <linksource>true</linksource>
-              <detectLinks>true</detectLinks>
-              <aggregate>false</aggregate>
-              <links>
-                <link>http://docs.oracle.com/javase/7/docs/api/</link>
-                <link>http://java.sun.com/javaee/6/docs/api</link>
-              </links>
-            </configuration>
           </execution>
         </executions>
         <configuration>
