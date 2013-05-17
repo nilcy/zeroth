@@ -19,7 +19,7 @@
     <module>zeroth-framework-service-api</module>
     <module>zeroth-framework-service</module>
     <module>zeroth-framework-screen</module>
-    <module>zeroth-framework-cui</module>
+    <module>zeroth-framework-command</module>
   </modules>
   <properties>
     <commons-lang3.version>3.1</commons-lang3.version>

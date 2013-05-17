@@ -16,6 +16,6 @@
     <module>zeroth-actor-service-api</module>
     <module>zeroth-actor-service</module>
     <module>zeroth-actor-screen</module>
-    <module>zeroth-actor-cui</module>
+    <module>zeroth-actor-command</module>
   </modules>
 </project>

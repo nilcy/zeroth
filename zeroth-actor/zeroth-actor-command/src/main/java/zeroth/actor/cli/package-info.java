@@ -1,9 +1,10 @@
 // ========================================================================
-// Copyright (C) IMPULSE Project Team. All rights reserved.
+// Copyright (C) zeroth Project Team. All rights reserved.
 // GNU AFFERO GENERAL PUBLIC LICENSE Version 3, 19 November 2007
 // http://www.gnu.org/licenses/agpl-3.0.txt
 // ========================================================================
 /**
+ * コーディングフレームワーク
  * @author nilcy
  */
-package zeroth.framework.cui;
+package zeroth.actor.cli;

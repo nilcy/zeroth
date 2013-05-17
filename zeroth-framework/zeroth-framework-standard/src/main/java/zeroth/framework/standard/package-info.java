@@ -4,6 +4,7 @@
 // http://www.gnu.org/licenses/agpl-3.0.txt
 // ========================================================================
 /**
+ * スタンダードフレームワーク
  * @author nilcy
  */
 package zeroth.framework.standard;
