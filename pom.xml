@@ -38,8 +38,6 @@
       <timezone>-9</timezone>
     </developer>
   </developers>
-  <contributors />
-  <mailingLists />
   <modules>
     <module>zeroth-framework</module>
     <module>zeroth-actor</module>
@@ -50,16 +48,12 @@
     <connection>scm:git:https://github.com/nilcy/zeroth.git</connection>
     <url>https://github.com/nilcy/zeroth</url>
   </scm>
-  <ciManagement />
   <issueManagement>
     <system>GitHub Issues</system>
     <url>https://github.com/nilcy/zeroth/issues</url>
   </issueManagement>
+  <ciManagement />
   <distributionManagement>
-    <site>
-      <id>site-repository</id>
-      <url>file:///home.nilcy/git/zeroth-pages/maven/site</url>
-    </site>
     <repository>
       <id>release-repository</id>
       <url>file:///home.nilcy/git/zeroth-pages/maven/release</url>
@@ -68,19 +62,23 @@
       <id>snapshot-repository</id>
       <url>file:///home.nilcy/git/zeroth-pages/maven/snapshot/</url>
     </snapshotRepository>
+    <site>
+      <id>site-repository</id>
+      <url>file:///home.nilcy/git/zeroth-pages/maven/site</url>
+    </site>
   </distributionManagement>
   <properties>
-    <maven.compiler.source>1.7</maven.compiler.source>
-    <maven.compiler.target>1.7</maven.compiler.target>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <junit.version>4.11</junit.version>
-    <jeeunit-glassfish.version>1.0.0</jeeunit-glassfish.version>
-    <jeeunit-cdi.version>1.0.0</jeeunit-cdi.version>
-    <glassfish-embedded-all.version>3.1.2.2</glassfish-embedded-all.version>
     <postgresql.version>9.2-1002-jdbc4</postgresql.version>
-    <javaee-api.version>6.0</javaee-api.version>
     <javaee-web-api.version>6.0</javaee-web-api.version>
+    <jeeunit-cdi.version>1.0.0</jeeunit-cdi.version>
+    <junit.version>4.11</junit.version>
+    <javaee-api.version>6.0</javaee-api.version>
+    <maven.compiler.target>1.7</maven.compiler.target>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <jeeunit-glassfish.version>1.0.0</jeeunit-glassfish.version>
+    <glassfish-embedded-all.version>3.1.2.2</glassfish-embedded-all.version>
+    <maven.compiler.source>1.7</maven.compiler.source>
   </properties>
   <repositories>
     <repository>
@@ -111,6 +109,7 @@
     <testSourceDirectory>src/test/java</testSourceDirectory>
     <outputDirectory>target/classes</outputDirectory>
     <testOutputDirectory>target/test-classes</testOutputDirectory>
+    <defaultGoal>package</defaultGoal>
     <resources>
       <resource>
         <directory>src/main/resources</directory>
@@ -127,26 +126,51 @@
       <plugins>
         <plugin>
           <artifactId>maven-antrun-plugin</artifactId>
-          <version>1.3</version>
+          <version>1.7</version>
         </plugin>
         <plugin>
           <artifactId>maven-assembly-plugin</artifactId>
-          <version>2.2-beta-5</version>
+          <version>2.3</version>
         </plugin>
         <plugin>
           <artifactId>maven-dependency-plugin</artifactId>
-          <version>2.1</version>
+          <version>2.4</version>
         </plugin>
         <plugin>
           <artifactId>maven-release-plugin</artifactId>
-          <version>2.0</version>
+          <version>2.2.2</version>
+        </plugin>
+        <plugin>
+          <groupId>org.eclipse.m2e</groupId>
+          <artifactId>lifecycle-mapping</artifactId>
+          <version>1.0.0</version>
+          <configuration>
+            <lifecycleMappingMetadata>
+              <pluginExecutions>
+                <pluginExecution>
+                  <pluginExecutionFilter>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>aspectj-maven-plugin</artifactId>
+                    <versionRange>[1.2,)</versionRange>
+                    <goals>
+                      <goal>compile</goal>
+                      <goal>test-compile</goal>
+                    </goals>
+                  </pluginExecutionFilter>
+                  <action>
+                    <ignore />
+                  </action>
+                </pluginExecution>
+              </pluginExecutions>
+            </lifecycleMappingMetadata>
+          </configuration>
         </plugin>
       </plugins>
     </pluginManagement>
     <plugins>
       <plugin>
         <artifactId>maven-clean-plugin</artifactId>
-        <version>2.4.1</version>
+        <version>2.5</version>
         <executions>
           <execution>
             <id>default-clean</id>
@@ -158,8 +182,130 @@
         </executions>
       </plugin>
       <plugin>
+        <artifactId>maven-source-plugin</artifactId>
+        <version>2.2.1</version>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>2.9</version>
+        <executions>
+          <execution>
+            <phase>deploy</phase>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+            <configuration>
+              <locale>en</locale>
+              <author>true</author>
+              <show>private</show>
+              <linksource>true</linksource>
+              <detectLinks>true</detectLinks>
+              <aggregate>false</aggregate>
+              <links>
+                <link>http://docs.oracle.com/javase/7/docs/api/</link>
+                <link>http://java.sun.com/javaee/6/docs/api</link>
+              </links>
+            </configuration>
+          </execution>
+        </executions>
+        <configuration>
+          <locale>en</locale>
+          <author>true</author>
+          <show>private</show>
+          <linksource>true</linksource>
+          <detectLinks>true</detectLinks>
+          <aggregate>false</aggregate>
+          <links>
+            <link>http://docs.oracle.com/javase/7/docs/api/</link>
+            <link>http://java.sun.com/javaee/6/docs/api</link>
+          </links>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.0</version>
+        <executions>
+          <execution>
+            <id>default-testCompile</id>
+            <phase>test-compile</phase>
+            <goals>
+              <goal>testCompile</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>default-compile</id>
+            <phase>compile</phase>
+            <goals>
+              <goal>compile</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <artifactId>maven-resources-plugin</artifactId>
+        <version>2.6</version>
+        <executions>
+          <execution>
+            <id>default-resources</id>
+            <phase>process-resources</phase>
+            <goals>
+              <goal>resources</goal>
+            </goals>
+            <configuration>
+              <encoding>UTF-8</encoding>
+            </configuration>
+          </execution>
+          <execution>
+            <id>default-testResources</id>
+            <phase>process-test-resources</phase>
+            <goals>
+              <goal>testResources</goal>
+            </goals>
+            <configuration>
+              <encoding>UTF-8</encoding>
+            </configuration>
+          </execution>
+        </executions>
+        <configuration>
+          <encoding>UTF-8</encoding>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>2.13</version>
+        <executions>
+          <execution>
+            <id>default-test</id>
+            <phase>test</phase>
+            <goals>
+              <goal>test</goal>
+            </goals>
+            <configuration>
+              <forkMode>pertest</forkMode>
+              <argLine>-Xms256m -Xmx256m</argLine>
+              <testFailureIgnore>false</testFailureIgnore>
+              <skip>false</skip>
+            </configuration>
+          </execution>
+        </executions>
+        <configuration>
+          <forkMode>pertest</forkMode>
+          <argLine>-Xms256m -Xmx256m</argLine>
+          <testFailureIgnore>false</testFailureIgnore>
+          <skip>false</skip>
+        </configuration>
+      </plugin>
+      <plugin>
         <artifactId>maven-install-plugin</artifactId>
-        <version>2.3.1</version>
+        <version>2.4</version>
         <executions>
           <execution>
             <id>default-install</id>
@@ -169,6 +315,13 @@
             </goals>
           </execution>
         </executions>
+      </plugin>
+      <plugin>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>2.3</version>
+        <configuration>
+          <failOnMissingWebXml>false</failOnMissingWebXml>
+        </configuration>
       </plugin>
       <plugin>
         <artifactId>maven-deploy-plugin</artifactId>
@@ -185,7 +338,7 @@
       </plugin>
       <plugin>
         <artifactId>maven-site-plugin</artifactId>
-        <version>3.0</version>
+        <version>3.2</version>
         <executions>
           <execution>
             <id>default-site</id>
@@ -194,13 +347,91 @@
               <goal>site</goal>
             </goals>
             <configuration>
-              <outputDirectory>target/site</outputDirectory>
+              <locales>en</locales>
+              <dependencies>
+                <dependency>
+                  <groupId>org.apache.maven.doxia</groupId>
+                  <artifactId>doxia-module-markdown</artifactId>
+                  <version>1.3</version>
+                </dependency>
+              </dependencies>
               <reportPlugins>
-                <reportPlugin>
-                  <groupId>org.apache.maven.plugins</groupId>
+                <plugin>
                   <artifactId>maven-project-info-reports-plugin</artifactId>
                   <version>2.6</version>
-                </reportPlugin>
+                  <configuration>
+                    <dependencyDetailsEnabled>true</dependencyDetailsEnabled>
+                    <dependencyLocationsEnabled>true</dependencyLocationsEnabled>
+                  </configuration>
+                  <reportSets>
+                    <reportSet>
+                      <reports>
+                        <report>index</report>
+                        <report>summary</report>
+                        <report>license</report>
+                        <report>project-team</report>
+                        <report>mailing-list</report>
+                        <report>dependencies</report>
+                        <report>dependency-convergence</report>
+                        <report>dependency-management</report>
+                        <report>issue-tracking</report>
+                        <report>scm</report>
+                        <report>cim</report>
+                        <report>plugin-management</report>
+                        <report>plugins</report>
+                      </reports>
+                    </reportSet>
+                  </reportSets>
+                </plugin>
+                <plugin>
+                  <artifactId>maven-jxr-plugin</artifactId>
+                  <version>2.3</version>
+                  <configuration>
+                    <aggregate>false</aggregate>
+                    <inputEncoding>${maven.compiler.encoding}</inputEncoding>
+                    <outputEncoding>UTF-8</outputEncoding>
+                  </configuration>
+                </plugin>
+                <plugin>
+                  <artifactId>maven-javadoc-plugin</artifactId>
+                  <version>2.9</version>
+                  <configuration>
+                    <locale>en</locale>
+                    <author>true</author>
+                    <show>private</show>
+                    <linksource>true</linksource>
+                    <detectLinks>true</detectLinks>
+                    <aggregate>false</aggregate>
+                  </configuration>
+                </plugin>
+                <plugin>
+                  <artifactId>maven-surefire-report-plugin</artifactId>
+                  <version>2.13</version>
+                  <reportSets>
+                    <reportSet>
+                      <reports>
+                        <report>report-only</report>
+                      </reports>
+                    </reportSet>
+                  </reportSets>
+                </plugin>
+                <plugin>
+                  <groupId>org.codehaus.mojo</groupId>
+                  <artifactId>cobertura-maven-plugin</artifactId>
+                  <version>2.5.2</version>
+                  <configuration>
+                    <formats>
+                      <format>html</format>
+                    </formats>
+                  </configuration>
+                </plugin>
+                <plugin>
+                  <artifactId>maven-checkstyle-plugin</artifactId>
+                  <version>2.9.1</version>
+                  <configuration>
+                    <configLocation>zeroth-framework/zeroth-framework-coding/src/main/config/Checkstyle.xml</configLocation>
+                  </configuration>
+                </plugin>
               </reportPlugins>
             </configuration>
           </execution>
@@ -211,24 +442,216 @@
               <goal>deploy</goal>
             </goals>
             <configuration>
-              <outputDirectory>target/site</outputDirectory>
+              <locales>en</locales>
+              <dependencies>
+                <dependency>
+                  <groupId>org.apache.maven.doxia</groupId>
+                  <artifactId>doxia-module-markdown</artifactId>
+                  <version>1.3</version>
+                </dependency>
+              </dependencies>
               <reportPlugins>
-                <reportPlugin>
-                  <groupId>org.apache.maven.plugins</groupId>
+                <plugin>
                   <artifactId>maven-project-info-reports-plugin</artifactId>
-                </reportPlugin>
+                  <version>2.6</version>
+                  <configuration>
+                    <dependencyDetailsEnabled>true</dependencyDetailsEnabled>
+                    <dependencyLocationsEnabled>true</dependencyLocationsEnabled>
+                  </configuration>
+                  <reportSets>
+                    <reportSet>
+                      <reports>
+                        <report>index</report>
+                        <report>summary</report>
+                        <report>license</report>
+                        <report>project-team</report>
+                        <report>mailing-list</report>
+                        <report>dependencies</report>
+                        <report>dependency-convergence</report>
+                        <report>dependency-management</report>
+                        <report>issue-tracking</report>
+                        <report>scm</report>
+                        <report>cim</report>
+                        <report>plugin-management</report>
+                        <report>plugins</report>
+                      </reports>
+                    </reportSet>
+                  </reportSets>
+                </plugin>
+                <plugin>
+                  <artifactId>maven-jxr-plugin</artifactId>
+                  <version>2.3</version>
+                  <configuration>
+                    <aggregate>false</aggregate>
+                    <inputEncoding>${maven.compiler.encoding}</inputEncoding>
+                    <outputEncoding>UTF-8</outputEncoding>
+                  </configuration>
+                </plugin>
+                <plugin>
+                  <artifactId>maven-javadoc-plugin</artifactId>
+                  <version>2.9</version>
+                  <configuration>
+                    <locale>en</locale>
+                    <author>true</author>
+                    <show>private</show>
+                    <linksource>true</linksource>
+                    <detectLinks>true</detectLinks>
+                    <aggregate>false</aggregate>
+                  </configuration>
+                </plugin>
+                <plugin>
+                  <artifactId>maven-surefire-report-plugin</artifactId>
+                  <version>2.13</version>
+                  <reportSets>
+                    <reportSet>
+                      <reports>
+                        <report>report-only</report>
+                      </reports>
+                    </reportSet>
+                  </reportSets>
+                </plugin>
+                <plugin>
+                  <groupId>org.codehaus.mojo</groupId>
+                  <artifactId>cobertura-maven-plugin</artifactId>
+                  <version>2.5.2</version>
+                  <configuration>
+                    <formats>
+                      <format>html</format>
+                    </formats>
+                  </configuration>
+                </plugin>
+                <plugin>
+                  <artifactId>maven-checkstyle-plugin</artifactId>
+                  <version>2.9.1</version>
+                  <configuration>
+                    <configLocation>zeroth-framework/zeroth-framework-coding/src/main/config/Checkstyle.xml</configLocation>
+                  </configuration>
+                </plugin>
               </reportPlugins>
             </configuration>
           </execution>
         </executions>
         <configuration>
-          <outputDirectory>target/site</outputDirectory>
+          <locales>en</locales>
+          <dependencies>
+            <dependency>
+              <groupId>org.apache.maven.doxia</groupId>
+              <artifactId>doxia-module-markdown</artifactId>
+              <version>1.3</version>
+            </dependency>
+          </dependencies>
           <reportPlugins>
-            <reportPlugin>
-              <groupId>org.apache.maven.plugins</groupId>
+            <plugin>
               <artifactId>maven-project-info-reports-plugin</artifactId>
-            </reportPlugin>
+              <version>2.6</version>
+              <configuration>
+                <dependencyDetailsEnabled>true</dependencyDetailsEnabled>
+                <dependencyLocationsEnabled>true</dependencyLocationsEnabled>
+              </configuration>
+              <reportSets>
+                <reportSet>
+                  <reports>
+                    <report>index</report>
+                    <report>summary</report>
+                    <report>license</report>
+                    <report>project-team</report>
+                    <report>mailing-list</report>
+                    <report>dependencies</report>
+                    <report>dependency-convergence</report>
+                    <report>dependency-management</report>
+                    <report>issue-tracking</report>
+                    <report>scm</report>
+                    <report>cim</report>
+                    <report>plugin-management</report>
+                    <report>plugins</report>
+                  </reports>
+                </reportSet>
+              </reportSets>
+            </plugin>
+            <plugin>
+              <artifactId>maven-jxr-plugin</artifactId>
+              <version>2.3</version>
+              <configuration>
+                <aggregate>false</aggregate>
+                <inputEncoding>${maven.compiler.encoding}</inputEncoding>
+                <outputEncoding>UTF-8</outputEncoding>
+              </configuration>
+            </plugin>
+            <plugin>
+              <artifactId>maven-javadoc-plugin</artifactId>
+              <version>2.9</version>
+              <configuration>
+                <locale>en</locale>
+                <author>true</author>
+                <show>private</show>
+                <linksource>true</linksource>
+                <detectLinks>true</detectLinks>
+                <aggregate>false</aggregate>
+              </configuration>
+            </plugin>
+            <plugin>
+              <artifactId>maven-surefire-report-plugin</artifactId>
+              <version>2.13</version>
+              <reportSets>
+                <reportSet>
+                  <reports>
+                    <report>report-only</report>
+                  </reports>
+                </reportSet>
+              </reportSets>
+            </plugin>
+            <plugin>
+              <groupId>org.codehaus.mojo</groupId>
+              <artifactId>cobertura-maven-plugin</artifactId>
+              <version>2.5.2</version>
+              <configuration>
+                <formats>
+                  <format>html</format>
+                </formats>
+              </configuration>
+            </plugin>
+            <plugin>
+              <artifactId>maven-checkstyle-plugin</artifactId>
+              <version>2.9.1</version>
+              <configuration>
+                <configLocation>zeroth-framework/zeroth-framework-coding/src/main/config/Checkstyle.xml</configLocation>
+              </configuration>
+            </plugin>
           </reportPlugins>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>dbunit-maven-plugin</artifactId>
+        <version>1.0-beta-3</version>
+        <dependencies>
+          <dependency>
+            <groupId>postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>9.1-901-1.jdbc4</version>
+            <scope>compile</scope>
+          </dependency>
+          <dependency>
+            <groupId>org.apache.derby</groupId>
+            <artifactId>derbyclient</artifactId>
+            <version>10.9.1.0</version>
+            <scope>compile</scope>
+          </dependency>
+          <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>3.2-FINAL</version>
+            <scope>compile</scope>
+          </dependency>
+        </dependencies>
+        <configuration>
+          <dataTypeFactoryName>org.dbunit.ext.postgresql.PostgresqlDataTypeFactory</dataTypeFactoryName>
+          <driver>org.postgresql.Driver</driver>
+          <url>jdbc:postgresql://localhost/zeroth</url>
+          <username>zeroth</username>
+          <password>happyhacking</password>
+          <type>CLEAN_INSERT</type>
+          <format>xls</format>
         </configuration>
       </plugin>
     </plugins>
