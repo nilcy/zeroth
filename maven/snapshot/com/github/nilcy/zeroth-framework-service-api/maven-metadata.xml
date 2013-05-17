@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>com.github.nilcy</groupId>
+  <artifactId>zeroth-framework-service-api</artifactId>
+  <versioning>
+    <versions>
+      <version>0.0.1-SNAPSHOT</version>
+    </versions>
+    <lastUpdated>20130517135113</lastUpdated>
+  </versioning>
+</metadata>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+  xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.github.nilcy</groupId>
+    <artifactId>zeroth</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <artifactId>zeroth-actor</artifactId>
+  <packaging>pom</packaging>
+  <name>zeroth-actor</name>
+  <description>zero-th Actor Domain.</description>
+  <modules>
+    <module>zeroth-actor-service-api</module>
+    <module>zeroth-actor-service</module>
+    <module>zeroth-actor-screen</module>
+    <module>zeroth-actor-command</module>
+  </modules>
+</project>
