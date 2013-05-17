@@ -8,8 +8,8 @@
     <version>0.0.1-SNAPSHOT</version>
   </parent>
   <artifactId>zeroth-framework-service-api</artifactId>
-  <name>zeroth framework | service-api module</name>
-  <description>zero-th Service-API Framework</description>
+  <name>zeroth-framework-service-api</name>
+  <description>zero-th Framework Domain. Service-API Module.</description>
   <properties>
     <zeroth-framework-enterprise.version>0.0.1-SNAPSHOT</zeroth-framework-enterprise.version>
   </properties>

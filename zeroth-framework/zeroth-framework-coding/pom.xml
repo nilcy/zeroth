@@ -8,8 +8,8 @@
     <version>0.0.1-SNAPSHOT</version>
   </parent>
   <artifactId>zeroth-framework-coding</artifactId>
-  <name>zeroth framework | coding module</name>
-  <description>zero-th Coding Framework</description>
+  <name>zeroth-framework-coding</name>
+  <description>zero-th Framework Domain. Coding Module.</description>
   <dependencies>
     <dependency>
       <groupId>junit</groupId>

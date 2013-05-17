@@ -10,8 +10,8 @@
   </parent>
   <artifactId>zeroth-application</artifactId>
   <packaging>pom</packaging>
-  <name>zeroth application</name>
-  <description>zero-th Application Domain</description>
+  <name>zeroth-application</name>
+  <description>zero-th Application Domain.</description>
   <modules>
     <module>zeroth-application-allinone</module>
   </modules>

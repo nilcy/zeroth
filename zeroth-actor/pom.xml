@@ -10,8 +10,8 @@
   </parent>
   <artifactId>zeroth-actor</artifactId>
   <packaging>pom</packaging>
-  <name>zeroth actor</name>
-  <description>zero-th Actor Domain</description>
+  <name>zeroth-actor</name>
+  <description>zero-th Actor Domain.</description>
   <modules>
     <module>zeroth-actor-service-api</module>
     <module>zeroth-actor-service</module>

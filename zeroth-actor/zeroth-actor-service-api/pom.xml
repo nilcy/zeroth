@@ -8,8 +8,8 @@
     <version>0.0.1-SNAPSHOT</version>
   </parent>
   <artifactId>zeroth-actor-service-api</artifactId>
-  <name>zeroth actor | service-api module</name>
-  <description>zero-th Actor Service-API Domain</description>
+  <name>zeroth-actor-service-api</name>
+  <description>zero-th Actor Domain. Service-API Module.</description>
   <properties>
     <zeroth-framework-service-api.version>0.0.1-SNAPSHOT</zeroth-framework-service-api.version>
   </properties>

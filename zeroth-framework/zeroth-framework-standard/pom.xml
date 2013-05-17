@@ -10,8 +10,8 @@
   </parent>
   <artifactId>zeroth-framework-standard</artifactId>
   <packaging>jar</packaging>
-  <name>zeroth framework | standard module</name>
-  <description>zero-th Standard Framework</description>
+  <name>zeroth-framework-standard</name>
+  <description>zero-th Framework Domain. Standard Module.</description>
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
