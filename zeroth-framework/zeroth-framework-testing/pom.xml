@@ -8,7 +8,8 @@
     <version>0.0.1-SNAPSHOT</version>
   </parent>
   <artifactId>zeroth-framework-testing</artifactId>
-  <packaging>jar</packaging>
+  <name>zeroth framework | testing module</name>
+  <description>zero-th Testing Framework</description>
   <dependencies>
     <dependency>
       <groupId>junit</groupId>

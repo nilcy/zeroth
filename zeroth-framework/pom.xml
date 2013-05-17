@@ -9,6 +9,8 @@
   </parent>
   <artifactId>zeroth-framework</artifactId>
   <packaging>pom</packaging>
+  <name>zeroth framework</name>
+  <description>zero-th Framework</description>
   <modules>
     <module>zeroth-framework-coding</module>
     <module>zeroth-framework-testing</module>

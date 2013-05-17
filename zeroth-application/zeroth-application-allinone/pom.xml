@@ -10,6 +10,8 @@
   </parent>
   <artifactId>zeroth-application-allinone</artifactId>
   <packaging>ear</packaging>
+  <name>zeroth application | all-in-one module</name>
+  <description>zero-th Application All-In-One Domain</description>
   <properties>
     <zeroth-framework-screen.version>0.0.1-SNAPSHOT</zeroth-framework-screen.version>
     <zeroth-actor-service.version>0.0.1-SNAPSHOT</zeroth-actor-service.version>

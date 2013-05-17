@@ -9,6 +9,8 @@
     <version>0.0.1-SNAPSHOT</version>
   </parent>
   <artifactId>zeroth-actor-cui</artifactId>
+  <name>zeroth actor | cui module</name>
+  <description>zero-th Actor CUI Domain</description>
   <properties>
     <zeroth-framework-cui.version>0.0.1-SNAPSHOT</zeroth-framework-cui.version>
   </properties>

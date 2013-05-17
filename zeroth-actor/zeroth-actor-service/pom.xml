@@ -9,6 +9,8 @@
     <version>0.0.1-SNAPSHOT</version>
   </parent>
   <artifactId>zeroth-actor-service</artifactId>
+  <name>zeroth actor | service module</name>
+  <description>zero-th Actor Service Domain</description>
   <properties>
     <zeroth-framework-service.version>0.0.1-SNAPSHOT</zeroth-framework-service.version>
     <zeroth-actor-service-api.version>0.0.1-SNAPSHOT</zeroth-actor-service-api.version>

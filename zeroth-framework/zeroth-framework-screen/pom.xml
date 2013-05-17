@@ -9,6 +9,8 @@
     <version>0.0.1-SNAPSHOT</version>
   </parent>
   <artifactId>zeroth-framework-screen</artifactId>
+  <name>zeroth framework | screen module</name>
+  <description>zero-th Screen Framework</description>
   <properties>
     <zeroth-framework-service-api.version>0.0.1-SNAPSHOT</zeroth-framework-service-api.version>
   </properties>

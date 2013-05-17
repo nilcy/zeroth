@@ -9,6 +9,8 @@
     <version>0.0.1-SNAPSHOT</version>
   </parent>
   <artifactId>zeroth-framework-enterprise</artifactId>
+  <name>zeroth framework | enterprise module</name>
+  <description>zero-th Enterprise Framework</description>
   <properties>
     <zeroth-framework-standard.version>0.0.1-SNAPSHOT</zeroth-framework-standard.version>
   </properties>
