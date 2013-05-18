@@ -26,13 +26,13 @@ public abstract class AbstractDataObject<T extends AbstractDataObject<T>> implem
     /**
      * オブジェクトの文字列表現
      * <p>
-     * オブジェクトをもとに短縮形式で生成する。
+     * オブジェクトをもとに短縮形式で生成する。一時フィールド(transient)も生成キーの対象とする。
      * </p>
      * @return オブジェクトの文字列表現
      */
     @Override
     public String toString() {
-        return ToStringBuilder.reflectionToString(this, SHORT_PREFIX_STYLE);
+        return ToStringBuilder.reflectionToString(this, SHORT_PREFIX_STYLE, true);
     }
     /**
      * オブジェクトの同値検査
