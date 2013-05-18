@@ -6,6 +6,7 @@
 package zeroth.framework.enterprise.domain;
 import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;
+import static zeroth.framework.enterprise.domain.AbstractVersioningObject_.*;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import com.googlecode.jeeunit.JeeunitRunner;
@@ -20,6 +21,6 @@ import com.googlecode.jeeunit.Transactional;
 public class AbstractVersioningObject_Test {
     @Test
     public final void test() {
-        assertThat(AbstractVersioningObject_.version, is(not(nullValue())));
+        assertThat(version, is(not(nullValue())));
     }
 }

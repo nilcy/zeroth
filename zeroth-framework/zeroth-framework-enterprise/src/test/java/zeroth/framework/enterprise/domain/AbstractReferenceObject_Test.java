@@ -6,6 +6,7 @@
 package zeroth.framework.enterprise.domain;
 import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;
+import static zeroth.framework.enterprise.domain.AbstractReferenceObject_.*;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import com.googlecode.jeeunit.JeeunitRunner;
@@ -20,6 +21,6 @@ import com.googlecode.jeeunit.Transactional;
 public class AbstractReferenceObject_Test {
     @Test
     public final void test() {
-        assertThat(AbstractReferenceObject_.id, is(not(nullValue())));
+        assertThat(id, is(not(nullValue())));
     }
 }
