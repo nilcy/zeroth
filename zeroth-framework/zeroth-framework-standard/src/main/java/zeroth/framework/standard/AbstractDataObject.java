@@ -28,7 +28,7 @@ public abstract class AbstractDataObject<T extends AbstractDataObject<T>> implem
     /**
      * オブジェクトの文字列表現
      * <p>
-     * インスタンスをもとに短縮形式で自動生成する。
+     * オブジェクトをもとに短縮形式で生成する。
      * </p>
      * @return オブジェクトの文字列表現
      */
@@ -36,17 +36,38 @@ public abstract class AbstractDataObject<T extends AbstractDataObject<T>> implem
     public String toString() {
         return ToStringBuilder.reflectionToString(this, SHORT_PREFIX_STYLE);
     }
-    /** {@inheritDoc} */
+    /**
+     * オブジェクトの同値検査
+     * <p>
+     * オブジェクトと比較対象オブジェクトが等しいか検査する。一時フィールド(transient)も検査の対象とする。
+     * </p>
+     * @param aObj 比較対象オブジェクト
+     * @return オブジェクトと比較対象オブジェクトが等しいとき真。等しくないとき偽。
+     */
     @Override
     public boolean equals(final Object aObj) {
         return EqualsBuilder.reflectionEquals(this, aObj, true);
     }
-    /** {@inheritDoc} */
+    /**
+     * オブジェクトのハッシュコード
+     * <p>
+     * オブジェクトをもとにハッシュコードを生成する。一時フィールド(transient)も生成キーの対象とする。
+     * </p>
+     */
     @Override
     public int hashCode() {
         return HashCodeBuilder.reflectionHashCode(this, true);
     }
-    /** {@inheritDoc} */
+    /**
+     * オブジェクトの順序検査
+     * <p>
+     * オブジェクトと比較対象オブジェクトの順序を比較する。一時フィールド(transient)も検査の対象とする。
+     * 比較するフィールドの順番を指定するとき {@link CompareToBuilder#append(Object, Object)}
+     * を使用してオーバーライドしてください。
+     * </p>
+     * @param aObj 比較対象オブジェクト
+     * @return オブジェクトが比較対象オブジェクトより小さいとき負数、等しいときゼロ。大きいとき正数。
+     */
     @Override
     public int compareTo(final T aObj) {
         return CompareToBuilder.reflectionCompare(this, aObj, true);
