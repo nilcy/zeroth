@@ -3,9 +3,8 @@
 // GNU AFFERO GENERAL PUBLIC LICENSE Version 3, 19 November 2007
 // http://www.gnu.org/licenses/agpl-3.0.txt
 // ========================================================================
-package zeroth.framework.standard;
+package zeroth.framework.standard.shared;
 import static org.apache.commons.lang3.builder.ToStringStyle.*;
-import java.io.Serializable;
 import org.apache.commons.lang3.builder.CompareToBuilder;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
@@ -18,8 +17,7 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
  * @param <T> データオブジェクト型
  * @author nilcy
  */
-public abstract class AbstractDataObject<T extends AbstractDataObject<T>> implements Serializable,
-    Comparable<T> {
+public abstract class AbstractDataObject<T extends AbstractDataObject<T>> implements DataObject<T> {
     /** 識別番号 */
     private static final long serialVersionUID = -4438164461402375117L;
     /** Constructor. */
