@@ -12,6 +12,11 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "TEST_REFERENCE_OBJECT")
-@SuppressWarnings("all")
+// @SuppressWarnings("all")
 public class TestReferenceObject extends AbstractReferenceObject<TestReferenceObject> {
+    /** 識別番号 */
+    private static final long serialVersionUID = 3620864252783910657L;
+    /** コンストラクタ */
+    public TestReferenceObject() {
+    }
 }

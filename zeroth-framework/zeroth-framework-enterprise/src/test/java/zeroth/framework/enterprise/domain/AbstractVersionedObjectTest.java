@@ -6,13 +6,19 @@
 package zeroth.framework.enterprise.domain;
 import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;
+import org.junit.Before;
 import org.junit.Test;
 /**
  * {@link AbstractVersionedObject} のユニットテスト
  * @author nilcy
  */
-@SuppressWarnings("all")
+// @SuppressWarnings("all")
 public class AbstractVersionedObjectTest {
+    private TestVersionedObject testee;
+    @Before
+    public void before() {
+        this.testee = new TestVersionedObject();
+    }
     @Test
     public final void testAbstractVersioningObject() {
         assertThat(new AbstractVersionedObject() {
@@ -20,10 +26,8 @@ public class AbstractVersionedObjectTest {
     }
     @Test
     public final void testGetSetId() {
-        final AbstractVersionedObject testee = new AbstractVersionedObject() {
-        };
-        assertThat(testee.getVersion(), is(nullValue()));
-        testee.setVersion(Long.MAX_VALUE);
-        assertThat(testee.getVersion(), is(Long.MAX_VALUE));
+        assertThat(this.testee.getVersion(), is(nullValue()));
+        this.testee.setVersion(Long.MAX_VALUE);
+        assertThat(this.testee.getVersion(), is(Long.MAX_VALUE));
     }
 }

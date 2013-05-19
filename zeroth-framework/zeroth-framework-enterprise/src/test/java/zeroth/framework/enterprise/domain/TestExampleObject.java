@@ -13,13 +13,15 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "Test_Example_Object")
-@SuppressWarnings("all")
+// @SuppressWarnings("all")
 public class TestExampleObject extends AbstractRevisedObject<TestExampleObject> {
+    /** 識別番号 */
+    private static final long serialVersionUID = 5105345042376016853L;
     /** コード */
     @Column(name = "code", nullable = false)
     private String code;
     /** コンストラクタ */
-    private TestExampleObject() {
+    public TestExampleObject() {
     }
     /**
      * コンストラクタ

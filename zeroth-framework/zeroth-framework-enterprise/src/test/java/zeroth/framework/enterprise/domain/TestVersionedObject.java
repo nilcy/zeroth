@@ -12,6 +12,11 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "Test_Versioned_Object")
-@SuppressWarnings("all")
+// @SuppressWarnings("all")
 public class TestVersionedObject extends AbstractVersionedObject<TestVersionedObject> {
+    /** 識別番号 */
+    private static final long serialVersionUID = 817161384329243743L;
+    /** コンストラクタ */
+    public TestVersionedObject() {
+    }
 }

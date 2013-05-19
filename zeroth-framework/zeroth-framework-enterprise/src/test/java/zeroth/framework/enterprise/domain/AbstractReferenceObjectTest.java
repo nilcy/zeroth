@@ -12,29 +12,39 @@ import org.junit.Test;
  * {@link AbstractReferenceObject} のユニットテスト
  * @author nilcy
  */
-@SuppressWarnings("all")
+// @SuppressWarnings("all")
 public final class AbstractReferenceObjectTest {
-    private AbstractReferenceObject testee;
+    /** テスト用の参照オブジェクト */
+    private TestReferenceObject testee;
+    /** 初期処理 */
     @Before
     public void before() {
-        this.testee = new AbstractReferenceObject() {
-        };
+        this.testee = new TestReferenceObject();
     }
+    /** {@link AbstractReferenceObject#AbstractReferenceObject()} のユニットテスト */
     @Test
     public void testAbstractReferenceObject() {
         assertThat(this.testee, is(not(nullValue())));
     }
+    /**
+     * {@link AbstractReferenceObject#getId()} と
+     * {@link AbstractReferenceObject#setId(Long)} のユニットテスト
+     */
     @Test
     public void testGetSetId() {
         assertThat(this.testee.getId(), is(nullValue()));
-        this.testee.setId(0L);
-        assertThat(this.testee.getId(), is(0L));
+        this.testee.setId(Long.valueOf(0L));
+        assertThat(this.testee.getId(), is(Long.valueOf(0L)));
     }
+    /**
+     * {@link AbstractReferenceObject#sameIdentityAs(AbstractReferenceObject)}
+     * のユニットテスト
+     */
     @Test
     public void testSameIdentityAs() {
-        assertThat(this.testee.sameIdentityAs(null), is(false));
-        final AbstractReferenceObject other = new AbstractReferenceObject() {
-        };
+        final TestReferenceObject nullObject = null;
+        assertThat(this.testee.sameIdentityAs(nullObject), is(false));
+        final TestReferenceObject other = new TestReferenceObject();
         assertThat(this.testee.sameIdentityAs(other), is(true));
         this.testee.setId(0L);
         other.setId(0L);

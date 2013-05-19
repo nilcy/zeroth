@@ -13,14 +13,13 @@ import org.junit.Test;
  * {@link AbstractRevisedObject} のユニットテスト
  * @author nilcy
  */
-@SuppressWarnings("all")
+// @SuppressWarnings("all")
 public final class AbstractRevisedObjectTest {
-    private AbstractRevisedObject testee;
+    private TestRevisedObject testee;
     private static final Date TODAY = new Date();
     @Before
     public void before() {
-        this.testee = new AbstractRevisedObject() {
-        };
+        this.testee = new TestRevisedObject();
     }
     @Test
     public void testAbstractRevisedObject() {
@@ -42,8 +41,7 @@ public final class AbstractRevisedObjectTest {
     @Test
     public void testSameIdentityAs() {
         assertThat(this.testee.sameIdentityAs(null), is(false));
-        final AbstractRevisedObject other = new AbstractRevisedObject() {
-        };
+        final TestRevisedObject other = new TestRevisedObject();
         assertThat(this.testee.sameIdentityAs(other), is(true));
         this.testee.setId(0L);
         other.setId(0L);

@@ -12,6 +12,8 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "Test_Revised_Object")
-@SuppressWarnings("all")
+// @SuppressWarnings("all")
 public class TestRevisedObject extends AbstractRevisedObject<TestRevisedObject> {
+    /** 識別番号 */
+    private static final long serialVersionUID = 3834376793666440948L;
 }

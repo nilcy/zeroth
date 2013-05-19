@@ -8,8 +8,11 @@ package zeroth.framework.enterprise.domain;
  * テスト用の参照オブジェクト
  * @author nilcy
  */
-@SuppressWarnings("all")
+// @SuppressWarnings("all")
 public class TestValueObject extends AbstractValueObject<TestValueObject> {
+    /** 識別番号 */
+    private static final long serialVersionUID = 3946455630058824491L;
+    /** FOO */
     private String foo;
     /**
      * {@link #foo} の取得
