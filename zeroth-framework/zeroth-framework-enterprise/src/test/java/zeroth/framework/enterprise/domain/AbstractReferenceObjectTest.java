@@ -27,8 +27,8 @@ public final class AbstractReferenceObjectTest {
     @Test
     public void testGetSetId() {
         assertThat(this.testee.getId(), is(nullValue()));
-        this.testee.setId(Long.MAX_VALUE);
-        assertThat(this.testee.getId(), is(Long.MAX_VALUE));
+        this.testee.setId(0L);
+        assertThat(this.testee.getId(), is(0L));
     }
     @Test
     public void testSameIdentityAs() {
