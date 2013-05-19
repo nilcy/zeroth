@@ -5,11 +5,13 @@
 // ========================================================================
 package zeroth.framework.enterprise.domain;
 import javax.persistence.Entity;
+import javax.persistence.Table;
 /**
  * テスト用の版管理オブジェクト
  * @author nilcy
  */
 @Entity
+@Table(name = "Test_Versioned_Object")
 @SuppressWarnings("all")
 public class TestVersionedObject extends AbstractVersionedObject<TestVersionedObject> {
 }

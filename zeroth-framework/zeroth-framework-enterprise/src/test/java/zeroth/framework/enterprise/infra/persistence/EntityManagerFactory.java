@@ -17,11 +17,11 @@ public final class EntityManagerFactory {
     @PrimaryEntityManager
     @PersistenceContext(unitName = "primary")
     private EntityManager primaryEntityManager;
-    /** 補助的なエンティティマネージャ */
-    @Produces
-    @SecondaryEntityManager
-    @PersistenceContext(unitName = "secondary")
-    private EntityManager secondaryEntityManager;
+    // /** 補助的なエンティティマネージャ */
+    // @Produces
+    // @SecondaryEntityManager
+    // @PersistenceContext(unitName = "secondary")
+    // private EntityManager secondaryEntityManager;
     /** Constructor. */
     public EntityManagerFactory() {
     }

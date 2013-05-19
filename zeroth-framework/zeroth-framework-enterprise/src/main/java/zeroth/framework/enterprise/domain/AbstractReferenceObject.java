@@ -24,7 +24,7 @@ public abstract class AbstractReferenceObject<T extends AbstractReferenceObject<
     /** ID */
     @Column
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.TABLE)
     private Long id;
     /** コンストラクタ */
     public AbstractReferenceObject() {

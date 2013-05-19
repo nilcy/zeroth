@@ -5,11 +5,13 @@
 // ========================================================================
 package zeroth.framework.enterprise.domain;
 import javax.persistence.Entity;
+import javax.persistence.Table;
 /**
  * テスト用の参照オブジェクト
  * @author nilcy
  */
 @Entity
+@Table(name = "TEST_REFERENCE_OBJECT")
 @SuppressWarnings("all")
 public class TestReferenceObject extends AbstractReferenceObject<TestReferenceObject> {
 }

@@ -13,7 +13,7 @@ import org.junit.runner.RunWith;
 import com.googlecode.jeeunit.JeeunitRunner;
 import com.googlecode.jeeunit.Transactional;
 /**
- * {@link EntityManagerFactory}
+ * {@link EntityManagerFactory} のユニットテスト
  * @author nilcy
  */
 @RunWith(JeeunitRunner.class)
@@ -23,12 +23,12 @@ public class EntityManagerFactoryTest {
     @Inject
     @PrimaryEntityManager
     private EntityManager entityManager1st;
-    @Inject
-    @SecondaryEntityManager
-    private EntityManager entityManager2nd;
+    // @Inject
+    // @SecondaryEntityManager
+    // private EntityManager entityManager2nd;
     @Test
     public void test() {
         assertThat(this.entityManager1st, is(not(nullValue())));
-        assertThat(this.entityManager2nd, is(not(nullValue())));
+        // assertThat(this.entityManager2nd, is(nullValue()));
     }
 }

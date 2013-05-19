@@ -6,7 +6,6 @@
 package zeroth.framework.enterprise.infra.persistence;
 import java.util.Date;
 import java.util.logging.Logger;
-import javax.inject.Inject;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import zeroth.framework.enterprise.domain.RevisedObject;
@@ -16,8 +15,7 @@ import zeroth.framework.enterprise.domain.RevisedObject;
  */
 public class RevisedObjectListener {
     /** ロガー */
-    @Inject
-    private Logger log;
+    private final Logger log = Logger.getLogger(this.getClass().getName());
     /** コンストラクタ */
     public RevisedObjectListener() {
     }
