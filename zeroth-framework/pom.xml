@@ -15,6 +15,7 @@
     <module>zeroth-framework-coding</module>
     <module>zeroth-framework-testing</module>
     <module>zeroth-framework-standard</module>
+    <module>zeroth-framework-enterprise-api</module>
     <module>zeroth-framework-enterprise</module>
     <module>zeroth-framework-service-api</module>
     <module>zeroth-framework-service</module>

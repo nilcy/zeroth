@@ -13,6 +13,7 @@
   <description>zero-th Framework Domain. Enterprise Module.</description>
   <properties>
     <zeroth-framework-standard.version>0.0.1-SNAPSHOT</zeroth-framework-standard.version>
+    <zeroth-framework-enterprise-api.version>0.0.1-SNAPSHOT</zeroth-framework-enterprise-api.version>
   </properties>
   <dependencies>
     <dependency>
@@ -55,6 +56,12 @@
       <groupId>com.github.nilcy</groupId>
       <artifactId>zeroth-framework-standard</artifactId>
       <version>${zeroth-framework-standard.version}</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.github.nilcy</groupId>
+      <artifactId>zeroth-framework-enterprise-api</artifactId>
+      <version>${zeroth-framework-enterprise-api.version}</version>
       <scope>compile</scope>
     </dependency>
   </dependencies>

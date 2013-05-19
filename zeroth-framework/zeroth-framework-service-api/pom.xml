@@ -11,7 +11,7 @@
   <name>zeroth-framework-service-api</name>
   <description>zero-th Framework Domain. Service-API Module.</description>
   <properties>
-    <zeroth-framework-enterprise.version>0.0.1-SNAPSHOT</zeroth-framework-enterprise.version>
+    <zeroth-framework-enterprise-api.version>0.0.1-SNAPSHOT</zeroth-framework-enterprise-api.version>
   </properties>
   <dependencies>
     <dependency>
@@ -52,8 +52,8 @@
     </dependency>
     <dependency>
       <groupId>com.github.nilcy</groupId>
-      <artifactId>zeroth-framework-enterprise</artifactId>
-      <version>${zeroth-framework-enterprise.version}</version>
+      <artifactId>zeroth-framework-enterprise-api</artifactId>
+      <version>${zeroth-framework-enterprise-api.version}</version>
       <scope>compile</scope>
     </dependency>
   </dependencies>
