@@ -39,12 +39,12 @@ public abstract class AbstractDataObject<T extends AbstractDataObject<T>> implem
      * <p>
      * オブジェクトと比較対象オブジェクトが等しいか検査する。一時フィールド(transient)も検査の対象とする。
      * </p>
-     * @param aObj 比較対象オブジェクト
+     * @param aOther 比較対象オブジェクト
      * @return オブジェクトと比較対象オブジェクトが等しいとき真。等しくないとき偽。
      */
     @Override
-    public boolean equals(final Object aObj) {
-        return EqualsBuilder.reflectionEquals(this, aObj, true);
+    public boolean equals(final Object aOther) {
+        return EqualsBuilder.reflectionEquals(this, aOther, true);
     }
     /**
      * オブジェクトのハッシュコード
@@ -63,11 +63,11 @@ public abstract class AbstractDataObject<T extends AbstractDataObject<T>> implem
      * 比較するフィールドの順番を指定するとき {@link CompareToBuilder#append(Object, Object)}
      * を使用してオーバーライドしてください。
      * </p>
-     * @param aObj 比較対象オブジェクト
+     * @param aOther 比較対象オブジェクト
      * @return オブジェクトが比較対象オブジェクトより小さいとき負数、等しいときゼロ。大きいとき正数。
      */
     @Override
-    public int compareTo(final T aObj) {
-        return CompareToBuilder.reflectionCompare(this, aObj, true);
+    public int compareTo(final T aOther) {
+        return CompareToBuilder.reflectionCompare(this, aOther, true);
     }
 }

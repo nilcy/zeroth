@@ -11,5 +11,5 @@ import javax.persistence.Entity;
  */
 @Entity
 @SuppressWarnings("all")
-public class TestVersioningObject extends AbstractVersioningObject<TestVersioningObject> {
+public class TestVersionedObject extends AbstractVersionedObject<TestVersionedObject> {
 }

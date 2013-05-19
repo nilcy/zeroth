@@ -6,34 +6,43 @@
 package zeroth.framework.enterprise.domain;
 import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;
+import java.util.Date;
 import org.junit.Before;
 import org.junit.Test;
 /**
- * {@link AbstractReferenceObject} のユニットテスト
+ * {@link AbstractRevisedObject} のユニットテスト
  * @author nilcy
  */
 @SuppressWarnings("all")
-public final class AbstractReferenceObjectTest {
-    private AbstractReferenceObject testee;
+public final class AbstractRevisedObjectTest {
+    private AbstractRevisedObject testee;
+    private static final Date TODAY = new Date();
     @Before
     public void before() {
-        this.testee = new AbstractReferenceObject() {
+        this.testee = new AbstractRevisedObject() {
         };
     }
     @Test
-    public void testAbstractReferenceObject() {
-        assertThat(this.testee, is(not(nullValue())));
+    public void testAbstractRevisedObject() {
+        assertThat(new AbstractRevisedObject() {
+        }, is(not(nullValue())));
     }
     @Test
-    public void testGetSetId() {
-        assertThat(this.testee.getId(), is(nullValue()));
-        this.testee.setId(Long.MAX_VALUE);
-        assertThat(this.testee.getId(), is(Long.MAX_VALUE));
+    public void testGetSetCreated() {
+        assertThat(this.testee.getCreated(), is(nullValue()));
+        this.testee.setCreated(TODAY);
+        assertThat(this.testee.getCreated(), is(TODAY));
+    }
+    @Test
+    public void testGetSetUpdated() {
+        assertThat(this.testee.getUpdated(), is(nullValue()));
+        this.testee.setUpdated(TODAY);
+        assertThat(this.testee.getUpdated(), is(TODAY));
     }
     @Test
     public void testSameIdentityAs() {
         assertThat(this.testee.sameIdentityAs(null), is(false));
-        final AbstractReferenceObject other = new AbstractReferenceObject() {
+        final AbstractRevisedObject other = new AbstractRevisedObject() {
         };
         assertThat(this.testee.sameIdentityAs(other), is(true));
         this.testee.setId(0L);
@@ -42,11 +51,5 @@ public final class AbstractReferenceObjectTest {
         this.testee.setId(0L);
         other.setId(1L);
         assertThat(this.testee.sameIdentityAs(other), is(false));
-    }
-    @Test
-    public void testIdentity() {
-        assertThat(this.testee.identity(), is(nullValue()));
-        this.testee.setId(0L);
-        assertThat(this.testee.identity(), is(0L));
     }
 }

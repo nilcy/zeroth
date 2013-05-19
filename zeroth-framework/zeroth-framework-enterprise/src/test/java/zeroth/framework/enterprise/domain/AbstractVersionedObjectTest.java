@@ -8,19 +8,19 @@ import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;
 import org.junit.Test;
 /**
- * {@link AbstractVersioningObject} のユニットテスト
+ * {@link AbstractVersionedObject} のユニットテスト
  * @author nilcy
  */
 @SuppressWarnings("all")
-public class AbstractVersioningObjectTest {
+public class AbstractVersionedObjectTest {
     @Test
     public final void testAbstractVersioningObject() {
-        assertThat(new AbstractVersioningObject() {
+        assertThat(new AbstractVersionedObject() {
         }, is(not(nullValue())));
     }
     @Test
     public final void testGetSetId() {
-        final AbstractVersioningObject testee = new AbstractVersioningObject() {
+        final AbstractVersionedObject testee = new AbstractVersionedObject() {
         };
         assertThat(testee.getVersion(), is(nullValue()));
         testee.setVersion(Long.MAX_VALUE);

@@ -6,21 +6,22 @@
 package zeroth.framework.enterprise.domain;
 import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;
-import static zeroth.framework.enterprise.domain.AbstractVersioningObject_.*;
+import static zeroth.framework.enterprise.domain.AbstractRevisedObject_.*;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import com.googlecode.jeeunit.JeeunitRunner;
 import com.googlecode.jeeunit.Transactional;
 /**
- * {@link AbstractVersioningObject_} のユニットテスト
+ * {@link AbstractRevisedObject_} のユニットテスト
  * @author nilcy
  */
 @RunWith(JeeunitRunner.class)
 @Transactional
 @SuppressWarnings("all")
-public class AbstractVersioningObject_Test {
+public class AbstractRevisedObject_Test {
     @Test
     public final void test() {
-        assertThat(version, is(not(nullValue())));
+        assertThat(created, is(not(nullValue())));
+        assertThat(updated, is(not(nullValue())));
     }
 }

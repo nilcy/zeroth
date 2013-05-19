@@ -6,22 +6,27 @@
 package zeroth.framework.enterprise.domain;
 import zeroth.framework.standard.shared.DataObject;
 /**
- * 参照オブジェクトI/F
+ * 参照オブジェクトI/F (エンティティI/F)
  * <p>
  * 参照オブジェクトは本I/Fを実装すること。 シリアライズとソートが可能である。
  * </p>
  * @param <T> 参照オブジェクト型
+ * @param <ID> 識別子オブジェクト型
  * @author nilcy
  */
-public interface ReferenceObject<T extends ReferenceObject<T>> extends DataObject<T> {
+public interface ReferenceObject<T extends ReferenceObject<T, ID>, ID> extends DataObject<T> {
     /**
-     * IDの取得
-     * @return ID
+     * 同一性の確認
+     * <p>
+     * 参照オブジェクトの識別子から同一性を確認する。
+     * </p>
+     * @param aOther 比較する参照オブジェクト
+     * @return 同一なとき真。同一でないとき偽。
      */
-    Long getId();
+    boolean sameIdentityAs(T aOther);
     /**
-     * IDの設定
-     * @param aId ID
+     * 識別子
+     * @return 識別子
      */
-    void setId(Long aId);
+    ID identity();
 }

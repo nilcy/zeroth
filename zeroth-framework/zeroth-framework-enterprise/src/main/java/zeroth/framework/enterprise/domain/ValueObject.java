@@ -14,4 +14,13 @@ import zeroth.framework.standard.shared.DataObject;
  * @author nilcy
  */
 public interface ValueObject<T extends ValueObject<T>> extends DataObject<T> {
+    /**
+     * 同一性の確認
+     * <p>
+     * 値オブジェクトの属性値から同一性を確認する。
+     * </p>
+     * @param aOther 比較する値オブジェクト
+     * @return 同一なとき真。同一でないとき偽。
+     */
+    boolean sameValueAs(T aOther);
 }

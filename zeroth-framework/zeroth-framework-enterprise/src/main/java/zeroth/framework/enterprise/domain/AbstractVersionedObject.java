@@ -1,13 +1,10 @@
 // ========================================================================
-// Copyright (C) IMPULSE Project Team. All rights reserved.
+// Copyright (C) zeroth Project Team. All rights reserved.
 // GNU AFFERO GENERAL PUBLIC LICENSE Version 3, 19 November 2007
 // http://www.gnu.org/licenses/agpl-3.0.txt
 // ========================================================================
 package zeroth.framework.enterprise.domain;
 import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Version;
 /**
@@ -16,29 +13,16 @@ import javax.persistence.Version;
  * @author nilcy
  */
 @MappedSuperclass
-public abstract class AbstractVersioningObject<T extends AbstractVersioningObject<T>> extends
-    AbstractReferenceObject<T> implements VersioningObject<T> {
+public abstract class AbstractVersionedObject<T extends AbstractVersionedObject<T>> extends
+    AbstractReferenceObject<T> implements VersionedObject<T, Long> {
     /** 識別番号 */
     private static final long serialVersionUID = 3326380823292476211L;
-    /** ID. */
-    @Column
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-    /** Version. */
+    /** 版数 */
     @Column
     @Version
     private Long version;
     /** コンストラクタ */
-    public AbstractVersioningObject() {
-    }
-    @Override
-    public Long getId() {
-        return this.id;
-    }
-    @Override
-    public void setId(final Long id) {
-        this.id = id;
+    public AbstractVersionedObject() {
     }
     @Override
     public Long getVersion() {

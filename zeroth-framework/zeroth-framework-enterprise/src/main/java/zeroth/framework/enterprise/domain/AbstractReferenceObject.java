@@ -1,5 +1,5 @@
 // ========================================================================
-// Copyright (C) IMPULSE Project Team. All rights reserved.
+// Copyright (C) zeroth Project Team. All rights reserved.
 // GNU AFFERO GENERAL PUBLIC LICENSE Version 3, 19 November 2007
 // http://www.gnu.org/licenses/agpl-3.0.txt
 // ========================================================================
@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
+import org.apache.commons.lang3.builder.EqualsBuilder;
 import zeroth.framework.standard.shared.AbstractDataObject;
 /**
  * 参照オブジェクト
@@ -17,10 +18,10 @@ import zeroth.framework.standard.shared.AbstractDataObject;
  */
 @MappedSuperclass
 public abstract class AbstractReferenceObject<T extends AbstractReferenceObject<T>> extends
-    AbstractDataObject<T> implements ReferenceObject<T> {
+    AbstractDataObject<T> implements ReferenceObject<T, Long> {
     /** 識別番号 */
     private static final long serialVersionUID = 6765184066419433024L;
-    /** ID. */
+    /** ID */
     @Column
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -28,12 +29,28 @@ public abstract class AbstractReferenceObject<T extends AbstractReferenceObject<
     /** コンストラクタ */
     public AbstractReferenceObject() {
     }
-    @Override
+    /**
+     * {@link #id} の取得
+     * @return {@link #id}
+     */
     public Long getId() {
         return this.id;
     }
+    /**
+     * {@link #id} の設定
+     * @param aId {@link #id}
+     */
+    public void setId(final Long aId) {
+        this.id = aId;
+    }
+    /** {@inheritDoc} */
     @Override
-    public void setId(final Long id) {
-        this.id = id;
+    public boolean sameIdentityAs(final T aOther) {
+        return (aOther != null) && new EqualsBuilder().append(this.id, aOther.getId()).isEquals();
+    }
+    /** {@inheritDoc} */
+    @Override
+    public Long identity() {
+        return getId();
     }
 }

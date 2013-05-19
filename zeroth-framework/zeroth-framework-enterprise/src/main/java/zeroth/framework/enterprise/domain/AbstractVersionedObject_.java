@@ -7,12 +7,12 @@ package zeroth.framework.enterprise.domain;
 import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;
 /**
- * 参照オブジェクトモデル
+ * 版管理オブジェクトモデル
  * @author nilcy
  */
 // CHECKSTYLE:OFF
-@StaticMetamodel(AbstractReferenceObject.class)
-public class AbstractReferenceObject_ {
-    /** ID */
-    public static volatile SingularAttribute<AbstractReferenceObject<?>, Long> id;
+@StaticMetamodel(AbstractVersionedObject.class)
+public class AbstractVersionedObject_ extends AbstractReferenceObject_ {
+    /** 版数 */
+    public static volatile SingularAttribute<AbstractVersionedObject<?>, Long> version;
 }
