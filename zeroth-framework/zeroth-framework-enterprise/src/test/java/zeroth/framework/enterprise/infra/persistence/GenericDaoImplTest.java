@@ -29,16 +29,8 @@ import zeroth.framework.enterprise.domain.TestExampleObject;
 public class GenericDaoImplTest {
     @Inject
     private GenericDao<TestExampleObject, Long> testee;
-    // @Inject
-    // @PrimaryEntityManager
-    // private EntityManager entityManager;
     @Inject
     private Logger log;
-    // @Before
-    // public void beforeTest() {
-    // this.testee.init(TestExampleObject.class);
-    // this.testee.setManager(this.entityManager);
-    // }
     @Test
     public void testCRUD() {
         final TestExampleObject e01 = new TestExampleObject("code01");
@@ -61,16 +53,16 @@ public class GenericDaoImplTest {
     }
     @Test
     public void testCriteria() {
-        final CriteriaBuilder builder = this.testee.builder();
-        final CriteriaQuery<TestExampleObject> query = this.testee.query();
-        final Root<TestExampleObject> root = this.testee.root();
+        final CriteriaBuilder b = this.testee.builder();
+        final CriteriaQuery<TestExampleObject> q = this.testee.query();
+        final Root<TestExampleObject> r = this.testee.root();
         this.testee.create(new TestExampleObject("code01"));
         this.testee.create(new TestExampleObject("code02"));
-        final TypedQuery<TestExampleObject> typedQuery = this.testee.createQuery(query.select(root)
-            .where(builder.equal(root.get(code), "code01")).orderBy(builder.asc(root.get(code)))
-            .groupBy(root.get(code)));
+        final TypedQuery<TestExampleObject> typedQuery = this.testee
+            .createQuery(q.select(r).where(b.equal(r.get(code), "code01"))
+                .orderBy(b.asc(r.get(code))).groupBy(r.get(code)));
         for (final TestExampleObject e : typedQuery.getResultList()) {
-            this.log.info(e.toString());
+            this.log.info("TestExampleObject >> " + e.toString());
         }
     }
 }

@@ -20,20 +20,11 @@ import zeroth.framework.enterprise.domain.ReferenceObject;
  */
 public interface GenericDao<T extends ReferenceObject<T, ID>, ID> extends Serializable {
     /**
-     * 参照オブジェクトマネージャの取得
-     * @return 参照オブジェクトマネージャ
-     */
-    EntityManager getManager();
-    /**
-     * 参照オブジェクトマネージャの設定
-     * @param aManager 参照オブジェクトマネージャ
-     */
-    void setManager(EntityManager aManager);
-    /**
      * 初期化
      * @param aClass 参照オブジェクトクラス
+     * @param aManager 参照オブジェクトマネージャ
      */
-    void init(final Class<T> aClass);
+    void init(final Class<T> aClass, EntityManager aManager);
     /**
      * 参照オブジェクトの登録
      * @param aReferenceObject 参照オブジェクト

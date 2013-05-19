@@ -17,7 +17,7 @@ public class GenericDaoFactory {
     /** 参照オブジェクトマネージャ */
     @Inject
     @PrimaryEntityManager
-    private EntityManager entityManager;
+    private EntityManager manager;
     /** テスト用のサンプルオブジェクトDAO */
     @EJB
     private GenericDao<TestExampleObject, Long> testExampleObjectDao;
@@ -30,8 +30,7 @@ public class GenericDaoFactory {
      */
     @Produces
     public GenericDao<TestExampleObject, Long> createTestExampleObjectDao() {
-        this.testExampleObjectDao.init(TestExampleObject.class);
-        this.testExampleObjectDao.setManager(this.entityManager);
+        this.testExampleObjectDao.init(TestExampleObject.class, this.manager);
         return this.testExampleObjectDao;
     }
 }

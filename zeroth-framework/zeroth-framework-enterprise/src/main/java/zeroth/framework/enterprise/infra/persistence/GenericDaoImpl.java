@@ -22,24 +22,17 @@ import zeroth.framework.enterprise.domain.ReferenceObject;
 public class GenericDaoImpl<T extends ReferenceObject<T, ID>, ID> implements GenericDao<T, ID> {
     /** 識別番号 */
     private static final long serialVersionUID = -2663309706616831662L;
-    /** 参照オブジェクトマネージャ */
-    private EntityManager manager;
     /** 参照オブジェクトクラス */
     private Class<T> clazz;
+    /** 参照オブジェクトマネージャ */
+    private EntityManager manager;
     /** コンストラクタ */
     public GenericDaoImpl() {
     }
     @Override
-    public EntityManager getManager() {
-        return this.manager;
-    }
-    @Override
-    public void setManager(final EntityManager aManager) {
-        this.manager = aManager;
-    }
-    @Override
-    public void init(final Class<T> aClass) {
+    public void init(final Class<T> aClass, final EntityManager aManager) {
         this.clazz = aClass;
+        this.manager = aManager;
     }
     @Override
     public void create(final T aReferenceObject) {
