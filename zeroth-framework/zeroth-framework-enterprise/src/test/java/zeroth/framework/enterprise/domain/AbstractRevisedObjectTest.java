@@ -13,7 +13,7 @@ import org.junit.Test;
  * {@link AbstractRevisedObject} のユニットテスト
  * @author nilcy
  */
-// @SuppressWarnings("all")
+@SuppressWarnings("all")
 public final class AbstractRevisedObjectTest {
     private TestRevisedObject testee;
     private static final Date TODAY = new Date();

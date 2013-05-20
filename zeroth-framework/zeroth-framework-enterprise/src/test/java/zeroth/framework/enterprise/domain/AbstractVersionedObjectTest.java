@@ -12,7 +12,7 @@ import org.junit.Test;
  * {@link AbstractVersionedObject} のユニットテスト
  * @author nilcy
  */
-// @SuppressWarnings("all")
+@SuppressWarnings("all")
 public class AbstractVersionedObjectTest {
     private TestVersionedObject testee;
     @Before
