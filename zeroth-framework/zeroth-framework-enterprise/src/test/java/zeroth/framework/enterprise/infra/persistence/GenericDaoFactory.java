@@ -20,7 +20,7 @@ public class GenericDaoFactory {
     private EntityManager manager;
     /** テスト用のサンプルオブジェクトDAO */
     @EJB
-    private GenericDao<TestExampleObject, Long> testExampleObjectDao;
+    private GenericaDao<TestExampleObject, Long> testExampleObjectDao;
     /** コンストラクタ */
     public GenericDaoFactory() {
     }
@@ -29,7 +29,7 @@ public class GenericDaoFactory {
      * @return {@link #testExampleObjectDao}
      */
     @Produces
-    public GenericDao<TestExampleObject, Long> createTestExampleObjectDao() {
+    public GenericaDao<TestExampleObject, Long> createTestExampleObjectDao() {
         this.testExampleObjectDao.init(TestExampleObject.class, this.manager);
         return this.testExampleObjectDao;
     }

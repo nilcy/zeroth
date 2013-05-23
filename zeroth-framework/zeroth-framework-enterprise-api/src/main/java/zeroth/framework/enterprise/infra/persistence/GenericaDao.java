@@ -4,7 +4,6 @@
 // http://www.gnu.org/licenses/agpl-3.0.txt
 // ========================================================================
 package zeroth.framework.enterprise.infra.persistence;
-import java.io.Serializable;
 import javax.persistence.EntityManager;
 import javax.persistence.LockModeType;
 import javax.persistence.TypedQuery;
@@ -12,13 +11,14 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import zeroth.framework.enterprise.domain.ReferenceObject;
+import zeroth.framework.enterprise.shared.Service;
 /**
- * 汎用データ操作I/F
+ * 基本データ永続化サービスI/F
  * @param <T> 参照オブジェクト型
  * @param <ID> 識別子オブジェクト型
  * @author nilcy
  */
-public interface GenericDao<T extends ReferenceObject<T, ID>, ID> extends Serializable {
+public interface GenericaDao<T extends ReferenceObject<T, ID>, ID> extends Service {
     /**
      * 初期化
      * @param aClass 参照オブジェクトクラス

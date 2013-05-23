@@ -4,13 +4,8 @@
 // http://www.gnu.org/licenses/agpl-3.0.txt
 // ========================================================================
 package zeroth.framework.enterprise.infra.persistence;
-import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.LockModeType;
-import javax.persistence.TypedQuery;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Root;
 import zeroth.framework.enterprise.domain.ReferenceObject;
 /**
  * 汎用データ操作
@@ -18,16 +13,16 @@ import zeroth.framework.enterprise.domain.ReferenceObject;
  * @param <ID> 識別子オブジェクト型
  * @author nilcy
  */
-@Stateless
-public class GenericDaoImpl<T extends ReferenceObject<T, ID>, ID> implements GenericaDao<T, ID> {
+public abstract class AbstractPersistenceServiceImpl<T extends ReferenceObject<T, ID>, ID> implements
+    PersistenceService<T, ID> {
     /** 識別番号 */
     private static final long serialVersionUID = -2663309706616831662L;
     /** 参照オブジェクトクラス */
-    private Class<T> clazz;
+    protected Class<T> clazz;
     /** 参照オブジェクトマネージャ */
-    private EntityManager manager;
+    protected EntityManager manager;
     /** コンストラクタ */
-    public GenericDaoImpl() {
+    public AbstractPersistenceServiceImpl() {
     }
     @Override
     public void init(final Class<T> aClass, final EntityManager aManager) {
@@ -80,21 +75,5 @@ public class GenericDaoImpl<T extends ReferenceObject<T, ID>, ID> implements Gen
     @Override
     public boolean contains(final T aReferenceObject) {
         return this.manager.contains(aReferenceObject);
-    }
-    @Override
-    public CriteriaBuilder builder() {
-        return this.manager.getCriteriaBuilder();
-    }
-    @Override
-    public CriteriaQuery<T> query() {
-        return builder().createQuery(this.clazz);
-    }
-    @Override
-    public Root<T> root() {
-        return query().from(this.clazz);
-    }
-    @Override
-    public TypedQuery<T> createQuery(final CriteriaQuery<T> aQuery) {
-        return this.manager.createQuery(aQuery);
     }
 }

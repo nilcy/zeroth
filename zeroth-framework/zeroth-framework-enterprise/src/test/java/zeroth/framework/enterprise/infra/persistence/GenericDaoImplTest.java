@@ -28,7 +28,7 @@ import zeroth.framework.enterprise.domain.TestExampleObject;
 @SuppressWarnings("all")
 public class GenericDaoImplTest {
     @Inject
-    private GenericDao<TestExampleObject, Long> testee;
+    private GenericaDao<TestExampleObject, Long> testee;
     @Inject
     private Logger log;
     @Test
