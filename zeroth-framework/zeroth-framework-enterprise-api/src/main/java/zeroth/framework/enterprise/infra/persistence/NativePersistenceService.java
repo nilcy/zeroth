@@ -5,6 +5,7 @@
 // ========================================================================
 package zeroth.framework.enterprise.infra.persistence;
 import javax.ejb.Local;
+import javax.persistence.Query;
 import zeroth.framework.enterprise.domain.ReferenceObject;
 /**
  * 原始データ永続化サービスI/F(JPA2/NativeQuery)
@@ -15,4 +16,24 @@ import zeroth.framework.enterprise.domain.ReferenceObject;
 @Local
 public interface NativePersistenceService<T extends ReferenceObject<T, ID>, ID> extends
     PersistenceService<T, ID> {
+    /**
+     * クエリの作成
+     * @param aSQL SQL
+     * @return クエリ
+     */
+    Query createNativeQuery(final String aSQL);
+    /**
+     * クエリの作成
+     * @param aSQL SQL
+     * @param aResultClass 結果格納クラス
+     * @return クエリ
+     */
+    Query createNativeQuery(final String aSQL, final Class<?> aResultClass);
+    /**
+     * クエリの作成
+     * @param aSQL SQL
+     * @param aResultSetMappingName 結果セットマッピング名
+     * @return クエリ
+     */
+    Query createNativeQuery(final String aSQL, final String aResultSetMappingName);
 }

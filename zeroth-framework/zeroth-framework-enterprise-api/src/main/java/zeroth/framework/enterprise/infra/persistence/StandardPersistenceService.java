@@ -5,6 +5,7 @@
 // ========================================================================
 package zeroth.framework.enterprise.infra.persistence;
 import javax.ejb.Local;
+import javax.persistence.TypedQuery;
 import zeroth.framework.enterprise.domain.ReferenceObject;
 /**
  * 標準データ永続化サービスI/F(JPA2/JPQL)
@@ -15,4 +16,16 @@ import zeroth.framework.enterprise.domain.ReferenceObject;
 @Local
 public interface StandardPersistenceService<T extends ReferenceObject<T, ID>, ID> extends
     PersistenceService<T, ID> {
+    /**
+     * クエリの作成
+     * @param aJPQL JPQL
+     * @return クエリ
+     */
+    public TypedQuery<T> createQuery(final String aJPQL);
+    /**
+     * クエリの作成
+     * @param aQueryName クエリ名
+     * @return クエリ
+     */
+    public TypedQuery<T> createNamedQuery(final String aQueryName);
 }

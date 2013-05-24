@@ -5,6 +5,7 @@
 // ========================================================================
 package zeroth.framework.enterprise.infra.persistence;
 import javax.ejb.Stateless;
+import javax.persistence.TypedQuery;
 import zeroth.framework.enterprise.domain.ReferenceObject;
 /**
  * 標準データ永続化サービス(JPA2/JPQL)
@@ -14,7 +15,15 @@ import zeroth.framework.enterprise.domain.ReferenceObject;
  */
 @Stateless
 public class StandardPersistenceServiceImpl<T extends ReferenceObject<T, ID>, ID> extends
-    PersistenceServiceImpl<T, ID> implements NativePersistenceService<T, ID> {
+    AbstractPersistenceServiceImpl<T, ID> implements StandardPersistenceService<T, ID> {
     /** 識別番号 */
     private static final long serialVersionUID = -1029454631523751121L;
+    @Override
+    public TypedQuery<T> createQuery(final String aJPQL) {
+        return this.manager.createQuery(aJPQL, super.clazz);
+    }
+    @Override
+    public TypedQuery<T> createNamedQuery(final String aQueryName) {
+        return this.manager.createNamedQuery(aQueryName, super.clazz);
+    }
 }

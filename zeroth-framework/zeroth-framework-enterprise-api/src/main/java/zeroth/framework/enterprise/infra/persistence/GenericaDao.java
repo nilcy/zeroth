@@ -89,8 +89,8 @@ public interface GenericaDao<T extends ReferenceObject<T, ID>, ID> extends Servi
      */
     CriteriaBuilder builder();
     /**
-     * 標準クエリーの取得
-     * @return 標準クエリー
+     * 標準クエリの取得
+     * @return 標準クエリ
      */
     CriteriaQuery<T> query();
     /**
@@ -99,9 +99,9 @@ public interface GenericaDao<T extends ReferenceObject<T, ID>, ID> extends Servi
      */
     Root<T> root();
     /**
-     * 型付けクエリーの取得
-     * @param aQuery 標準クエリー
-     * @return 型付けクエリー
+     * 型付けクエリの取得
+     * @param aQuery 標準クエリ
+     * @return 型付けクエリ
      */
     TypedQuery<T> createQuery(CriteriaQuery<T> aQuery);
 }

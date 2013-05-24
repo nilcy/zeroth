@@ -13,7 +13,7 @@ import zeroth.framework.enterprise.domain.ReferenceObject;
  * @param <ID> 識別子オブジェクト型
  * @author nilcy
  */
-public abstract class PersistenceServiceImpl<T extends ReferenceObject<T, ID>, ID> implements
+public abstract class AbstractPersistenceServiceImpl<T extends ReferenceObject<T, ID>, ID> implements
     PersistenceService<T, ID> {
     /** 識別番号 */
     private static final long serialVersionUID = -2663309706616831662L;
@@ -22,7 +22,7 @@ public abstract class PersistenceServiceImpl<T extends ReferenceObject<T, ID>, I
     /** 参照オブジェクトマネージャ */
     protected EntityManager manager;
     /** コンストラクタ */
-    public PersistenceServiceImpl() {
+    public AbstractPersistenceServiceImpl() {
     }
     @Override
     public void init(final Class<T> aClass, final EntityManager aManager) {

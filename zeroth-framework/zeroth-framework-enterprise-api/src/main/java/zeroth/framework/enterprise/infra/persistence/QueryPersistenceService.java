@@ -13,7 +13,7 @@ import zeroth.framework.enterprise.domain.ReferenceObject;
 /**
  * 拡張データ永続化サービスI/F(JPA2/CriteriaQuery)
  * <p>
- * クエリーオブジェクト@PofEAA
+ * クエリオブジェクト@PofEAA
  * </p>
  * @param <T> 参照オブジェクト型
  * @param <ID> 識別子オブジェクト型
@@ -28,8 +28,8 @@ public interface QueryPersistenceService<T extends ReferenceObject<T, ID>, ID> e
      */
     CriteriaBuilder builder();
     /**
-     * 標準クエリーの取得
-     * @return 標準クエリー
+     * 標準クエリの取得
+     * @return 標準クエリ
      */
     CriteriaQuery<T> query();
     /**
@@ -38,9 +38,9 @@ public interface QueryPersistenceService<T extends ReferenceObject<T, ID>, ID> e
      */
     Root<T> root();
     /**
-     * 型付けクエリーの取得
-     * @param aQuery 標準クエリー
-     * @return 型付けクエリー
+     * クエリの取得
+     * @param aQuery 標準クエリ
+     * @return クエリ
      */
     TypedQuery<T> createQuery(CriteriaQuery<T> aQuery);
 }

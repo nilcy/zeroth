@@ -5,11 +5,12 @@
 // ========================================================================
 package zeroth.framework.enterprise.infra.persistence;
 import javax.ejb.Stateless;
+import javax.persistence.Query;
 import zeroth.framework.enterprise.domain.ReferenceObject;
 /**
  * 拡張データ永続化サービス(JPA2/CriteriaQuery)
  * <p>
- * クエリーオブジェクト@PofEAA の実装
+ * クエリオブジェクト@PofEAA の実装
  * </p>
  * @param <T> 参照オブジェクト型
  * @param <ID> 識別子オブジェクト型
@@ -17,7 +18,19 @@ import zeroth.framework.enterprise.domain.ReferenceObject;
  */
 @Stateless
 public class NativePersistenceServiceImpl<T extends ReferenceObject<T, ID>, ID> extends
-    PersistenceServiceImpl<T, ID> implements NativePersistenceService<T, ID> {
+    AbstractPersistenceServiceImpl<T, ID> implements NativePersistenceService<T, ID> {
     /** 識別番号 */
     private static final long serialVersionUID = -1029454631523751121L;
+    @Override
+    public Query createNativeQuery(final String aSQL) {
+        return this.manager.createNativeQuery(aSQL);
+    }
+    @Override
+    public Query createNativeQuery(final String aSQL, final Class<?> aResultClass) {
+        return this.manager.createNativeQuery(aSQL, aResultClass);
+    }
+    @Override
+    public Query createNativeQuery(final String aSQL, final String aResultSetMappingName) {
+        return this.manager.createNativeQuery(aSQL, aResultSetMappingName);
+    }
 }
