@@ -12,7 +12,7 @@ import org.junit.Test;
  * {@link AbstractReferenceObject} のユニットテスト
  * @author nilcy
  */
-// @SuppressWarnings("all")
+@SuppressWarnings("all")
 public final class AbstractReferenceObjectTest {
     /** テスト用の参照オブジェクト */
     private TestReferenceObject testee;
