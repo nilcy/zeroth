@@ -6,13 +6,13 @@
 package zeroth.framework.enterprise.domain;
 import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;
-import static zeroth.framework.enterprise.domain.TestExampleObject_.*;
+import static zeroth.framework.enterprise.domain.TestExample_.*;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import com.googlecode.jeeunit.JeeunitRunner;
 import com.googlecode.jeeunit.Transactional;
 /**
- * {@link TestExampleObject_} のユニットテスト
+ * {@link TestExample_} のユニットテスト
  * @author nilcy
  */
 @RunWith(JeeunitRunner.class)

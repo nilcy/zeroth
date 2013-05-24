@@ -14,7 +14,7 @@ import zeroth.framework.enterprise.shared.Service;
  * @param <ID> 識別子オブジェクト型
  * @author nilcy
  */
-public interface PersistenceService<T extends ReferenceObject<T, ID>, ID> extends Service {
+public abstract interface PersistenceService<T extends ReferenceObject<T, ID>, ID> extends Service {
     /**
      * 初期化
      * @param aClass 参照オブジェクトクラス

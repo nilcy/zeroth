@@ -14,20 +14,20 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "Test_Example_Object")
 // @SuppressWarnings("all")
-public class TestExampleObject extends AbstractRevisedObject<TestExampleObject> {
+public class TestExample extends AbstractRevisedObject<TestExample> {
     /** 識別番号 */
     private static final long serialVersionUID = 5105345042376016853L;
     /** コード */
     @Column(name = "code", nullable = false)
     private String code;
     /** コンストラクタ */
-    public TestExampleObject() {
+    public TestExample() {
     }
     /**
      * コンストラクタ
      * @param aCode {@link #code}
      */
-    public TestExampleObject(final String aCode) {
+    public TestExample(final String aCode) {
         this.code = aCode;
     }
     /**

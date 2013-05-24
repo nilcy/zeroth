@@ -11,6 +11,9 @@ import java.lang.annotation.Target;
 import javax.inject.Qualifier;
 /**
  * 補助的なエンティティマネージャ
+ * <p>
+ * セカンダリーデータベース用のエンティティマネージャをマークするアノテーションである。
+ * </p>
  * @author nilcy
  */
 @Qualifier

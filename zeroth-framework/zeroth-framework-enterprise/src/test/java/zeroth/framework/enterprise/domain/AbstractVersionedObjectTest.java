@@ -14,10 +14,10 @@ import org.junit.Test;
  */
 @SuppressWarnings("all")
 public class AbstractVersionedObjectTest {
-    private TestVersionedObject testee;
+    private TestVersioned testee;
     @Before
     public void before() {
-        this.testee = new TestVersionedObject();
+        this.testee = new TestVersioned();
     }
     @Test
     public final void testAbstractVersioningObject() {

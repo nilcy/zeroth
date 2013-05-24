@@ -15,11 +15,11 @@ import org.junit.Test;
  */
 @SuppressWarnings("all")
 public final class AbstractRevisedObjectTest {
-    private TestRevisedObject testee;
+    private TestRevised testee;
     private static final Date TODAY = new Date();
     @Before
     public void before() {
-        this.testee = new TestRevisedObject();
+        this.testee = new TestRevised();
     }
     @Test
     public void testAbstractRevisedObject() {
@@ -41,7 +41,7 @@ public final class AbstractRevisedObjectTest {
     @Test
     public void testSameIdentityAs() {
         assertThat(this.testee.sameIdentityAs(null), is(false));
-        final TestRevisedObject other = new TestRevisedObject();
+        final TestRevised other = new TestRevised();
         assertThat(this.testee.sameIdentityAs(other), is(true));
         this.testee.setId(0L);
         other.setId(0L);

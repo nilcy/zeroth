@@ -7,13 +7,16 @@ package zeroth.framework.enterprise.domain;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 /**
- * テスト用の改訂オブジェクト
+ * テスト版管理オブジェクト
  * @author nilcy
  */
 @Entity
-@Table(name = "Test_Revised_Object")
+@Table(name = "Test_Versioned_Object")
 // @SuppressWarnings("all")
-public class TestRevisedObject extends AbstractRevisedObject<TestRevisedObject> {
+public class TestVersioned extends AbstractVersionedObject<TestVersioned> {
     /** 識別番号 */
-    private static final long serialVersionUID = 3834376793666440948L;
+    private static final long serialVersionUID = 817161384329243743L;
+    /** コンストラクタ */
+    public TestVersioned() {
+    }
 }

@@ -7,14 +7,17 @@ package zeroth.framework.enterprise.infra.persistence;
 import javax.ejb.Stateless;
 import zeroth.framework.enterprise.domain.ReferenceObject;
 /**
- * 標準データ永続化サービス(JPA2/JPQL)
+ * 拡張データ永続化サービス(JPA2/CriteriaQuery)
+ * <p>
+ * クエリーオブジェクト@PofEAA の実装
+ * </p>
  * @param <T> 参照オブジェクト型
  * @param <ID> 識別子オブジェクト型
  * @author nilcy
  */
 @Stateless
-public class StandardPersistenceServiceImpl<T extends ReferenceObject<T, ID>, ID> extends
-    AbstractPersistenceServiceImpl<T, ID> implements NativePersistenceService<T, ID> {
+public class NativePersistenceServiceImpl<T extends ReferenceObject<T, ID>, ID> extends
+    PersistenceServiceImpl<T, ID> implements NativePersistenceService<T, ID> {
     /** 識別番号 */
     private static final long serialVersionUID = -1029454631523751121L;
 }

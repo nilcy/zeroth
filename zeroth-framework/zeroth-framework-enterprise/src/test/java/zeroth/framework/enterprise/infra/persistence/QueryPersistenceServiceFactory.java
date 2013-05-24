@@ -13,24 +13,24 @@ import zeroth.framework.enterprise.domain.TestExample;
  * 汎用データ操作プロデューサ
  * @author nilcy
  */
-public class GenericDaoFactory {
+public class QueryPersistenceServiceFactory {
     /** 参照オブジェクトマネージャ */
     @Inject
     @PrimaryEntityManager
     private EntityManager manager;
     /** テスト用のサンプルオブジェクトDAO */
     @EJB
-    private GenericaDao<TestExample, Long> testExampleObjectDao;
+    private QueryPersistenceService<TestExample, Long> testExampleObjectPersistenceService;
     /** コンストラクタ */
-    public GenericDaoFactory() {
+    public QueryPersistenceServiceFactory() {
     }
     /**
-     * {@link #testExampleObjectDao} の作成
-     * @return {@link #testExampleObjectDao}
+     * {@link #testExampleObjectPersistenceService} の作成
+     * @return {@link #testExampleObjectPersistenceService}
      */
     @Produces
-    public GenericaDao<TestExample, Long> createTestExampleObjectDao() {
-        this.testExampleObjectDao.init(TestExample.class, this.manager);
-        return this.testExampleObjectDao;
+    public QueryPersistenceService<TestExample, Long> createTestExampleObjectPersistenceService() {
+        this.testExampleObjectPersistenceService.init(TestExample.class, this.manager);
+        return this.testExampleObjectPersistenceService;
     }
 }

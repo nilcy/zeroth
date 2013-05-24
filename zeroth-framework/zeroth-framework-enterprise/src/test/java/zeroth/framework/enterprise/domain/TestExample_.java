@@ -11,8 +11,8 @@ import javax.persistence.metamodel.StaticMetamodel;
  * @author nilcy
  */
 // CHECKSTYLE:OFF
-@StaticMetamodel(TestExampleObject.class)
-public class TestExampleObject_ extends AbstractRevisedObject_ {
+@StaticMetamodel(TestExample.class)
+public class TestExample_ extends AbstractRevisedObject_ {
     /** コード */
-    public static volatile SingularAttribute<TestExampleObject, String> code;
+    public static volatile SingularAttribute<TestExample, String> code;
 }

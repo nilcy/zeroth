@@ -13,7 +13,7 @@ import zeroth.framework.enterprise.domain.ReferenceObject;
 /**
  * 拡張データ永続化サービスI/F(JPA2/CriteriaQuery)
  * <p>
- * クエリーオブジェクト@PofEAA のローカルI/F
+ * クエリーオブジェクト@PofEAA
  * </p>
  * @param <T> 参照オブジェクト型
  * @param <ID> 識別子オブジェクト型

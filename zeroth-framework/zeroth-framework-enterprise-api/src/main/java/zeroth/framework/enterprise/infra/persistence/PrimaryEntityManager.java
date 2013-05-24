@@ -10,7 +10,10 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 import javax.inject.Qualifier;
 /**
- * 基礎的なエンティティマネージャ
+ * 基礎エンティティマネージャ
+ * <p>
+ * プライマリーデータベース用のエンティティマネージャをマークするアノテーションである。
+ * </p>
  * @author nilcy
  */
 @Qualifier

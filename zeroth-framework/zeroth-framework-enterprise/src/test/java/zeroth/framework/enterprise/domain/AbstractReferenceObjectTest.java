@@ -15,11 +15,11 @@ import org.junit.Test;
 @SuppressWarnings("all")
 public final class AbstractReferenceObjectTest {
     /** テスト用の参照オブジェクト */
-    private TestReferenceObject testee;
+    private TestReference testee;
     /** 初期処理 */
     @Before
     public void before() {
-        this.testee = new TestReferenceObject();
+        this.testee = new TestReference();
     }
     /** {@link AbstractReferenceObject#AbstractReferenceObject()} のユニットテスト */
     @Test
@@ -42,9 +42,9 @@ public final class AbstractReferenceObjectTest {
      */
     @Test
     public void testSameIdentityAs() {
-        final TestReferenceObject nullObject = null;
+        final TestReference nullObject = null;
         assertThat(this.testee.sameIdentityAs(nullObject), is(false));
-        final TestReferenceObject other = new TestReferenceObject();
+        final TestReference other = new TestReference();
         assertThat(this.testee.sameIdentityAs(other), is(true));
         this.testee.setId(0L);
         other.setId(0L);

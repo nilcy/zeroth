@@ -5,11 +5,11 @@
 // ========================================================================
 package zeroth.framework.enterprise.domain;
 /**
- * テスト用の参照オブジェクト
+ * テスト情報(値オブジェクト)
  * @author nilcy
  */
 // @SuppressWarnings("all")
-public class TestValueObject extends AbstractValueObject<TestValueObject> {
+public class TestValue extends AbstractValueObject<TestValue> {
     /** 識別番号 */
     private static final long serialVersionUID = 3946455630058824491L;
     /** FOO */

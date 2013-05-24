@@ -14,10 +14,10 @@ import org.junit.Test;
  */
 @SuppressWarnings("all")
 public class AbstractValueObjectTest {
-    private TestValueObject testee;
+    private TestValue testee;
     @Before
     public void before() {
-        this.testee = new TestValueObject();
+        this.testee = new TestValue();
     }
     @Test
     public final void testAbstractValueObject() {
@@ -26,7 +26,7 @@ public class AbstractValueObjectTest {
     @Test
     public void testSameValueAs() {
         assertThat(this.testee.sameValueAs(null), is(false));
-        final TestValueObject other = new TestValueObject();
+        final TestValue other = new TestValue();
         assertThat(this.testee.sameValueAs(other), is(true));
         this.testee.setFoo("foo-00");
         other.setFoo("foo-00");

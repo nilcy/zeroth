@@ -13,7 +13,7 @@ import zeroth.framework.enterprise.domain.ReferenceObject;
 /**
  * 拡張データ永続化サービス(JPA2/CriteriaQuery)
  * <p>
- * クエリーオブジェクト@PofEAA の実装
+ * クエリーオブジェクト@PofEAA
  * </p>
  * @param <T> 参照オブジェクト型
  * @param <ID> 識別子オブジェクト型
@@ -21,7 +21,7 @@ import zeroth.framework.enterprise.domain.ReferenceObject;
  */
 @Stateless
 public class QueryPersistenceServiceImpl<T extends ReferenceObject<T, ID>, ID> extends
-    AbstractPersistenceServiceImpl<T, ID> implements QueryPersistenceService<T, ID> {
+    PersistenceServiceImpl<T, ID> implements QueryPersistenceService<T, ID> {
     /** 識別番号 */
     private static final long serialVersionUID = 6451157743975586409L;
     @Override

@@ -20,15 +20,15 @@ import com.googlecode.jeeunit.JeeunitRunner;
 import com.googlecode.jeeunit.Transactional;
 import zeroth.framework.enterprise.domain.TestExample;
 /**
- * {@link GenericDaoImpl} のユニットテスト
+ * {@link QueryPersistenceServiceImpl} のユニットテスト
  * @author nilcy
  */
 @RunWith(JeeunitRunner.class)
 @Transactional
 @SuppressWarnings("all")
-public class GenericDaoImplTest {
+public class QueryPersistenceServiceImplTest {
     @Inject
-    private GenericaDao<TestExample, Long> testee;
+    private QueryPersistenceService<TestExample, Long> testee;
     @Inject
     private Logger log;
     @Test
