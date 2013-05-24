@@ -8,9 +8,9 @@
     <language>en-us</language>
     <copyright>&#169;2013 nilcy</copyright>
     <item>
-      <title>File: 5,
+      <title>File: 7,
              Errors: 0,
-             Warnings: 5,
+             Warnings: 4,
              Infos: 0
       </title>
             <link>http://nilcy.github.io/zeroth/maven/site/zeroth-framework/zeroth-framework-standard//checkstyle.html</link>
@@ -57,6 +57,20 @@
               </tr>
                           <tr>
                 <td>
+                  <a href="http://nilcy.github.io/zeroth/maven/site/zeroth-framework/zeroth-framework-standard//checkstyle.html#zeroth.framework.standard.shared.StandardRuntimeException.java">zeroth/framework/standard/shared/StandardRuntimeException.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
                   <a href="http://nilcy.github.io/zeroth/maven/site/zeroth-framework/zeroth-framework-standard//checkstyle.html#zeroth.framework.standard.Example.java">zeroth/framework/standard/Example.java</a>
                 </td>
                 <td>
@@ -77,7 +91,7 @@
                   0
                 </td>
                 <td>
-                  2
+                  1
                 </td>
                 <td>
                   0
@@ -92,6 +106,20 @@
                 </td>
                 <td>
                   1
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://nilcy.github.io/zeroth/maven/site/zeroth-framework/zeroth-framework-standard//checkstyle.html#zeroth.framework.standard.shared.StandardException.java">zeroth/framework/standard/shared/StandardException.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
                 </td>
                 <td>
                   0

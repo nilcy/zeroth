@@ -2,9 +2,14 @@ zeroth.actor.command
 zeroth.actor.screen
 zeroth.actor.service
 zeroth.framework.coding
+zeroth.framework.command.iface
 zeroth.framework.cui
 zeroth.framework.enterprise
+zeroth.framework.enterprise.domain
+zeroth.framework.enterprise.infra.persistence
+zeroth.framework.enterprise.shared
 zeroth.framework.screen
 zeroth.framework.service
 zeroth.framework.standard
+zeroth.framework.standard.shared
 zeroth.framework.testing

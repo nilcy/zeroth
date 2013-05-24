@@ -3,7 +3,14 @@ zeroth.actor.screen
 zeroth.actor.service
 zeroth.framework.coding
 zeroth.framework.command
+zeroth.framework.command.iface
 zeroth.framework.enterprise
+zeroth.framework.enterprise.domain
+zeroth.framework.enterprise.infra
+zeroth.framework.enterprise.infra.messaging
+zeroth.framework.enterprise.infra.persistence
+zeroth.framework.enterprise.infra.routing
+zeroth.framework.enterprise.shared
 zeroth.framework.screen
 zeroth.framework.service
 zeroth.framework.standard
