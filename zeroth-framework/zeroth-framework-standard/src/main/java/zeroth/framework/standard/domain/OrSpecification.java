@@ -15,7 +15,7 @@ public class OrSpecification<T> extends AbstractSpecification<T> {
     /** 仕様オブジェクト#2 */
     private final Specification<T> specification2;
     /**
-     * コンストラクタ
+     * 論理和(OR)仕様のコンストラクタ
      * @param aSpecification1 仕様オブジェクト#1
      * @param aSpecification2 仕様オブジェクト#2
      */

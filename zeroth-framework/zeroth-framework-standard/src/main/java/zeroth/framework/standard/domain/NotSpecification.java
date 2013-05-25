@@ -13,7 +13,7 @@ public class NotSpecification<T> extends AbstractSpecification<T> {
     /** 仕様オブジェクト */
     private final Specification<T> specification;
     /**
-     * コンストラクタ
+     * 否定(NOT)仕様のコンストラクタ
      * @param aSpecification 仕様オブジェクト
      */
     public NotSpecification(final Specification<T> aSpecification) {
