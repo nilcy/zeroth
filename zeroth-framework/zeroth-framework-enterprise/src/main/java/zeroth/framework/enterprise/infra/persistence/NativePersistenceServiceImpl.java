@@ -7,7 +7,7 @@ package zeroth.framework.enterprise.infra.persistence;
 import javax.ejb.Stateless;
 import javax.enterprise.inject.Alternative;
 import javax.persistence.Query;
-import zeroth.framework.enterprise.domain.ReferenceObject;
+import zeroth.framework.standard.domain.ReferenceObject;
 /**
  * 拡張データ永続化サービス(JPA2/CriteriaQuery)
  * <p>

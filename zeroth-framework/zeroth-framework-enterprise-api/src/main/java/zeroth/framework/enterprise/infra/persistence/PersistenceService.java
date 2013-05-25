@@ -6,8 +6,8 @@
 package zeroth.framework.enterprise.infra.persistence;
 import javax.persistence.EntityManager;
 import javax.persistence.LockModeType;
-import zeroth.framework.enterprise.domain.ReferenceObject;
-import zeroth.framework.enterprise.shared.Service;
+import zeroth.framework.standard.domain.ReferenceObject;
+import zeroth.framework.standard.shared.Service;
 /**
  * 基本データ永続化サービスI/F
  * @param <T> 参照オブジェクト型

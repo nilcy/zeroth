@@ -5,6 +5,7 @@
 // ========================================================================
 package zeroth.framework.enterprise.domain;
 import java.util.Date;
+import zeroth.framework.standard.domain.ReferenceObject;
 /**
  * 改訂オブジェクトI/F
  * @param <T> 改訂オブジェクト型

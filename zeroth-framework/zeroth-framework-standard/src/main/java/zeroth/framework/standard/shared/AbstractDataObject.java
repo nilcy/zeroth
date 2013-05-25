@@ -10,7 +10,7 @@ import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 /**
- * 汎用データオブジェクト
+ * データオブジェクト
  * <p>
  * データオブジェクトの基本的な機能を提供する。 参照オブジェクトと値オブジェクトは本クラスを継承すること。
  * </p>
@@ -61,7 +61,7 @@ public abstract class AbstractDataObject<T extends AbstractDataObject<T>> implem
      * <p>
      * オブジェクトと比較対象オブジェクトの順序を比較する。一時フィールド(transient)も検査の対象とする。
      * 比較するフィールドの順番を指定するとき {@link CompareToBuilder#append(Object, Object)}
-     * を使用してオーバーライドしてください。
+     * を使用してオーバーライドすること。
      * </p>
      * @param aOther 比較対象オブジェクト
      * @return オブジェクトが比較対象オブジェクトより小さいとき負数、等しいときゼロ。大きいとき正数。

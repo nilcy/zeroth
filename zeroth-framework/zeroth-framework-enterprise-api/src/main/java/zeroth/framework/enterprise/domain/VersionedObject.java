@@ -4,6 +4,7 @@
 // http://www.gnu.org/licenses/agpl-3.0.txt
 // ========================================================================
 package zeroth.framework.enterprise.domain;
+import zeroth.framework.standard.domain.ReferenceObject;
 /**
  * 版管理オブジェクトI/F
  * @param <T> 版管理オブジェクト型

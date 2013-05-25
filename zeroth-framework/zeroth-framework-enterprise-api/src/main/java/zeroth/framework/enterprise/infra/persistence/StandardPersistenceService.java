@@ -6,7 +6,7 @@
 package zeroth.framework.enterprise.infra.persistence;
 import javax.ejb.Local;
 import javax.persistence.TypedQuery;
-import zeroth.framework.enterprise.domain.ReferenceObject;
+import zeroth.framework.standard.domain.ReferenceObject;
 /**
  * 標準データ永続化サービスI/F(JPA2/JPQL)
  * @param <T> 参照オブジェクト型

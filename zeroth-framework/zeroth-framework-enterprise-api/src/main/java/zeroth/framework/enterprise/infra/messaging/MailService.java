@@ -8,7 +8,7 @@ import javax.ejb.Local;
 import javax.mail.Multipart;
 import javax.mail.Session;
 import zeroth.framework.enterprise.shared.EnterpriseException;
-import zeroth.framework.enterprise.shared.Service;
+import zeroth.framework.standard.shared.Service;
 /**
  * メールサービスI/F
  * @author nilcy

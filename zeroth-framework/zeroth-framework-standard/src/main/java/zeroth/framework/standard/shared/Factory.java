@@ -6,12 +6,8 @@
 package zeroth.framework.standard.shared;
 import java.io.Serializable;
 /**
- * データオブジェクトI/F
- * <p>
- * 参照オブジェクトと値オブジェクトは本I/Fを実装すること。 シリアライズとソートが可能である。
- * </p>
- * @param <T> データオブジェクト型
+ * ファクトリI/F
  * @author nilcy
  */
-public interface DataObject<T extends DataObject<T>> extends Serializable, Comparable<T> {
+public interface Factory extends Serializable {
 }

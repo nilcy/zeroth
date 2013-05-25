@@ -10,7 +10,7 @@ import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
-import zeroth.framework.enterprise.domain.ReferenceObject;
+import zeroth.framework.standard.domain.ReferenceObject;
 /**
  * 拡張データ永続化サービス(JPA2/CriteriaQuery)
  * <p>

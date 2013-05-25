@@ -6,7 +6,7 @@
 package zeroth.framework.enterprise.infra.persistence;
 import javax.persistence.EntityManager;
 import javax.persistence.LockModeType;
-import zeroth.framework.enterprise.domain.ReferenceObject;
+import zeroth.framework.standard.domain.ReferenceObject;
 /**
  * 汎用データ操作
  * @param <T> 参照オブジェクト型

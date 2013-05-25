@@ -3,7 +3,7 @@
 // GNU AFFERO GENERAL PUBLIC LICENSE Version 3, 19 November 2007
 // http://www.gnu.org/licenses/agpl-3.0.txt
 // ========================================================================
-package zeroth.framework.enterprise.domain;
+package zeroth.framework.standard.domain;
 import zeroth.framework.standard.shared.DataObject;
 /**
  * 参照オブジェクトI/F (エンティティI/F)

@@ -6,6 +6,7 @@
 package zeroth.framework.enterprise.domain;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import zeroth.framework.standard.shared.AbstractDataObject;
+import zeroth.framework.standard.shared.ValueObject;
 /**
  * 値オブジェクト
  * @param <T> 値オブジェクト型
