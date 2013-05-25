@@ -6,10 +6,12 @@ zeroth.framework.command.iface
 zeroth.framework.cui
 zeroth.framework.enterprise
 zeroth.framework.enterprise.domain
+zeroth.framework.enterprise.infra.messaging
 zeroth.framework.enterprise.infra.persistence
 zeroth.framework.enterprise.shared
 zeroth.framework.screen
 zeroth.framework.service
 zeroth.framework.standard
+zeroth.framework.standard.domain
 zeroth.framework.standard.shared
 zeroth.framework.testing

@@ -20,15 +20,15 @@
 <a class="jxr_linenumber" name="10" href="#10">10</a>  <strong class="jxr_keyword">import</strong> javax.persistence.criteria.CriteriaBuilder;
 <a class="jxr_linenumber" name="11" href="#11">11</a>  <strong class="jxr_keyword">import</strong> javax.persistence.criteria.CriteriaQuery;
 <a class="jxr_linenumber" name="12" href="#12">12</a>  <strong class="jxr_keyword">import</strong> javax.persistence.criteria.Root;
-<a class="jxr_linenumber" name="13" href="#13">13</a>  <strong class="jxr_keyword">import</strong> zeroth.framework.enterprise.domain.ReferenceObject;
-<a class="jxr_linenumber" name="14" href="#14">14</a>  <strong class="jxr_keyword">import</strong> zeroth.framework.enterprise.shared.Service;
+<a class="jxr_linenumber" name="13" href="#13">13</a>  <strong class="jxr_keyword">import</strong> zeroth.framework.standard.domain.ReferenceObject;
+<a class="jxr_linenumber" name="14" href="#14">14</a>  <strong class="jxr_keyword">import</strong> zeroth.framework.standard.shared.Service;
 <a class="jxr_linenumber" name="15" href="#15">15</a>  <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="16" href="#16">16</a>  <em class="jxr_javadoccomment"> * 基本データ永続化サービスI/F</em>
 <a class="jxr_linenumber" name="17" href="#17">17</a>  <em class="jxr_javadoccomment"> * @param &lt;T&gt; 参照オブジェクト型</em>
 <a class="jxr_linenumber" name="18" href="#18">18</a>  <em class="jxr_javadoccomment"> * @param &lt;ID&gt; 識別子オブジェクト型</em>
 <a class="jxr_linenumber" name="19" href="#19">19</a>  <em class="jxr_javadoccomment"> * @author nilcy</em>
 <a class="jxr_linenumber" name="20" href="#20">20</a>  <em class="jxr_javadoccomment"> */</em>
-<a class="jxr_linenumber" name="21" href="#21">21</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">interface</strong> GenericaDao&lt;T <strong class="jxr_keyword">extends</strong> ReferenceObject&lt;T, ID&gt;, ID&gt; <strong class="jxr_keyword">extends</strong> <a href="../../../../../zeroth/framework/enterprise/shared/Service.html">Service</a> {
+<a class="jxr_linenumber" name="21" href="#21">21</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">interface</strong> GenericaDao&lt;T <strong class="jxr_keyword">extends</strong> ReferenceObject&lt;T, ID&gt;, ID&gt; <strong class="jxr_keyword">extends</strong> Service {
 <a class="jxr_linenumber" name="22" href="#22">22</a>      <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="23" href="#23">23</a>  <em class="jxr_javadoccomment">     * 初期化</em>
 <a class="jxr_linenumber" name="24" href="#24">24</a>  <em class="jxr_javadoccomment">     * @param aClass 参照オブジェクトクラス</em>
@@ -99,8 +99,8 @@
 <a class="jxr_linenumber" name="89" href="#89">89</a>  <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="90" href="#90">90</a>      CriteriaBuilder builder();
 <a class="jxr_linenumber" name="91" href="#91">91</a>      <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="92" href="#92">92</a>  <em class="jxr_javadoccomment">     * 標準クエリーの取得</em>
-<a class="jxr_linenumber" name="93" href="#93">93</a>  <em class="jxr_javadoccomment">     * @return 標準クエリー</em>
+<a class="jxr_linenumber" name="92" href="#92">92</a>  <em class="jxr_javadoccomment">     * 標準クエリの取得</em>
+<a class="jxr_linenumber" name="93" href="#93">93</a>  <em class="jxr_javadoccomment">     * @return 標準クエリ</em>
 <a class="jxr_linenumber" name="94" href="#94">94</a>  <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="95" href="#95">95</a>      CriteriaQuery&lt;T&gt; query();
 <a class="jxr_linenumber" name="96" href="#96">96</a>      <em class="jxr_javadoccomment">/**</em>
@@ -109,9 +109,9 @@
 <a class="jxr_linenumber" name="99" href="#99">99</a>  <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="100" href="#100">100</a>     Root&lt;T&gt; root();
 <a class="jxr_linenumber" name="101" href="#101">101</a>     <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="102" href="#102">102</a> <em class="jxr_javadoccomment">     * 型付けクエリーの取得</em>
-<a class="jxr_linenumber" name="103" href="#103">103</a> <em class="jxr_javadoccomment">     * @param aQuery 標準クエリー</em>
-<a class="jxr_linenumber" name="104" href="#104">104</a> <em class="jxr_javadoccomment">     * @return 型付けクエリー</em>
+<a class="jxr_linenumber" name="102" href="#102">102</a> <em class="jxr_javadoccomment">     * 型付けクエリの取得</em>
+<a class="jxr_linenumber" name="103" href="#103">103</a> <em class="jxr_javadoccomment">     * @param aQuery 標準クエリ</em>
+<a class="jxr_linenumber" name="104" href="#104">104</a> <em class="jxr_javadoccomment">     * @return 型付けクエリ</em>
 <a class="jxr_linenumber" name="105" href="#105">105</a> <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="106" href="#106">106</a>     TypedQuery&lt;T&gt; createQuery(CriteriaQuery&lt;T&gt; aQuery);
 <a class="jxr_linenumber" name="107" href="#107">107</a> }

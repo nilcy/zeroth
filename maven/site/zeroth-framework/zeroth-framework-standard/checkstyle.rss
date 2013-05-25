@@ -8,9 +8,9 @@
     <language>en-us</language>
     <copyright>&#169;2013 nilcy</copyright>
     <item>
-      <title>File: 7,
+      <title>File: 21,
              Errors: 0,
-             Warnings: 4,
+             Warnings: 12,
              Infos: 0
       </title>
             <link>http://nilcy.github.io/zeroth/maven/site/zeroth-framework/zeroth-framework-standard//checkstyle.html</link>
@@ -27,20 +27,6 @@
             </tr>
           </thead>
           <tbody>
-                          <tr>
-                <td>
-                  <a href="http://nilcy.github.io/zeroth/maven/site/zeroth-framework/zeroth-framework-standard//checkstyle.html#zeroth.framework.standard.shared.package-info.java">zeroth/framework/standard/shared/package-info.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  1
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
                           <tr>
                 <td>
                   <a href="http://nilcy.github.io/zeroth/maven/site/zeroth-framework/zeroth-framework-standard//checkstyle.html#zeroth.framework.standard.shared.AbstractDataObject.java">zeroth/framework/standard/shared/AbstractDataObject.java</a>
@@ -71,7 +57,7 @@
               </tr>
                           <tr>
                 <td>
-                  <a href="http://nilcy.github.io/zeroth/maven/site/zeroth-framework/zeroth-framework-standard//checkstyle.html#zeroth.framework.standard.Example.java">zeroth/framework/standard/Example.java</a>
+                  <a href="http://nilcy.github.io/zeroth/maven/site/zeroth-framework/zeroth-framework-standard//checkstyle.html#zeroth.framework.standard.shared.Service.java">zeroth/framework/standard/shared/Service.java</a>
                 </td>
                 <td>
                   0
@@ -85,7 +71,35 @@
               </tr>
                           <tr>
                 <td>
-                  <a href="http://nilcy.github.io/zeroth/maven/site/zeroth-framework/zeroth-framework-standard//checkstyle.html#zeroth.framework.standard.package-info.java">zeroth/framework/standard/package-info.java</a>
+                  <a href="http://nilcy.github.io/zeroth/maven/site/zeroth-framework/zeroth-framework-standard//checkstyle.html#zeroth.framework.standard.domain.ReferenceObject.java">zeroth/framework/standard/domain/ReferenceObject.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://nilcy.github.io/zeroth/maven/site/zeroth-framework/zeroth-framework-standard//checkstyle.html#zeroth.framework.standard.domain.AbstractSpecification.java">zeroth/framework/standard/domain/AbstractSpecification.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  1
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://nilcy.github.io/zeroth/maven/site/zeroth-framework/zeroth-framework-standard//checkstyle.html#zeroth.framework.standard.domain.OrSpecification.java">zeroth/framework/standard/domain/OrSpecification.java</a>
                 </td>
                 <td>
                   0
@@ -120,6 +134,188 @@
                 </td>
                 <td>
                   0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://nilcy.github.io/zeroth/maven/site/zeroth-framework/zeroth-framework-standard//checkstyle.html#zeroth.framework.standard.domain.XorSpecification.java">zeroth/framework/standard/domain/XorSpecification.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  1
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://nilcy.github.io/zeroth/maven/site/zeroth-framework/zeroth-framework-standard//checkstyle.html#zeroth.framework.standard.shared.ValueObject.java">zeroth/framework/standard/shared/ValueObject.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://nilcy.github.io/zeroth/maven/site/zeroth-framework/zeroth-framework-standard//checkstyle.html#zeroth.framework.standard.shared.package-info.java">zeroth/framework/standard/shared/package-info.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  1
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://nilcy.github.io/zeroth/maven/site/zeroth-framework/zeroth-framework-standard//checkstyle.html#zeroth.framework.standard.domain.Specification.java">zeroth/framework/standard/domain/Specification.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://nilcy.github.io/zeroth/maven/site/zeroth-framework/zeroth-framework-standard//checkstyle.html#zeroth.framework.standard.domain.AndSpecification.java">zeroth/framework/standard/domain/AndSpecification.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  1
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://nilcy.github.io/zeroth/maven/site/zeroth-framework/zeroth-framework-standard//checkstyle.html#zeroth.framework.standard.domain.NorSpecification.java">zeroth/framework/standard/domain/NorSpecification.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  1
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://nilcy.github.io/zeroth/maven/site/zeroth-framework/zeroth-framework-standard//checkstyle.html#zeroth.framework.standard.Example.java">zeroth/framework/standard/Example.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://nilcy.github.io/zeroth/maven/site/zeroth-framework/zeroth-framework-standard//checkstyle.html#zeroth.framework.standard.domain.Repository.java">zeroth/framework/standard/domain/Repository.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://nilcy.github.io/zeroth/maven/site/zeroth-framework/zeroth-framework-standard//checkstyle.html#zeroth.framework.standard.package-info.java">zeroth/framework/standard/package-info.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  1
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://nilcy.github.io/zeroth/maven/site/zeroth-framework/zeroth-framework-standard//checkstyle.html#zeroth.framework.standard.shared.Factory.java">zeroth/framework/standard/shared/Factory.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://nilcy.github.io/zeroth/maven/site/zeroth-framework/zeroth-framework-standard//checkstyle.html#zeroth.framework.standard.domain.package-info.java">zeroth/framework/standard/domain/package-info.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  1
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://nilcy.github.io/zeroth/maven/site/zeroth-framework/zeroth-framework-standard//checkstyle.html#zeroth.framework.standard.domain.NotSpecification.java">zeroth/framework/standard/domain/NotSpecification.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  1
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://nilcy.github.io/zeroth/maven/site/zeroth-framework/zeroth-framework-standard//checkstyle.html#zeroth.framework.standard.domain.NandSpecification.java">zeroth/framework/standard/domain/NandSpecification.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  1
                 </td>
                 <td>
                   0

@@ -25,11 +25,11 @@
 <a class="jxr_linenumber" name="15" href="#15">15</a>  <em class="jxr_javadoccomment"> */</em>
 <a class="jxr_linenumber" name="16" href="#16">16</a>  @SuppressWarnings(<span class="jxr_string">"all"</span>)
 <a class="jxr_linenumber" name="17" href="#17">17</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">class</strong> <a href="../../../../zeroth/framework/enterprise/domain/AbstractRevisedObjectTest.html">AbstractRevisedObjectTest</a> {
-<a class="jxr_linenumber" name="18" href="#18">18</a>      <strong class="jxr_keyword">private</strong> <a href="../../../../zeroth/framework/enterprise/domain/TestRevisedObject.html">TestRevisedObject</a> testee;
+<a class="jxr_linenumber" name="18" href="#18">18</a>      <strong class="jxr_keyword">private</strong> <a href="../../../../zeroth/framework/enterprise/domain/TestRevised.html">TestRevised</a> testee;
 <a class="jxr_linenumber" name="19" href="#19">19</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> Date TODAY = <strong class="jxr_keyword">new</strong> Date();
 <a class="jxr_linenumber" name="20" href="#20">20</a>      @Before
 <a class="jxr_linenumber" name="21" href="#21">21</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> before() {
-<a class="jxr_linenumber" name="22" href="#22">22</a>          <strong class="jxr_keyword">this</strong>.testee = <strong class="jxr_keyword">new</strong> <a href="../../../../zeroth/framework/enterprise/domain/TestRevisedObject.html">TestRevisedObject</a>();
+<a class="jxr_linenumber" name="22" href="#22">22</a>          <strong class="jxr_keyword">this</strong>.testee = <strong class="jxr_keyword">new</strong> <a href="../../../../zeroth/framework/enterprise/domain/TestRevised.html">TestRevised</a>();
 <a class="jxr_linenumber" name="23" href="#23">23</a>      }
 <a class="jxr_linenumber" name="24" href="#24">24</a>      @Test
 <a class="jxr_linenumber" name="25" href="#25">25</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testAbstractRevisedObject() {
@@ -51,7 +51,7 @@
 <a class="jxr_linenumber" name="41" href="#41">41</a>      @Test
 <a class="jxr_linenumber" name="42" href="#42">42</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testSameIdentityAs() {
 <a class="jxr_linenumber" name="43" href="#43">43</a>          assertThat(<strong class="jxr_keyword">this</strong>.testee.sameIdentityAs(<strong class="jxr_keyword">null</strong>), is(false));
-<a class="jxr_linenumber" name="44" href="#44">44</a>          <strong class="jxr_keyword">final</strong> <a href="../../../../zeroth/framework/enterprise/domain/TestRevisedObject.html">TestRevisedObject</a> other = <strong class="jxr_keyword">new</strong> <a href="../../../../zeroth/framework/enterprise/domain/TestRevisedObject.html">TestRevisedObject</a>();
+<a class="jxr_linenumber" name="44" href="#44">44</a>          <strong class="jxr_keyword">final</strong> <a href="../../../../zeroth/framework/enterprise/domain/TestRevised.html">TestRevised</a> other = <strong class="jxr_keyword">new</strong> <a href="../../../../zeroth/framework/enterprise/domain/TestRevised.html">TestRevised</a>();
 <a class="jxr_linenumber" name="45" href="#45">45</a>          assertThat(<strong class="jxr_keyword">this</strong>.testee.sameIdentityAs(other), is(<strong class="jxr_keyword">true</strong>));
 <a class="jxr_linenumber" name="46" href="#46">46</a>          <strong class="jxr_keyword">this</strong>.testee.setId(0L);
 <a class="jxr_linenumber" name="47" href="#47">47</a>          other.setId(0L);

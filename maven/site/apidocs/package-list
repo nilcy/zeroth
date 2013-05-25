@@ -14,5 +14,6 @@ zeroth.framework.enterprise.shared
 zeroth.framework.screen
 zeroth.framework.service
 zeroth.framework.standard
+zeroth.framework.standard.domain
 zeroth.framework.standard.shared
 zeroth.framework.testing
