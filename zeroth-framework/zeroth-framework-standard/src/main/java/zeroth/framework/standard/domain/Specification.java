@@ -44,15 +44,15 @@ public interface Specification<T> {
      */
     Specification<T> xor(Specification<T> aSpecification);
     /**
-     * 否定的論理積(NAND)仕様の作成
+     * 否定論理積(NAND)仕様の作成
      * @param aSpecification 仕様オブジェクト
-     * @return 否定的論理積(NAND)仕様
+     * @return 否定論理積(NAND)仕様
      */
     Specification<T> nand(Specification<T> aSpecification);
     /**
-     * 否定的論理和(NOR)仕様の作成
+     * 否定論理和(NOR)仕様の作成
      * @param aSpecification 仕様オブジェクト
-     * @return 否定的論理和(NOR)仕様
+     * @return 否定論理和(NOR)仕様
      */
     Specification<T> nor(Specification<T> aSpecification);
 }

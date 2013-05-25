@@ -9,7 +9,7 @@ import javax.enterprise.inject.Default;
 import javax.enterprise.inject.Produces;
 import javax.enterprise.inject.spi.InjectionPoint;
 /**
- * ロガーのファクトリー
+ * ロガーのファクトリ
  * @author nilcy
  */
 @SuppressWarnings("static-method")

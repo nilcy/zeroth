@@ -8,7 +8,7 @@ import javax.enterprise.inject.Produces;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 /**
- * エンティティマネージャのファクトリー
+ * エンティティマネージャのファクトリ
  * @author nilcy
  */
 public final class EntityManagerFactory {
