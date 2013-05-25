@@ -20,7 +20,7 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 public abstract class AbstractDataObject<T extends AbstractDataObject<T>> implements DataObject<T> {
     /** 識別番号 */
     private static final long serialVersionUID = -4438164461402375117L;
-    /** Constructor. */
+    /** コンストラクタ */
     public AbstractDataObject() {
     }
     /**

@@ -22,7 +22,7 @@ public final class EntityManagerFactory {
     // @SecondaryEntityManager
     // @PersistenceContext(unitName = "secondary")
     // private EntityManager secondaryEntityManager;
-    /** Constructor. */
+    /** コンストラクタ */
     public EntityManagerFactory() {
     }
 }

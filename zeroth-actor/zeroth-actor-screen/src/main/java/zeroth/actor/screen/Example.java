@@ -9,7 +9,7 @@ package zeroth.actor.screen;
  * @author nilcy
  */
 public final class Example {
-    /** Constructor. */
+    /** コンストラクタ */
     private Example() {
     }
     /**

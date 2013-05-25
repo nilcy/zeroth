@@ -20,7 +20,7 @@ public final class MailServiceFactory {
     /** メールサービスI/F */
     @EJB
     public MailService mailService;
-    /** Constructor. */
+    /** コンストラクタ */
     public MailServiceFactory() {
     }
     /**

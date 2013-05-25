@@ -22,7 +22,7 @@ public final class MailSessionFactory {
     // @SecondaryMailSession
     // @Resource(name = "mail/secondary")
     // private Session secondaryMailSession;
-    /** Constructor. */
+    /** コンストラクタ */
     public MailSessionFactory() {
     }
 }

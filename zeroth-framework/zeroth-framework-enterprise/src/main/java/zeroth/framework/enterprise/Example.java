@@ -9,7 +9,7 @@ package zeroth.framework.enterprise;
  * @author nilcy
  */
 public final class Example {
-    /** Constructor. */
+    /** コンストラクタ */
     private Example() {
     }
     /**

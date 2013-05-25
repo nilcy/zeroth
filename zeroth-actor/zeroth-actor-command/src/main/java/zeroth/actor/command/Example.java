@@ -9,7 +9,7 @@ package zeroth.actor.command;
  * @author nilcy
  */
 public final class Example {
-    /** Constructor. */
+    /** コンストラクタ */
     private Example() {
     }
     /**
