@@ -5,6 +5,7 @@
 // ========================================================================
 package zeroth.framework.enterprise.infra.persistence;
 import javax.ejb.Stateless;
+import javax.enterprise.inject.Alternative;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -20,6 +21,7 @@ import zeroth.framework.enterprise.domain.ReferenceObject;
  * @author nilcy
  */
 @Stateless
+@Alternative
 public class QueryPersistenceServiceImpl<T extends ReferenceObject<T, ID>, ID> extends
     AbstractPersistenceServiceImpl<T, ID> implements QueryPersistenceService<T, ID> {
     /** 識別番号 */

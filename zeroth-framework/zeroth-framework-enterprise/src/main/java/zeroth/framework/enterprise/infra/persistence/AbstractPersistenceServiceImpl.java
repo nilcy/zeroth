@@ -25,7 +25,7 @@ public abstract class AbstractPersistenceServiceImpl<T extends ReferenceObject<T
     public AbstractPersistenceServiceImpl() {
     }
     @Override
-    public void init(final Class<T> aClass, final EntityManager aManager) {
+    public void setup(final Class<T> aClass, final EntityManager aManager) {
         this.clazz = aClass;
         this.manager = aManager;
     }

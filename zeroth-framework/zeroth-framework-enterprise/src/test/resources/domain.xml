@@ -14,18 +14,34 @@
     </jdbc-connection-pool>
     <jdbc-connection-pool is-isolation-level-guaranteed="false" name="DerbyPool"
       datasource-classname="org.apache.derby.jdbc.ClientDataSource" res-type="javax.sql.DataSource">
-      <property value="1527" name="PortNumber" />
-      <property value="APP" name="Password" />
-      <property value="APP" name="User" />
-      <property value="localhost" name="serverName" />
-      <property value="sun-appserv-samples" name="DatabaseName" />
-      <property value=";create=true" name="connectionAttributes" />
+      <property name="serverName" value="localhost" />
+      <property name="PortNumber" value="1527" />
+      <property name="DatabaseName" value="sun-appserv-samples" />
+      <property name="connectionAttributes" value=";create=true" />
+      <property name="User" value="APP" />
+      <property name="Password" value="APP" />
     </jdbc-connection-pool>
+    <jdbc-connection-pool datasource-classname="org.postgresql.ds.PGConnectionPoolDataSource"
+      res-type="javax.sql.ConnectionPoolDataSource" name="primary_pool">
+      <property name="serverName" value="localhost" />
+      <property name="portNumber" value="5432" />
+      <property name="databaseName" value="zeroth" />
+      <property name="user" value="zeroth" />
+      <property name="password" value="happyhacking" />
+    </jdbc-connection-pool>
+    <jdbc-resource pool-name="primary_pool" jndi-name="jdbc/primary"></jdbc-resource>
+    <mail-resource debug="true" host="smtp.gmail.com" transport-protocol-class="com.sun.mail.smtp.SMTPSSLTransport"
+      jndi-name="mail/primary" transport-protocol="smtps" from="zeroth.framework@gmail.com" user="zeroth.framework@gmail.com">
+      <property name="mail-smtps-auth" value="true" />
+      <property name="mail-smtps-password" value="happyhacking" />
+    </mail-resource>
   </resources>
   <servers>
     <server name="server" config-ref="server-config">
       <resource-ref ref="jdbc/__TimerPool" />
       <resource-ref ref="jdbc/__default" />
+      <resource-ref ref="jdbc/primary"></resource-ref>
+      <resource-ref ref="mail/primary"></resource-ref>
     </server>
   </servers>
   <nodes>

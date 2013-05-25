@@ -6,7 +6,14 @@
 package zeroth.framework.enterprise.shared;
 import java.io.Serializable;
 /**
- * サービス
+ * サービスI/F
+ * <ul>
+ * <li>
+ * EJBサービスはローカルI/F(@Local)を...Service、リモートI/F(@Remote)を...ServiceRemoteと命名すること。</li>
+ * <li>EJBサービスの実装は原則ステートレスセッションBean(@Statless)として実装すること。</li>
+ * <li>EJBサービスの実装は非CDIコンポーネント(@Alternative)として、EJBクライアントがCDIプロデューサ(@Produces)
+ * を使用してCDIコンポーネント化すること。</li>
+ * </ul>
  * @author nilcy
  */
 public interface Service extends Serializable {

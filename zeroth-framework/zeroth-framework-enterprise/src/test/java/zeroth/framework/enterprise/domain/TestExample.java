@@ -8,7 +8,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 /**
- * テスト用のサンプルオブジェクト
+ * テストオブジェクト
  * @author nilcy
  */
 @Entity

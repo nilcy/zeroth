@@ -7,7 +7,7 @@ package zeroth.framework.enterprise.domain;
 import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;
 /**
- * テスト用のサンプルオブジェクトモデル
+ * テストオブジェクトのメタモデル
  * @author nilcy
  */
 // CHECKSTYLE:OFF

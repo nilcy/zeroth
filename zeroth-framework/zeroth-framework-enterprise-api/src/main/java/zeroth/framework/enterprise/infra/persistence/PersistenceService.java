@@ -20,7 +20,7 @@ public abstract interface PersistenceService<T extends ReferenceObject<T, ID>, I
      * @param aClass 参照オブジェクトクラス
      * @param aManager 参照オブジェクトマネージャ
      */
-    void init(final Class<T> aClass, EntityManager aManager);
+    void setup(final Class<T> aClass, EntityManager aManager);
     /**
      * 参照オブジェクトの登録
      * @param aReferenceObject 参照オブジェクト

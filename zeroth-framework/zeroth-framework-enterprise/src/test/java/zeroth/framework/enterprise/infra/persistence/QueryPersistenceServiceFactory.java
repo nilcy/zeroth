@@ -10,11 +10,11 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import zeroth.framework.enterprise.domain.TestExample;
 /**
- * 汎用データ操作プロデューサ
+ * 拡張データ永続化サービスのファクトリ
  * @author nilcy
  */
 public class QueryPersistenceServiceFactory {
-    /** 参照オブジェクトマネージャ */
+    /** 基礎エンティティマネージャ */
     @Inject
     @PrimaryEntityManager
     private EntityManager manager;
@@ -30,7 +30,7 @@ public class QueryPersistenceServiceFactory {
      */
     @Produces
     public QueryPersistenceService<TestExample, Long> createTestExampleObjectPersistenceService() {
-        this.testExampleObjectPersistenceService.init(TestExample.class, this.manager);
+        this.testExampleObjectPersistenceService.setup(TestExample.class, this.manager);
         return this.testExampleObjectPersistenceService;
     }
 }

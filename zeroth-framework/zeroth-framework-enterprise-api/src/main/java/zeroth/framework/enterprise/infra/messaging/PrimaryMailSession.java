@@ -3,21 +3,21 @@
 // GNU AFFERO GENERAL PUBLIC LICENSE Version 3, 19 November 2007
 // http://www.gnu.org/licenses/agpl-3.0.txt
 // ========================================================================
-package zeroth.framework.enterprise.infra.persistence;
+package zeroth.framework.enterprise.infra.messaging;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 import javax.inject.Qualifier;
 /**
- * 補助エンティティマネージャ
+ * 基礎メールセッション
  * <p>
- * セカンダリーデータベース用のエンティティマネージャをマークするアノテーションである。
+ * プライマリーメールサーバ用のメールセッションをマークするアノテーションである。
  * </p>
  * @author nilcy
  */
 @Qualifier
 @Target({ ElementType.TYPE, ElementType.METHOD, ElementType.PARAMETER, ElementType.FIELD })
 @Retention(RetentionPolicy.RUNTIME)
-public @interface SecondaryEntityManager {
+public @interface PrimaryMailSession {
 }

@@ -5,7 +5,7 @@
 // ========================================================================
 package zeroth.framework.standard.shared;
 /**
- * 基本の非キャッチ例外
+ * スタンダード非キャッチ例外(JavaSE)
  * @author nilcy
  */
 public class StandardRuntimeException extends RuntimeException {
