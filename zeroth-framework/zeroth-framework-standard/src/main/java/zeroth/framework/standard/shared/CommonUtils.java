@@ -3,19 +3,20 @@
 // GNU AFFERO GENERAL PUBLIC LICENSE Version 3, 19 November 2007
 // http://www.gnu.org/licenses/agpl-3.0.txt
 // ========================================================================
-package zeroth.framework.standard.domain;
+package zeroth.framework.standard.shared;
+import java.io.Serializable;
 import java.lang.reflect.InvocationTargetException;
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.lang3.ObjectUtils;
+import org.apache.commons.lang3.SerializationUtils;
 import org.apache.commons.lang3.Validate;
-import zeroth.framework.standard.shared.StandardRuntimeException;
 /**
- * ドメインユーティリティ
+ * レイヤ共通ユーティリティ
  * @author nilcy
  */
-public class DomainUtils {
+public class CommonUtils {
     /** コンストラクタ */
-    private DomainUtils() {
+    private CommonUtils() {
     }
     /**
      * 非NULLチェック
@@ -70,5 +71,21 @@ public class DomainUtils {
         } catch (final InvocationTargetException e) {
             throw new StandardRuntimeException(e);
         }
+    }
+    /**
+     * シャローコピー
+     * @param aObject コピー元オブジェクト
+     * @return シャローコピーしたオブジェクト
+     */
+    public static <T extends Serializable> T shallowCopy(final T aObject) {
+        return ObjectUtils.clone(aObject);
+    }
+    /**
+     * ディープコピー
+     * @param aObject コピー元オブジェクト
+     * @return ディープコピーしたオブジェクト
+     */
+    public static <T extends Serializable> T deepCopy(final T aObject) {
+        return SerializationUtils.clone(aObject);
     }
 }

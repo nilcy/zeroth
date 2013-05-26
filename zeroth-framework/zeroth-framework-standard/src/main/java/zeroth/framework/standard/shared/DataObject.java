@@ -13,5 +13,5 @@ import java.io.Serializable;
  * @param <T> データオブジェクト型
  * @author nilcy
  */
-public interface DataObject<T extends DataObject<T>> extends Serializable, Comparable<T> {
+public interface DataObject<T extends DataObject<T>> extends Serializable, Cloneable, Comparable<T> {
 }

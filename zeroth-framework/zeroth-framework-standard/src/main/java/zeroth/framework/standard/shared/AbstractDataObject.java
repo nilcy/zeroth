@@ -70,4 +70,8 @@ public abstract class AbstractDataObject<T extends AbstractDataObject<T>> implem
     public int compareTo(final T aOther) {
         return CompareToBuilder.reflectionCompare(this, aOther, true);
     }
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
 }
