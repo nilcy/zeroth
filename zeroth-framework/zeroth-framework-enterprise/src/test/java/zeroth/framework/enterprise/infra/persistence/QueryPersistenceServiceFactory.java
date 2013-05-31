@@ -18,7 +18,7 @@ public class QueryPersistenceServiceFactory {
     @Inject
     @PrimaryEntityManager
     private EntityManager manager;
-    /** テスト用のサンプルオブジェクトDAO */
+    /** テストオブジェクトの拡張データ永続化サービス */
     @EJB
     private QueryPersistenceService<TestExample, Long> testExampleObjectPersistenceService;
     /** コンストラクタ */

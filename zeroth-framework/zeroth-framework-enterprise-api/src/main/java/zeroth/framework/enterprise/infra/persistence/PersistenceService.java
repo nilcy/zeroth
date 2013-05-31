@@ -17,6 +17,9 @@ import zeroth.framework.standard.shared.Service;
 public abstract interface PersistenceService<T extends ReferenceObject<T, ID>, ID> extends Service {
     /**
      * 初期化
+     * <p>
+     * 本サービスのファクトリから実行すること。
+     * </p>
      * @param aClass 参照オブジェクトクラス
      * @param aManager 参照オブジェクトマネージャ
      */

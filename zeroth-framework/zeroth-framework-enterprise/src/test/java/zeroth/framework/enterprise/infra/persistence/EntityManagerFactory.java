@@ -12,12 +12,12 @@ import javax.persistence.PersistenceContext;
  * @author nilcy
  */
 public final class EntityManagerFactory {
-    /** 基礎的なエンティティマネージャ */
+    /** 基礎エンティティマネージャ */
     @Produces
     @PrimaryEntityManager
     @PersistenceContext(unitName = "primary")
     private EntityManager primaryEntityManager;
-    // /** 補助的なエンティティマネージャ */
+    // /** 補助エンティティマネージャ */
     // @Produces
     // @SecondaryEntityManager
     // @PersistenceContext(unitName = "secondary")
