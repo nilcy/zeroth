@@ -20,17 +20,17 @@ public class QueryPersistenceServiceFactory {
     private EntityManager manager;
     /** テストオブジェクトの拡張データ永続化サービス */
     @EJB
-    private QueryPersistenceService<TestExample, Long> testExampleObjectPersistenceService;
+    private QueryPersistenceService<TestExample, Long> testExamplePersistenceService;
     /** コンストラクタ */
     public QueryPersistenceServiceFactory() {
     }
     /**
-     * {@link #testExampleObjectPersistenceService} の作成
-     * @return {@link #testExampleObjectPersistenceService}
+     * {@link #testExamplePersistenceService} の作成
+     * @return {@link #testExamplePersistenceService}
      */
     @Produces
     public QueryPersistenceService<TestExample, Long> createTestExampleObjectPersistenceService() {
-        this.testExampleObjectPersistenceService.setup(TestExample.class, this.manager);
-        return this.testExampleObjectPersistenceService;
+        this.testExamplePersistenceService.setup(TestExample.class, this.manager);
+        return this.testExamplePersistenceService;
     }
 }
