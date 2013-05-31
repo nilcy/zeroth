@@ -15,6 +15,13 @@ import zeroth.framework.standard.domain.ReferenceObject;
 import zeroth.framework.standard.shared.AbstractDataObject;
 /**
  * 永続可能エンティティ
+ * <p>
+ * 前提としてJPAが永続化するために識別子(ID)が必要である。(IDによる同一性の確認ができる)
+ * まず、参照オブジェクトを永続化するときは概念上の識別子と一致するため問題はない。
+ * いっぽう、値オブジェクトを永続化するときは値による同一性の確認が一般的であることに注意すること。
+ * いわゆる、(永続化する)値オブジェクトのIDによる同一性の確認はJPA永続化のために必要なものであり
+ * 、ビジネスロジックにおいて使用すべきものではないことに注意すること。
+ * </p>
  * @param <T> 永続可能エンティティ型
  * @author nilcy
  */
@@ -55,6 +62,7 @@ public abstract class AbstractPersistable<T extends AbstractPersistable<T>> exte
     }
     @Override
     public boolean sameIdentityAs(final T aOther) {
-        return (aOther != null) && new EqualsBuilder().append(this.id, aOther.getId()).isEquals();
+        return (aOther != null)
+            && new EqualsBuilder().append(identity(), aOther.identity()).isEquals();
     }
 }
