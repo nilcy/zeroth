@@ -13,8 +13,8 @@ import zeroth.framework.standard.domain.ReferenceObject;
  * @param <ID> 識別子オブジェクト型
  * @author nilcy
  */
-public abstract class AbstractPersistenceServiceImpl<T extends ReferenceObject<T, ID>, ID> implements
-    PersistenceService<T, ID> {
+public abstract class AbstractPersistenceServiceImpl<T extends ReferenceObject<T, ID>, ID>
+    implements PersistenceService<T, ID> {
     /** 識別番号 */
     private static final long serialVersionUID = -2663309706616831662L;
     /** 参照オブジェクトクラス */
@@ -30,25 +30,25 @@ public abstract class AbstractPersistenceServiceImpl<T extends ReferenceObject<T
         this.manager = aManager;
     }
     @Override
-    public void create(final T aReferenceObject) {
+    public void persist(final T aReferenceObject) {
         this.manager.persist(aReferenceObject);
         flush();
     }
     @Override
-    public T read(final ID aId) {
+    public T find(final ID aId) {
         return this.manager.find(this.clazz, aId);
     }
     @Override
-    public T read(final Long aId, final LockModeType aLockModeType) {
+    public T find(final Long aId, final LockModeType aLockModeType) {
         return this.manager.find(this.clazz, aId, aLockModeType);
     }
     @Override
-    public void update(final T aReferenceObject) {
+    public void merge(final T aReferenceObject) {
         this.manager.merge(aReferenceObject);
         flush();
     }
     @Override
-    public void delete(final T aReferenceObject) {
+    public void remove(final T aReferenceObject) {
         this.manager.remove(aReferenceObject);
         flush();
     }

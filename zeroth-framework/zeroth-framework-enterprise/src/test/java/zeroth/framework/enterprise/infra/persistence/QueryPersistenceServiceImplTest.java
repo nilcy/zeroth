@@ -34,11 +34,11 @@ public class QueryPersistenceServiceImplTest {
     @Test
     public void testCRUD() {
         final TestExample e01 = new TestExample("code01");
-        this.testee.create(e01);
+        this.testee.persist(e01);
         assertThat(e01.getId(), is(1L));
         assertThat(e01.getVersion(), is(1L));
         assertThat(this.testee.contains(e01), is(true));
-        final TestExample e01r = this.testee.read(1L);
+        final TestExample e01r = this.testee.find(1L);
         assertThat(e01r, is(e01));
         e01r.setCode("code01#1");
         this.testee.lock(e01r, LockModeType.PESSIMISTIC_READ);
@@ -47,17 +47,17 @@ public class QueryPersistenceServiceImplTest {
         this.testee.refresh(e01r, LockModeType.PESSIMISTIC_WRITE);
         this.testee.detach(e01r);
         e01r.setCode("code01#2");
-        this.testee.update(e01r);
-        this.testee.delete(this.testee.read(e01r.getId()));
-        assertThat(this.testee.read(1L, LockModeType.OPTIMISTIC), is(nullValue()));
+        this.testee.merge(e01r);
+        this.testee.remove(this.testee.find(e01r.getId()));
+        assertThat(this.testee.find(1L, LockModeType.OPTIMISTIC), is(nullValue()));
     }
     @Test
     public void testCriteria() {
         final CriteriaBuilder b = this.testee.builder();
         final CriteriaQuery<TestExample> q = this.testee.query();
         final Root<TestExample> r = this.testee.root();
-        this.testee.create(new TestExample("code01"));
-        this.testee.create(new TestExample("code02"));
+        this.testee.persist(new TestExample("code01"));
+        this.testee.persist(new TestExample("code02"));
         final TypedQuery<TestExample> typedQuery = this.testee
             .createQuery(q.select(r).where(b.equal(r.get(code), "code01"))
                 .orderBy(b.asc(r.get(code))).groupBy(r.get(code)));

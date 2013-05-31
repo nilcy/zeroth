@@ -28,30 +28,30 @@ public abstract interface PersistenceService<T extends ReferenceObject<T, ID>, I
      * 参照オブジェクトの登録
      * @param aReferenceObject 参照オブジェクト
      */
-    void create(T aReferenceObject);
+    void persist(T aReferenceObject);
     /**
      * 参照オブジェクトの閲覧
      * @param aId 識別子
      * @return 参照オブジェクト
      */
-    T read(ID aId);
+    T find(ID aId);
     /**
      * 参照オブジェクトの閲覧
      * @param aId 識別子
      * @param aLockModeType ロックモードタイプ
      * @return 参照オブジェクト
      */
-    T read(Long aId, LockModeType aLockModeType);
+    T find(Long aId, LockModeType aLockModeType);
     /**
      * 参照オブジェクトの変更
      * @param aReferenceObject 変更後の参照オブジェクト
      */
-    void update(T aReferenceObject);
+    void merge(T aReferenceObject);
     /**
      * 参照オブジェクトの削除
      * @param aReferenceObject 参照オブジェクト
      */
-    void delete(T aReferenceObject);
+    void remove(T aReferenceObject);
     /**
      * 参照オブジェクトの更新
      * @param aReferenceObject 参照オブジェクト

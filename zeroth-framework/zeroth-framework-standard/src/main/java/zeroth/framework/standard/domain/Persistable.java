@@ -17,8 +17,8 @@ public interface Persistable<ID extends Serializable> extends Serializable {
      */
     ID identity();
     /**
-     * 永続前チェック
-     * @return 永続化する前は真。永続化された後は偽。
+     * 永続済チェック
+     * @return 永続化する前は偽。永続化された後は真。
      */
-    boolean isNew();
+    boolean isPersisted();
 }
