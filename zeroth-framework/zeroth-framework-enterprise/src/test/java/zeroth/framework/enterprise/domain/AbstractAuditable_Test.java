@@ -6,21 +6,24 @@
 package zeroth.framework.enterprise.domain;
 import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;
-import static zeroth.framework.enterprise.domain.AbstractReferenceObject_.*;
+import static zeroth.framework.enterprise.domain.AbstractAuditable_.*;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import com.googlecode.jeeunit.JeeunitRunner;
 import com.googlecode.jeeunit.Transactional;
 /**
- * {@link AbstractReferenceObject_} のユニットテスト
+ * {@link TestExample_} のユニットテスト
  * @author nilcy
  */
 @RunWith(JeeunitRunner.class)
 @Transactional
 @SuppressWarnings("all")
-public class AbstractReferenceObject_Test {
+public class AbstractAuditable_Test {
     @Test
     public final void test() {
-        assertThat(id, is(not(nullValue())));
+        assertThat(createdBy, is(not(nullValue())));
+        assertThat(createdDate, is(not(nullValue())));
+        assertThat(lastModifiedBy, is(not(nullValue())));
+        assertThat(lastModifiedDate, is(not(nullValue())));
     }
 }

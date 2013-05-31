@@ -61,7 +61,7 @@ public final class CommonUtilsTest {
         assertThat(fuga2.getFoo(), is(fuga.getFoo()));
         assertThat(fuga2.getBar(), is(fuga.getBar()));
     }
-    public class Fuga extends AbstractDataObject<Fuga> {
+    public class Fuga extends AbstractDataObject {
         private String foo;
         private String bar;
         public Fuga() {
@@ -84,7 +84,7 @@ public final class CommonUtilsTest {
             this.bar = aBar;
         }
     }
-    public class Hoge extends AbstractDataObject<Hoge> {
+    public class Hoge extends AbstractDataObject {
         private String foo;
         private String bar;
         private String baz;

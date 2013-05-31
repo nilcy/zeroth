@@ -4,15 +4,13 @@
 // http://www.gnu.org/licenses/agpl-3.0.txt
 // ========================================================================
 package zeroth.framework.standard.domain;
-
 import zeroth.framework.standard.shared.DataObject;
-
 /**
  * ドメインイベント
  * @param <T> ドメインイベント型
  * @author nilcy
  */
-public interface DomainEvent<T extends DomainEvent<T>> extends DataObject<T> {
+public interface DomainEvent<T extends DomainEvent<T>> extends DataObject {
     /**
      * 同一性の確認
      * @param aOther 比較するドメインイベント

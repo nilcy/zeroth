@@ -8,7 +8,7 @@ package zeroth.framework.standard.shared;
  * テスト用データオブジェクト
  * @author nilcy
  */
-public class TestDataObject extends AbstractDataObject<TestDataObject> {
+public class TestDataObject extends AbstractDataObject {
     /** 識別番号 */
     private static final long serialVersionUID = -6959622318388079127L;
     /** FOO */

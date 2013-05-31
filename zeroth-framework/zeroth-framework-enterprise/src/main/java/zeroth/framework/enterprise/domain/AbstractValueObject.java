@@ -13,7 +13,7 @@ import zeroth.framework.standard.shared.ValueObject;
  * @author nilcy
  */
 public abstract class AbstractValueObject<T extends AbstractValueObject<T>> extends
-    AbstractDataObject<T> implements ValueObject<T> {
+    AbstractDataObject implements ValueObject<T> {
     /** 識別番号 */
     private static final long serialVersionUID = 437387339515812017L;
     /** コンストラクタ */

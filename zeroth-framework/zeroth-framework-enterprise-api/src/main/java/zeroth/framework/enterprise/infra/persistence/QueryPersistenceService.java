@@ -4,24 +4,25 @@
 // http://www.gnu.org/licenses/agpl-3.0.txt
 // ========================================================================
 package zeroth.framework.enterprise.infra.persistence;
+import java.io.Serializable;
 import javax.ejb.Local;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
-import zeroth.framework.standard.domain.ReferenceObject;
+import zeroth.framework.standard.domain.Persistable;
 /**
  * 拡張データ永続化サービスI/F(JPA2/CriteriaQuery)
  * <p>
  * クエリオブジェクト@PofEAA
  * </p>
- * @param <T> 参照オブジェクト型
+ * @param <T> エンティティ型
  * @param <ID> 識別子オブジェクト型
  * @author nilcy
  */
 @Local
-public interface QueryPersistenceService<T extends ReferenceObject<T, ID>, ID> extends
-    PersistenceService<T, ID> {
+public interface QueryPersistenceService<T extends Persistable<ID>, ID extends Serializable>
+    extends PersistenceService<T, ID> {
     /**
      * 標準ビルダーの取得
      * @return 標準ビルダー

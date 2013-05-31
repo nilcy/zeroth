@@ -4,15 +4,17 @@
 // http://www.gnu.org/licenses/agpl-3.0.txt
 // ========================================================================
 package zeroth.framework.enterprise.domain;
-import javax.persistence.metamodel.SingularAttribute;
-import javax.persistence.metamodel.StaticMetamodel;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 /**
- * 参照オブジェクトモデル
+ * テスト永続可能エンティティ
  * @author nilcy
  */
-// CHECKSTYLE:OFF
-@StaticMetamodel(AbstractReferenceObject.class)
-public class AbstractReferenceObject_ {
-    /** ID */
-    public static volatile SingularAttribute<AbstractReferenceObject<?>, Long> id;
+@Entity
+@Table(name = "TestPersistable")
+@SuppressWarnings("all")
+public class TestPersistable extends AbstractPersistable<TestPersistable> {
+    private static final long serialVersionUID = 3620864252783910657L;
+    public TestPersistable() {
+    }
 }

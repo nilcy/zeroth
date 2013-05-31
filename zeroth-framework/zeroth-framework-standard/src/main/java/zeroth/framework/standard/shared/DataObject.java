@@ -8,10 +8,9 @@ import java.io.Serializable;
 /**
  * データオブジェクトI/F
  * <p>
- * 参照オブジェクトと値オブジェクトは本I/Fを実装すること。 シリアライズとソートが可能である。
+ * 参照オブジェクトと値オブジェクトは本I/Fを実装すること。 シリアライズとクローンが可能である。
  * </p>
- * @param <T> データオブジェクト型
  * @author nilcy
  */
-public interface DataObject<T extends DataObject<T>> extends Serializable, Cloneable, Comparable<T> {
+public interface DataObject extends Serializable, Cloneable {
 }

@@ -7,7 +7,7 @@ package zeroth.framework.standard.domain;
 import java.io.Serializable;
 import java.util.Date;
 /**
- * 監査可能I/F
+ * 監査可能エンティティI/F
  * @param <U> 利用者オブジェクト型
  * @param <ID> 識別子オブジェクト型
  * @author nilcy

@@ -4,18 +4,19 @@
 // http://www.gnu.org/licenses/agpl-3.0.txt
 // ========================================================================
 package zeroth.framework.enterprise.infra.persistence;
+import java.io.Serializable;
 import javax.ejb.Local;
 import javax.persistence.Query;
-import zeroth.framework.standard.domain.ReferenceObject;
+import zeroth.framework.standard.domain.Persistable;
 /**
  * 原始データ永続化サービスI/F(JPA2/NativeQuery)
- * @param <T> 参照オブジェクト型
+ * @param <T> エンティティ型
  * @param <ID> 識別子オブジェクト型
  * @author nilcy
  */
 @Local
-public interface NativePersistenceService<T extends ReferenceObject<T, ID>, ID> extends
-    PersistenceService<T, ID> {
+public interface NativePersistenceService<T extends Persistable<ID>, ID extends Serializable>
+    extends PersistenceService<T, ID> {
     /**
      * クエリの作成
      * @param aSQL SQL

@@ -10,38 +10,50 @@ import java.util.Date;
 import org.junit.Before;
 import org.junit.Test;
 /**
- * {@link AbstractRevisedObject} のユニットテスト
+ * {@link AbstractAuditable} のユニットテスト
  * @author nilcy
  */
 @SuppressWarnings("all")
-public final class AbstractRevisedObjectTest {
-    private TestRevised testee;
+public final class AbstractAuditableTest {
+    private TestAuditable testee;
     private static final Date TODAY = new Date();
     @Before
     public void before() {
-        this.testee = new TestRevised();
+        this.testee = new TestAuditable();
     }
     @Test
     public void testAbstractRevisedObject() {
-        assertThat(new AbstractRevisedObject() {
+        assertThat(new AbstractAuditable() {
         }, is(not(nullValue())));
     }
     @Test
-    public void testGetSetCreated() {
-        assertThat(this.testee.getCreated(), is(nullValue()));
-        this.testee.setCreated(TODAY);
-        assertThat(this.testee.getCreated(), is(TODAY));
+    public void testGetSetCreatedBy() {
+        assertThat(this.testee.getCreatedBy(), is(nullValue()));
+        this.testee.setCreatedBy(1L);
+        assertThat(this.testee.getCreatedBy(), is(1L));
+    }
+    @Test
+    public void testGetSetCreatedDate() {
+        assertThat(this.testee.getCreatedDate(), is(nullValue()));
+        this.testee.setCreatedDate(TODAY);
+        assertThat(this.testee.getCreatedDate(), is(TODAY));
+    }
+    @Test
+    public void testGetSetLastModifiedBy() {
+        assertThat(this.testee.getLastModifiedBy(), is(nullValue()));
+        this.testee.setLastModifiedBy(1L);
+        assertThat(this.testee.getLastModifiedBy(), is(1L));
     }
     @Test
     public void testGetSetUpdated() {
-        assertThat(this.testee.getUpdated(), is(nullValue()));
-        this.testee.setUpdated(TODAY);
-        assertThat(this.testee.getUpdated(), is(TODAY));
+        assertThat(this.testee.getLastModifiedDate(), is(nullValue()));
+        this.testee.setLastModifiedDate(TODAY);
+        assertThat(this.testee.getLastModifiedDate(), is(TODAY));
     }
     @Test
     public void testSameIdentityAs() {
         assertThat(this.testee.sameIdentityAs(null), is(false));
-        final TestRevised other = new TestRevised();
+        final TestAuditable other = new TestAuditable();
         assertThat(this.testee.sameIdentityAs(other), is(true));
         this.testee.setId(0L);
         other.setId(0L);

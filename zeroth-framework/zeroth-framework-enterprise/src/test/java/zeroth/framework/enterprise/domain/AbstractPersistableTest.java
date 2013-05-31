@@ -9,26 +9,26 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 /**
- * {@link AbstractReferenceObject} のユニットテスト
+ * {@link AbstractPersistable} のユニットテスト
  * @author nilcy
  */
 @SuppressWarnings("all")
-public final class AbstractReferenceObjectTest {
+public final class AbstractPersistableTest {
     /** テスト用の参照オブジェクト */
-    private TestReference testee;
+    private TestPersistable testee;
     /** 初期処理 */
     @Before
     public void before() {
-        this.testee = new TestReference();
+        this.testee = new TestPersistable();
     }
-    /** {@link AbstractReferenceObject#AbstractReferenceObject()} のユニットテスト */
+    /** {@link AbstractPersistable#AbstractReferenceObject()} のユニットテスト */
     @Test
     public void testAbstractReferenceObject() {
         assertThat(this.testee, is(not(nullValue())));
     }
     /**
-     * {@link AbstractReferenceObject#getId()} と
-     * {@link AbstractReferenceObject#setId(Long)} のユニットテスト
+     * {@link AbstractPersistable#getId()} と
+     * {@link AbstractPersistable#setId(Long)} のユニットテスト
      */
     @Test
     public void testGetSetId() {
@@ -37,14 +37,14 @@ public final class AbstractReferenceObjectTest {
         assertThat(this.testee.getId(), is(Long.valueOf(0L)));
     }
     /**
-     * {@link AbstractReferenceObject#sameIdentityAs(AbstractReferenceObject)}
+     * {@link AbstractPersistable#sameIdentityAs(AbstractPersistable)}
      * のユニットテスト
      */
     @Test
     public void testSameIdentityAs() {
-        final TestReference nullObject = null;
+        final TestPersistable nullObject = null;
         assertThat(this.testee.sameIdentityAs(nullObject), is(false));
-        final TestReference other = new TestReference();
+        final TestPersistable other = new TestPersistable();
         assertThat(this.testee.sameIdentityAs(other), is(true));
         this.testee.setId(0L);
         other.setId(0L);

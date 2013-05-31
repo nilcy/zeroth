@@ -10,25 +10,26 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import org.apache.commons.lang3.builder.EqualsBuilder;
+import zeroth.framework.standard.domain.Persistable;
 import zeroth.framework.standard.domain.ReferenceObject;
 import zeroth.framework.standard.shared.AbstractDataObject;
 /**
- * 参照オブジェクト
- * @param <T> 参照オブジェクト型
+ * 永続可能エンティティ
+ * @param <T> 永続可能エンティティ型
  * @author nilcy
  */
 @MappedSuperclass
-public abstract class AbstractReferenceObject<T extends AbstractReferenceObject<T>> extends
-    AbstractDataObject<T> implements ReferenceObject<T, Long> {
+public abstract class AbstractPersistable<T extends AbstractPersistable<T>> extends
+    AbstractDataObject implements ReferenceObject<T, Long>, Persistable<Long> {
     /** 識別番号 */
     private static final long serialVersionUID = 6765184066419433024L;
-    /** ID */
+    /** 識別子(ID) */
     @Column
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     /** コンストラクタ */
-    public AbstractReferenceObject() {
+    public AbstractPersistable() {
     }
     /**
      * {@link #id} の取得
@@ -44,14 +45,16 @@ public abstract class AbstractReferenceObject<T extends AbstractReferenceObject<
     public void setId(final Long aId) {
         this.id = aId;
     }
-    /** {@inheritDoc} */
+    @Override
+    public Long identity() {
+        return this.id;
+    }
+    @Override
+    public boolean isPersisted() {
+        return false;
+    }
     @Override
     public boolean sameIdentityAs(final T aOther) {
         return (aOther != null) && new EqualsBuilder().append(this.id, aOther.getId()).isEquals();
-    }
-    /** {@inheritDoc} */
-    @Override
-    public Long identity() {
-        return getId();
     }
 }

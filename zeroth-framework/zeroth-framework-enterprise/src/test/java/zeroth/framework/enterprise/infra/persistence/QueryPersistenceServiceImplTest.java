@@ -36,7 +36,6 @@ public class QueryPersistenceServiceImplTest {
         final TestExample e01 = new TestExample("code01");
         this.testee.persist(e01);
         assertThat(e01.getId(), is(1L));
-        assertThat(e01.getVersion(), is(1L));
         assertThat(this.testee.contains(e01), is(true));
         final TestExample e01r = this.testee.find(1L);
         assertThat(e01r, is(e01));

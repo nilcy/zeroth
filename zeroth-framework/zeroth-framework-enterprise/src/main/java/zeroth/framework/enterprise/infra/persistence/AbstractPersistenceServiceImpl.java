@@ -4,16 +4,17 @@
 // http://www.gnu.org/licenses/agpl-3.0.txt
 // ========================================================================
 package zeroth.framework.enterprise.infra.persistence;
+import java.io.Serializable;
 import javax.persistence.EntityManager;
 import javax.persistence.LockModeType;
-import zeroth.framework.standard.domain.ReferenceObject;
+import zeroth.framework.standard.domain.Persistable;
 /**
  * 汎用データ操作
- * @param <T> 参照オブジェクト型
+ * @param <T> エンティティ型
  * @param <ID> 識別子オブジェクト型
  * @author nilcy
  */
-public abstract class AbstractPersistenceServiceImpl<T extends ReferenceObject<T, ID>, ID>
+public abstract class AbstractPersistenceServiceImpl<T extends Persistable<ID>, ID extends Serializable>
     implements PersistenceService<T, ID> {
     /** 識別番号 */
     private static final long serialVersionUID = -2663309706616831662L;

@@ -7,16 +7,13 @@ package zeroth.framework.enterprise.domain;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 /**
- * テスト参照オブジェクト
+ * テスト監査可能エンティティ
  * @author nilcy
  */
 @Entity
-@Table(name = "TEST_REFERENCE_OBJECT")
+@Table(name = "TestAuditable")
 // @SuppressWarnings("all")
-public class TestReference extends AbstractReferenceObject<TestReference> {
+public class TestAuditable extends AbstractAuditable<TestAuditable> {
     /** 識別番号 */
-    private static final long serialVersionUID = 3620864252783910657L;
-    /** コンストラクタ */
-    public TestReference() {
-    }
+    private static final long serialVersionUID = 3834376793666440948L;
 }

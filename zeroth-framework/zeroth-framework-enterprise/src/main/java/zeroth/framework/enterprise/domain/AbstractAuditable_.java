@@ -8,14 +8,18 @@ import java.util.Date;
 import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;
 /**
- * 改訂オブジェクトモデル
+ * 監査可能エンティティのメタモデル
  * @author nilcy
  */
 // CHECKSTYLE:OFF
-@StaticMetamodel(AbstractRevisedObject.class)
-public class AbstractRevisedObject_ extends AbstractVersionedObject_ {
+@StaticMetamodel(AbstractAuditable.class)
+public class AbstractAuditable_ extends AbstractPersistable_ {
+    /** 作成者(ID) */
+    public static volatile SingularAttribute<AbstractAuditable<?>, Long> createdBy;
     /** 登録日時 */
-    public static volatile SingularAttribute<AbstractRevisedObject<?>, Date> created;
+    public static volatile SingularAttribute<AbstractAuditable<?>, Date> createdDate;
+    /** 更新者(ID) */
+    public static volatile SingularAttribute<AbstractAuditable<?>, Long> lastModifiedBy;
     /** 更新日時 */
-    public static volatile SingularAttribute<AbstractRevisedObject<?>, Date> updated;
+    public static volatile SingularAttribute<AbstractAuditable<?>, Date> lastModifiedDate;
 }

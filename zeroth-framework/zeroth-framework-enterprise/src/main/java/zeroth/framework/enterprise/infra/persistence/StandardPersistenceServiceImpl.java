@@ -4,20 +4,21 @@
 // http://www.gnu.org/licenses/agpl-3.0.txt
 // ========================================================================
 package zeroth.framework.enterprise.infra.persistence;
+import java.io.Serializable;
 import javax.ejb.Stateless;
 import javax.enterprise.inject.Alternative;
 import javax.persistence.TypedQuery;
-import zeroth.framework.standard.domain.ReferenceObject;
+import zeroth.framework.standard.domain.Persistable;
 /**
  * 標準データ永続化サービス(JPA2/JPQL)
- * @param <T> 参照オブジェクト型
+ * @param <T> エンティティ型
  * @param <ID> 識別子オブジェクト型
  * @author nilcy
  */
 @Stateless
 @Alternative
-public class StandardPersistenceServiceImpl<T extends ReferenceObject<T, ID>, ID> extends
-    AbstractPersistenceServiceImpl<T, ID> implements StandardPersistenceService<T, ID> {
+public class StandardPersistenceServiceImpl<T extends Persistable<ID>, ID extends Serializable>
+    extends AbstractPersistenceServiceImpl<T, ID> implements StandardPersistenceService<T, ID> {
     /** 識別番号 */
     private static final long serialVersionUID = -1029454631523751121L;
     @Override

@@ -12,7 +12,7 @@ import javax.persistence.metamodel.StaticMetamodel;
  */
 // CHECKSTYLE:OFF
 @StaticMetamodel(TestExample.class)
-public class TestExample_ extends AbstractRevisedObject_ {
-    /** コード */
+@SuppressWarnings("all")
+public class TestExample_ extends AbstractAuditable_ {
     public static volatile SingularAttribute<TestExample, String> code;
 }

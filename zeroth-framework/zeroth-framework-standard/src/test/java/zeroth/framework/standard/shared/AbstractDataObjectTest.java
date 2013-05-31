@@ -45,19 +45,4 @@ public class AbstractDataObjectTest {
     public final void testHashCode() {
         assertThat(this.testee.hashCode(), is(not(nullValue())));
     }
-    @Test
-    public final void testCompareTo() {
-        final TestDataObject lessObject = new TestDataObject();
-        lessObject.setFoo("foo-00");
-        lessObject.setBar("bar-00");
-        assertThat(this.testee.compareTo(lessObject) > 0, is(true));
-        final TestDataObject eqObject = new TestDataObject();
-        eqObject.setFoo("foo-01");
-        eqObject.setBar("bar-01");
-        assertThat(this.testee.compareTo(eqObject) == 0, is(true));
-        final TestDataObject greaterObject = new TestDataObject();
-        greaterObject.setFoo("foo-02");
-        greaterObject.setBar("bar-02");
-        assertThat(this.testee.compareTo(greaterObject) < 0, is(true));
-    }
 }

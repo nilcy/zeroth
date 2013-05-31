@@ -4,82 +4,84 @@
 // http://www.gnu.org/licenses/agpl-3.0.txt
 // ========================================================================
 package zeroth.framework.enterprise.infra.persistence;
+import java.io.Serializable;
 import javax.persistence.EntityManager;
 import javax.persistence.LockModeType;
-import zeroth.framework.standard.domain.ReferenceObject;
+import zeroth.framework.standard.domain.Persistable;
 import zeroth.framework.standard.shared.Service;
 /**
  * 基本データ永続化サービスI/F
- * @param <T> 参照オブジェクト型
+ * @param <T> エンティティ型
  * @param <ID> 識別子オブジェクト型
  * @author nilcy
  */
-public abstract interface PersistenceService<T extends ReferenceObject<T, ID>, ID> extends Service {
+public abstract interface PersistenceService<T extends Persistable<ID>, ID extends Serializable>
+    extends Service {
     /**
      * 初期化
      * <p>
      * 本サービスのファクトリから実行すること。
      * </p>
-     * @param aClass 参照オブジェクトクラス
-     * @param aManager 参照オブジェクトマネージャ
+     * @param aClass エンティティクラス
+     * @param aManager エンティティマネージャ
      */
     void setup(final Class<T> aClass, EntityManager aManager);
     /**
-     * 参照オブジェクトの登録
-     * @param aReferenceObject 参照オブジェクト
+     * エンティティの登録
+     * @param aEntity エンティティ
      */
-    void persist(T aReferenceObject);
+    void persist(T aEntity);
     /**
-     * 参照オブジェクトの閲覧
+     * エンティティの閲覧
      * @param aId 識別子
-     * @return 参照オブジェクト
+     * @return エンティティ
      */
     T find(ID aId);
     /**
-     * 参照オブジェクトの閲覧
+     * エンティティの閲覧
      * @param aId 識別子
      * @param aLockModeType ロックモードタイプ
-     * @return 参照オブジェクト
+     * @return エンティティ
      */
     T find(Long aId, LockModeType aLockModeType);
     /**
-     * 参照オブジェクトの変更
-     * @param aReferenceObject 変更後の参照オブジェクト
+     * エンティティの変更
+     * @param aEntity 変更後のエンティティ
      */
-    void merge(T aReferenceObject);
+    void merge(T aEntity);
     /**
-     * 参照オブジェクトの削除
-     * @param aReferenceObject 参照オブジェクト
+     * エンティティの削除
+     * @param aEntity エンティティ
      */
-    void remove(T aReferenceObject);
+    void remove(T aEntity);
     /**
-     * 参照オブジェクトの更新
-     * @param aReferenceObject 参照オブジェクト
+     * エンティティの更新
+     * @param aEntity エンティティ
      */
-    void refresh(final T aReferenceObject);
+    void refresh(final T aEntity);
     /**
-     * 参照オブジェクトの更新
-     * @param aReferenceObject 参照オブジェクト
+     * エンティティの更新
+     * @param aEntity エンティティ
      * @param aLockModeType ロックモードタイプ
      */
-    void refresh(final T aReferenceObject, final LockModeType aLockModeType);
+    void refresh(final T aEntity, final LockModeType aLockModeType);
     /**
-     * 参照オブジェクトの保護
-     * @param aReferenceObject 参照オブジェクト
+     * エンティティの保護
+     * @param aEntity エンティティ
      * @param aLockModeType ロックモードタイプ
      */
-    void lock(final T aReferenceObject, LockModeType aLockModeType);
-    /** 参照オブジェクトの同期 */
+    void lock(final T aEntity, LockModeType aLockModeType);
+    /** エンティティの同期 */
     void flush();
     /**
-     * 参照オブジェクトの分離
-     * @param aReferenceObject 参照オブジェクト
+     * エンティティの分離
+     * @param aEntity エンティティ
      */
-    void detach(T aReferenceObject);
+    void detach(T aEntity);
     /**
-     * 参照オブジェクト含有の確認
-     * @param aReferenceObject 参照オブジェクト
+     * エンティティ含有の確認
+     * @param aEntity エンティティ
      * @return 含有するとき真。含有しないとき偽。
      */
-    boolean contains(final T aReferenceObject);
+    boolean contains(final T aEntity);
 }

@@ -7,12 +7,12 @@ package zeroth.framework.standard.shared;
 /**
  * 値オブジェクトI/F
  * <p>
- * 値オブジェクトは本I/Fを実装すること。 シリアライズとソートが可能である。
+ * 値オブジェクトは本I/Fを実装すること。
  * </p>
  * @param <T> 値オブジェクト型
  * @author nilcy
  */
-public interface ValueObject<T extends ValueObject<T>> extends DataObject<T> {
+public interface ValueObject<T extends ValueObject<T>> extends DataObject {
     /**
      * 同一性の確認
      * <p>

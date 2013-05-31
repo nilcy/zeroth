@@ -8,13 +8,13 @@ import zeroth.framework.standard.shared.DataObject;
 /**
  * 参照オブジェクトI/F (エンティティI/F)
  * <p>
- * 参照オブジェクトは本I/Fを実装すること。 シリアライズとソートが可能である。
+ * 参照オブジェクトは本I/Fを実装すること。
  * </p>
  * @param <T> 参照オブジェクト型
  * @param <ID> 識別子オブジェクト型
  * @author nilcy
  */
-public interface ReferenceObject<T extends ReferenceObject<T, ID>, ID> extends DataObject<T> {
+public interface ReferenceObject<T extends ReferenceObject<T, ID>, ID> extends DataObject {
     /**
      * 同一性の確認
      * <p>

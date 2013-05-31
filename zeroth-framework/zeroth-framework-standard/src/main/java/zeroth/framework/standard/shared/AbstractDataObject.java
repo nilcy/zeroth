@@ -5,7 +5,6 @@
 // ========================================================================
 package zeroth.framework.standard.shared;
 import static org.apache.commons.lang3.builder.ToStringStyle.*;
-import org.apache.commons.lang3.builder.CompareToBuilder;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
@@ -14,10 +13,9 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
  * <p>
  * データオブジェクトの基本的な機能を提供する。 参照オブジェクトと値オブジェクトは本クラスを継承すること。
  * </p>
- * @param <T> データオブジェクト型
  * @author nilcy
  */
-public abstract class AbstractDataObject<T extends AbstractDataObject<T>> implements DataObject<T> {
+public abstract class AbstractDataObject implements DataObject {
     /** 識別番号 */
     private static final long serialVersionUID = -4438164461402375117L;
     /** コンストラクタ */
@@ -55,20 +53,6 @@ public abstract class AbstractDataObject<T extends AbstractDataObject<T>> implem
     @Override
     public int hashCode() {
         return HashCodeBuilder.reflectionHashCode(this, true);
-    }
-    /**
-     * オブジェクトの順序検査
-     * <p>
-     * オブジェクトと比較対象オブジェクトの順序を比較する。一時フィールド(transient)も検査の対象とする。
-     * 比較するフィールドの順番を指定するとき {@link CompareToBuilder#append(Object, Object)}
-     * を使用してオーバーライドすること。
-     * </p>
-     * @param aOther 比較対象オブジェクト
-     * @return オブジェクトが比較対象オブジェクトより小さいとき負数、等しいときゼロ。大きいとき正数。
-     */
-    @Override
-    public int compareTo(final T aOther) {
-        return CompareToBuilder.reflectionCompare(this, aOther, true);
     }
     @Override
     public Object clone() throws CloneNotSupportedException {
