@@ -20,9 +20,9 @@ public interface Auditable<U, ID extends Serializable> extends Persistable<ID> {
     U getCreatedBy();
     /**
      * 作成者の設定
-     * @param aCreatedBy 作成者
+     * @param createdBy 作成者
      */
-    void setCreatedBy(U aCreatedBy);
+    void setCreatedBy(U createdBy);
     /**
      * 作成日時の取得
      * @return 作成日時の取得
@@ -30,9 +30,9 @@ public interface Auditable<U, ID extends Serializable> extends Persistable<ID> {
     Date getCreatedDate();
     /**
      * 作成日時の設定
-     * @param aCreatedDate 作成日時
+     * @param createdDate 作成日時
      */
-    void setCreatedDate(Date aCreatedDate);
+    void setCreatedDate(Date createdDate);
     /**
      * 最終更新者の取得
      * @return 最終更新者
@@ -40,9 +40,9 @@ public interface Auditable<U, ID extends Serializable> extends Persistable<ID> {
     U getLastModifiedBy();
     /**
      * 最終更新者の設定
-     * @param aLastModifiedBy 最終更新者
+     * @param lastModifiedBy 最終更新者
      */
-    void setLastModifiedBy(U aLastModifiedBy);
+    void setLastModifiedBy(U lastModifiedBy);
     /**
      * 最終更新日時の取得
      * @return 最終更新日時
@@ -50,7 +50,7 @@ public interface Auditable<U, ID extends Serializable> extends Persistable<ID> {
     Date getLastModifiedDate();
     /**
      * 最終更新日時の設定
-     * @param aLastModifiedDate 最終更新日時
+     * @param lastModifiedDate 最終更新日時
      */
-    void setLastModifiedDate(Date aLastModifiedDate);
+    void setLastModifiedDate(Date lastModifiedDate);
 }

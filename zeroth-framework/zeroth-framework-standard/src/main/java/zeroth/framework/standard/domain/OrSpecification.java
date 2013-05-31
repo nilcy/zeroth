@@ -11,22 +11,22 @@ package zeroth.framework.standard.domain;
  */
 public class OrSpecification<T> extends AbstractSpecification<T> {
     /** 仕様オブジェクト#1 */
-    private final Specification<T> specification1;
+    private final Specification<T> spec1;
     /** 仕様オブジェクト#2 */
-    private final Specification<T> specification2;
+    private final Specification<T> spec2;
     /**
      * 論理和(OR)仕様のコンストラクタ
-     * @param aSpecification1 仕様オブジェクト#1
-     * @param aSpecification2 仕様オブジェクト#2
+     * @param spec1 仕様オブジェクト#1
+     * @param spec2 仕様オブジェクト#2
      */
-    public OrSpecification(final Specification<T> aSpecification1,
-        final Specification<T> aSpecification2) {
-        this.specification1 = aSpecification1;
-        this.specification2 = aSpecification2;
+    public OrSpecification(final Specification<T> spec1,
+        final Specification<T> spec2) {
+        this.spec1 = spec1;
+        this.spec2 = spec2;
     }
     @Override
-    public boolean isSatisfiedBy(final T aObject) {
-        return this.specification1.isSatisfiedBy(aObject)
-            || this.specification2.isSatisfiedBy(aObject);
+    public boolean isSatisfiedBy(final T object) {
+        return this.spec1.isSatisfiedBy(object)
+            || this.spec2.isSatisfiedBy(object);
     }
 }

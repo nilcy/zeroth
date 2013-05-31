@@ -37,12 +37,12 @@ public abstract class AbstractDataObject implements DataObject {
      * <p>
      * オブジェクトと比較対象オブジェクトが等しいか検査する。一時フィールド(transient)も検査の対象とする。
      * </p>
-     * @param aOther 比較対象オブジェクト
+     * @param other 比較対象オブジェクト
      * @return オブジェクトと比較対象オブジェクトが等しいとき真。等しくないとき偽。
      */
     @Override
-    public boolean equals(final Object aOther) {
-        return EqualsBuilder.reflectionEquals(this, aOther, true);
+    public boolean equals(final Object other) {
+        return EqualsBuilder.reflectionEquals(this, other, true);
     }
     /**
      * オブジェクトのハッシュコード

@@ -11,16 +11,16 @@ package zeroth.framework.standard.domain;
  */
 public class NotSpecification<T> extends AbstractSpecification<T> {
     /** 仕様オブジェクト */
-    private final Specification<T> specification;
+    private final Specification<T> spec;
     /**
      * 否定(NOT)仕様のコンストラクタ
-     * @param aSpecification 仕様オブジェクト
+     * @param spec 仕様オブジェクト
      */
-    public NotSpecification(final Specification<T> aSpecification) {
-        this.specification = aSpecification;
+    public NotSpecification(final Specification<T> spec) {
+        this.spec = spec;
     }
     @Override
-    public boolean isSatisfiedBy(final T aObject) {
-        return !this.specification.isSatisfiedBy(aObject);
+    public boolean isSatisfiedBy(final T object) {
+        return !this.spec.isSatisfiedBy(object);
     }
 }

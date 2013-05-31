@@ -15,17 +15,16 @@ import javax.enterprise.inject.spi.InjectionPoint;
 @SuppressWarnings("static-method")
 public class LoggerProducer {
     /** コンストラクタ */
-    public LoggerProducer() {
-        super();
+    private LoggerProducer() {
     }
     /**
      * ロガーの作成
-     * @param aInjectionPoint 注入ポイント
+     * @param aPoint 注入ポイント
      * @return ロガー
      */
     @Produces
     @Default
-    Logger createLogger(final InjectionPoint aInjectionPoint) {
-        return Logger.getLogger(aInjectionPoint.getMember().getDeclaringClass().getName());
+    private Logger createLogger(final InjectionPoint aPoint) {
+        return Logger.getLogger(aPoint.getMember().getDeclaringClass().getName());
     }
 }

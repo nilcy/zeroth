@@ -13,8 +13,8 @@ import zeroth.framework.standard.shared.DataObject;
 public interface DomainEvent<T extends DomainEvent<T>> extends DataObject {
     /**
      * 同一性の確認
-     * @param aOther 比較するドメインイベント
+     * @param other 比較するドメインイベント
      * @return 同一なとき真。同一でないとき偽。
      */
-    boolean sameEventAs(T aOther);
+    boolean sameEventAs(T other);
 }

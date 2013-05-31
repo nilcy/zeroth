@@ -15,44 +15,44 @@ package zeroth.framework.standard.domain;
 public interface Specification<T> {
     /**
      * 仕様チェック
-     * @param aObject チェック対象オブジェクト
+     * @param object チェック対象オブジェクト
      * @return {@code aObject} が仕様を満たすとき {@code true}
      */
-    boolean isSatisfiedBy(T aObject);
+    boolean isSatisfiedBy(T object);
     /**
      * 論理積(AND)仕様の作成
-     * @param aSpecification 仕様オブジェクト
+     * @param spec 仕様オブジェクト
      * @return 論理積(AND)仕様
      */
-    Specification<T> and(Specification<T> aSpecification);
+    Specification<T> and(Specification<T> spec);
     /**
      * 論理和(OR)仕様の作成
-     * @param aSpecification 仕様オブジェクト
+     * @param spec 仕様オブジェクト
      * @return 論理和(OR)仕様
      */
-    Specification<T> or(Specification<T> aSpecification);
+    Specification<T> or(Specification<T> spec);
     /**
      * 否定(NOT)仕様の作成
-     * @param aSpecification 仕様オブジェクト
+     * @param spec 仕様オブジェクト
      * @return 否定(NOT)仕様
      */
-    Specification<T> not(Specification<T> aSpecification);
+    Specification<T> not(Specification<T> spec);
     /**
      * 排他的論理和(XOR)仕様の作成
-     * @param aSpecification 仕様オブジェクト
+     * @param spec 仕様オブジェクト
      * @return 排他的論理和(XOR)仕様
      */
-    Specification<T> xor(Specification<T> aSpecification);
+    Specification<T> xor(Specification<T> spec);
     /**
      * 否定論理積(NAND)仕様の作成
-     * @param aSpecification 仕様オブジェクト
+     * @param spec 仕様オブジェクト
      * @return 否定論理積(NAND)仕様
      */
-    Specification<T> nand(Specification<T> aSpecification);
+    Specification<T> nand(Specification<T> spec);
     /**
      * 否定論理和(NOR)仕様の作成
-     * @param aSpecification 仕様オブジェクト
+     * @param spec 仕様オブジェクト
      * @return 否定論理和(NOR)仕様
      */
-    Specification<T> nor(Specification<T> aSpecification);
+    Specification<T> nor(Specification<T> spec);
 }

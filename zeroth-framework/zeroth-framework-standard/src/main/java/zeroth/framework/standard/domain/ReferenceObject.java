@@ -20,10 +20,10 @@ public interface ReferenceObject<T extends ReferenceObject<T, ID>, ID> extends D
      * <p>
      * 参照オブジェクトの識別子から同一性を確認する。
      * </p>
-     * @param aOther 比較する参照オブジェクト
+     * @param object 比較する参照オブジェクト
      * @return 同一なとき真。同一でないとき偽。
      */
-    boolean sameIdentityAs(T aOther);
+    boolean sameIdentityAs(T object);
     /**
      * 識別子
      * @return 識別子

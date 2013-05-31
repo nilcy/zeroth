@@ -18,8 +18,8 @@ public interface ValueObject<T extends ValueObject<T>> extends DataObject {
      * <p>
      * 値オブジェクトの属性値から同一性を確認する。
      * </p>
-     * @param aOther 比較する値オブジェクト
+     * @param other 比較する値オブジェクト
      * @return 同一なとき真。同一でないとき偽。
      */
-    boolean sameValueAs(T aOther);
+    boolean sameValueAs(T other);
 }

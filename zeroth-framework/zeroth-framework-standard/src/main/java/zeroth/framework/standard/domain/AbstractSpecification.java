@@ -14,18 +14,18 @@ package zeroth.framework.standard.domain;
  */
 public abstract class AbstractSpecification<T> implements Specification<T> {
     @Override
-    public abstract boolean isSatisfiedBy(T aObject);
+    public abstract boolean isSatisfiedBy(T object);
     @Override
-    public Specification<T> and(final Specification<T> aSpecification) {
-        return new AndSpecification<>(this, aSpecification);
+    public Specification<T> and(final Specification<T> spec) {
+        return new AndSpecification<>(this, spec);
     }
     @Override
-    public Specification<T> or(final Specification<T> aSpecification) {
-        return new OrSpecification<>(this, aSpecification);
+    public Specification<T> or(final Specification<T> spec) {
+        return new OrSpecification<>(this, spec);
     }
     @Override
-    public Specification<T> not(final Specification<T> aSpecification) {
-        return new NotSpecification<>(aSpecification);
+    public Specification<T> not(final Specification<T> spec) {
+        return new NotSpecification<>(spec);
     }
     @Override
     public Specification<T> xor(final Specification<T> aSpecification) {

@@ -20,36 +20,36 @@ public class CommonUtils {
     }
     /**
      * 非NULLチェック
-     * @param aObject チェック対象オブジェクト
+     * @param object チェック対象オブジェクト
      * @return 非NULLオブジェクト
      * @throws NullPointerException チェック対象オブジェクトがNULLのとき
      */
-    public static <T> T notNull(final T aObject) {
-        return Validate.notNull(aObject);
+    public static <T> T notNull(final T object) {
+        return Validate.notNull(object);
     }
     /**
      * NULLセーフ変換
-     * @param aActual 対象オブジェクト
-     * @param aSafe NULLセーフオブジェクト
+     * @param object 対象オブジェクト
+     * @param defaultValue NULLセーフオブジェクト
      * @param <T> 対象オブジェクト型
      * @return 対象オブジェクトがNULLのときNULLセーフオブジェクト
      * @see ObjectUtils#defaultIfNull(Object, Object)
      */
-    public static <T> T nullSafe(final T aActual, final T aSafe) {
-        return ObjectUtils.defaultIfNull(aActual, aSafe);
+    public static <T> T nullSafe(final T object, final T defaultValue) {
+        return ObjectUtils.defaultIfNull(object, defaultValue);
     }
     /**
      * プロパティ一括コピー
      * <p>
      * オブジェクトの可視性は public でないとコピーできないことに注意すること。
      * </p>
-     * @param aOrig コピー元オブジェクト
-     * @param aDest コピー先オブジェクト
+     * @param origin コピー元オブジェクト
+     * @param destination コピー先オブジェクト
      * @throws StandardRuntimeException コピーできないとき
      */
-    public static void copyProperties(final Object aOrig, final Object aDest) {
+    public static void copyProperties(final Object origin, final Object destination) {
         try {
-            BeanUtils.copyProperties(aDest, aOrig);
+            BeanUtils.copyProperties(destination, origin);
         } catch (final IllegalAccessException e) {
             throw new StandardRuntimeException(e);
         } catch (final InvocationTargetException e) {
@@ -58,14 +58,14 @@ public class CommonUtils {
     }
     /**
      * プロパティ個別コピー
-     * @param aObject コピー対象オブジェクト
-     * @param aName プロパティ名
-     * @param aValue プロパティ値
+     * @param object コピー対象オブジェクト
+     * @param name プロパティ名
+     * @param value プロパティ値
      * @throws StandardRuntimeException コピーできないとき
      */
-    public static void copyProperty(final Object aObject, final String aName, final Object aValue) {
+    public static void copyProperty(final Object object, final String name, final Object value) {
         try {
-            BeanUtils.copyProperty(aObject, aName, aValue);
+            BeanUtils.copyProperty(object, name, value);
         } catch (final IllegalAccessException e) {
             throw new StandardRuntimeException(e);
         } catch (final InvocationTargetException e) {
@@ -74,18 +74,18 @@ public class CommonUtils {
     }
     /**
      * シャローコピー
-     * @param aObject コピー元オブジェクト
+     * @param object コピー元オブジェクト
      * @return シャローコピーしたオブジェクト
      */
-    public static <T extends Serializable> T shallowCopy(final T aObject) {
-        return ObjectUtils.clone(aObject);
+    public static <T extends Serializable> T shallowCopy(final T object) {
+        return ObjectUtils.clone(object);
     }
     /**
      * ディープコピー
-     * @param aObject コピー元オブジェクト
+     * @param object コピー元オブジェクト
      * @return ディープコピーしたオブジェクト
      */
-    public static <T extends Serializable> T deepCopy(final T aObject) {
-        return SerializationUtils.clone(aObject);
+    public static <T extends Serializable> T deepCopy(final T object) {
+        return SerializationUtils.clone(object);
     }
 }
