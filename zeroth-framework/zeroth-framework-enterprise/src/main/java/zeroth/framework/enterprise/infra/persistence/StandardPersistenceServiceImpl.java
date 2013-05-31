@@ -8,7 +8,7 @@ import java.io.Serializable;
 import javax.ejb.Stateless;
 import javax.enterprise.inject.Alternative;
 import javax.persistence.TypedQuery;
-import zeroth.framework.standard.domain.Persistable;
+import zeroth.framework.enterprise.domain.Persistable;
 /**
  * 標準データ永続化サービス(JPA2/JPQL)
  * @param <T> エンティティ型

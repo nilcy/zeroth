@@ -8,7 +8,7 @@ import java.io.Serializable;
 import javax.ejb.Stateless;
 import javax.enterprise.inject.Alternative;
 import javax.persistence.Query;
-import zeroth.framework.standard.domain.Persistable;
+import zeroth.framework.enterprise.domain.Persistable;
 /**
  * 拡張データ永続化サービス(JPA2/CriteriaQuery)
  * <p>

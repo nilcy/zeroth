@@ -6,14 +6,26 @@
 package zeroth.framework.enterprise.domain;
 import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;
+import javax.enterprise.inject.Produces;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import com.googlecode.jeeunit.JeeunitRunner;
+import com.googlecode.jeeunit.Transactional;
 /**
  * {@link AbstractPersistable} のユニットテスト
  * @author nilcy
  */
+@RunWith(JeeunitRunner.class)
+@Transactional
 @SuppressWarnings("all")
 public final class AbstractPersistableTest {
+    /** エンティティマネージャ */
+    @Produces
+    @PersistenceContext(unitName = "primary")
+    private EntityManager entityManager;
     /** テスト用の参照オブジェクト */
     private TestPersistable testee;
     /** 初期処理 */
@@ -37,8 +49,7 @@ public final class AbstractPersistableTest {
         assertThat(this.testee.getId(), is(Long.valueOf(0L)));
     }
     /**
-     * {@link AbstractPersistable#sameIdentityAs(AbstractPersistable)}
-     * のユニットテスト
+     * {@link AbstractPersistable#sameIdentityAs(AbstractPersistable)} のユニットテスト
      */
     @Test
     public void testSameIdentityAs() {
@@ -58,5 +69,16 @@ public final class AbstractPersistableTest {
         assertThat(this.testee.identity(), is(nullValue()));
         this.testee.setId(0L);
         assertThat(this.testee.identity(), is(0L));
+    }
+    @Test
+    public void testSetPersisted() {
+        assertThat(this.testee.isPersisted(), is(false));
+        this.entityManager.persist(this.testee);
+        this.entityManager.flush();
+        assertThat(this.testee.isPersisted(), is(true));
+        for (final TestPersistable o : this.entityManager.createQuery(
+            "select e from TestPersistable e", TestPersistable.class).getResultList()) {
+            assertThat(o.isPersisted(), is(true));
+        }
     }
 }

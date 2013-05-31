@@ -3,21 +3,21 @@
 // GNU AFFERO GENERAL PUBLIC LICENSE Version 3, 19 November 2007
 // http://www.gnu.org/licenses/agpl-3.0.txt
 // ========================================================================
-package zeroth.framework.enterprise.infra.persistence;
+package zeroth.framework.enterprise.domain;
 import java.util.Date;
 import java.util.logging.Logger;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
-import zeroth.framework.enterprise.domain.RevisedObject;
+import zeroth.framework.enterprise.domain.Auditable;
 /**
  * 改訂オブジェクトリスナー
  * @author nilcy
  */
-public class RevisedObjectListener {
+public class AuditableListener {
     /** ロガー */
     private final Logger log = Logger.getLogger(this.getClass().getName());
     /** コンストラクタ */
-    public RevisedObjectListener() {
+    public AuditableListener() {
     }
     /**
      * 登録の前処理
@@ -25,12 +25,12 @@ public class RevisedObjectListener {
      */
     @PrePersist
     public void prePersist(final Object aEntity) {
-        if (aEntity instanceof RevisedObject) {
-            final RevisedObject<?, ?> revisedObject = (RevisedObject<?, ?>) aEntity;
+        if (aEntity instanceof Auditable) {
+            final Auditable<?, ?> Auditable = (Auditable<?, ?>) aEntity;
             final Date now = new Date();
-            revisedObject.setCreated(now);
-            revisedObject.setUpdated(now);
-            this.log.info("PRE-PERSISTED! -> " + revisedObject);
+            Auditable.setCreatedDate(now);
+            Auditable.setLastModifiedDate(now);
+            this.log.info("PRE-PERSISTED! -> " + Auditable);
         }
     }
     /**
@@ -39,10 +39,10 @@ public class RevisedObjectListener {
      */
     @PreUpdate
     public void preUpdate(final Object aEntity) {
-        if (aEntity instanceof RevisedObject) {
-            final RevisedObject<?, ?> revisedObject = (RevisedObject<?, ?>) aEntity;
-            revisedObject.setUpdated(new Date());
-            this.log.info("PRE-UPDATED! -> " + revisedObject);
+        if (aEntity instanceof Auditable) {
+            final Auditable<?, ?> Auditable = (Auditable<?, ?>) aEntity;
+            Auditable.setLastModifiedDate(new Date());
+            this.log.info("PRE-UPDATED! -> " + Auditable);
         }
     }
 }

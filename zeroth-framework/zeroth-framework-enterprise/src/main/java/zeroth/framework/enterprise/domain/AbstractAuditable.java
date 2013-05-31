@@ -10,15 +10,13 @@ import javax.persistence.EntityListeners;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import zeroth.framework.enterprise.infra.persistence.RevisedObjectListener;
-import zeroth.framework.standard.domain.Auditable;
 /**
  * 監査可能エンティティ
  * @param <T> 監査可能エンティティ型
  * @author nilcy
  */
 @MappedSuperclass
-@EntityListeners(RevisedObjectListener.class)
+@EntityListeners(AuditableListener.class)
 public abstract class AbstractAuditable<T extends AbstractAuditable<T>> extends
     AbstractPersistable<T> implements Auditable<Long, Long> {
     /** 識別番号 */

@@ -7,7 +7,7 @@ package zeroth.framework.enterprise.infra.persistence;
 import java.io.Serializable;
 import javax.ejb.Local;
 import javax.persistence.TypedQuery;
-import zeroth.framework.standard.domain.Persistable;
+import zeroth.framework.enterprise.domain.Persistable;
 /**
  * 標準データ永続化サービスI/F(JPA2/JPQL)
  * @param <T> エンティティ型

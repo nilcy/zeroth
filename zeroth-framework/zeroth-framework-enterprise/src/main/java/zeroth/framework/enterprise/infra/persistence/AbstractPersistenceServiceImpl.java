@@ -7,7 +7,7 @@ package zeroth.framework.enterprise.infra.persistence;
 import java.io.Serializable;
 import javax.persistence.EntityManager;
 import javax.persistence.LockModeType;
-import zeroth.framework.standard.domain.Persistable;
+import zeroth.framework.enterprise.domain.Persistable;
 /**
  * 汎用データ操作
  * @param <T> エンティティ型

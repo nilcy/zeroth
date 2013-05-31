@@ -9,8 +9,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
+import javax.persistence.PostLoad;
+import javax.persistence.PostPersist;
+import javax.persistence.PostUpdate;
 import org.apache.commons.lang3.builder.EqualsBuilder;
-import zeroth.framework.standard.domain.Persistable;
 import zeroth.framework.standard.domain.ReferenceObject;
 import zeroth.framework.standard.shared.AbstractDataObject;
 /**
@@ -26,6 +28,7 @@ import zeroth.framework.standard.shared.AbstractDataObject;
  * @author nilcy
  */
 @MappedSuperclass
+// @EntityListeners(PersistableListener.class)
 public abstract class AbstractPersistable<T extends AbstractPersistable<T>> extends
     AbstractDataObject implements ReferenceObject<T, Long>, Persistable<Long> {
     /** 識別番号 */
@@ -35,6 +38,8 @@ public abstract class AbstractPersistable<T extends AbstractPersistable<T>> exte
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    /** 永続済 */
+    private boolean persisted = false;
     /** コンストラクタ */
     public AbstractPersistable() {
     }
@@ -58,11 +63,21 @@ public abstract class AbstractPersistable<T extends AbstractPersistable<T>> exte
     }
     @Override
     public boolean isPersisted() {
-        return false;
+        return this.persisted;
     }
     @Override
     public boolean sameIdentityAs(final T aOther) {
         return (aOther != null)
             && new EqualsBuilder().append(identity(), aOther.identity()).isEquals();
+    }
+    /**
+     * 永続済の設定
+     */
+    @PostPersist
+    @PostUpdate
+    @PostLoad
+    private void setPersisted() {
+        this.persisted = true;
+        System.out.println("=== PERSISTED ===");
     }
 }
