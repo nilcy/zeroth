@@ -18,8 +18,8 @@ public class AbstractAuditable_ extends AbstractPersistable_ {
     public static volatile SingularAttribute<AbstractAuditable<?>, Long> createdBy;
     /** 登録日時 */
     public static volatile SingularAttribute<AbstractAuditable<?>, Date> createdDate;
-    /** 更新者(ID) */
+    /** 最終更新者(ID) */
     public static volatile SingularAttribute<AbstractAuditable<?>, Long> lastModifiedBy;
-    /** 更新日時 */
+    /** 最終更新日時 */
     public static volatile SingularAttribute<AbstractAuditable<?>, Date> lastModifiedDate;
 }

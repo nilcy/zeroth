@@ -22,35 +22,24 @@ import com.googlecode.jeeunit.Transactional;
 @Transactional
 @SuppressWarnings("all")
 public final class AbstractPersistableTest {
-    /** エンティティマネージャ */
+    private TestPersistable testee;
     @Produces
     @PersistenceContext(unitName = "primary")
     private EntityManager entityManager;
-    /** テスト用の参照オブジェクト */
-    private TestPersistable testee;
-    /** 初期処理 */
     @Before
     public void before() {
         this.testee = new TestPersistable();
     }
-    /** {@link AbstractPersistable#AbstractReferenceObject()} のユニットテスト */
     @Test
     public void testAbstractReferenceObject() {
         assertThat(this.testee, is(not(nullValue())));
     }
-    /**
-     * {@link AbstractPersistable#getId()} と
-     * {@link AbstractPersistable#setId(Long)} のユニットテスト
-     */
     @Test
     public void testGetSetId() {
         assertThat(this.testee.getId(), is(nullValue()));
         this.testee.setId(Long.valueOf(0L));
         assertThat(this.testee.getId(), is(Long.valueOf(0L)));
     }
-    /**
-     * {@link AbstractPersistable#sameIdentityAs(AbstractPersistable)} のユニットテスト
-     */
     @Test
     public void testSameIdentityAs() {
         final TestPersistable nullObject = null;
@@ -71,7 +60,7 @@ public final class AbstractPersistableTest {
         assertThat(this.testee.identity(), is(0L));
     }
     @Test
-    public void testSetPersisted() {
+    public void testCallback() {
         assertThat(this.testee.isPersisted(), is(false));
         this.entityManager.persist(this.testee);
         this.entityManager.flush();

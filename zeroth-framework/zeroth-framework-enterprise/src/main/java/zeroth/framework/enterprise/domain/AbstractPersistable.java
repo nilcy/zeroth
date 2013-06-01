@@ -71,13 +71,12 @@ public abstract class AbstractPersistable<T extends AbstractPersistable<T>> exte
             && new EqualsBuilder().append(identity(), aOther.identity()).isEquals();
     }
     /**
-     * 永続済の設定
+     * 登録後/更新後/取得後のコールバック
      */
     @PostPersist
     @PostUpdate
     @PostLoad
     private void setPersisted() {
         this.persisted = true;
-        System.out.println("=== PERSISTED ===");
     }
 }
