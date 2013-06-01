@@ -17,6 +17,7 @@ public final class EntityManagerFactory {
     @PrimaryEntityManager
     @PersistenceContext(unitName = "primary")
     private EntityManager primaryEntityManager;
+    /** */
     // /** 補助エンティティマネージャ */
     // @Produces
     // @SecondaryEntityManager

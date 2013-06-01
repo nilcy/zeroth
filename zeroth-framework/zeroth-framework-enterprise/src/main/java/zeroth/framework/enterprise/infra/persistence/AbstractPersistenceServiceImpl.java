@@ -11,7 +11,7 @@ import javax.persistence.LockModeType;
 import javax.persistence.TypedQuery;
 import zeroth.framework.enterprise.domain.Persistable;
 /**
- * 汎用データ操作
+ * 基本データ永続化サービス
  * @param <T> エンティティ型
  * @param <ID> 識別子オブジェクト型
  * @author nilcy
@@ -20,9 +20,9 @@ public abstract class AbstractPersistenceServiceImpl<T extends Persistable<ID>, 
     implements PersistenceService<T, ID> {
     /** 識別番号 */
     private static final long serialVersionUID = -2663309706616831662L;
-    /** 参照オブジェクトクラス */
+    /** エンティティクラス */
     protected Class<T> clazz;
-    /** 参照オブジェクトマネージャ */
+    /** エンティティマネージャ */
     protected EntityManager manager;
     /** コンストラクタ */
     public AbstractPersistenceServiceImpl() {
