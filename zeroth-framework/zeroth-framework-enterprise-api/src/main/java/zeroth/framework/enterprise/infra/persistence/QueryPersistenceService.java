@@ -40,8 +40,8 @@ public interface QueryPersistenceService<T extends Persistable<ID>, ID extends S
     Root<T> root();
     /**
      * クエリの取得
-     * @param aQuery 標準クエリ
+     * @param query 標準クエリ
      * @return クエリ
      */
-    TypedQuery<T> createQuery(CriteriaQuery<T> aQuery);
+    TypedQuery<T> createQuery(CriteriaQuery<T> query);
 }

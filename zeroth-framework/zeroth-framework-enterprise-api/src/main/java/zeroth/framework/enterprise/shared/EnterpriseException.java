@@ -16,35 +16,35 @@ public class EnterpriseException extends Exception {
     }
     /**
      * コンストラクタ
-     * @param aMessage メッセージ
+     * @param message メッセージ
      */
-    public EnterpriseException(final String aMessage) {
-        super(aMessage);
+    public EnterpriseException(final String message) {
+        super(message);
     }
     /**
      * コンストラクタ
-     * @param aCause 例外クラス
+     * @param cause 例外クラス
      */
-    public EnterpriseException(final Throwable aCause) {
-        super(aCause);
+    public EnterpriseException(final Throwable cause) {
+        super(cause);
     }
     /**
      * コンストラクタ
-     * @param aMessage メッセージ
-     * @param aCause 例外クラス
+     * @param message メッセージ
+     * @param cause 例外クラス
      */
-    public EnterpriseException(final String aMessage, final Throwable aCause) {
-        super(aMessage, aCause);
+    public EnterpriseException(final String message, final Throwable cause) {
+        super(message, cause);
     }
     /**
      * コンストラクタ
-     * @param aMessage メッセージ
-     * @param aCause 例外クラス
-     * @param aEnableSuppression 抑制するか
-     * @param aWritableStackTrace スタックトレースが書き込み可能であるべきか
+     * @param message メッセージ
+     * @param cause 例外クラス
+     * @param enableSuppression 抑制するか
+     * @param writableStackTrace スタックトレースが書き込み可能であるべきか
      */
-    public EnterpriseException(final String aMessage, final Throwable aCause,
-        final boolean aEnableSuppression, final boolean aWritableStackTrace) {
-        super(aMessage, aCause, aEnableSuppression, aWritableStackTrace);
+    public EnterpriseException(final String message, final Throwable cause,
+        final boolean enableSuppression, final boolean writableStackTrace) {
+        super(message, cause, enableSuppression, writableStackTrace);
     }
 }

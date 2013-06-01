@@ -22,66 +22,66 @@ public abstract interface PersistenceService<T extends Persistable<ID>, ID exten
      * <p>
      * 本サービスのファクトリから実行すること。
      * </p>
-     * @param aClass エンティティクラス
-     * @param aManager エンティティマネージャ
+     * @param clazz エンティティクラス
+     * @param manager エンティティマネージャ
      */
-    void setup(final Class<T> aClass, EntityManager aManager);
+    void setup(final Class<T> clazz, EntityManager manager);
     /**
      * エンティティの登録
-     * @param aEntity エンティティ
+     * @param entity エンティティ
      */
-    void persist(T aEntity);
+    void persist(T entity);
     /**
      * エンティティの閲覧
-     * @param aId 識別子
+     * @param id 識別子
      * @return エンティティ
      */
-    T find(ID aId);
+    T find(ID id);
     /**
      * エンティティの閲覧
-     * @param aId 識別子
-     * @param aLockModeType ロックモードタイプ
+     * @param id 識別子
+     * @param lockModeType ロックモードタイプ
      * @return エンティティ
      */
-    T find(Long aId, LockModeType aLockModeType);
+    T find(Long id, LockModeType lockModeType);
     /**
      * エンティティの変更
-     * @param aEntity 変更後のエンティティ
+     * @param entity 変更後のエンティティ
      */
-    void merge(T aEntity);
+    void merge(T entity);
     /**
      * エンティティの削除
-     * @param aEntity エンティティ
+     * @param entity エンティティ
      */
-    void remove(T aEntity);
+    void remove(T entity);
     /**
      * エンティティの更新
-     * @param aEntity エンティティ
+     * @param entity エンティティ
      */
-    void refresh(final T aEntity);
+    void refresh(final T entity);
     /**
      * エンティティの更新
-     * @param aEntity エンティティ
-     * @param aLockModeType ロックモードタイプ
+     * @param entity エンティティ
+     * @param lockModeType ロックモードタイプ
      */
-    void refresh(final T aEntity, final LockModeType aLockModeType);
+    void refresh(final T entity, final LockModeType lockModeType);
     /**
      * エンティティの保護
-     * @param aEntity エンティティ
-     * @param aLockModeType ロックモードタイプ
+     * @param entity エンティティ
+     * @param lockModeType ロックモードタイプ
      */
-    void lock(final T aEntity, LockModeType aLockModeType);
+    void lock(final T entity, LockModeType lockModeType);
     /** エンティティの同期 */
     void flush();
     /**
      * エンティティの分離
-     * @param aEntity エンティティ
+     * @param entity エンティティ
      */
-    void detach(T aEntity);
+    void detach(T entity);
     /**
      * エンティティ含有の確認
-     * @param aEntity エンティティ
+     * @param entity エンティティ
      * @return 含有するとき真。含有しないとき偽。
      */
-    boolean contains(final T aEntity);
+    boolean contains(final T entity);
 }

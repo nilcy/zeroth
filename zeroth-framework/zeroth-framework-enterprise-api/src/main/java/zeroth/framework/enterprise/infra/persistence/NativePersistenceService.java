@@ -19,22 +19,22 @@ public interface NativePersistenceService<T extends Persistable<ID>, ID extends 
     extends PersistenceService<T, ID> {
     /**
      * クエリの作成
-     * @param aSQL SQL
+     * @param sql SQL
      * @return クエリ
      */
-    Query createNativeQuery(final String aSQL);
+    Query createNativeQuery(final String sql);
     /**
      * クエリの作成
-     * @param aSQL SQL
-     * @param aResultClass 結果格納クラス
+     * @param sql SQL
+     * @param resultClass 結果格納クラス
      * @return クエリ
      */
-    Query createNativeQuery(final String aSQL, final Class<?> aResultClass);
+    Query createNativeQuery(final String sql, final Class<?> resultClass);
     /**
      * クエリの作成
-     * @param aSQL SQL
-     * @param aResultSetMappingName 結果セットマッピング名
+     * @param sql SQL
+     * @param resultSetMappingName 結果セットマッピング名
      * @return クエリ
      */
-    Query createNativeQuery(final String aSQL, final String aResultSetMappingName);
+    Query createNativeQuery(final String sql, final String resultSetMappingName);
 }

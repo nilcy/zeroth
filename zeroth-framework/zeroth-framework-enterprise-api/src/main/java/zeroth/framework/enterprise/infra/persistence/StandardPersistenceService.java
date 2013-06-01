@@ -19,14 +19,14 @@ public interface StandardPersistenceService<T extends Persistable<ID>, ID extend
     extends PersistenceService<T, ID> {
     /**
      * クエリの作成
-     * @param aJPQL JPQL
+     * @param jpql JPQL
      * @return クエリ
      */
-    public TypedQuery<T> createQuery(final String aJPQL);
+    public TypedQuery<T> createQuery(final String jpql);
     /**
      * クエリの作成
-     * @param aQueryName クエリ名
+     * @param queryName クエリ名
      * @return クエリ
      */
-    public TypedQuery<T> createNamedQuery(final String aQueryName);
+    public TypedQuery<T> createNamedQuery(final String queryName);
 }

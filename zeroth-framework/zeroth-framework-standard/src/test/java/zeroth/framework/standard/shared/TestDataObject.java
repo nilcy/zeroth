@@ -24,10 +24,10 @@ public class TestDataObject extends AbstractDataObject {
     }
     /**
      * {@link #foo} の設定
-     * @param aFoo {@link #foo}
+     * @param foo {@link #foo}
      */
-    public void setFoo(final String aFoo) {
-        this.foo = aFoo;
+    public void setFoo(final String foo) {
+        this.foo = foo;
     }
     /**
      * {@link #bar} の取得
@@ -38,9 +38,9 @@ public class TestDataObject extends AbstractDataObject {
     }
     /**
      * {@link #bar} の設定
-     * @param aBar {@link #bar}
+     * @param bar {@link #bar}
      */
-    public void setBar(final String aBar) {
-        this.bar = aBar;
+    public void setBar(final String bar) {
+        this.bar = bar;
     }
 }
