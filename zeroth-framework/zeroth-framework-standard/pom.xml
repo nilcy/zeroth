@@ -11,7 +11,7 @@
   <artifactId>zeroth-framework-standard</artifactId>
   <packaging>jar</packaging>
   <name>zeroth-framework-standard</name>
-  <description>zero-th Framework Domain. Standard Module.</description>
+  <description>zeroth Framework Domain. Standard Module.</description>
   <dependencies>
     <dependency>
       <groupId>junit</groupId>

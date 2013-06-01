@@ -10,7 +10,7 @@
   </parent>
   <artifactId>zeroth-actor-command</artifactId>
   <name>zeroth-actor-command</name>
-  <description>zero-th Actor Domain. Command Line Interface Module.</description>
+  <description>zeroth Actor Domain. Command Line Interface Module.</description>
   <properties>
     <zeroth-framework-cui.version>0.0.1-SNAPSHOT</zeroth-framework-cui.version>
   </properties>

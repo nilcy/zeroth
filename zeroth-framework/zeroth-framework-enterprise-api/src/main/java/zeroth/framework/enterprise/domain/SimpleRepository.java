@@ -17,18 +17,18 @@ import zeroth.framework.standard.shared.ValueObject;
 public interface SimpleRepository<T extends Persistable<ID>, ID extends Serializable> extends
     Repository {
     /**
-     * エンティティの保存
+     * エンティティ保存
      * @param entity エンティティ
      */
     void save(T entity);
     /**
-     * エンティティのID検索
+     * エンティティ検索
      * @param id 識別子
      * @return エンティティ
      */
     T find(ID id);
     /**
-     * エンティティの単一検索
+     * 単一エンティティ検索
      * <p>
      * 一意制約(UK)をもとにした検索などに使用すること。
      * </p>
@@ -37,7 +37,7 @@ public interface SimpleRepository<T extends Persistable<ID>, ID extends Serializ
      */
     <V extends ValueObject<?>> T findOne(V condition);
     /**
-     * エンティティの複数検索
+     * 複数エンティティ検索
      * <p>
      * フィルタ条件などをもとにした検索などに使用すること。
      * </p>
@@ -46,7 +46,7 @@ public interface SimpleRepository<T extends Persistable<ID>, ID extends Serializ
      */
     <V extends ValueObject<?>> Collection<T> findMany(V condition);
     /**
-     * エンティティの削除
+     * エンティティ削除
      * @param entity エンティティ
      */
     void delete(T entity);

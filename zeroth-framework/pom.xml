@@ -10,7 +10,7 @@
   <artifactId>zeroth-framework</artifactId>
   <packaging>pom</packaging>
   <name>zeroth-framework</name>
-  <description>zero-th Framework Domain.</description>
+  <description>zeroth Framework Domain.</description>
   <modules>
     <module>zeroth-framework-coding</module>
     <module>zeroth-framework-testing</module>

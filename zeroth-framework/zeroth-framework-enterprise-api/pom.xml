@@ -10,7 +10,7 @@
   </parent>
   <artifactId>zeroth-framework-enterprise-api</artifactId>
   <name>zeroth-framework-enterprise-api</name>
-  <description>zero-th Framework Domain. Enterprise-API Module.</description>
+  <description>zeroth Framework Domain. Enterprise-API Module.</description>
   <properties>
     <zeroth-framework-standard.version>0.0.1-SNAPSHOT</zeroth-framework-standard.version>
   </properties>

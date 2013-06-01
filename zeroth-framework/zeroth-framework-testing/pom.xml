@@ -9,7 +9,7 @@
   </parent>
   <artifactId>zeroth-framework-testing</artifactId>
   <name>zeroth-framework-testing</name>
-  <description>zero-th Framework Domain. Testing Module.</description>
+  <description>zeroth Framework Domain. Testing Module.</description>
   <dependencies>
     <dependency>
       <groupId>junit</groupId>

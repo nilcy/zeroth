@@ -11,5 +11,5 @@
   <artifactId>zeroth-sales</artifactId>
   <packaging>pom</packaging>
   <name>zeroth-sales</name>
-  <description>zero-th Sales Domain.</description>
+  <description>zeroth Sales Domain.</description>
 </project>

@@ -9,7 +9,7 @@
   </parent>
   <artifactId>zeroth-framework-service</artifactId>
   <name>zeroth-framework-service</name>
-  <description>zero-th Framework Domain. Service Module.</description>
+  <description>zeroth Framework Domain. Service Module.</description>
   <properties>
     <zeroth-framework-service-api.version>0.0.1-SNAPSHOT</zeroth-framework-service-api.version>
   </properties>

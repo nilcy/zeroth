@@ -11,7 +11,7 @@
   <artifactId>zeroth-actor-screen</artifactId>
   <packaging>war</packaging>
   <name>zeroth-actor-screen</name>
-  <description>zero-th Actor Domain. Screen Module.</description>
+  <description>zeroth Actor Domain. Screen Module.</description>
   <properties>
     <zeroth-framework-screen.version>0.0.1-SNAPSHOT</zeroth-framework-screen.version>
     <zeroth-actor-service-api.version>0.0.1-SNAPSHOT</zeroth-actor-service-api.version>
