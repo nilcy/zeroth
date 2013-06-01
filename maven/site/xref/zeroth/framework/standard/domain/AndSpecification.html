@@ -21,23 +21,23 @@
 <a class="jxr_linenumber" name="11" href="#11">11</a>  <em class="jxr_javadoccomment"> */</em>
 <a class="jxr_linenumber" name="12" href="#12">12</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> AndSpecification&lt;T&gt; <strong class="jxr_keyword">extends</strong> AbstractSpecification&lt;T&gt; {
 <a class="jxr_linenumber" name="13" href="#13">13</a>      <em class="jxr_javadoccomment">/**</em><em class="jxr_javadoccomment"> 仕様オブジェクト#1 */</em>
-<a class="jxr_linenumber" name="14" href="#14">14</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">final</strong> Specification&lt;T&gt; specification1;
+<a class="jxr_linenumber" name="14" href="#14">14</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">final</strong> Specification&lt;T&gt; spec1;
 <a class="jxr_linenumber" name="15" href="#15">15</a>      <em class="jxr_javadoccomment">/**</em><em class="jxr_javadoccomment"> 仕様オブジェクト#2 */</em>
-<a class="jxr_linenumber" name="16" href="#16">16</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">final</strong> Specification&lt;T&gt; specification2;
+<a class="jxr_linenumber" name="16" href="#16">16</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">final</strong> Specification&lt;T&gt; spec2;
 <a class="jxr_linenumber" name="17" href="#17">17</a>      <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="18" href="#18">18</a>  <em class="jxr_javadoccomment">     * 論理積(AND)仕様のコンストラクタ</em>
-<a class="jxr_linenumber" name="19" href="#19">19</a>  <em class="jxr_javadoccomment">     * @param aSpecification1 仕様オブジェクト#1</em>
-<a class="jxr_linenumber" name="20" href="#20">20</a>  <em class="jxr_javadoccomment">     * @param aSpecification2 仕様オブジェクト#2</em>
+<a class="jxr_linenumber" name="19" href="#19">19</a>  <em class="jxr_javadoccomment">     * @param spec1 仕様オブジェクト#1</em>
+<a class="jxr_linenumber" name="20" href="#20">20</a>  <em class="jxr_javadoccomment">     * @param spec2 仕様オブジェクト#2</em>
 <a class="jxr_linenumber" name="21" href="#21">21</a>  <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="22" href="#22">22</a>      <strong class="jxr_keyword">public</strong> <a href="../../../../zeroth/framework/standard/domain/AndSpecification.html">AndSpecification</a>(<strong class="jxr_keyword">final</strong> Specification&lt;T&gt; aSpecification1,
-<a class="jxr_linenumber" name="23" href="#23">23</a>          <strong class="jxr_keyword">final</strong> Specification&lt;T&gt; aSpecification2) {
-<a class="jxr_linenumber" name="24" href="#24">24</a>          <strong class="jxr_keyword">this</strong>.specification1 = aSpecification1;
-<a class="jxr_linenumber" name="25" href="#25">25</a>          <strong class="jxr_keyword">this</strong>.specification2 = aSpecification2;
+<a class="jxr_linenumber" name="22" href="#22">22</a>      <strong class="jxr_keyword">public</strong> <a href="../../../../zeroth/framework/standard/domain/AndSpecification.html">AndSpecification</a>(<strong class="jxr_keyword">final</strong> Specification&lt;T&gt; spec1,
+<a class="jxr_linenumber" name="23" href="#23">23</a>          <strong class="jxr_keyword">final</strong> Specification&lt;T&gt; spec2) {
+<a class="jxr_linenumber" name="24" href="#24">24</a>          <strong class="jxr_keyword">this</strong>.spec1 = spec1;
+<a class="jxr_linenumber" name="25" href="#25">25</a>          <strong class="jxr_keyword">this</strong>.spec2 = spec2;
 <a class="jxr_linenumber" name="26" href="#26">26</a>      }
 <a class="jxr_linenumber" name="27" href="#27">27</a>      @Override
-<a class="jxr_linenumber" name="28" href="#28">28</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">boolean</strong> isSatisfiedBy(<strong class="jxr_keyword">final</strong> T aObject) {
-<a class="jxr_linenumber" name="29" href="#29">29</a>          <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">this</strong>.specification1.isSatisfiedBy(aObject)
-<a class="jxr_linenumber" name="30" href="#30">30</a>              &amp;&amp; <strong class="jxr_keyword">this</strong>.specification2.isSatisfiedBy(aObject);
+<a class="jxr_linenumber" name="28" href="#28">28</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">boolean</strong> isSatisfiedBy(<strong class="jxr_keyword">final</strong> T object) {
+<a class="jxr_linenumber" name="29" href="#29">29</a>          <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">this</strong>.spec1.isSatisfiedBy(object)
+<a class="jxr_linenumber" name="30" href="#30">30</a>              &amp;&amp; <strong class="jxr_keyword">this</strong>.spec2.isSatisfiedBy(object);
 <a class="jxr_linenumber" name="31" href="#31">31</a>      }
 <a class="jxr_linenumber" name="32" href="#32">32</a>  }
 </pre>
