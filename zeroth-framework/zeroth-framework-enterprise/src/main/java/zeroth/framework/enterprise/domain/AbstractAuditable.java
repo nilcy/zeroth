@@ -6,7 +6,6 @@
 package zeroth.framework.enterprise.domain;
 import java.util.Date;
 import javax.persistence.Column;
-import javax.persistence.EntityListeners;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
@@ -21,7 +20,6 @@ import javax.persistence.TemporalType;
  * @author nilcy
  */
 @MappedSuperclass
-@EntityListeners(AuditableListener.class)
 public abstract class AbstractAuditable<T extends AbstractAuditable<T>> extends
     AbstractPersistable<T> implements Auditable<Long, Long> {
     /** 識別番号 */
@@ -48,32 +46,32 @@ public abstract class AbstractAuditable<T extends AbstractAuditable<T>> extends
         return this.createdBy;
     }
     @Override
-    public void setCreatedBy(final Long aCreatedBy) {
-        this.createdBy = aCreatedBy;
+    public void setCreatedBy(final Long createdBy) {
+        this.createdBy = createdBy;
     }
     @Override
     public Date getCreatedDate() {
         return this.createdDate;
     }
     @Override
-    public void setCreatedDate(final Date aCreatedDate) {
-        this.createdDate = aCreatedDate;
+    public void setCreatedDate(final Date createdDate) {
+        this.createdDate = createdDate;
     }
     @Override
     public Long getLastModifiedBy() {
         return this.lastModifiedBy;
     }
     @Override
-    public void setLastModifiedBy(final Long aLastModifiedBy) {
-        this.lastModifiedBy = aLastModifiedBy;
+    public void setLastModifiedBy(final Long lastModifiedBy) {
+        this.lastModifiedBy = lastModifiedBy;
     }
     @Override
     public Date getLastModifiedDate() {
         return this.lastModifiedDate;
     }
     @Override
-    public void setLastModifiedDate(final Date aLastModifiedDate) {
-        this.lastModifiedDate = aLastModifiedDate;
+    public void setLastModifiedDate(final Date lastModifiedDate) {
+        this.lastModifiedDate = lastModifiedDate;
     }
     /**
      * 登録前コールバック

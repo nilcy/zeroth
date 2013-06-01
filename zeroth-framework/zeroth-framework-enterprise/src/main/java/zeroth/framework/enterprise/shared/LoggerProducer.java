@@ -20,12 +20,12 @@ public class LoggerProducer {
     }
     /**
      * ロガーの作成
-     * @param aInjectionPoint 注入ポイント
+     * @param point 注入ポイント
      * @return ロガー
      */
     @Produces
     @Default
-    Logger createLogger(final InjectionPoint aInjectionPoint) {
-        return Logger.getLogger(aInjectionPoint.getMember().getDeclaringClass().getName());
+    Logger createLogger(final InjectionPoint point) {
+        return Logger.getLogger(point.getMember().getDeclaringClass().getName());
     }
 }

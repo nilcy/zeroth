@@ -40,7 +40,7 @@ public class QueryPersistenceServiceImpl<T extends Persistable<ID>, ID extends S
         return query().from(this.clazz);
     }
     @Override
-    public TypedQuery<T> createQuery(final CriteriaQuery<T> aQuery) {
-        return this.manager.createQuery(aQuery);
+    public TypedQuery<T> createQuery(final CriteriaQuery<T> query) {
+        return this.manager.createQuery(query);
     }
 }

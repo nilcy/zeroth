@@ -23,9 +23,9 @@ public class TestValue extends AbstractValueObject<TestValue> {
     }
     /**
      * {@link #foo} の設定
-     * @param aFoo {@link #foo}
+     * @param foo {@link #foo}
      */
-    public void setFoo(final String aFoo) {
-        this.foo = aFoo;
+    public void setFoo(final String foo) {
+        this.foo = foo;
     }
 }

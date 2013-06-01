@@ -30,37 +30,37 @@ public class MailServiceImpl implements MailService {
     @Resource(name = "mail/primary")
     private Session session;
     @Override
-    public void setup(final Session aSession) {
-        this.session = aSession;
+    public void setup(final Session session) {
+        this.session = session;
     }
     @Override
-    public void send(final String aFrom, final String aTo, final String aSubject,
-        final Object aObjectBody, final String aContentType) throws EnterpriseException {
+    public void send(final String from, final String to, final String subject,
+        final Object objectBody, final String contentType) throws EnterpriseException {
         try {
-            final Message message = createMessage(aFrom, aTo, aSubject);
-            message.setContent(aObjectBody, aContentType);
+            final Message message = createMessage(from, to, subject);
+            message.setContent(objectBody, contentType);
             send(message);
         } catch (final MessagingException e) {
             throw new EnterpriseException(e);
         }
     }
     @Override
-    public void send(final String aFrom, final String aTo, final String aSubject,
-        final String aTextBody) throws EnterpriseException {
+    public void send(final String from, final String to, final String subject, final String textBody)
+        throws EnterpriseException {
         try {
-            final Message message = createMessage(aFrom, aTo, aSubject);
-            message.setContent(aTextBody, "text/plain");
+            final Message message = createMessage(from, to, subject);
+            message.setContent(textBody, "text/plain");
             send(message);
         } catch (final MessagingException e) {
             throw new EnterpriseException(e);
         }
     }
     @Override
-    public void send(final String aFrom, final String aTo, final String aSubject,
-        final Multipart aMultipartBody) throws EnterpriseException {
+    public void send(final String from, final String to, final String subject,
+        final Multipart multipartBody) throws EnterpriseException {
         try {
-            final Message message = createMessage(aFrom, aTo, aSubject);
-            message.setContent(aMultipartBody);
+            final Message message = createMessage(from, to, subject);
+            message.setContent(multipartBody);
             send(message);
         } catch (final MessagingException e) {
             throw new EnterpriseException(e);
@@ -68,20 +68,20 @@ public class MailServiceImpl implements MailService {
     }
     /**
      * メッセージの作成
-     * @param aFrom FROMアドレス
-     * @param aTo TOアドレス
-     * @param aSubject メール件名
+     * @param from FROMアドレス
+     * @param to TOアドレス
+     * @param subject メール件名
      * @return メッセージ
      * @throws EnterpriseException 指定アドレス、メッセージの例外
      */
-    private Message createMessage(final String aFrom, final String aTo, final String aSubject)
+    private Message createMessage(final String from, final String to, final String subject)
         throws EnterpriseException {
         Validate.notNull(this.session, "メールセッションはないといけません。");
         try {
             final Message message = new MimeMessage(this.session);
-            message.setFrom(new InternetAddress(aFrom));
-            message.addRecipient(Message.RecipientType.TO, new InternetAddress(aTo));
-            message.setSubject(aSubject);
+            message.setFrom(new InternetAddress(from));
+            message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
+            message.setSubject(subject);
             return message;
         } catch (final AddressException e) {
             throw new EnterpriseException(e);
@@ -91,12 +91,12 @@ public class MailServiceImpl implements MailService {
     }
     /**
      * メール送信
-     * @param aMessage メッセージ
+     * @param message メッセージ
      * @throws EnterpriseException メッセージの例外
      */
-    private static void send(final Message aMessage) throws EnterpriseException {
+    private static void send(final Message message) throws EnterpriseException {
         try {
-            Transport.send(aMessage);
+            Transport.send(message);
         } catch (final MessagingException e) {
             throw new EnterpriseException(e);
         }

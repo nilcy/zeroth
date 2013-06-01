@@ -21,7 +21,7 @@ public abstract class AbstractValueObject<T extends AbstractValueObject<T>> exte
     }
     /** {@inheritDoc} */
     @Override
-    public boolean sameValueAs(final T aOther) {
-        return EqualsBuilder.reflectionEquals(this, aOther, true);
+    public boolean sameValueAs(final T other) {
+        return EqualsBuilder.reflectionEquals(this, other, true);
     }
 }

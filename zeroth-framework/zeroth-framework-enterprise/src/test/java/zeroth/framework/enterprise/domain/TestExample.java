@@ -23,19 +23,19 @@ public class TestExample extends AbstractPersistable<TestExample> {
     private Long version;
     public TestExample() {
     }
-    public TestExample(final String aCode) {
-        this.code = aCode;
+    public TestExample(final String code) {
+        this.code = code;
     }
     public String getCode() {
         return this.code;
     }
-    public void setCode(final String aCode) {
-        this.code = aCode;
+    public void setCode(final String code) {
+        this.code = code;
     }
     public Long getVersion() {
         return this.version;
     }
-    public void setVersion(final Long aVersion) {
-        this.version = aVersion;
+    public void setVersion(final Long version) {
+        this.version = version;
     }
 }

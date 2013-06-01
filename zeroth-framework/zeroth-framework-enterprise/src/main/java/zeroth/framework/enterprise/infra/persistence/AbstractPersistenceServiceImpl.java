@@ -26,55 +26,55 @@ public abstract class AbstractPersistenceServiceImpl<T extends Persistable<ID>, 
     public AbstractPersistenceServiceImpl() {
     }
     @Override
-    public void setup(final Class<T> aClass, final EntityManager aManager) {
-        this.clazz = aClass;
-        this.manager = aManager;
+    public void setup(final Class<T> clazz, final EntityManager manager) {
+        this.clazz = clazz;
+        this.manager = manager;
     }
     @Override
-    public void persist(final T aReferenceObject) {
-        this.manager.persist(aReferenceObject);
+    public void persist(final T entity) {
+        this.manager.persist(entity);
         flush();
     }
     @Override
-    public T find(final ID aId) {
-        return this.manager.find(this.clazz, aId);
+    public T find(final ID id) {
+        return this.manager.find(this.clazz, id);
     }
     @Override
-    public T find(final Long aId, final LockModeType aLockModeType) {
-        return this.manager.find(this.clazz, aId, aLockModeType);
+    public T find(final Long id, final LockModeType lockModeType) {
+        return this.manager.find(this.clazz, id, lockModeType);
     }
     @Override
-    public void merge(final T aReferenceObject) {
-        this.manager.merge(aReferenceObject);
+    public void merge(final T entity) {
+        this.manager.merge(entity);
         flush();
     }
     @Override
-    public void remove(final T aReferenceObject) {
-        this.manager.remove(aReferenceObject);
+    public void remove(final T entity) {
+        this.manager.remove(entity);
         flush();
     }
     @Override
-    public void refresh(final T aReferenceObject) {
-        this.manager.refresh(aReferenceObject);
+    public void refresh(final T entity) {
+        this.manager.refresh(entity);
     }
     @Override
-    public void refresh(final T aReferenceObject, final LockModeType aLockModeType) {
-        this.manager.refresh(aReferenceObject, aLockModeType);
+    public void refresh(final T entity, final LockModeType lockModeType) {
+        this.manager.refresh(entity, lockModeType);
     }
     @Override
-    public void lock(final T aReferenceObject, final LockModeType aLockModeType) {
-        this.manager.lock(aReferenceObject, aLockModeType);
+    public void lock(final T entity, final LockModeType lockModeType) {
+        this.manager.lock(entity, lockModeType);
     }
     @Override
     public void flush() {
         this.manager.flush();
     }
     @Override
-    public void detach(final T aReferenceObject) {
-        this.manager.detach(aReferenceObject);
+    public void detach(final T entity) {
+        this.manager.detach(entity);
     }
     @Override
-    public boolean contains(final T aReferenceObject) {
-        return this.manager.contains(aReferenceObject);
+    public boolean contains(final T entity) {
+        return this.manager.contains(entity);
     }
 }

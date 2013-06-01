@@ -52,10 +52,10 @@ public abstract class AbstractPersistable<T extends AbstractPersistable<T>> exte
     }
     /**
      * {@link #id} の設定
-     * @param aId {@link #id}
+     * @param id {@link #id}
      */
-    public void setId(final Long aId) {
-        this.id = aId;
+    public void setId(final Long id) {
+        this.id = id;
     }
     @Override
     public Long identity() {
@@ -66,9 +66,9 @@ public abstract class AbstractPersistable<T extends AbstractPersistable<T>> exte
         return this.persisted;
     }
     @Override
-    public boolean sameIdentityAs(final T aOther) {
-        return (aOther != null)
-            && new EqualsBuilder().append(identity(), aOther.identity()).isEquals();
+    public boolean sameIdentityAs(final T other) {
+        return (other != null)
+            && new EqualsBuilder().append(identity(), other.identity()).isEquals();
     }
     /**
      * 登録後/更新後/取得後のコールバック
