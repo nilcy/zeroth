@@ -7,7 +7,7 @@ package zeroth.framework.enterprise.domain;
 import java.io.Serializable;
 /**
  * 永続可能エンティティI/F
- * @param <ID> エンティティ型
+ * @param <ID> 識別子オブジェクト型
  * @author nilcy
  */
 public interface Persistable<ID extends Serializable> extends Serializable {

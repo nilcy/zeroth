@@ -22,11 +22,11 @@ public interface StandardPersistenceService<T extends Persistable<ID>, ID extend
      * @param jpql JPQL
      * @return クエリ
      */
-    public TypedQuery<T> createQuery(final String jpql);
+    TypedQuery<T> createQuery(final String jpql);
     /**
      * クエリの作成
      * @param queryName クエリ名
      * @return クエリ
      */
-    public TypedQuery<T> createNamedQuery(final String queryName);
+    TypedQuery<T> createNamedQuery(final String queryName);
 }

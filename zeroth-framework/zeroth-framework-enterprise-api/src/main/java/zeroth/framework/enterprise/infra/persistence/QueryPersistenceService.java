@@ -39,7 +39,7 @@ public interface QueryPersistenceService<T extends Persistable<ID>, ID extends S
      */
     Root<T> root();
     /**
-     * クエリの取得
+     * クエリの作成
      * @param query 標準クエリ
      * @return クエリ
      */

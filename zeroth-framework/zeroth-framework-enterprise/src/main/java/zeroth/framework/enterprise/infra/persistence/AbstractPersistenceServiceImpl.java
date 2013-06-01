@@ -5,8 +5,10 @@
 // ========================================================================
 package zeroth.framework.enterprise.infra.persistence;
 import java.io.Serializable;
+import java.util.Collection;
 import javax.persistence.EntityManager;
 import javax.persistence.LockModeType;
+import javax.persistence.TypedQuery;
 import zeroth.framework.enterprise.domain.Persistable;
 /**
  * 汎用データ操作
@@ -76,5 +78,19 @@ public abstract class AbstractPersistenceServiceImpl<T extends Persistable<ID>, 
     @Override
     public boolean contains(final T entity) {
         return this.manager.contains(entity);
+    }
+    @Override
+    public TypedQuery<T> setRange(final TypedQuery<T> query, final int begin, final int max) {
+        return query.setFirstResult(begin).setMaxResults(max);
+    }
+    /** {@inheritDoc} */
+    @Override
+    public Collection<T> findMany(final TypedQuery<T> query) {
+        return query.getResultList();
+    }
+    /** {@inheritDoc} */
+    @Override
+    public T findOne(final TypedQuery<T> query) {
+        return query.getSingleResult();
     }
 }
