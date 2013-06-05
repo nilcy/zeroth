@@ -76,9 +76,9 @@ public class MailServiceImpl implements MailService {
      */
     private Message createMessage(final String from, final String to, final String subject)
         throws EnterpriseException {
-        Validate.notNull(this.session, "メールセッションはないといけません。");
+        Validate.notNull(session, "メールセッションはないといけません。");
         try {
-            final Message message = new MimeMessage(this.session);
+            final Message message = new MimeMessage(session);
             message.setFrom(new InternetAddress(from));
             message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
             message.setSubject(subject);

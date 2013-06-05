@@ -16,7 +16,6 @@ import javax.enterprise.inject.spi.InjectionPoint;
 public class LoggerProducer {
     /** コンストラクタ */
     public LoggerProducer() {
-        super();
     }
     /**
      * ロガーの作成

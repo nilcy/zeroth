@@ -23,10 +23,10 @@ public class StandardPersistenceServiceImpl<T extends Persistable<ID>, ID extend
     private static final long serialVersionUID = -1029454631523751121L;
     @Override
     public TypedQuery<T> createQuery(final String jpql) {
-        return this.manager.createQuery(jpql, super.clazz);
+        return manager.createQuery(jpql, super.clazz);
     }
     @Override
     public TypedQuery<T> createNamedQuery(final String queryName) {
-        return this.manager.createNamedQuery(queryName, super.clazz);
+        return manager.createNamedQuery(queryName, super.clazz);
     }
 }

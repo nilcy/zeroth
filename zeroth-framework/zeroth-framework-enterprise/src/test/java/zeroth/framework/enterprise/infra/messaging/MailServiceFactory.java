@@ -29,7 +29,7 @@ public final class MailServiceFactory {
      */
     @Produces
     public MailService createMailService() {
-        this.mailService.setup(this.session);
-        return this.mailService;
+        mailService.setup(session);
+        return mailService;
     }
 }

@@ -34,50 +34,50 @@ public abstract class AbstractPersistenceServiceImpl<T extends Persistable<ID>, 
     }
     @Override
     public void persist(final T entity) {
-        this.manager.persist(entity);
+        manager.persist(entity);
         flush();
     }
     @Override
     public T find(final ID id) {
-        return this.manager.find(this.clazz, id);
+        return manager.find(clazz, id);
     }
     @Override
     public T find(final Long id, final LockModeType lockModeType) {
-        return this.manager.find(this.clazz, id, lockModeType);
+        return manager.find(clazz, id, lockModeType);
     }
     @Override
     public void merge(final T entity) {
-        this.manager.merge(entity);
+        manager.merge(entity);
         flush();
     }
     @Override
     public void remove(final T entity) {
-        this.manager.remove(entity);
+        manager.remove(entity);
         flush();
     }
     @Override
     public void refresh(final T entity) {
-        this.manager.refresh(entity);
+        manager.refresh(entity);
     }
     @Override
     public void refresh(final T entity, final LockModeType lockModeType) {
-        this.manager.refresh(entity, lockModeType);
+        manager.refresh(entity, lockModeType);
     }
     @Override
     public void lock(final T entity, final LockModeType lockModeType) {
-        this.manager.lock(entity, lockModeType);
+        manager.lock(entity, lockModeType);
     }
     @Override
     public void flush() {
-        this.manager.flush();
+        manager.flush();
     }
     @Override
     public void detach(final T entity) {
-        this.manager.detach(entity);
+        manager.detach(entity);
     }
     @Override
     public boolean contains(final T entity) {
-        return this.manager.contains(entity);
+        return manager.contains(entity);
     }
     @Override
     public TypedQuery<T> setRange(final TypedQuery<T> query, final int begin, final int max) {

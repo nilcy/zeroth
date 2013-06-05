@@ -28,7 +28,7 @@ public class TestExampleValue extends AbstractValueObject<TestExampleValue> {
      * @return {@link #code}
      */
     public String getCode() {
-        return this.code;
+        return code;
     }
     /**
      * {@link #code} の設定

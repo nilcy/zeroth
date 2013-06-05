@@ -37,11 +37,10 @@ public class MailServiceImplTest {
     @Test
     @Ignore("the trustAnchors parameter must be non-empty")
     public final void testSend() throws EnterpriseException {
-        this.testee.send("zeroth.framework@gmail.com", "nilcy@mac.com", "test subject",
-            "object body", "text/plain");
-        this.testee
-            .send("zeroth.framework@gmail.com", "nilcy@mac.com", "test subject", "text body");
-        this.testee.send("zeroth.framework@gmail.com", "nilcy@mac.com", "test subject",
+        testee.send("zeroth.framework@gmail.com", "nilcy@mac.com", "test subject", "object body",
+            "text/plain");
+        testee.send("zeroth.framework@gmail.com", "nilcy@mac.com", "test subject", "text body");
+        testee.send("zeroth.framework@gmail.com", "nilcy@mac.com", "test subject",
             new MimeMultipart());
     }
 }

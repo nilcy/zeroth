@@ -43,7 +43,7 @@ public abstract class AbstractAuditable<T extends AbstractAuditable<T>> extends
     }
     @Override
     public Long getCreatedBy() {
-        return this.createdBy;
+        return createdBy;
     }
     @Override
     public void setCreatedBy(final Long createdBy) {
@@ -51,7 +51,7 @@ public abstract class AbstractAuditable<T extends AbstractAuditable<T>> extends
     }
     @Override
     public Date getCreatedDate() {
-        return this.createdDate;
+        return createdDate;
     }
     @Override
     public void setCreatedDate(final Date createdDate) {
@@ -59,7 +59,7 @@ public abstract class AbstractAuditable<T extends AbstractAuditable<T>> extends
     }
     @Override
     public Long getLastModifiedBy() {
-        return this.lastModifiedBy;
+        return lastModifiedBy;
     }
     @Override
     public void setLastModifiedBy(final Long lastModifiedBy) {
@@ -67,7 +67,7 @@ public abstract class AbstractAuditable<T extends AbstractAuditable<T>> extends
     }
     @Override
     public Date getLastModifiedDate() {
-        return this.lastModifiedDate;
+        return lastModifiedDate;
     }
     @Override
     public void setLastModifiedDate(final Date lastModifiedDate) {
@@ -82,8 +82,8 @@ public abstract class AbstractAuditable<T extends AbstractAuditable<T>> extends
     @PrePersist
     private void prePersist() {
         final Date now = new Date();
-        this.createdDate = now;
-        this.lastModifiedDate = now;
+        createdDate = now;
+        lastModifiedDate = now;
     }
     /**
      * 更新前コールバック
@@ -93,6 +93,6 @@ public abstract class AbstractAuditable<T extends AbstractAuditable<T>> extends
      */
     @PreUpdate
     private void preUpdate() {
-        this.lastModifiedDate = new Date();
+        lastModifiedDate = new Date();
     }
 }

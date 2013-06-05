@@ -17,22 +17,22 @@ public class AbstractValueObjectTest {
     private TestValue testee;
     @Before
     public void before() {
-        this.testee = new TestValue();
+        testee = new TestValue();
     }
     @Test
     public final void testAbstractValueObject() {
-        assertThat(this.testee, is(not(nullValue())));
+        assertThat(testee, is(not(nullValue())));
     }
     @Test
     public void testSameValueAs() {
-        assertThat(this.testee.sameValueAs(null), is(false));
+        assertThat(testee.sameValueAs(null), is(false));
         final TestValue other = new TestValue();
-        assertThat(this.testee.sameValueAs(other), is(true));
-        this.testee.setFoo("foo-00");
+        assertThat(testee.sameValueAs(other), is(true));
+        testee.setFoo("foo-00");
         other.setFoo("foo-00");
-        assertThat(this.testee.sameValueAs(other), is(true));
-        this.testee.setFoo("foo-00");
+        assertThat(testee.sameValueAs(other), is(true));
+        testee.setFoo("foo-00");
         other.setFoo("foo-01");
-        assertThat(this.testee.sameValueAs(other), is(false));
+        assertThat(testee.sameValueAs(other), is(false));
     }
 }

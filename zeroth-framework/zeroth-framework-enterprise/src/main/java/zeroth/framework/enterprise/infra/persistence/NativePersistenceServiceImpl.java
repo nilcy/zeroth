@@ -26,14 +26,14 @@ public class NativePersistenceServiceImpl<T extends Persistable<ID>, ID extends 
     private static final long serialVersionUID = -1029454631523751121L;
     @Override
     public Query createNativeQuery(final String sql) {
-        return this.manager.createNativeQuery(sql);
+        return manager.createNativeQuery(sql);
     }
     @Override
     public Query createNativeQuery(final String sql, final Class<?> resultClass) {
-        return this.manager.createNativeQuery(sql, resultClass);
+        return manager.createNativeQuery(sql, resultClass);
     }
     @Override
     public Query createNativeQuery(final String sql, final String resultSetMappingName) {
-        return this.manager.createNativeQuery(sql, resultSetMappingName);
+        return manager.createNativeQuery(sql, resultSetMappingName);
     }
 }

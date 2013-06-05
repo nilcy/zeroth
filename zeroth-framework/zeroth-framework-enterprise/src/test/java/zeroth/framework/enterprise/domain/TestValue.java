@@ -19,7 +19,7 @@ public class TestValue extends AbstractValueObject<TestValue> {
      * @return {@link #foo}
      */
     public String getFoo() {
-        return this.foo;
+        return foo;
     }
     /**
      * {@link #foo} の設定

@@ -30,7 +30,7 @@ public final class AbstractAuditableTest {
     private static final Date TODAY = new Date();
     @Before
     public void before() {
-        this.testee = new TestAuditable();
+        testee = new TestAuditable();
     }
     @Test
     public void testAbstractRevisedObject() {
@@ -39,54 +39,54 @@ public final class AbstractAuditableTest {
     }
     @Test
     public void testGetSetCreatedBy() {
-        assertThat(this.testee.getCreatedBy(), is(nullValue()));
-        this.testee.setCreatedBy(1L);
-        assertThat(this.testee.getCreatedBy(), is(1L));
+        assertThat(testee.getCreatedBy(), is(nullValue()));
+        testee.setCreatedBy(1L);
+        assertThat(testee.getCreatedBy(), is(1L));
     }
     @Test
     public void testGetSetCreatedDate() {
-        assertThat(this.testee.getCreatedDate(), is(nullValue()));
-        this.testee.setCreatedDate(TODAY);
-        assertThat(this.testee.getCreatedDate(), is(TODAY));
+        assertThat(testee.getCreatedDate(), is(nullValue()));
+        testee.setCreatedDate(TODAY);
+        assertThat(testee.getCreatedDate(), is(TODAY));
     }
     @Test
     public void testGetSetLastModifiedBy() {
-        assertThat(this.testee.getLastModifiedBy(), is(nullValue()));
-        this.testee.setLastModifiedBy(1L);
-        assertThat(this.testee.getLastModifiedBy(), is(1L));
+        assertThat(testee.getLastModifiedBy(), is(nullValue()));
+        testee.setLastModifiedBy(1L);
+        assertThat(testee.getLastModifiedBy(), is(1L));
     }
     @Test
     public void testGetSetUpdated() {
-        assertThat(this.testee.getLastModifiedDate(), is(nullValue()));
-        this.testee.setLastModifiedDate(TODAY);
-        assertThat(this.testee.getLastModifiedDate(), is(TODAY));
+        assertThat(testee.getLastModifiedDate(), is(nullValue()));
+        testee.setLastModifiedDate(TODAY);
+        assertThat(testee.getLastModifiedDate(), is(TODAY));
     }
     @Test
     public void testSameIdentityAs() {
-        assertThat(this.testee.sameIdentityAs(null), is(false));
+        assertThat(testee.sameIdentityAs(null), is(false));
         final TestAuditable other = new TestAuditable();
-        assertThat(this.testee.sameIdentityAs(other), is(true));
-        this.testee.setId(0L);
+        assertThat(testee.sameIdentityAs(other), is(true));
+        testee.setId(0L);
         other.setId(0L);
-        assertThat(this.testee.sameIdentityAs(other), is(true));
-        this.testee.setId(0L);
+        assertThat(testee.sameIdentityAs(other), is(true));
+        testee.setId(0L);
         other.setId(1L);
-        assertThat(this.testee.sameIdentityAs(other), is(false));
+        assertThat(testee.sameIdentityAs(other), is(false));
     }
     @Test
     public void testCallback() {
-        assertThat(this.testee.getCreatedDate(), is(nullValue()));
-        assertThat(this.testee.getLastModifiedDate(), is(nullValue()));
-        this.entityManager.persist(this.testee);
-        this.entityManager.flush();
-        assertThat(this.testee.getCreatedDate(), is(not(nullValue())));
-        assertThat(this.testee.getLastModifiedDate(), is(not(nullValue())));
-        assertThat(this.testee.getCreatedDate(), is(this.testee.getLastModifiedDate()));
-        for (final TestAuditable o : this.entityManager.createQuery(
-            "select e from TestAuditable e", TestAuditable.class).getResultList()) {
+        assertThat(testee.getCreatedDate(), is(nullValue()));
+        assertThat(testee.getLastModifiedDate(), is(nullValue()));
+        entityManager.persist(testee);
+        entityManager.flush();
+        assertThat(testee.getCreatedDate(), is(not(nullValue())));
+        assertThat(testee.getLastModifiedDate(), is(not(nullValue())));
+        assertThat(testee.getCreatedDate(), is(testee.getLastModifiedDate()));
+        for (final TestAuditable o : entityManager.createQuery("select e from TestAuditable e",
+            TestAuditable.class).getResultList()) {
             o.setLastModifiedBy(0L);
-            this.entityManager.merge(o);
-            this.entityManager.flush();
+            entityManager.merge(o);
+            entityManager.flush();
             assertThat(o.getCreatedDate(), is(not(o.getLastModifiedDate())));
         }
     }

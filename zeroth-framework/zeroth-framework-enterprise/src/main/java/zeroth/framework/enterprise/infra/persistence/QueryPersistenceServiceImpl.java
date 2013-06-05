@@ -29,18 +29,18 @@ public class QueryPersistenceServiceImpl<T extends Persistable<ID>, ID extends S
     private static final long serialVersionUID = 6451157743975586409L;
     @Override
     public CriteriaBuilder builder() {
-        return this.manager.getCriteriaBuilder();
+        return manager.getCriteriaBuilder();
     }
     @Override
     public CriteriaQuery<T> query() {
-        return builder().createQuery(this.clazz);
+        return builder().createQuery(clazz);
     }
     @Override
     public Root<T> root() {
-        return query().from(this.clazz);
+        return query().from(clazz);
     }
     @Override
     public TypedQuery<T> createQuery(final CriteriaQuery<T> query) {
-        return this.manager.createQuery(query);
+        return manager.createQuery(query);
     }
 }

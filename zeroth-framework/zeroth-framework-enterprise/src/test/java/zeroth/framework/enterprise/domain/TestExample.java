@@ -27,13 +27,13 @@ public class TestExample extends AbstractPersistable<TestExample> {
         this.code = code;
     }
     public String getCode() {
-        return this.code;
+        return code;
     }
     public void setCode(final String code) {
         this.code = code;
     }
     public Long getVersion() {
-        return this.version;
+        return version;
     }
     public void setVersion(final Long version) {
         this.version = version;

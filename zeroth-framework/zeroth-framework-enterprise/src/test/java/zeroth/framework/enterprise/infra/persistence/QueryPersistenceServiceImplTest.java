@@ -34,34 +34,34 @@ public class QueryPersistenceServiceImplTest {
     @Test
     public void testCRUD() {
         final TestExample e01 = new TestExample("code01");
-        this.testee.persist(e01);
+        testee.persist(e01);
         assertThat(e01.getId(), is(1L));
-        assertThat(this.testee.contains(e01), is(true));
-        final TestExample e01r = this.testee.find(1L);
+        assertThat(testee.contains(e01), is(true));
+        final TestExample e01r = testee.find(1L);
         assertThat(e01r, is(e01));
         e01r.setCode("code01#1");
-        this.testee.lock(e01r, LockModeType.PESSIMISTIC_READ);
-        this.testee.flush();
-        this.testee.refresh(e01r);
-        this.testee.refresh(e01r, LockModeType.PESSIMISTIC_WRITE);
-        this.testee.detach(e01r);
+        testee.lock(e01r, LockModeType.PESSIMISTIC_READ);
+        testee.flush();
+        testee.refresh(e01r);
+        testee.refresh(e01r, LockModeType.PESSIMISTIC_WRITE);
+        testee.detach(e01r);
         e01r.setCode("code01#2");
-        this.testee.merge(e01r);
-        this.testee.remove(this.testee.find(e01r.getId()));
-        assertThat(this.testee.find(1L, LockModeType.OPTIMISTIC), is(nullValue()));
+        testee.merge(e01r);
+        testee.remove(testee.find(e01r.getId()));
+        assertThat(testee.find(1L, LockModeType.OPTIMISTIC), is(nullValue()));
     }
     @Test
     public void testCriteria() {
-        final CriteriaBuilder b = this.testee.builder();
-        final CriteriaQuery<TestExample> q = this.testee.query();
-        final Root<TestExample> r = this.testee.root();
-        this.testee.persist(new TestExample("code01"));
-        this.testee.persist(new TestExample("code02"));
-        final TypedQuery<TestExample> typedQuery = this.testee
+        final CriteriaBuilder b = testee.builder();
+        final CriteriaQuery<TestExample> q = testee.query();
+        final Root<TestExample> r = testee.root();
+        testee.persist(new TestExample("code01"));
+        testee.persist(new TestExample("code02"));
+        final TypedQuery<TestExample> typedQuery = testee
             .createQuery(q.select(r).where(b.equal(r.get(code), "code01"))
                 .orderBy(b.asc(r.get(code))).groupBy(r.get(code)));
         for (final TestExample e : typedQuery.getResultList()) {
-            this.log.info("TestExampleObject >> " + e.toString());
+            log.info("TestExampleObject >> " + e.toString());
         }
     }
 }

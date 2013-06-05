@@ -30,7 +30,7 @@ public class QueryPersistenceServiceFactory {
      */
     @Produces
     public QueryPersistenceService<TestExample, Long> createTestExamplePersistenceService() {
-        this.testExamplePersistenceService.setup(TestExample.class, this.manager);
-        return this.testExamplePersistenceService;
+        testExamplePersistenceService.setup(TestExample.class, manager);
+        return testExamplePersistenceService;
     }
 }

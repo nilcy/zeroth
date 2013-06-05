@@ -28,7 +28,7 @@ public class EntityManagerFactoryTest {
     // private EntityManager entityManager2nd;
     @Test
     public void test() {
-        assertThat(this.entityManager1st, is(not(nullValue())));
+        assertThat(entityManager1st, is(not(nullValue())));
         // assertThat(this.entityManager2nd, is(nullValue()));
     }
 }

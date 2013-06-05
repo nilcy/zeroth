@@ -24,13 +24,13 @@ public class LoggerProducerTest {
     private Logger testee;
     @Test
     public void test() {
-        assertThat(this.testee, is(not(nullValue())));
-        this.testee.finest("FINEST");
-        this.testee.finer("FINER");
-        this.testee.fine("FINE");
-        this.testee.config("CONFIG");
-        this.testee.info("INFO");
-        this.testee.warning("WARNING");
-        this.testee.severe("SEVERE");
+        assertThat(testee, is(not(nullValue())));
+        testee.finest("FINEST");
+        testee.finer("FINER");
+        testee.fine("FINE");
+        testee.config("CONFIG");
+        testee.info("INFO");
+        testee.warning("WARNING");
+        testee.severe("SEVERE");
     }
 }
