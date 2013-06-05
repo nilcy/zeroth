@@ -11,6 +11,7 @@ import javax.inject.Inject;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import zeroth.framework.enterprise.infra.persistence.PersistenceService;
 import zeroth.framework.enterprise.infra.persistence.QueryPersistenceService;
@@ -41,6 +42,16 @@ public class TestExampleSimpleRepository extends
     public Collection<TestExample> findMany(final TestExampleValue filter) {
         return createQuery(filter).getResultList();
     }
+    /** {@inheritDoc} */
+    @Override
+    public long count(final TestExampleValue filter) {
+        final CriteriaBuilder b = service.builder();
+        final Root<TestExample> r = service.root();
+        return service
+            .createCountQuery(
+                b.createQuery(Long.class).select(b.count(r)).where(whereClause(filter, b, r)))
+            .getSingleResult().longValue();
+    }
     /**
      * クエリの作成
      * @param filter 抽出条件
@@ -50,7 +61,18 @@ public class TestExampleSimpleRepository extends
         final CriteriaBuilder b = service.builder();
         final CriteriaQuery<TestExample> q = service.query();
         final Root<TestExample> r = service.root();
-        return service.createQuery(q.select(r).where(b.equal(r.get(code), filter.getCode()))
+        return service.createQuery(q.select(r).where(whereClause(filter, b, r))
             .orderBy(b.asc(r.get(code))).groupBy(r.get(code)));
+    }
+    /**
+     * WHERE句の作成
+     * @param filter 検索条件
+     * @param builder 標準ビルダー
+     * @param root 標準ルート
+     * @return WHERE句
+     */
+    private static Predicate whereClause(final TestExampleValue filter,
+        final CriteriaBuilder builder, final Root<TestExample> root) {
+        return builder.equal(root.get(code), filter.getCode());
     }
 }

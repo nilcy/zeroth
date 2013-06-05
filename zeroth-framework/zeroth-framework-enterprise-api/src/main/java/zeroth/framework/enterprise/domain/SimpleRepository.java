@@ -12,7 +12,7 @@ import zeroth.framework.standard.shared.ValueObject;
  * 基本リポジトリI/F
  * @param <E> エンティティ型
  * @param <ID> 識別子オブジェクト型
- * @param <F> フィルタ型
+ * @param <F> 検索条件オブジェクト型
  * @author nilcy
  */
 public interface SimpleRepository<E extends Persistable<ID>, ID extends Serializable, F extends ValueObject<?>>
@@ -22,6 +22,11 @@ public interface SimpleRepository<E extends Persistable<ID>, ID extends Serializ
      * @param entity エンティティ
      */
     void save(E entity);
+    /**
+     * エンティティ削除
+     * @param entity エンティティ
+     */
+    void delete(E entity);
     /**
      * エンティティ検索
      * @param id 識別子
@@ -39,16 +44,14 @@ public interface SimpleRepository<E extends Persistable<ID>, ID extends Serializ
     E findOne(F filter);
     /**
      * 複数エンティティ検索
-     * <p>
-     * フィルタ条件などをもとにした検索などに使用すること。
-     * </p>
      * @param filter 検索条件
-     * @return エンティティ集合(該当オブジェクトがないとき空集合)
+     * @return 複数エンティティ(該当オブジェクトがないとき空集合)
      */
     Collection<E> findMany(F filter);
     /**
-     * エンティティ削除
-     * @param entity エンティティ
+     * エンティティ件数
+     * @param filter 検索条件
+     * @return 件数
      */
-    void delete(E entity);
+    long count(F filter);
 }

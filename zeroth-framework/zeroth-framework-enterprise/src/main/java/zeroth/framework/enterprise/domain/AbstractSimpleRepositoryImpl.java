@@ -37,6 +37,17 @@ public abstract class AbstractSimpleRepositoryImpl<T extends Persistable<ID>, ID
     /**
      * {@inheritDoc}
      * <p>
+     * データ永続化サービスでエンティティを削除して同期する。
+     * </p>
+     */
+    @Override
+    public void delete(final T entity) {
+        getPersistenceService().remove(entity);
+        getPersistenceService().flush();
+    }
+    /**
+     * {@inheritDoc}
+     * <p>
      * データ永続化サービスでエンティティを閲覧する。
      * </p>
      */
@@ -65,15 +76,14 @@ public abstract class AbstractSimpleRepositoryImpl<T extends Persistable<ID>, ID
         return Collections.emptyList();
     }
     /**
-     * {@inheritDoc}
+     * {@inheritDoc} *
      * <p>
-     * データ永続化サービスでエンティティを削除して同期する。
+     * 必要に応じてデータ永続化サービスを使用して実装すること。(実装しないと0)
      * </p>
      */
     @Override
-    public void delete(final T entity) {
-        getPersistenceService().remove(entity);
-        getPersistenceService().flush();
+    public long count(final F filter) {
+        return 0;
     }
     /**
      * データ永続化サービスの取得

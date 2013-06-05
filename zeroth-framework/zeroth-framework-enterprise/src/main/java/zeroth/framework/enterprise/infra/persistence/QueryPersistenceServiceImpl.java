@@ -43,4 +43,8 @@ public class QueryPersistenceServiceImpl<T extends Persistable<ID>, ID extends S
     public TypedQuery<T> createQuery(final CriteriaQuery<T> query) {
         return manager.createQuery(query);
     }
+    @Override
+    public TypedQuery<Long> createCountQuery(final CriteriaQuery<Long> query) {
+        return manager.createQuery(query);
+    }
 }

@@ -44,4 +44,10 @@ public interface QueryPersistenceService<T extends Persistable<ID>, ID extends S
      * @return クエリ
      */
     TypedQuery<T> createQuery(CriteriaQuery<T> query);
+    /**
+     * 件数クエリの作成
+     * @param query 標準クエリ
+     * @return 件数クエリ
+     */
+    TypedQuery<Long> createCountQuery(CriteriaQuery<Long> query);
 }

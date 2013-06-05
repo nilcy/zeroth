@@ -36,20 +36,23 @@ public class AbstractSimpleRepositoryImplTest {
         testee.save(ex00);
         assertThat(ex00.getId(), is(not(nullValue())));
         assertThat(ex00.getVersion(), is(not(nullValue())));
-        // エンティティ検索(ID)
+        // エンティティ検索
         final TestExample exId = testee.find(01L);
         assertThat(exId.getId(), is(ex00.getId()));
         assertThat(exId.getVersion(), is(ex00.getVersion()));
-        // エンティティ検索(単一)
+        // 単一エンティティ検索
         final TestExample exOne = testee.findOne(valueFactory.create("code-00"));
         assertThat(exOne.getId(), is(ex00.getId()));
         assertThat(exOne.getVersion(), is(ex00.getVersion()));
-        // エンティティ検索(複数)
+        // 複数エンティティ検索
         final Collection<TestExample> exMany = testee.findMany(valueFactory.create("code-00"));
         assertThat(exMany.size(), is(1));
         final TestExample exMany1 = exMany.iterator().next();
         assertThat(exMany1.getId(), is(ex00.getId()));
         assertThat(exMany1.getVersion(), is(ex00.getVersion()));
+        // エンティティ件数
+        final long count = testee.count(valueFactory.create("code-00"));
+        assertThat(count, is(1L));
         // エンティティ削除
         testee.delete(exId);
     }
