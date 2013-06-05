@@ -10,7 +10,7 @@
     <item>
       <title>File: 75,
              Errors: 0,
-             Warnings: 80,
+             Warnings: 104,
              Infos: 0
       </title>
             <link>http://nilcy.github.io/zeroth/maven/site//checkstyle.html</link>
@@ -63,7 +63,7 @@
                   0
                 </td>
                 <td>
-                  2
+                  1
                 </td>
                 <td>
                   0
@@ -217,7 +217,7 @@
                   0
                 </td>
                 <td>
-                  1
+                  2
                 </td>
                 <td>
                   0
@@ -455,7 +455,7 @@
                   0
                 </td>
                 <td>
-                  2
+                  0
                 </td>
                 <td>
                   0
@@ -539,7 +539,7 @@
                   0
                 </td>
                 <td>
-                  2
+                  6
                 </td>
                 <td>
                   0
@@ -595,7 +595,7 @@
                   0
                 </td>
                 <td>
-                  5
+                  12
                 </td>
                 <td>
                   0
@@ -707,7 +707,7 @@
                   0
                 </td>
                 <td>
-                  5
+                  7
                 </td>
                 <td>
                   0
@@ -777,7 +777,7 @@
                   0
                 </td>
                 <td>
-                  8
+                  21
                 </td>
                 <td>
                   0

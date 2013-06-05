@@ -8,9 +8,9 @@
     <language>en-us</language>
     <copyright>&#169;2013 nilcy</copyright>
     <item>
-      <title>File: 24,
+      <title>File: 23,
              Errors: 0,
-             Warnings: 12,
+             Warnings: 8,
              Infos: 0
       </title>
             <link>http://nilcy.github.io/zeroth/maven/site/zeroth-framework/zeroth-framework-enterprise-api//checkstyle.html</link>
@@ -49,20 +49,6 @@
                   0
                 </td>
                 <td>
-                  2
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="http://nilcy.github.io/zeroth/maven/site/zeroth-framework/zeroth-framework-enterprise-api//checkstyle.html#zeroth.framework.enterprise.infra.persistence.package-info.java">zeroth/framework/enterprise/infra/persistence/package-info.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
                   0
                 </td>
                 <td>
@@ -85,7 +71,7 @@
               </tr>
                           <tr>
                 <td>
-                  <a href="http://nilcy.github.io/zeroth/maven/site/zeroth-framework/zeroth-framework-enterprise-api//checkstyle.html#zeroth.framework.enterprise.infra.messaging.SecondaryMailSession.java">zeroth/framework/enterprise/infra/messaging/SecondaryMailSession.java</a>
+                  <a href="http://nilcy.github.io/zeroth/maven/site/zeroth-framework/zeroth-framework-enterprise-api//checkstyle.html#zeroth.framework.enterprise.infra.persistence.package-info.java">zeroth/framework/enterprise/infra/persistence/package-info.java</a>
                 </td>
                 <td>
                   0
@@ -99,13 +85,13 @@
               </tr>
                           <tr>
                 <td>
-                  <a href="http://nilcy.github.io/zeroth/maven/site/zeroth-framework/zeroth-framework-enterprise-api//checkstyle.html#zeroth.framework.enterprise.domain.AbstractSimpleRepositoryImpl.java">zeroth/framework/enterprise/domain/AbstractSimpleRepositoryImpl.java</a>
+                  <a href="http://nilcy.github.io/zeroth/maven/site/zeroth-framework/zeroth-framework-enterprise-api//checkstyle.html#zeroth.framework.enterprise.infra.messaging.SecondaryMailSession.java">zeroth/framework/enterprise/infra/messaging/SecondaryMailSession.java</a>
                 </td>
                 <td>
                   0
                 </td>
                 <td>
-                  2
+                  0
                 </td>
                 <td>
                   0

@@ -34,14 +34,14 @@
 <a class="jxr_linenumber" name="24" href="#24">24</a>      <strong class="jxr_keyword">private</strong> Logger testee;
 <a class="jxr_linenumber" name="25" href="#25">25</a>      @Test
 <a class="jxr_linenumber" name="26" href="#26">26</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> test() {
-<a class="jxr_linenumber" name="27" href="#27">27</a>          assertThat(<strong class="jxr_keyword">this</strong>.testee, is(not(nullValue())));
-<a class="jxr_linenumber" name="28" href="#28">28</a>          <strong class="jxr_keyword">this</strong>.testee.finest(<span class="jxr_string">"FINEST"</span>);
-<a class="jxr_linenumber" name="29" href="#29">29</a>          <strong class="jxr_keyword">this</strong>.testee.finer(<span class="jxr_string">"FINER"</span>);
-<a class="jxr_linenumber" name="30" href="#30">30</a>          <strong class="jxr_keyword">this</strong>.testee.fine(<span class="jxr_string">"FINE"</span>);
-<a class="jxr_linenumber" name="31" href="#31">31</a>          <strong class="jxr_keyword">this</strong>.testee.config(<span class="jxr_string">"CONFIG"</span>);
-<a class="jxr_linenumber" name="32" href="#32">32</a>          <strong class="jxr_keyword">this</strong>.testee.info(<span class="jxr_string">"INFO"</span>);
-<a class="jxr_linenumber" name="33" href="#33">33</a>          <strong class="jxr_keyword">this</strong>.testee.warning(<span class="jxr_string">"WARNING"</span>);
-<a class="jxr_linenumber" name="34" href="#34">34</a>          <strong class="jxr_keyword">this</strong>.testee.severe(<span class="jxr_string">"SEVERE"</span>);
+<a class="jxr_linenumber" name="27" href="#27">27</a>          assertThat(testee, is(not(nullValue())));
+<a class="jxr_linenumber" name="28" href="#28">28</a>          testee.finest(<span class="jxr_string">"FINEST"</span>);
+<a class="jxr_linenumber" name="29" href="#29">29</a>          testee.finer(<span class="jxr_string">"FINER"</span>);
+<a class="jxr_linenumber" name="30" href="#30">30</a>          testee.fine(<span class="jxr_string">"FINE"</span>);
+<a class="jxr_linenumber" name="31" href="#31">31</a>          testee.config(<span class="jxr_string">"CONFIG"</span>);
+<a class="jxr_linenumber" name="32" href="#32">32</a>          testee.info(<span class="jxr_string">"INFO"</span>);
+<a class="jxr_linenumber" name="33" href="#33">33</a>          testee.warning(<span class="jxr_string">"WARNING"</span>);
+<a class="jxr_linenumber" name="34" href="#34">34</a>          testee.severe(<span class="jxr_string">"SEVERE"</span>);
 <a class="jxr_linenumber" name="35" href="#35">35</a>      }
 <a class="jxr_linenumber" name="36" href="#36">36</a>  }
 </pre>
