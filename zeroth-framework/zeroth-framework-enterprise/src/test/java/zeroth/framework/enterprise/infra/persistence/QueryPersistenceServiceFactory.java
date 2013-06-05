@@ -29,7 +29,7 @@ public class QueryPersistenceServiceFactory {
      * @return {@link #testExamplePersistenceService}
      */
     @Produces
-    public QueryPersistenceService<TestExample, Long> createTestExampleObjectPersistenceService() {
+    public QueryPersistenceService<TestExample, Long> createTestExamplePersistenceService() {
         this.testExamplePersistenceService.setup(TestExample.class, this.manager);
         return this.testExamplePersistenceService;
     }

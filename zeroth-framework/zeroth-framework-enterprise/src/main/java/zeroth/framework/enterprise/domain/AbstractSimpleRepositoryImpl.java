@@ -8,16 +8,15 @@ import java.io.Serializable;
 import java.util.Collection;
 import java.util.Collections;
 import zeroth.framework.enterprise.infra.persistence.PersistenceService;
-import zeroth.framework.standard.shared.ValueObject;
 /**
  * 基本リポジトリ
  * @param <T> エンティティ型
  * @param <ID> 識別子オブジェクト型
- * @param <PS> データ永続化サービス型
+ * @param <F> フィルタ型
  * @author nilcy
  */
-public abstract class AbstractSimpleRepositoryImpl<T extends Persistable<ID>, ID extends Serializable, PS extends PersistenceService<T, ID>>
-    implements SimpleRepository<T, ID> {
+public abstract class AbstractSimpleRepositoryImpl<T extends Persistable<ID>, ID extends Serializable, F extends Object>
+    implements SimpleRepository<T, ID, F> {
     /** 識別番号 */
     private static final long serialVersionUID = -5578612922301298194L;
     /** コンストラクタ */
@@ -51,7 +50,7 @@ public abstract class AbstractSimpleRepositoryImpl<T extends Persistable<ID>, ID
      * </p>
      */
     @Override
-    public <V extends ValueObject<?>> T findOne(final V condition) {
+    public T findOne(final F filter) {
         return null;
     }
     /**
@@ -61,7 +60,7 @@ public abstract class AbstractSimpleRepositoryImpl<T extends Persistable<ID>, ID
      * </p>
      */
     @Override
-    public <V extends ValueObject<?>> Collection<T> findMany(final V condition) {
+    public Collection<T> findMany(final F filter) {
         return Collections.emptyList();
     }
     /**
@@ -79,5 +78,5 @@ public abstract class AbstractSimpleRepositoryImpl<T extends Persistable<ID>, ID
      * データ永続化サービスの取得
      * @return データ永続化サービス
      */
-    protected abstract PS getPersistenceService();
+    protected abstract PersistenceService<T, ID> getPersistenceService();
 }

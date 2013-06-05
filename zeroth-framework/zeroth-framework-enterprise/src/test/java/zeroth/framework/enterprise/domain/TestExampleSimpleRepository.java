@@ -4,15 +4,10 @@
 // http://www.gnu.org/licenses/agpl-3.0.txt
 // ========================================================================
 package zeroth.framework.enterprise.domain;
-import javax.persistence.metamodel.SingularAttribute;
-import javax.persistence.metamodel.StaticMetamodel;
 /**
- * テスト参照オブジェクトのメタモデル
+ * テストオブジェクト基本リポジトリI/F
  * @author nilcy
  */
-// CHECKSTYLE:OFF
-@StaticMetamodel(TestExample.class)
-@SuppressWarnings("all")
-public class TestExample_ extends AbstractAuditable_ {
-    public static volatile SingularAttribute<TestExample, String> code;
+public interface TestExampleSimpleRepository extends
+    SimpleRepository<TestExample, Long, TestExampleValue> {
 }
