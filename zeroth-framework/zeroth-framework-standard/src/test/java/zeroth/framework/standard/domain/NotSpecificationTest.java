@@ -17,9 +17,7 @@ public class NotSpecificationTest {
     private final FalseSpecification falseSpec = new FalseSpecification();
     @Test
     public final void testIsSatisfiedBy() {
-        assertThat(new NotSpecification<Object>(this.trueSpec).isSatisfiedBy(new Object()),
-            is(false));
-        assertThat(new NotSpecification<Object>(this.falseSpec).isSatisfiedBy(new Object()),
-            is(true));
+        assertThat(new NotSpecification<Object>(trueSpec).isSatisfiedBy(new Object()), is(false));
+        assertThat(new NotSpecification<Object>(falseSpec).isSatisfiedBy(new Object()), is(true));
     }
 }

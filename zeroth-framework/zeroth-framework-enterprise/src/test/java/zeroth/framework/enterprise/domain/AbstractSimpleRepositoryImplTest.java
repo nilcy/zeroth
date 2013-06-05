@@ -24,30 +24,33 @@ public class AbstractSimpleRepositoryImplTest {
     @Inject
     private TestExampleSimpleRepository testee;
     @Inject
+    private TestExampleFactory entityFactory;
+    @Inject
+    private TestExampleValueFactory valueFactory;
+    @Inject
     private Logger log;
     @Test
     public final void test() {
         // エンティティ保存
-        final TestExample ex00 = new TestExample("code-00");
-        this.testee.save(ex00);
+        final TestExample ex00 = entityFactory.create("code-00");
+        testee.save(ex00);
         assertThat(ex00.getId(), is(not(nullValue())));
         assertThat(ex00.getVersion(), is(not(nullValue())));
         // エンティティ検索(ID)
-        final TestExample exId = this.testee.find(01L);
+        final TestExample exId = testee.find(01L);
         assertThat(exId.getId(), is(ex00.getId()));
         assertThat(exId.getVersion(), is(ex00.getVersion()));
         // エンティティ検索(単一)
-        final TestExample exOne = this.testee.findOne(new TestExampleValue("code-00"));
+        final TestExample exOne = testee.findOne(valueFactory.create("code-00"));
         assertThat(exOne.getId(), is(ex00.getId()));
         assertThat(exOne.getVersion(), is(ex00.getVersion()));
         // エンティティ検索(複数)
-        final Collection<TestExample> exMany = this.testee
-            .findMany(new TestExampleValue("code-00"));
+        final Collection<TestExample> exMany = testee.findMany(valueFactory.create("code-00"));
         assertThat(exMany.size(), is(1));
         final TestExample exMany1 = exMany.iterator().next();
         assertThat(exMany1.getId(), is(ex00.getId()));
         assertThat(exMany1.getVersion(), is(ex00.getVersion()));
         // エンティティ削除
-        this.testee.delete(exId);
+        testee.delete(exId);
     }
 }

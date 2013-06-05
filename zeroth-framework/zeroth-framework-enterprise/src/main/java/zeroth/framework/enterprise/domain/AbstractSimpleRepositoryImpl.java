@@ -8,6 +8,7 @@ import java.io.Serializable;
 import java.util.Collection;
 import java.util.Collections;
 import zeroth.framework.enterprise.infra.persistence.PersistenceService;
+import zeroth.framework.standard.shared.ValueObject;
 /**
  * 基本リポジトリ
  * @param <T> エンティティ型
@@ -15,7 +16,7 @@ import zeroth.framework.enterprise.infra.persistence.PersistenceService;
  * @param <F> フィルタ型
  * @author nilcy
  */
-public abstract class AbstractSimpleRepositoryImpl<T extends Persistable<ID>, ID extends Serializable, F extends Object>
+public abstract class AbstractSimpleRepositoryImpl<T extends Persistable<ID>, ID extends Serializable, F extends ValueObject<?>>
     implements SimpleRepository<T, ID, F> {
     /** 識別番号 */
     private static final long serialVersionUID = -5578612922301298194L;

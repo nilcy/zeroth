@@ -17,17 +17,13 @@ public class OrSpecificationTest {
     private final FalseSpecification falseSpec = new FalseSpecification();
     @Test
     public final void testIsSatisfiedBy() {
-        assertThat(
-            new OrSpecification<Object>(this.trueSpec, this.trueSpec).isSatisfiedBy(new Object()),
+        assertThat(new OrSpecification<Object>(trueSpec, trueSpec).isSatisfiedBy(new Object()),
             is(true));
-        assertThat(
-            new OrSpecification<Object>(this.falseSpec, this.trueSpec).isSatisfiedBy(new Object()),
+        assertThat(new OrSpecification<Object>(falseSpec, trueSpec).isSatisfiedBy(new Object()),
             is(true));
-        assertThat(
-            new OrSpecification<Object>(this.trueSpec, this.falseSpec).isSatisfiedBy(new Object()),
+        assertThat(new OrSpecification<Object>(trueSpec, falseSpec).isSatisfiedBy(new Object()),
             is(true));
-        assertThat(
-            new OrSpecification<Object>(this.falseSpec, this.falseSpec).isSatisfiedBy(new Object()),
+        assertThat(new OrSpecification<Object>(falseSpec, falseSpec).isSatisfiedBy(new Object()),
             is(false));
     }
 }

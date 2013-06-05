@@ -20,7 +20,7 @@ public class TestDataObject extends AbstractDataObject {
      * @return {@link #foo}
      */
     public String getFoo() {
-        return this.foo;
+        return foo;
     }
     /**
      * {@link #foo} の設定
@@ -34,7 +34,7 @@ public class TestDataObject extends AbstractDataObject {
      * @return {@link #bar}
      */
     public String getBar() {
-        return this.bar;
+        return bar;
     }
     /**
      * {@link #bar} の設定

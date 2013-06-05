@@ -17,18 +17,13 @@ public class XorSpecificationTest {
     private final FalseSpecification falseSpec = new FalseSpecification();
     @Test
     public final void testIsSatisfiedBy() {
-        assertThat(
-            new XorSpecification<Object>(this.trueSpec, this.trueSpec).isSatisfiedBy(new Object()),
+        assertThat(new XorSpecification<Object>(trueSpec, trueSpec).isSatisfiedBy(new Object()),
             is(false));
-        assertThat(
-            new XorSpecification<Object>(this.falseSpec, this.trueSpec).isSatisfiedBy(new Object()),
+        assertThat(new XorSpecification<Object>(falseSpec, trueSpec).isSatisfiedBy(new Object()),
             is(true));
-        assertThat(
-            new XorSpecification<Object>(this.trueSpec, this.falseSpec).isSatisfiedBy(new Object()),
+        assertThat(new XorSpecification<Object>(trueSpec, falseSpec).isSatisfiedBy(new Object()),
             is(true));
-        assertThat(
-            new XorSpecification<Object>(this.falseSpec, this.falseSpec)
-                .isSatisfiedBy(new Object()),
+        assertThat(new XorSpecification<Object>(falseSpec, falseSpec).isSatisfiedBy(new Object()),
             is(false));
     }
 }

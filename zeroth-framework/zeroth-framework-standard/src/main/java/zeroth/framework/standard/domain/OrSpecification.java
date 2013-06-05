@@ -19,14 +19,12 @@ public class OrSpecification<T> extends AbstractSpecification<T> {
      * @param spec1 仕様オブジェクト#1
      * @param spec2 仕様オブジェクト#2
      */
-    public OrSpecification(final Specification<T> spec1,
-        final Specification<T> spec2) {
+    public OrSpecification(final Specification<T> spec1, final Specification<T> spec2) {
         this.spec1 = spec1;
         this.spec2 = spec2;
     }
     @Override
     public boolean isSatisfiedBy(final T object) {
-        return this.spec1.isSatisfiedBy(object)
-            || this.spec2.isSatisfiedBy(object);
+        return this.spec1.isSatisfiedBy(object) || this.spec2.isSatisfiedBy(object);
     }
 }

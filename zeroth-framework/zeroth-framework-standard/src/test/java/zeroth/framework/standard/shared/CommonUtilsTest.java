@@ -68,20 +68,20 @@ public final class CommonUtilsTest {
             super();
         }
         public Fuga(final String aFoo, final String aBar) {
-            this.foo = aFoo;
-            this.bar = aBar;
+            foo = aFoo;
+            bar = aBar;
         }
         public String getFoo() {
-            return this.foo;
+            return foo;
         }
         public void setFoo(final String aFoo) {
-            this.foo = aFoo;
+            foo = aFoo;
         }
         public String getBar() {
-            return this.bar;
+            return bar;
         }
         public void setBar(final String aBar) {
-            this.bar = aBar;
+            bar = aBar;
         }
     }
     public class Hoge extends AbstractDataObject {
@@ -91,22 +91,22 @@ public final class CommonUtilsTest {
         public Hoge() {
         }
         public String getFoo() {
-            return this.foo;
+            return foo;
         }
         public void setFoo(final String aFoo) {
-            this.foo = aFoo;
+            foo = aFoo;
         }
         public String getBar() {
-            return this.bar;
+            return bar;
         }
         public void setBar(final String aBar) {
-            this.bar = aBar;
+            bar = aBar;
         }
         public String getBaz() {
-            return this.baz;
+            return baz;
         }
         public void setBaz(final String aBaz) {
-            this.baz = aBaz;
+            baz = aBaz;
         }
     }
 }

@@ -13,6 +13,9 @@ public class TestExampleValue extends AbstractValueObject<TestExampleValue> {
     private static final long serialVersionUID = -5878383282091462127L;
     /** コード */
     private String code;
+    /** コンストラクタ */
+    public TestExampleValue() {
+    }
     /**
      * コンストラクタ
      * @param code コード

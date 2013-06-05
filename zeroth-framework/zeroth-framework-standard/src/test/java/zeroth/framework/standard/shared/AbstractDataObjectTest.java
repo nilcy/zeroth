@@ -19,8 +19,8 @@ public class AbstractDataObjectTest {
     private final TestDataObject testee = new TestDataObject();
     @Before
     public void before() {
-        this.testee.setFoo("foo-01");
-        this.testee.setBar("bar-01");
+        testee.setFoo("foo-01");
+        testee.setBar("bar-01");
     }
     @Test
     public final void testAbstractDataObject() {
@@ -28,21 +28,21 @@ public class AbstractDataObjectTest {
     }
     @Test
     public final void testToString() {
-        assertThat(this.testee.toString(), is("TestDataObject[foo=foo-01,bar=bar-01]"));
+        assertThat(testee.toString(), is("TestDataObject[foo=foo-01,bar=bar-01]"));
     }
     @Test
     public final void testEqualsObject() {
         final TestDataObject eqObject = new TestDataObject();
         eqObject.setFoo("foo-01");
         eqObject.setBar("bar-01");
-        assertThat(this.testee.equals(eqObject), is(true));
+        assertThat(testee.equals(eqObject), is(true));
         final TestDataObject neqObject = new TestDataObject();
         neqObject.setFoo("foo-02");
         neqObject.setBar("bar-02");
-        assertThat(this.testee.equals(neqObject), is(false));
+        assertThat(testee.equals(neqObject), is(false));
     }
     @Test
     public final void testHashCode() {
-        assertThat(this.testee.hashCode(), is(not(nullValue())));
+        assertThat(testee.hashCode(), is(not(nullValue())));
     }
 }

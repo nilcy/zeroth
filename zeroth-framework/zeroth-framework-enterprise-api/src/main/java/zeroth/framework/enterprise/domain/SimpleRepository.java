@@ -7,6 +7,7 @@ package zeroth.framework.enterprise.domain;
 import java.io.Serializable;
 import java.util.Collection;
 import zeroth.framework.standard.domain.Repository;
+import zeroth.framework.standard.shared.ValueObject;
 /**
  * 基本リポジトリI/F
  * @param <E> エンティティ型
@@ -14,7 +15,7 @@ import zeroth.framework.standard.domain.Repository;
  * @param <F> フィルタ型
  * @author nilcy
  */
-public interface SimpleRepository<E extends Persistable<ID>, ID extends Serializable, F extends Object>
+public interface SimpleRepository<E extends Persistable<ID>, ID extends Serializable, F extends ValueObject<?>>
     extends Repository {
     /**
      * エンティティ保存

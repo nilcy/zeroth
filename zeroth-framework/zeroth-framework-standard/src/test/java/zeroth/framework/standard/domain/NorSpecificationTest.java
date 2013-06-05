@@ -17,18 +17,13 @@ public class NorSpecificationTest {
     private final FalseSpecification falseSpec = new FalseSpecification();
     @Test
     public final void testIsSatisfiedBy() {
-        assertThat(
-            new NorSpecification<Object>(this.trueSpec, this.trueSpec).isSatisfiedBy(new Object()),
+        assertThat(new NorSpecification<Object>(trueSpec, trueSpec).isSatisfiedBy(new Object()),
             is(false));
-        assertThat(
-            new NorSpecification<Object>(this.falseSpec, this.trueSpec).isSatisfiedBy(new Object()),
+        assertThat(new NorSpecification<Object>(falseSpec, trueSpec).isSatisfiedBy(new Object()),
             is(false));
-        assertThat(
-            new NorSpecification<Object>(this.trueSpec, this.falseSpec).isSatisfiedBy(new Object()),
+        assertThat(new NorSpecification<Object>(trueSpec, falseSpec).isSatisfiedBy(new Object()),
             is(false));
-        assertThat(
-            new NorSpecification<Object>(this.falseSpec, this.falseSpec)
-                .isSatisfiedBy(new Object()),
+        assertThat(new NorSpecification<Object>(falseSpec, falseSpec).isSatisfiedBy(new Object()),
             is(true));
     }
 }

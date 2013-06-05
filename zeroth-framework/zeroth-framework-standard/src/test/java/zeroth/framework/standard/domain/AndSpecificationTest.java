@@ -17,18 +17,13 @@ public class AndSpecificationTest {
     private final FalseSpecification falseSpec = new FalseSpecification();
     @Test
     public final void testIsSatisfiedBy() {
-        assertThat(
-            new AndSpecification<Object>(this.trueSpec, this.trueSpec).isSatisfiedBy(new Object()),
+        assertThat(new AndSpecification<Object>(trueSpec, trueSpec).isSatisfiedBy(new Object()),
             is(true));
-        assertThat(
-            new AndSpecification<Object>(this.falseSpec, this.trueSpec).isSatisfiedBy(new Object()),
+        assertThat(new AndSpecification<Object>(falseSpec, trueSpec).isSatisfiedBy(new Object()),
             is(false));
-        assertThat(
-            new AndSpecification<Object>(this.trueSpec, this.falseSpec).isSatisfiedBy(new Object()),
+        assertThat(new AndSpecification<Object>(trueSpec, falseSpec).isSatisfiedBy(new Object()),
             is(false));
-        assertThat(
-            new AndSpecification<Object>(this.falseSpec, this.falseSpec)
-                .isSatisfiedBy(new Object()),
+        assertThat(new AndSpecification<Object>(falseSpec, falseSpec).isSatisfiedBy(new Object()),
             is(false));
     }
 }
