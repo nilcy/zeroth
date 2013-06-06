@@ -13,6 +13,7 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import zeroth.framework.enterprise.infra.persistence.PersistenceService;
+import zeroth.framework.enterprise.infra.persistence.QueryPersistenceService;
 import zeroth.framework.standard.shared.Pageable;
 import zeroth.framework.standard.shared.Sort.Direction;
 import zeroth.framework.standard.shared.Sort.Order;
@@ -84,7 +85,7 @@ public abstract class AbstractSimpleRepositoryImpl<T extends Persistable<ID>, ID
         return Collections.emptyList();
     }
     /**
-     * {@inheritDoc} *
+     * {@inheritDoc}
      * <p>
      * 必要に応じてデータ永続化サービスを使用して実装すること。(実装しないと0)
      * </p>
@@ -99,14 +100,16 @@ public abstract class AbstractSimpleRepositoryImpl<T extends Persistable<ID>, ID
      */
     protected abstract PersistenceService<T, ID> getPersistenceService();
     /**
-     * ソート条件の設定
-     * @param builder 標準ビルダー
-     * @param root 標準ルート
-     * @param query 標準クエリ
-     * @param pageable ページI/F
+     * 拡張データ永続化サービスの取得
+     * @return 拡張データ永続化サービス
      */
-    protected static void setOrder(final CriteriaBuilder builder, final Root<?> root,
-        final CriteriaQuery<?> query, final Pageable pageable) {
+    protected abstract QueryPersistenceService<T, ID> getQueryPersistenceService();
+    /** {@inheritDoc} */
+    @Override
+    public void setOrder(final Pageable pageable) {
+        final CriteriaBuilder builder = getQueryPersistenceService().builder();
+        final Root<T> root = getQueryPersistenceService().root();
+        final CriteriaQuery<T> query = getQueryPersistenceService().query();
         if (pageable.getSort() != null) {
             final Collection<javax.persistence.criteria.Order> criteriaOrders = new ArrayList<>();
             for (final Iterator<Order> iter = pageable.getSort().iterator(); iter.hasNext();) {

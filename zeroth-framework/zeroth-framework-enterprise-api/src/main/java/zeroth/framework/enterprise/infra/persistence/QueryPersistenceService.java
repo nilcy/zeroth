@@ -9,8 +9,10 @@ import javax.ejb.Local;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import zeroth.framework.enterprise.domain.Persistable;
+import zeroth.framework.standard.shared.Pageable;
 /**
  * 拡張データ永続化サービスI/F(JPA2/CriteriaQuery)
  * <p>
@@ -47,15 +49,14 @@ public interface QueryPersistenceService<T extends Persistable<ID>, ID extends S
     /**
      * クエリの作成
      * @param query 標準クエリ
-     * @param offset オフセット
-     * @param size 取得サイズ
+     * @param pageable ページ条件I/F
      * @return クエリ
      */
-    TypedQuery<T> createQuery(CriteriaQuery<T> query, int offset, int size);
+    TypedQuery<T> createQuery(CriteriaQuery<T> query, Pageable pageable);
     /**
      * 件数クエリの作成
-     * @param query 標準クエリ
+     * @param expression WHERE句
      * @return 件数クエリ
      */
-    TypedQuery<Long> createCountQuery(CriteriaQuery<Long> query);
+    TypedQuery<Long> createCountQuery(Predicate expression);
 }

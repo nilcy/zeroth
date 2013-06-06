@@ -27,6 +27,12 @@ public abstract class AbstractPersistenceServiceImpl<T extends Persistable<ID>, 
     /** コンストラクタ */
     public AbstractPersistenceServiceImpl() {
     }
+    /**
+     * {@inheritDoc}
+     * <p>
+     * エンティティクラス、エンティティマネージャを設定する。
+     * <p>
+     */
     @Override
     public void setup(final Class<T> clazz, final EntityManager manager) {
         this.clazz = clazz;

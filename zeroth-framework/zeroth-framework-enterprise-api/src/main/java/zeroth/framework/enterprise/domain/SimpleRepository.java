@@ -7,6 +7,7 @@ package zeroth.framework.enterprise.domain;
 import java.io.Serializable;
 import java.util.Collection;
 import zeroth.framework.standard.domain.Repository;
+import zeroth.framework.standard.shared.Pageable;
 import zeroth.framework.standard.shared.ValueObject;
 /**
  * 基本リポジトリI/F
@@ -54,4 +55,9 @@ public interface SimpleRepository<E extends Persistable<ID>, ID extends Serializ
      * @return 件数
      */
     long count(F filter);
+    /**
+     * ソート条件の設定
+     * @param pageable ページ条件I/F
+     */
+    void setOrder(Pageable pageable);
 }
