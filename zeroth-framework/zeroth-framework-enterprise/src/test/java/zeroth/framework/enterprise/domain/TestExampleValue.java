@@ -4,6 +4,7 @@
 // http://www.gnu.org/licenses/agpl-3.0.txt
 // ========================================================================
 package zeroth.framework.enterprise.domain;
+import zeroth.framework.standard.shared.PageRequest;
 /**
  * テスト値オブジェクト
  * @author nilcy
@@ -13,6 +14,8 @@ public class TestExampleValue extends AbstractValueObject<TestExampleValue> {
     private static final long serialVersionUID = -5878383282091462127L;
     /** コード */
     private String code;
+    /** ページ条件 */
+    private PageRequest pageRequest;
     /** コンストラクタ */
     public TestExampleValue() {
     }
@@ -36,5 +39,19 @@ public class TestExampleValue extends AbstractValueObject<TestExampleValue> {
      */
     public void setCode(final String code) {
         this.code = code;
+    }
+    /**
+     * {@link #pageRequest} の取得
+     * @return {@link #pageRequest}
+     */
+    public PageRequest getPageRequest() {
+        return pageRequest;
+    }
+    /**
+     * {@link #pageRequest} の設定
+     * @param pageRequest {@link #pageRequest}
+     */
+    public void setPageRequest(final PageRequest pageRequest) {
+        this.pageRequest = pageRequest;
     }
 }

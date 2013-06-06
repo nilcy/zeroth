@@ -13,6 +13,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import com.googlecode.jeeunit.JeeunitRunner;
 import com.googlecode.jeeunit.Transactional;
+import zeroth.framework.standard.shared.PageRequest;
+import zeroth.framework.standard.shared.Sort.Direction;
 /**
  * {@link AbstractSimpleRepositoryImpl} のユニットテスト
  * @author nilcy
@@ -39,19 +41,22 @@ public class AbstractSimpleRepositoryImplTest {
         // エンティティ検索
         final TestExample exId = testee.find(01L);
         assertThat(exId.getId(), is(ex00.getId()));
-        assertThat(exId.getVersion(), is(ex00.getVersion()));
         // 単一エンティティ検索
-        final TestExample exOne = testee.findOne(valueFactory.create("code-00"));
+        final TestExampleValue filterOne = valueFactory.create("code-00");
+        final TestExample exOne = testee.findOne(filterOne);
         assertThat(exOne.getId(), is(ex00.getId()));
         assertThat(exOne.getVersion(), is(ex00.getVersion()));
         // 複数エンティティ検索
-        final Collection<TestExample> exMany = testee.findMany(valueFactory.create("code-00"));
+        final TestExampleValue filterMany = valueFactory.create("code-00");
+        filterMany.setPageRequest(new PageRequest(1, 10, Direction.ASC, "code"));
+        final Collection<TestExample> exMany = testee.findMany(filterMany);
         assertThat(exMany.size(), is(1));
         final TestExample exMany1 = exMany.iterator().next();
         assertThat(exMany1.getId(), is(ex00.getId()));
         assertThat(exMany1.getVersion(), is(ex00.getVersion()));
         // エンティティ件数
-        final long count = testee.count(valueFactory.create("code-00"));
+        final TestExampleValue filterCount = valueFactory.create("code-00");
+        final long count = testee.count(filterCount);
         assertThat(count, is(1L));
         // エンティティ削除
         testee.delete(exId);

@@ -49,7 +49,7 @@ public class TestExampleSimpleRepository extends
         final Root<TestExample> r = service.root();
         return service
             .createCountQuery(
-                b.createQuery(Long.class).select(b.count(r)).where(whereClause(filter, b, r)))
+                b.createQuery(Long.class).select(b.count(r)).where(expression(b, r, filter)))
             .getSingleResult().longValue();
     }
     /**
@@ -58,21 +58,21 @@ public class TestExampleSimpleRepository extends
      * @return クエリ
      */
     private TypedQuery<TestExample> createQuery(final TestExampleValue filter) {
-        final CriteriaBuilder b = service.builder();
         final CriteriaQuery<TestExample> q = service.query();
+        final CriteriaBuilder b = service.builder();
         final Root<TestExample> r = service.root();
-        return service.createQuery(q.select(r).where(whereClause(filter, b, r))
-            .orderBy(b.asc(r.get(code))).groupBy(r.get(code)));
+        return service.createQuery(q.select(r).where(expression(b, r, filter))
+            .orderBy(b.asc(r.get(code))));
     }
     /**
      * WHERE句の作成
-     * @param filter 検索条件
      * @param builder 標準ビルダー
      * @param root 標準ルート
+     * @param filter 検索条件
      * @return WHERE句
      */
-    private static Predicate whereClause(final TestExampleValue filter,
-        final CriteriaBuilder builder, final Root<TestExample> root) {
+    private static Predicate expression(final CriteriaBuilder builder,
+        final Root<TestExample> root, final TestExampleValue filter) {
         return builder.equal(root.get(code), filter.getCode());
     }
 }
