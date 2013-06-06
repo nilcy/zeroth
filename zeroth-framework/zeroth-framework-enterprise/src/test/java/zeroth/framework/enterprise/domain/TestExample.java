@@ -7,18 +7,19 @@ package zeroth.framework.enterprise.domain;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 import javax.persistence.Version;
 /**
  * テスト参照オブジェクト
  * @author nilcy
  */
 @Entity
-@Table(name = "TestExample")
+@Table(name = "TestExample", uniqueConstraints = { @UniqueConstraint(columnNames = { "code" }) })
 @SuppressWarnings("all")
 public class TestExample extends AbstractPersistable<TestExample> {
-    @Column(name = "code", nullable = false)
+    @Column(name = "code", nullable = false, insertable = true, updatable = true)
     private String code;
-    @Column(name = "version", nullable = false)
+    @Column(name = "version", nullable = false, insertable = true, updatable = true)
     @Version
     private Long version;
     public TestExample() {

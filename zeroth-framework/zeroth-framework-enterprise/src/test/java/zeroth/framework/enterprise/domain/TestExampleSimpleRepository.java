@@ -15,6 +15,7 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import zeroth.framework.enterprise.infra.persistence.PersistenceService;
 import zeroth.framework.enterprise.infra.persistence.QueryPersistenceService;
+import zeroth.framework.standard.shared.Pageable;
 /**
  * テストオブジェクト基本リポジトリ
  * @author nilcy
@@ -58,11 +59,16 @@ public class TestExampleSimpleRepository extends
      * @return クエリ
      */
     private TypedQuery<TestExample> createQuery(final TestExampleValue filter) {
-        final CriteriaQuery<TestExample> q = service.query();
         final CriteriaBuilder b = service.builder();
         final Root<TestExample> r = service.root();
-        return service.createQuery(q.select(r).where(expression(b, r, filter))
-            .orderBy(b.asc(r.get(code))));
+        final CriteriaQuery<TestExample> q = service.query();
+        q.select(r).where(expression(b, r, filter));
+        final Pageable pageable = filter.getPageRequest();
+        if (pageable != null) {
+            setOrder(b, r, q, pageable);
+            return service.createQuery(q, pageable.getOffset(), pageable.getPageSize());
+        }
+        return service.createQuery(q);
     }
     /**
      * WHERE句の作成

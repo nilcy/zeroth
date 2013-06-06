@@ -5,7 +5,7 @@
 // ========================================================================
 package zeroth.framework.standard.shared;
 /**
- * ページI/F
+ * ページ条件I/F
  * @author nilcy
  */
 public interface Pageable {

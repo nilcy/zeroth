@@ -12,15 +12,18 @@ import javax.persistence.MappedSuperclass;
 import javax.persistence.PostLoad;
 import javax.persistence.PostPersist;
 import javax.persistence.PostUpdate;
+import javax.persistence.Transient;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import zeroth.framework.standard.domain.ReferenceObject;
 import zeroth.framework.standard.shared.AbstractDataObject;
 /**
  * 永続可能エンティティ
  * <p>
- * 前提としてJPAが永続化するために識別子(ID)が必要である。(IDによる同一性の確認ができる) まず、参照オブジェクトを永続化するときは概念上の識別子と一致するため問題はない。
+ * 前提としてJPAが永続化するために識別子(ID)が必要である。(IDによる同一性の確認ができる)
+ * まず、参照オブジェクトを永続化するときは概念上の識別子と一致するため問題はない。
  * いっぽう、値オブジェクトを永続化するときは値による同一性の確認が一般的であることに注意すること。
- * いわゆる、(永続化する)値オブジェクトのIDによる同一性の確認はJPA永続化のために必要なものであり 、ビジネスロジックにおいて使用すべきものではないことに注意すること。
+ * いわゆる、(永続化する)値オブジェクトのIDによる同一性の確認はJPA永続化のために必要なものであり
+ * 、ビジネスロジックにおいて使用すべきものではないことに注意すること。
  * </p>
  * @param <T> 永続可能エンティティ型
  * @author nilcy
@@ -32,11 +35,12 @@ public abstract class AbstractPersistable<T extends AbstractPersistable<T>> exte
     /** 識別番号 */
     private static final long serialVersionUID = 6765184066419433024L;
     /** 識別子(ID) */
-    @Column
+    @Column(name = "id", nullable = false, insertable = true, updatable = false)
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     /** 永続済 */
+    @Transient
     private boolean persisted = false;
     /** コンストラクタ */
     public AbstractPersistable() {

@@ -41,10 +41,17 @@ public class QueryPersistenceServiceImpl<T extends Persistable<ID>, ID extends S
     }
     @Override
     public TypedQuery<T> createQuery(final CriteriaQuery<T> query) {
+        assert query != null;
         return manager.createQuery(query);
     }
     @Override
     public TypedQuery<Long> createCountQuery(final CriteriaQuery<Long> query) {
+        assert query != null;
         return manager.createQuery(query);
+    }
+    /** {@inheritDoc} */
+    @Override
+    public TypedQuery<T> createQuery(final CriteriaQuery<T> query, final int offset, final int size) {
+        return createQuery(query).setFirstResult(offset).setMaxResults(size);
     }
 }

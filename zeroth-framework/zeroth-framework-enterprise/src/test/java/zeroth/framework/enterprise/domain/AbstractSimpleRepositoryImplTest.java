@@ -47,7 +47,8 @@ public class AbstractSimpleRepositoryImplTest {
         assertThat(exOne.getId(), is(ex00.getId()));
         assertThat(exOne.getVersion(), is(ex00.getVersion()));
         // 複数エンティティ検索
-        final TestExampleValue filterMany = valueFactory.create("code-00");
+        final PageRequest pageRequest = new PageRequest(1, 10, Direction.ASC, "code");
+        final TestExampleValue filterMany = valueFactory.create("code-00", pageRequest);
         filterMany.setPageRequest(new PageRequest(1, 10, Direction.ASC, "code"));
         final Collection<TestExample> exMany = testee.findMany(filterMany);
         assertThat(exMany.size(), is(1));

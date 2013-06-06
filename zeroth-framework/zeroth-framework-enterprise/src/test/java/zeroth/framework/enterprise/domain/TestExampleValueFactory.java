@@ -4,20 +4,18 @@
 // http://www.gnu.org/licenses/agpl-3.0.txt
 // ========================================================================
 package zeroth.framework.enterprise.domain;
+import zeroth.framework.standard.shared.PageRequest;
 /**
  * テスト参照オブジェクトのファクトリ
  * @author nilcy
  */
 @SuppressWarnings("static-method")
 public class TestExampleValueFactory {
-    /** コンストラクタ */
-    public TestExampleValueFactory() {
-    }
     /**
      * インスタンスの作成
      * @return インスタンス
      */
-    public TestExampleValue create() {
+    private TestExampleValue create() {
         return new TestExampleValue();
     }
     /**
@@ -28,6 +26,17 @@ public class TestExampleValueFactory {
     public TestExampleValue create(final String code) {
         final TestExampleValue o = create();
         o.setCode(code);
+        return o;
+    }
+    /**
+     * インスタンスの作成
+     * @param code コード
+     * @param pageRequest ページ条件
+     * @return インスタンス
+     */
+    public TestExampleValue create(final String code, final PageRequest pageRequest) {
+        final TestExampleValue o = create(code);
+        o.setPageRequest(pageRequest);
         return o;
     }
 }
