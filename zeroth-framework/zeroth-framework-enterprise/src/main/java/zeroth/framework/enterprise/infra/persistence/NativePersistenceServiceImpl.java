@@ -14,14 +14,14 @@ import zeroth.framework.enterprise.domain.Persistable;
  * <p>
  * クエリオブジェクト@PofEAA の実装
  * </p>
- * @param <T> エンティティ型
+ * @param <E> エンティティ型
  * @param <ID> 識別子オブジェクト型
  * @author nilcy
  */
 @Stateless
 @Alternative
-public class NativePersistenceServiceImpl<T extends Persistable<ID>, ID extends Serializable>
-    extends AbstractPersistenceServiceImpl<T, ID> implements NativePersistenceService<T, ID> {
+public class NativePersistenceServiceImpl<E extends Persistable<ID>, ID extends Serializable>
+    extends AbstractPersistenceServiceImpl<E, ID> implements NativePersistenceService<E, ID> {
     /** 識別番号 */
     private static final long serialVersionUID = -1029454631523751121L;
     @Override

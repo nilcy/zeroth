@@ -7,20 +7,26 @@ package zeroth.framework.enterprise.domain;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Collections;
+import javax.persistence.EntityExistsException;
+import javax.persistence.OptimisticLockException;
+import org.apache.commons.lang3.Validate;
 import zeroth.framework.enterprise.infra.persistence.PersistenceService;
 import zeroth.framework.enterprise.infra.persistence.QueryPersistenceService;
+import zeroth.framework.standard.shared.CommonUtils;
 import zeroth.framework.standard.shared.ValueObject;
 /**
  * 基本リポジトリ
- * @param <T> エンティティ型
+ * @param <E> エンティティ型
  * @param <ID> 識別子オブジェクト型
  * @param <F> フィルタ型
  * @author nilcy
  */
-public abstract class AbstractSimpleRepositoryImpl<T extends Persistable<ID>, ID extends Serializable, F extends ValueObject<?>>
-    implements SimpleRepository<T, ID, F> {
+public abstract class AbstractSimpleRepositoryImpl<E extends Persistable<ID>, ID extends Serializable, F extends ValueObject<?>>
+    implements SimpleRepository<E, ID, F> {
     /** 識別番号 */
     private static final long serialVersionUID = -5578612922301298194L;
+    /** 保護例外キー */
+    private static final String KEY_LOCK_EXCEPTION = "LOCK_EXCEPTION";
     /** コンストラクタ */
     public AbstractSimpleRepositoryImpl() {
     }
@@ -30,10 +36,26 @@ public abstract class AbstractSimpleRepositoryImpl<T extends Persistable<ID>, ID
      * データ永続化サービスでエンティティを登録して同期する。
      * </p>
      */
+    @SuppressWarnings("unchecked")
     @Override
-    public void save(final T entity) {
-        getPersistenceService().persist(entity);
-        getPersistenceService().flush();
+    public E save(final E entity) throws ConstraintsException {
+        CommonUtils.notNull(entity);
+        if (this instanceof ConstraintsUK) {
+            ((ConstraintsUK<E>) this).validateUK(entity);
+        }
+        try {
+            getPersistenceService().persist(entity);
+            getPersistenceService().flush();
+            return entity;
+        } catch (final EntityExistsException e) {
+            try {
+                final E merged = getPersistenceService().merge(entity);
+                getPersistenceService().flush();
+                return merged;
+            } catch (final OptimisticLockException e1) {
+                throw new ConstraintsException(KEY_LOCK_EXCEPTION);
+            }
+        }
     }
     /**
      * {@inheritDoc}
@@ -42,9 +64,18 @@ public abstract class AbstractSimpleRepositoryImpl<T extends Persistable<ID>, ID
      * </p>
      */
     @Override
-    public void delete(final T entity) {
-        getPersistenceService().remove(entity);
-        getPersistenceService().flush();
+    @SuppressWarnings("unchecked")
+    public void delete(final E entity) throws ConstraintsException {
+        Validate.notNull(entity);
+        if (this instanceof ConstraintsFK) {
+            ((ConstraintsFK<E>) this).validateFK(entity);
+        }
+        try {
+            getPersistenceService().remove(getPersistenceService().merge(entity));
+            getPersistenceService().flush();
+        } catch (final OptimisticLockException e) {
+            throw new ConstraintsException(KEY_LOCK_EXCEPTION);
+        }
     }
     /**
      * {@inheritDoc}
@@ -53,7 +84,7 @@ public abstract class AbstractSimpleRepositoryImpl<T extends Persistable<ID>, ID
      * </p>
      */
     @Override
-    public T find(final ID id) {
+    public E find(final ID id) {
         return getPersistenceService().find(id);
     }
     /**
@@ -63,7 +94,7 @@ public abstract class AbstractSimpleRepositoryImpl<T extends Persistable<ID>, ID
      * </p>
      */
     @Override
-    public T findOne(final F filter) {
+    public E findOne(final F filter) {
         return null;
     }
     /**
@@ -73,7 +104,7 @@ public abstract class AbstractSimpleRepositoryImpl<T extends Persistable<ID>, ID
      * </p>
      */
     @Override
-    public Collection<T> findMany(final F filter) {
+    public Collection<E> findMany(final F filter) {
         return Collections.emptyList();
     }
     /**
@@ -90,10 +121,10 @@ public abstract class AbstractSimpleRepositoryImpl<T extends Persistable<ID>, ID
      * データ永続化サービスの取得
      * @return データ永続化サービス
      */
-    protected abstract PersistenceService<T, ID> getPersistenceService();
+    protected abstract PersistenceService<E, ID> getPersistenceService();
     /**
      * 拡張データ永続化サービスの取得
      * @return 拡張データ永続化サービス
      */
-    protected abstract QueryPersistenceService<T, ID> getQueryPersistenceService();
+    protected abstract QueryPersistenceService<E, ID> getQueryPersistenceService();
 }

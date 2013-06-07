@@ -16,12 +16,12 @@ import javax.persistence.TemporalType;
  * <p>
  * 登録日時と最終更新日時はコールバックにより自動設定するのでクライアントが設定する必要はない。
  * </p>
- * @param <T> 監査可能エンティティ型
+ * @param <E> 監査可能エンティティ型
  * @author nilcy
  */
 @MappedSuperclass
-public abstract class AbstractAuditable<T extends AbstractAuditable<T>> extends
-    AbstractPersistable<T> implements Auditable<Long, Long> {
+public abstract class AbstractAuditable<E extends AbstractAuditable<E>> extends
+    AbstractPersistable<E> implements Auditable<Long, Long> {
     /** 識別番号 */
     private static final long serialVersionUID = 6992851617530122569L;
     /** 作成者(ID) */

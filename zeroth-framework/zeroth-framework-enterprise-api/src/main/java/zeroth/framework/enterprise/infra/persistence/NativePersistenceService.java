@@ -10,13 +10,13 @@ import javax.persistence.Query;
 import zeroth.framework.enterprise.domain.Persistable;
 /**
  * 原始データ永続化サービスI/F(JPA2/NativeQuery)
- * @param <T> エンティティ型
+ * @param <E> エンティティ型
  * @param <ID> 識別子オブジェクト型
  * @author nilcy
  */
 @Local
-public interface NativePersistenceService<T extends Persistable<ID>, ID extends Serializable>
-    extends PersistenceService<T, ID> {
+public interface NativePersistenceService<E extends Persistable<ID>, ID extends Serializable>
+    extends PersistenceService<E, ID> {
     /**
      * クエリの作成
      * @param sql SQL

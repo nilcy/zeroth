@@ -20,13 +20,16 @@ public interface SimpleRepository<E extends Persistable<ID>, ID extends Serializ
     /**
      * エンティティ保存
      * @param entity エンティティ
+     * @return エンティティ
+     * @throws ConstraintsException 制約違反キャッチ例外
      */
-    void save(E entity);
+    E save(E entity) throws ConstraintsException;
     /**
      * エンティティ削除
      * @param entity エンティティ
+     * @throws ConstraintsException 制約違反キャッチ例外
      */
-    void delete(E entity);
+    void delete(E entity) throws ConstraintsException;
     /**
      * エンティティ検索
      * @param id 識別子

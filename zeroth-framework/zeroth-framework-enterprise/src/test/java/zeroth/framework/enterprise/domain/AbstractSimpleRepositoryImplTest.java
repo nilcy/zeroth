@@ -32,7 +32,7 @@ public class AbstractSimpleRepositoryImplTest {
     @Inject
     private Logger log;
     @Test
-    public final void test() {
+    public final void test() throws ConstraintsException {
         // エンティティ保存
         final TestExample ex00 = entityFactory.create("code-00");
         testee.save(ex00);

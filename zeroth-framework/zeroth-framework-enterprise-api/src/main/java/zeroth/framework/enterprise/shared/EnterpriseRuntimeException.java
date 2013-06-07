@@ -4,11 +4,12 @@
 // http://www.gnu.org/licenses/agpl-3.0.txt
 // ========================================================================
 package zeroth.framework.enterprise.shared;
+import zeroth.framework.standard.shared.StandardRuntimeException;
 /**
  * エンタープライズ非キャッチ例外(JavaEE)
  * @author nilcy
  */
-public class EnterpriseRuntimeException extends RuntimeException {
+public class EnterpriseRuntimeException extends StandardRuntimeException {
     /** 識別番号 */
     private static final long serialVersionUID = 1628775946067528606L;
     /** コンストラクタ */

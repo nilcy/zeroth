@@ -4,6 +4,7 @@
 // http://www.gnu.org/licenses/agpl-3.0.txt
 // ========================================================================
 package zeroth.framework.standard.domain;
+import java.io.Serializable;
 import zeroth.framework.standard.shared.DataObject;
 /**
  * 参照オブジェクトI/F (エンティティI/F)
@@ -14,7 +15,8 @@ import zeroth.framework.standard.shared.DataObject;
  * @param <ID> 識別子オブジェクト型
  * @author nilcy
  */
-public interface ReferenceObject<T extends ReferenceObject<T, ID>, ID> extends DataObject {
+public interface ReferenceObject<T extends ReferenceObject<T, ID>, ID extends Serializable> extends
+    DataObject {
     /**
      * 同一性の確認
      * <p>

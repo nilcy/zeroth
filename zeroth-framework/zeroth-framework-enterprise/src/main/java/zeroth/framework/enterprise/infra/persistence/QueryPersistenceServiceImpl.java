@@ -25,23 +25,23 @@ import zeroth.framework.standard.shared.Sort.Order;
  * <p>
  * クエリオブジェクト@PofEAA
  * </p>
- * @param <T> エンティティ型
+ * @param <E> エンティティ型
  * @param <ID> 識別子オブジェクト型
  * @since JPA 2.0
  * @author nilcy
  */
 @Stateless
 @Alternative
-public class QueryPersistenceServiceImpl<T extends Persistable<ID>, ID extends Serializable>
-    extends AbstractPersistenceServiceImpl<T, ID> implements QueryPersistenceService<T, ID> {
+public class QueryPersistenceServiceImpl<E extends Persistable<ID>, ID extends Serializable>
+    extends AbstractPersistenceServiceImpl<E, ID> implements QueryPersistenceService<E, ID> {
     /** 識別番号 */
     private static final long serialVersionUID = 6451157743975586409L;
     /** 標準ビルダー */
     private CriteriaBuilder builder;
     /** 標準クエリ */
-    public CriteriaQuery<T> query;
+    public CriteriaQuery<E> query;
     /** 標準ルート */
-    public Root<T> root;
+    public Root<E> root;
     /**
      * {@inheritDoc}
      * <p>
@@ -49,7 +49,7 @@ public class QueryPersistenceServiceImpl<T extends Persistable<ID>, ID extends S
      * </p>
      */
     @Override
-    public void setup(final Class<T> clazz, final EntityManager manager) {
+    public void setup(final Class<E> clazz, final EntityManager manager) {
         super.setup(clazz, manager);
         builder = manager.getCriteriaBuilder();
         query = builder().createQuery(clazz);
@@ -62,17 +62,17 @@ public class QueryPersistenceServiceImpl<T extends Persistable<ID>, ID extends S
     }
     /** {@inheritDoc} */
     @Override
-    public CriteriaQuery<T> query() {
+    public CriteriaQuery<E> query() {
         return query;
     }
     /** {@inheritDoc} */
     @Override
-    public Root<T> root() {
+    public Root<E> root() {
         return root;
     }
     /** {@inheritDoc} */
     @Override
-    public TypedQuery<T> createQuery() {
+    public TypedQuery<E> createQuery() {
         return manager.createQuery(query);
     }
     /**
@@ -82,7 +82,7 @@ public class QueryPersistenceServiceImpl<T extends Persistable<ID>, ID extends S
      * </p>
      */
     @Override
-    public TypedQuery<T> createQuery(final Pageable pageable) {
+    public TypedQuery<E> createQuery(final Pageable pageable) {
         if (pageable != null) {
             if (pageable.getSort() != null) {
                 final Collection<javax.persistence.criteria.Order> criteriaOrders = new ArrayList<>();

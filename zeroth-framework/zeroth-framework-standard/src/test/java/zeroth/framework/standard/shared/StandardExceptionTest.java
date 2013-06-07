@@ -6,6 +6,8 @@
 package zeroth.framework.standard.shared;
 import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import org.junit.Test;
 /**
  * {@link StandardException} のユニットテスト
@@ -14,24 +16,19 @@ import org.junit.Test;
 @SuppressWarnings("all")
 public class StandardExceptionTest {
     @Test
-    public final void testStandardException() {
-        assertThat(new StandardException(), is(not(nullValue())));
+    public void testStandardExceptionStringObjectArray() {
+        assertThat(new StandardException("key"), is(not(nullValue())));
+        assertThat(new StandardException("key", "foo", "bar", "baz"), is(not(nullValue())));
     }
     @Test
-    public final void testStandardExceptionString() {
-        assertThat(new StandardException("message"), is(not(nullValue())));
+    public void testStandardExceptionMapOfStringObject() {
+        final Map<String, Object[]> causeMap = new LinkedHashMap<>();
+        assertThat(new StandardException(causeMap), is(not(nullValue())));
     }
     @Test
-    public final void testStandardExceptionThrowable() {
-        assertThat(new StandardException(new Throwable()), is(not(nullValue())));
-    }
-    @Test
-    public final void testStandardExceptionStringThrowable() {
-        assertThat(new StandardException("message", new Throwable()), is(not(nullValue())));
-    }
-    @Test
-    public final void testStandardExceptionStringThrowableBooleanBoolean() {
-        assertThat(new StandardException("message", new Throwable(), true, true),
-            is(not(nullValue())));
+    public void testGetCauseMap() {
+        final Map<String, Object[]> causeMap = new LinkedHashMap<>();
+        final StandardException testee = new StandardException("key");
+        assertThat(testee.getCauseMap(), is(not(nullValue())));
     }
 }

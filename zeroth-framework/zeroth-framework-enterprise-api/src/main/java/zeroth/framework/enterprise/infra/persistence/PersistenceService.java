@@ -20,11 +20,11 @@ import zeroth.framework.standard.shared.Service;
  * <li>Removed(削除)…永続コンテキスト中で削除を予約している状態。[remove()した後]</li>
  * <li>Detached(分離)…永続コンテキストから分離した状態。[merge()でManaged化]</li>
  * </ul>
- * @param <T> エンティティ型
+ * @param <E> エンティティ型
  * @param <ID> 識別子オブジェクト型
  * @author nilcy
  */
-public abstract interface PersistenceService<T extends Persistable<ID>, ID extends Serializable>
+public abstract interface PersistenceService<E extends Persistable<ID>, ID extends Serializable>
     extends Service {
     /**
      * 初期化
@@ -34,68 +34,69 @@ public abstract interface PersistenceService<T extends Persistable<ID>, ID exten
      * @param clazz エンティティクラス
      * @param manager エンティティマネージャ
      */
-    void setup(final Class<T> clazz, EntityManager manager);
+    void setup(Class<E> clazz, EntityManager manager);
     /**
      * 管理エンティティの保存
      * @param entity 新規エンティティ
      */
-    void persist(T entity);
+    void persist(E entity);
     /**
      * 管理エンティティのID検索
      * @param id 識別子
      * @return 管理エンティティ
      */
-    T find(ID id);
+    E find(ID id);
     /**
      * 管理エンティティのID検索
      * @param id 識別子
      * @param lockModeType ロックモードタイプ
      * @return 管理エンティティ
      */
-    T find(Long id, LockModeType lockModeType);
+    E find(ID id, LockModeType lockModeType);
     /**
      * 分離エンティティの保存
      * <p>
      * Detached(分離)からManaged(管理)への復帰
      * </p>
      * @param entity 分離エンティティ
+     * @return 管理エンティティ
      */
-    void merge(T entity);
+    E merge(E entity);
     /**
      * 管理エンティティの削除
      * @param entity 管理エンティティ
      */
-    void remove(T entity);
+    void remove(E entity);
     /**
      * 管理エンティティの更新
      * @param entity 管理エンティティ
      */
-    void refresh(final T entity);
+    void refresh(final E entity);
     /**
      * 管理エンティティの更新
      * @param entity 管理エンティティ
      * @param lockModeType 保護モード
      */
-    void refresh(final T entity, final LockModeType lockModeType);
+    void refresh(final E entity, final LockModeType lockModeType);
     /**
      * 管理エンティティの保護
      * @param entity 管理エンティティ
      * @param lockModeType 保護モード
      */
-    void lock(final T entity, LockModeType lockModeType);
+    void lock(final E entity, LockModeType lockModeType);
     /** 管理エンティティのDB反映 */
     void flush();
     /**
      * 管理エンティティの分離
      * @param entity 管理エンティティ
      */
-    void detach(T entity);
+    void detach(E entity);
     /**
      * 管理エンティティ含有の確認
      * @param entity エンティティ
      * @return 含有するとき真。含有しないとき偽。
      */
-    boolean contains(final T entity);
+    boolean contains(final E entity);
     /**
      * 範囲指定クエリの作成
      * @param query クエリ
@@ -103,17 +104,17 @@ public abstract interface PersistenceService<T extends Persistable<ID>, ID exten
      * @param maxsize 最大件数
      * @return クエリ
      */
-    TypedQuery<T> createRangeQuery(final TypedQuery<T> query, final int offset, final int maxsize);
+    TypedQuery<E> createRangeQuery(final TypedQuery<E> query, final int offset, final int maxsize);
     /**
      * 管理エンティティ集合のクエリ検索
      * @param query クエリ
      * @return 管理エンティティ集合
      */
-    Collection<T> findMany(TypedQuery<T> query);
+    Collection<E> findMany(TypedQuery<E> query);
     /**
      * 管理エンティティのクエリ検索
      * @param query クエリ
      * @return 管理エンティティ
      */
-    T findOne(TypedQuery<T> query);
+    E findOne(TypedQuery<E> query);
 }

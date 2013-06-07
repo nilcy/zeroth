@@ -47,7 +47,6 @@ public abstract class AbstractPersistenceServiceImpl<E extends Persistable<ID>, 
     @Override
     public void persist(final E entity) {
         manager.persist(entity);
-        flush();
     }
     /**
      * {@inheritDoc}
@@ -66,20 +65,19 @@ public abstract class AbstractPersistenceServiceImpl<E extends Persistable<ID>, 
      * </p>
      */
     @Override
-    public E find(final Long id, final LockModeType lockModeType) {
+    public E find(final ID id, final LockModeType lockModeType) {
         return manager.find(clazz, id, lockModeType);
     }
     /** {@inheritDoc} */
     @Override
-    public void merge(final E entity) {
-        manager.merge(entity);
-        flush();
+    public E merge(final E entity) {
+        final E merged = manager.merge(entity);
+        return merged;
     }
     /** {@inheritDoc} */
     @Override
     public void remove(final E entity) {
         manager.remove(entity);
-        flush();
     }
     /** {@inheritDoc} */
     @Override

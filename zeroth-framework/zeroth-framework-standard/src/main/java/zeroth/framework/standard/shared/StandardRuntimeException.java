@@ -9,39 +9,39 @@ package zeroth.framework.standard.shared;
  * @author nilcy
  */
 public class StandardRuntimeException extends RuntimeException {
-    /** 識別番号 */
-    private static final long serialVersionUID = 1628775946067528606L;
+    /** 製品番号 */
+    private static final long serialVersionUID = 3845778490259782222L;
     /** コンストラクタ */
     public StandardRuntimeException() {
     }
     /**
      * コンストラクタ
-     * @param message メッセージ
+     * @param message 例外メッセージ
      */
     public StandardRuntimeException(final String message) {
         super(message);
     }
     /**
      * コンストラクタ
-     * @param cause 例外クラス
+     * @param cause 例外オブジェクト
      */
     public StandardRuntimeException(final Throwable cause) {
         super(cause);
     }
     /**
      * コンストラクタ
-     * @param message メッセージ
-     * @param cause 例外クラス
+     * @param message 例外メッセージ
+     * @param cause 例外オブジェクト
      */
     public StandardRuntimeException(final String message, final Throwable cause) {
         super(message, cause);
     }
     /**
      * コンストラクタ
-     * @param message メッセージ
-     * @param cause 例外クラス
+     * @param message 例外メッセージ
+     * @param cause 例外オブジェクト
      * @param enableSuppression 抑制するか
-     * @param writableStackTrace スタックトレースが書き込み可能であるべきか
+     * @param writableStackTrace スタックトレースが書き込み可能か
      */
     public StandardRuntimeException(final String message, final Throwable cause,
         final boolean enableSuppression, final boolean writableStackTrace) {

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0"
+  xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="
+        http://java.sun.com/xml/ns/persistence
+        http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+  <persistence-unit name="primary" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>zeroth.framework.enterprise.domain.AbstractPersistable</class>
+    <class>zeroth.framework.enterprise.domain.AbstractAuditable</class>
+    <class>zeroth.actor.domain.Company</class>
+    <class>zeroth.actor.domain.Customer</class>
+    <class>zeroth.actor.domain.Level</class>
+    <class>zeroth.actor.domain.Member</class>
+    <class>zeroth.actor.domain.MemberAuth</class>
+    <class>zeroth.actor.domain.Organ</class>
+    <class>zeroth.actor.domain.Partner</class>
+    <class>zeroth.actor.domain.Staff</class>
+    <class>zeroth.actor.domain.Supplier</class>
+    <class>zeroth.actor.domain.Title</class>
+    <class>zeroth.actor.domain.misc.IndustryClass</class>
+    <class>zeroth.actor.domain.misc.ListedSection</class>
+    <class>zeroth.actor.domain.misc.News</class>
+    <class>zeroth.actor.domain.misc.Notice</class>
+    <class>zeroth.actor.domain.parts.Address</class>
+    <class>zeroth.actor.domain.parts.Contact</class>
+    <class>zeroth.actor.domain.parts.CustomerContact</class>
+    <class>zeroth.actor.domain.parts.HomeAddress</class>
+    <class>zeroth.actor.domain.parts.MemberContact</class>
+    <class>zeroth.actor.domain.parts.OfficeAddress</class>
+    <class>zeroth.actor.domain.parts.PartnerContact</class>
+    <class>zeroth.actor.domain.parts.SupplierContact</class>
+    <class>zeroth.actor.domain.parts.TitleAuth</class>
+    <exclude-unlisted-classes>true</exclude-unlisted-classes>
+    <shared-cache-mode>ENABLE_SELECTIVE</shared-cache-mode>
+    <validation-mode>AUTO</validation-mode>
+    <properties>
+      <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
+      <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost/zeroth" />
+      <property name="javax.persistence.jdbc.user" value="zeroth" />
+      <property name="javax.persistence.jdbc.password" value="happyhacking" />
+      <!-- drop-and-create-tables, create-tables, none -->
+      <property name="eclipselink.ddl-generation" value="drop-and-create-tables" />
+      <!-- OFF,SEVERE,WARNING,INFO,CONFIG,FINE,FINER,FINEST,ALL -->
+      <property name="eclipselink.logging.level" value="FINE" />
+      <property name="eclipselink.target-server" value="None" />
+      <property name="eclipselink.target-database" value="Auto" />
+    </properties>
+  </persistence-unit>
+</persistence>

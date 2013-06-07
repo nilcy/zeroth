@@ -26,10 +26,19 @@ import zeroth.framework.enterprise.domain.TestExample;
 @Transactional
 @SuppressWarnings("all")
 public class QueryPersistenceServiceImplTest {
+    // /** 基礎エンティティマネージャ */
+    // @Inject
+    // @PrimaryEntityManager
+    // private EntityManager manager;
     @Inject
     private QueryPersistenceService<TestExample, Long> testee;
+    // private TestExamplePersistenceService testee;
     @Inject
     private Logger log;
+    // @Before
+    // public void before() {
+    // testee.setup(manager);
+    // }
     @Test
     public void testCRUD() {
         final TestExample e01 = new TestExample("code01");

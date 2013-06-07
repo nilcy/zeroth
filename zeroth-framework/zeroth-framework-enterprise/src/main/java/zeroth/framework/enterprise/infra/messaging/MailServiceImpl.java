@@ -41,7 +41,7 @@ public class MailServiceImpl implements MailService {
             message.setContent(objectBody, contentType);
             send(message);
         } catch (final MessagingException e) {
-            throw new EnterpriseException(e);
+            throw new EnterpriseException(e.getLocalizedMessage());
         }
     }
     @Override
@@ -52,7 +52,7 @@ public class MailServiceImpl implements MailService {
             message.setContent(textBody, "text/plain");
             send(message);
         } catch (final MessagingException e) {
-            throw new EnterpriseException(e);
+            throw new EnterpriseException(e.getLocalizedMessage());
         }
     }
     @Override
@@ -63,7 +63,7 @@ public class MailServiceImpl implements MailService {
             message.setContent(multipartBody);
             send(message);
         } catch (final MessagingException e) {
-            throw new EnterpriseException(e);
+            throw new EnterpriseException(e.getLocalizedMessage());
         }
     }
     /**
@@ -84,9 +84,9 @@ public class MailServiceImpl implements MailService {
             message.setSubject(subject);
             return message;
         } catch (final AddressException e) {
-            throw new EnterpriseException(e);
+            throw new EnterpriseException(e.getLocalizedMessage());
         } catch (final MessagingException e) {
-            throw new EnterpriseException(e);
+            throw new EnterpriseException(e.getLocalizedMessage());
         }
     }
     /**
@@ -98,7 +98,7 @@ public class MailServiceImpl implements MailService {
         try {
             Transport.send(message);
         } catch (final MessagingException e) {
-            throw new EnterpriseException(e);
+            throw new EnterpriseException(e.getLocalizedMessage());
         }
     }
 }

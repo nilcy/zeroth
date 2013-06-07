@@ -1,0 +1,88 @@
+h1. zeroth Build Instruction Memo
+
+h2. Eclipse
+
+* Eclipse Juno(4.2) SR1 - Eclipse IDE for Java EE Developers
+
+h3. Help -> Ecilpse Marketplace...
+
+* Maven Integration for Eclipse
+* EGit - Git Team Provider
+* GitHub Mylyn Connector
+* Checkstyle Plug-in
+* FindBugs Ecilpse Plugin
+* (Subversive - SVN Team Provider [SVN Kit 1.7.4])
+
+h3. Help -> Install New Software... ->
+
+* Add -> http://propedit.sourceforge.jp/eclipse/updates/ (PropertiesEditor)
+
+h2. Database Server
+
+h3. Create User
+
+createuser --username=postgres --createdb --encrypted --inherit --login --pwprompt --createrole --superuser zeroth
+
+// ex: Drop User
+dropuser --username=postgres zeroth
+
+h3. Create Database
+
+// ex: Unix
+createdb --username=zeroth --encoding=UTF8 --locale=ja_JP.UTF-8 --owner=zeroth --template=template0 zeroth
+// ex: Windows
+createdb --username=zeroth --encoding=UTF8 --locale=Japanese_Japan.932 --owner=zeroth --template=template0 zeroth
+
+// ex: Drop Database
+dropdb --username=postgres zeroth
+
+h3. Connect Database
+
+psql --username=zeroth zeroth
+
+h2. Application Server
+
+h3. JDBC-Driver
+
+// ex: Unix
+cp ~/.m2/repository/postgresql/postgresql/9.1-901-1.jdbc4/postgresql-9.1-901-1.jdbc4.jar $GLASSFISH_HOME/lib
+// ex: Windows
+cp $USERPROFILE/.m2/repository/postgresql/postgresql/9.1-901-1.jdbc4/postgresql-9.1-901-1.jdbc4.jar /Applications/glassfish3/glassfish/lib
+
+
+h3. Run & Stop (Restart)
+
+asadmin start-domain
+asadmin stop-domain
+(asadmin restart-domain)
+
+h3. Create JDBC Connection-Pool & Create JDBC Resource
+
+asadmin create-jdbc-connection-pool --datasourceclassname org.postgresql.ds.PGConnectionPoolDataSource --restype javax.sql.ConnectionPoolDataSource --property portNumber=5432:user=zeroth:password=happyhacking:serverName=localhost:databaseName=zeroth zeroth_pool
+asadmin ping-connection-pool zeroth_pool
+asadmin create-jdbc-resource --connectionpoolid zeroth_pool jdbc/zeroth
+
+// ex: Delete JDBC Resource & Delete JDBC Connection-Pool
+asadmin delete-jdbc-resource jdbc/zeroth
+asadmin delete-jdbc-connection-pool zeroth_pool
+
+h3. Create Auth-Realm
+
+asadmin create-auth-realm --classname com.sun.enterprise.security.auth.realm.jdbc.JDBCRealm --property jaas-context=jdbcRealm:datasource-jndi=jdbc/zeroth:user-table=public.member:group-table=public.member_auth:user-name-column=account:password-column=password:group-name-column=auth:digest-algorithm=SHA-256:encoding=Hex zeroth_auth
+asadmin list-auth-realms
+
+// ex: Delete Auth-Realm
+asadmin delete-auth-realm zeroth_auth
+
+h3. Create JVM-Options
+
+asadmin create-jvm-options '-Dlogback.configurationFile=${com.sun.aas.instanceRoot}/config/logback.xml'
+asadmin list-jvm-options
+cp ./zeroth-fw-standard/src/test/resources/logback-test.xml /Applications/glassfish3/glassfish/domains/domain1/config/logback.xml
+
+// ex: Delete JVM-Options
+asadmin delete-jvm-options -Dlogback.configurationFile=${com.sun.aas.instanceRoot}/config/logback.xml
+
+h3. Create JavaMail Session
+
+asadmin create-javamail-resource --mailhost smtp.gmail.com --fromaddress zeroth@gmail.com --mailuser zeroth@gmail.com --transprotocol smtps --transprotocolclass com.sun.mail.smtp.SMTPSSLTransport --description "zeroth mail session" --property mail-smtps-password=xxxxxxxx:mail-smtps-auth=true mail/zerothSession

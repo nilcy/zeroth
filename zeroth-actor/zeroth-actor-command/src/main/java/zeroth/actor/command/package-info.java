@@ -4,7 +4,7 @@
 // http://www.gnu.org/licenses/agpl-3.0.txt
 // ========================================================================
 /**
- * 関係先コマンドライン
+ * 関係先コマンド
  * @author nilcy
  */
 package zeroth.actor.command;
