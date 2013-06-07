@@ -7,12 +7,11 @@ package zeroth.framework.enterprise.infra.persistence;
 import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;
 import static zeroth.framework.enterprise.domain.TestExample_.*;
+import java.util.Collection;
 import java.util.logging.Logger;
 import javax.inject.Inject;
 import javax.persistence.LockModeType;
-import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -53,14 +52,14 @@ public class QueryPersistenceServiceImplTest {
     @Test
     public void testCriteria() {
         final CriteriaBuilder b = testee.builder();
-        final CriteriaQuery<TestExample> q = testee.query();
         final Root<TestExample> r = testee.root();
         testee.persist(new TestExample("code01"));
         testee.persist(new TestExample("code02"));
-        final TypedQuery<TestExample> typedQuery = testee
-            .createQuery(q.select(r).where(b.equal(r.get(code), "code01"))
-                .orderBy(b.asc(r.get(code))).groupBy(r.get(code)));
-        for (final TestExample e : typedQuery.getResultList()) {
+        testee.query().select(r).where(b.equal(r.get(code), "code01")).orderBy(b.asc(r.get(code)));
+        final Collection<TestExample> testExamples = testee.createQuery().getResultList();
+        assertThat(testExamples.size(), is(1));
+        for (final TestExample e : testExamples) {
+            assertThat(e.getCode(), is("code01"));
             log.info("TestExampleObject >> " + e.toString());
         }
     }

@@ -5,18 +5,10 @@
 // ========================================================================
 package zeroth.framework.enterprise.domain;
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.Iterator;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Root;
 import zeroth.framework.enterprise.infra.persistence.PersistenceService;
 import zeroth.framework.enterprise.infra.persistence.QueryPersistenceService;
-import zeroth.framework.standard.shared.Pageable;
-import zeroth.framework.standard.shared.Sort.Direction;
-import zeroth.framework.standard.shared.Sort.Order;
 import zeroth.framework.standard.shared.ValueObject;
 /**
  * 基本リポジトリ
@@ -104,23 +96,4 @@ public abstract class AbstractSimpleRepositoryImpl<T extends Persistable<ID>, ID
      * @return 拡張データ永続化サービス
      */
     protected abstract QueryPersistenceService<T, ID> getQueryPersistenceService();
-    /** {@inheritDoc} */
-    @Override
-    public void setOrder(final Pageable pageable) {
-        final CriteriaBuilder builder = getQueryPersistenceService().builder();
-        final Root<T> root = getQueryPersistenceService().root();
-        final CriteriaQuery<T> query = getQueryPersistenceService().query();
-        if (pageable.getSort() != null) {
-            final Collection<javax.persistence.criteria.Order> criteriaOrders = new ArrayList<>();
-            for (final Iterator<Order> iter = pageable.getSort().iterator(); iter.hasNext();) {
-                final Order order = iter.next();
-                if (Direction.ASC.equals(order.getDirection())) {
-                    criteriaOrders.add(builder.asc(root.get(order.getProperty())));
-                } else {
-                    criteriaOrders.add(builder.desc(root.get(order.getProperty())));
-                }
-            }
-            query.orderBy(criteriaOrders.toArray(new javax.persistence.criteria.Order[0]));
-        }
-    }
 }

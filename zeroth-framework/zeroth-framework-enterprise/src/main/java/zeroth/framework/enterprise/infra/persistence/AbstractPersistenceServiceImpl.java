@@ -12,16 +12,16 @@ import javax.persistence.TypedQuery;
 import zeroth.framework.enterprise.domain.Persistable;
 /**
  * 基本データ永続化サービス
- * @param <T> エンティティ型
+ * @param <E> エンティティ型
  * @param <ID> 識別子オブジェクト型
  * @author nilcy
  */
-public abstract class AbstractPersistenceServiceImpl<T extends Persistable<ID>, ID extends Serializable>
-    implements PersistenceService<T, ID> {
+public abstract class AbstractPersistenceServiceImpl<E extends Persistable<ID>, ID extends Serializable>
+    implements PersistenceService<E, ID> {
     /** 識別番号 */
     private static final long serialVersionUID = -2663309706616831662L;
     /** エンティティクラス */
-    protected Class<T> clazz;
+    protected Class<E> clazz;
     /** エンティティマネージャ */
     protected EntityManager manager;
     /** コンストラクタ */
@@ -34,69 +34,97 @@ public abstract class AbstractPersistenceServiceImpl<T extends Persistable<ID>, 
      * <p>
      */
     @Override
-    public void setup(final Class<T> clazz, final EntityManager manager) {
+    public void setup(final Class<E> clazz, final EntityManager manager) {
         this.clazz = clazz;
         this.manager = manager;
     }
+    /**
+     * {@inheritDoc}
+     * <p>
+     * 永続化して、同期する。
+     * </p>
+     */
     @Override
-    public void persist(final T entity) {
+    public void persist(final E entity) {
         manager.persist(entity);
         flush();
     }
+    /**
+     * {@inheritDoc}
+     * <p>
+     * エンティティのクラスを指定して、ID検索する。
+     * </p>
+     */
     @Override
-    public T find(final ID id) {
+    public E find(final ID id) {
         return manager.find(clazz, id);
     }
+    /**
+     * {@inheritDoc}
+     * <p>
+     * エンティティのクラスを指定して、ID検索する。楽観ロック/悲観ロックなどを指定する。
+     * </p>
+     */
     @Override
-    public T find(final Long id, final LockModeType lockModeType) {
+    public E find(final Long id, final LockModeType lockModeType) {
         return manager.find(clazz, id, lockModeType);
     }
+    /** {@inheritDoc} */
     @Override
-    public void merge(final T entity) {
+    public void merge(final E entity) {
         manager.merge(entity);
         flush();
     }
+    /** {@inheritDoc} */
     @Override
-    public void remove(final T entity) {
+    public void remove(final E entity) {
         manager.remove(entity);
         flush();
     }
+    /** {@inheritDoc} */
     @Override
-    public void refresh(final T entity) {
+    public void refresh(final E entity) {
         manager.refresh(entity);
     }
+    /** {@inheritDoc} */
     @Override
-    public void refresh(final T entity, final LockModeType lockModeType) {
+    public void refresh(final E entity, final LockModeType lockModeType) {
         manager.refresh(entity, lockModeType);
     }
+    /** {@inheritDoc} */
     @Override
-    public void lock(final T entity, final LockModeType lockModeType) {
+    public void lock(final E entity, final LockModeType lockModeType) {
         manager.lock(entity, lockModeType);
     }
+    /** {@inheritDoc} */
     @Override
     public void flush() {
         manager.flush();
     }
+    /** {@inheritDoc} */
     @Override
-    public void detach(final T entity) {
+    public void detach(final E entity) {
         manager.detach(entity);
-    }
-    @Override
-    public boolean contains(final T entity) {
-        return manager.contains(entity);
-    }
-    @Override
-    public TypedQuery<T> setRange(final TypedQuery<T> query, final int begin, final int max) {
-        return query.setFirstResult(begin).setMaxResults(max);
     }
     /** {@inheritDoc} */
     @Override
-    public Collection<T> findMany(final TypedQuery<T> query) {
+    public boolean contains(final E entity) {
+        return manager.contains(entity);
+    }
+    /** {@inheritDoc} */
+    @Override
+    public TypedQuery<E> createRangeQuery(final TypedQuery<E> query, final int offset,
+        final int maxsize) {
+        return query.setFirstResult(offset).setMaxResults(maxsize);
+    }
+    /** {@inheritDoc} */
+    @Override
+    public Collection<E> findMany(final TypedQuery<E> query) {
         return query.getResultList();
     }
     /** {@inheritDoc} */
     @Override
-    public T findOne(final TypedQuery<T> query) {
+    public E findOne(final TypedQuery<E> query) {
         return query.getSingleResult();
     }
 }

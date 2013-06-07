@@ -27,6 +27,7 @@ import zeroth.framework.standard.shared.Sort.Order;
  * </p>
  * @param <T> エンティティ型
  * @param <ID> 識別子オブジェクト型
+ * @since JPA 2.0
  * @author nilcy
  */
 @Stateless
@@ -54,28 +55,34 @@ public class QueryPersistenceServiceImpl<T extends Persistable<ID>, ID extends S
         query = builder().createQuery(clazz);
         root = query().from(clazz);
     }
+    /** {@inheritDoc} */
     @Override
     public CriteriaBuilder builder() {
         return builder;
     }
+    /** {@inheritDoc} */
     @Override
     public CriteriaQuery<T> query() {
         return query;
     }
+    /** {@inheritDoc} */
     @Override
     public Root<T> root() {
         return root;
     }
-    @Override
-    public TypedQuery<T> createQuery(final CriteriaQuery<T> query) {
-        assert query != null;
-        return manager.createQuery(query);
-    }
     /** {@inheritDoc} */
     @Override
-    public TypedQuery<T> createQuery(final CriteriaQuery<T> query, final Pageable pageable) {
-        final CriteriaBuilder builder = builder();
-        final Root<T> root = root();
+    public TypedQuery<T> createQuery() {
+        return manager.createQuery(query);
+    }
+    /**
+     * {@inheritDoc}
+     * <p>
+     * ページ条件があるとき、オフセット、ページサイズ、ソート条件をクエリへ設定して、範囲指定クエリを作成する。 ページ条件がないとき、クエリを作成する。
+     * </p>
+     */
+    @Override
+    public TypedQuery<T> createQuery(final Pageable pageable) {
         if (pageable != null) {
             if (pageable.getSort() != null) {
                 final Collection<javax.persistence.criteria.Order> criteriaOrders = new ArrayList<>();
@@ -89,12 +96,16 @@ public class QueryPersistenceServiceImpl<T extends Persistable<ID>, ID extends S
                 }
                 query.orderBy(criteriaOrders.toArray(new javax.persistence.criteria.Order[0]));
             }
-            return createQuery(query).setFirstResult(pageable.getOffset()).setMaxResults(
-                pageable.getPageSize());
+            return createRangeQuery(createQuery(), pageable.getOffset(), pageable.getPageSize());
         }
-        return createQuery(query);
+        return createQuery();
     }
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     * <p>
+     * WHERE句がないとき表明エラーとする。標準ルートとWHERE句をもとに件数クエリを作成する。
+     * </p>
+     */
     @Override
     public TypedQuery<Long> createCountQuery(final Predicate expression) {
         assert expression != null;

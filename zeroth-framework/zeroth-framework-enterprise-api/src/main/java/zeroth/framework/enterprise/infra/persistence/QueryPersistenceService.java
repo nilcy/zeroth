@@ -32,6 +32,9 @@ public interface QueryPersistenceService<T extends Persistable<ID>, ID extends S
     CriteriaBuilder builder();
     /**
      * 標準クエリの取得
+     * <p>
+     * まずCriteria-APIを使用して標準クエリを設定する。これがクエリの作成で使用される。
+     * </p>
      * @return 標準クエリ
      */
     CriteriaQuery<T> query();
@@ -42,17 +45,15 @@ public interface QueryPersistenceService<T extends Persistable<ID>, ID extends S
     Root<T> root();
     /**
      * クエリの作成
-     * @param query 標準クエリ
      * @return クエリ
      */
-    TypedQuery<T> createQuery(CriteriaQuery<T> query);
+    TypedQuery<T> createQuery();
     /**
      * クエリの作成
-     * @param query 標準クエリ
      * @param pageable ページ条件I/F
      * @return クエリ
      */
-    TypedQuery<T> createQuery(CriteriaQuery<T> query, Pageable pageable);
+    TypedQuery<T> createQuery(Pageable pageable);
     /**
      * 件数クエリの作成
      * @param expression WHERE句

@@ -9,7 +9,6 @@ import java.util.Collection;
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 import javax.persistence.TypedQuery;
-import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import zeroth.framework.enterprise.infra.persistence.PersistenceService;
 import zeroth.framework.enterprise.infra.persistence.QueryPersistenceService;
@@ -56,9 +55,8 @@ public class TestExampleSimpleRepository extends
      * @return クエリ
      */
     private TypedQuery<TestExample> createQuery(final TestExampleValue filter) {
-        final CriteriaQuery<TestExample> query = service.query();
-        query.select(service.root()).where(expression(filter));
-        return service.createQuery(query, filter.getPageRequest());
+        service.query().select(service.root()).where(expression(filter));
+        return service.createQuery(filter.getPageRequest());
     }
     /**
      * WHERE句の作成
