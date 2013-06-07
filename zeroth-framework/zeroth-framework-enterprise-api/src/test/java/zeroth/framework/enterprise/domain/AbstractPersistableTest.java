@@ -25,7 +25,7 @@ public final class AbstractPersistableTest {
     private TestPersistable testee;
     @Produces
     @PersistenceContext(unitName = "primary")
-    private EntityManager entityManager;
+    private EntityManager manager;
     @Before
     public void before() {
         testee = new TestPersistable();
@@ -62,10 +62,10 @@ public final class AbstractPersistableTest {
     @Test
     public void testCallback() {
         assertThat(testee.isPersisted(), is(false));
-        entityManager.persist(testee);
-        entityManager.flush();
+        manager.persist(testee);
+        manager.flush();
         assertThat(testee.isPersisted(), is(true));
-        for (final TestPersistable o : entityManager.createQuery("select e from TestPersistable e",
+        for (final TestPersistable o : manager.createQuery("select e from TestPersistable e",
             TestPersistable.class).getResultList()) {
             assertThat(o.isPersisted(), is(true));
         }

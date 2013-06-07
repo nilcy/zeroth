@@ -3,18 +3,8 @@
 // GNU AFFERO GENERAL PUBLIC LICENSE Version 3, 19 November 2007
 // http://www.gnu.org/licenses/agpl-3.0.txt
 // ========================================================================
-package zeroth.framework.standard;
-import static org.hamcrest.CoreMatchers.*;
-import static org.junit.Assert.*;
-import org.junit.Test;
 /**
- * Test {@link Example}.
+ * 関係先 | ドメインレイヤ
  * @author nilcy
  */
-@SuppressWarnings("all")
-public class ExampleTest {
-    @Test
-    public void testSayHello() {
-        assertThat(Example.sayHello(), is("Hello"));
-    }
-}
+package zeroth.actor.domain;

@@ -26,7 +26,7 @@ public final class AbstractAuditableTest {
     private TestAuditable testee;
     @Produces
     @PersistenceContext(unitName = "primary")
-    private EntityManager entityManager;
+    private EntityManager manager;
     private static final Date TODAY = new Date();
     @Before
     public void before() {
@@ -77,16 +77,16 @@ public final class AbstractAuditableTest {
     public void testCallback() {
         assertThat(testee.getCreatedDate(), is(nullValue()));
         assertThat(testee.getLastModifiedDate(), is(nullValue()));
-        entityManager.persist(testee);
-        entityManager.flush();
+        manager.persist(testee);
+        manager.flush();
         assertThat(testee.getCreatedDate(), is(not(nullValue())));
         assertThat(testee.getLastModifiedDate(), is(not(nullValue())));
         assertThat(testee.getCreatedDate(), is(testee.getLastModifiedDate()));
-        for (final TestAuditable o : entityManager.createQuery("select e from TestAuditable e",
+        for (final TestAuditable o : manager.createQuery("select e from TestAuditable e",
             TestAuditable.class).getResultList()) {
             o.setLastModifiedBy(0L);
-            entityManager.merge(o);
-            entityManager.flush();
+            manager.merge(o);
+            manager.flush();
             assertThat(o.getCreatedDate(), is(not(o.getLastModifiedDate())));
         }
     }
