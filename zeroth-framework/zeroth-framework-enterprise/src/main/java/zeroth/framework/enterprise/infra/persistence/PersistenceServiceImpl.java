@@ -6,6 +6,7 @@
 package zeroth.framework.enterprise.infra.persistence;
 import java.io.Serializable;
 import java.util.Collection;
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.LockModeType;
 import javax.persistence.TypedQuery;
@@ -16,7 +17,8 @@ import zeroth.framework.enterprise.domain.Persistable;
  * @param <ID> 識別子オブジェクト型
  * @author nilcy
  */
-public abstract class AbstractPersistenceServiceImpl<E extends Persistable<ID>, ID extends Serializable>
+@Stateless
+public class PersistenceServiceImpl<E extends Persistable<ID>, ID extends Serializable>
     implements PersistenceService<E, ID> {
     /** 識別番号 */
     private static final long serialVersionUID = -2663309706616831662L;
@@ -25,7 +27,7 @@ public abstract class AbstractPersistenceServiceImpl<E extends Persistable<ID>, 
     /** エンティティマネージャ */
     protected EntityManager manager;
     /** コンストラクタ */
-    public AbstractPersistenceServiceImpl() {
+    public PersistenceServiceImpl() {
     }
     /**
      * {@inheritDoc}
@@ -38,12 +40,7 @@ public abstract class AbstractPersistenceServiceImpl<E extends Persistable<ID>, 
         this.clazz = clazz;
         this.manager = manager;
     }
-    /**
-     * {@inheritDoc}
-     * <p>
-     * 永続化して、同期する。
-     * </p>
-     */
+    /** {@inheritDoc} */
     @Override
     public void persist(final E entity) {
         manager.persist(entity);
@@ -71,8 +68,7 @@ public abstract class AbstractPersistenceServiceImpl<E extends Persistable<ID>, 
     /** {@inheritDoc} */
     @Override
     public E merge(final E entity) {
-        final E merged = manager.merge(entity);
-        return merged;
+        return manager.merge(entity);
     }
     /** {@inheritDoc} */
     @Override

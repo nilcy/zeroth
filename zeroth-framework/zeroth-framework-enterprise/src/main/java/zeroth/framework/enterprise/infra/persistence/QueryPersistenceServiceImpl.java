@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 import javax.ejb.Stateless;
-import javax.enterprise.inject.Alternative;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
@@ -31,9 +30,8 @@ import zeroth.framework.standard.shared.Sort.Order;
  * @author nilcy
  */
 @Stateless
-@Alternative
 public class QueryPersistenceServiceImpl<E extends Persistable<ID>, ID extends Serializable>
-    extends AbstractPersistenceServiceImpl<E, ID> implements QueryPersistenceService<E, ID> {
+    extends PersistenceServiceImpl<E, ID> implements QueryPersistenceService<E, ID> {
     /** 識別番号 */
     private static final long serialVersionUID = 6451157743975586409L;
     /** 標準ビルダー */

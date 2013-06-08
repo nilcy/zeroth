@@ -6,6 +6,7 @@
 package zeroth.framework.enterprise.infra.persistence;
 import java.io.Serializable;
 import java.util.Collection;
+import javax.ejb.Local;
 import javax.persistence.EntityManager;
 import javax.persistence.LockModeType;
 import javax.persistence.TypedQuery;
@@ -15,7 +16,7 @@ import zeroth.framework.standard.shared.Service;
  * 基本データ永続化サービスI/F
  * <ul>
  * エンティティのライフサイクル
- * <li>New(新規)…インスタンス化しただけでDBへ反映していない状態。[persist()でManaged化]</li>
+ * <li>New(新規)…インスタンス化しただけの状態。[persist()でManaged化]</li>
  * <li>Managed(管理)…永続コンテキスト中で管理している状態。[find()が可能]</li>
  * <li>Removed(削除)…永続コンテキスト中で削除を予約している状態。[remove()した後]</li>
  * <li>Detached(分離)…永続コンテキストから分離した状態。[merge()でManaged化]</li>
@@ -24,8 +25,9 @@ import zeroth.framework.standard.shared.Service;
  * @param <ID> 識別子オブジェクト型
  * @author nilcy
  */
-public abstract interface PersistenceService<E extends Persistable<ID>, ID extends Serializable>
-    extends Service {
+@Local
+public interface PersistenceService<E extends Persistable<ID>, ID extends Serializable> extends
+    Service {
     /**
      * 初期化
      * <p>

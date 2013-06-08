@@ -10,10 +10,7 @@ import javax.enterprise.inject.Alternative;
 import javax.persistence.Query;
 import zeroth.framework.enterprise.domain.Persistable;
 /**
- * 拡張データ永続化サービス(JPA2/CriteriaQuery)
- * <p>
- * クエリオブジェクト@PofEAA の実装
- * </p>
+ * 拡張データ永続化サービス(JPA2/NativeQuery)
  * @param <E> エンティティ型
  * @param <ID> 識別子オブジェクト型
  * @author nilcy
@@ -21,7 +18,7 @@ import zeroth.framework.enterprise.domain.Persistable;
 @Stateless
 @Alternative
 public class NativePersistenceServiceImpl<E extends Persistable<ID>, ID extends Serializable>
-    extends AbstractPersistenceServiceImpl<E, ID> implements NativePersistenceService<E, ID> {
+    extends PersistenceServiceImpl<E, ID> implements NativePersistenceService<E, ID> {
     /** 識別番号 */
     private static final long serialVersionUID = -1029454631523751121L;
     @Override

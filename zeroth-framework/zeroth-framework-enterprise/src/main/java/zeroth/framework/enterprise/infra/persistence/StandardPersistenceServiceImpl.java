@@ -18,7 +18,7 @@ import zeroth.framework.enterprise.domain.Persistable;
 @Stateless
 @Alternative
 public class StandardPersistenceServiceImpl<E extends Persistable<ID>, ID extends Serializable>
-    extends AbstractPersistenceServiceImpl<E, ID> implements StandardPersistenceService<E, ID> {
+    extends PersistenceServiceImpl<E, ID> implements StandardPersistenceService<E, ID> {
     /** 識別番号 */
     private static final long serialVersionUID = -1029454631523751121L;
     /** {@inheritDoc} */
