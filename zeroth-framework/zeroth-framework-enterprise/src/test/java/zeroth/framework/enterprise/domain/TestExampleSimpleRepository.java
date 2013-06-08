@@ -10,7 +10,7 @@ import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.Predicate;
-import zeroth.framework.enterprise.infra.persistence.PersistenceService;
+import zeroth.framework.enterprise.infra.persistence.SimplePersistenceService;
 import zeroth.framework.enterprise.infra.persistence.QueryPersistenceService;
 /**
  * テストオブジェクト基本リポジトリ
@@ -26,7 +26,7 @@ public class TestExampleSimpleRepository extends
     private QueryPersistenceService<TestExample, Long> service;
     /** {@inheritDoc} */
     @Override
-    protected PersistenceService<TestExample, Long> getPersistenceService() {
+    protected SimplePersistenceService<TestExample, Long> getPersistenceService() {
         return service;
     }
     /** {@inheritDoc} */

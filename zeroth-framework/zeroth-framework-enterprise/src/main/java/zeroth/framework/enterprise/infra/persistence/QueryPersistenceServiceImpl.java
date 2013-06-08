@@ -8,7 +8,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
-import javax.ejb.Stateless;
+import javax.ejb.Stateful;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
@@ -22,16 +22,16 @@ import zeroth.framework.standard.shared.Sort.Order;
 /**
  * 拡張データ永続化サービス(JPA2/CriteriaQuery)
  * <p>
- * クエリオブジェクト@PofEAA
+ * {@link SimplePersistenceServiceImpl} へクエリオブジェクト(Criteria)を追加したサービスである。(クエリオブジェクト@PofEAA) である。
  * </p>
  * @param <E> エンティティ型
  * @param <ID> 識別子オブジェクト型
  * @since JPA 2.0
  * @author nilcy
  */
-@Stateless
+@Stateful
 public class QueryPersistenceServiceImpl<E extends Persistable<ID>, ID extends Serializable>
-    extends PersistenceServiceImpl<E, ID> implements QueryPersistenceService<E, ID> {
+    extends SimplePersistenceServiceImpl<E, ID> implements QueryPersistenceService<E, ID> {
     /** 識別番号 */
     private static final long serialVersionUID = 6451157743975586409L;
     /** 標準ビルダー */
@@ -47,8 +47,8 @@ public class QueryPersistenceServiceImpl<E extends Persistable<ID>, ID extends S
      * </p>
      */
     @Override
-    public void setup(final Class<E> clazz, final EntityManager manager) {
-        super.setup(clazz, manager);
+    public void setup(final EntityManager manager, final Class<E> clazz) {
+        super.setup(manager, clazz);
         builder = manager.getCriteriaBuilder();
         query = builder().createQuery(clazz);
         root = query().from(clazz);

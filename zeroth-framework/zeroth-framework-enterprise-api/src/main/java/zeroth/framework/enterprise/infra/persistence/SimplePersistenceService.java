@@ -26,17 +26,17 @@ import zeroth.framework.standard.shared.Service;
  * @author nilcy
  */
 @Local
-public interface PersistenceService<E extends Persistable<ID>, ID extends Serializable> extends
-    Service {
+public interface SimplePersistenceService<E extends Persistable<ID>, ID extends Serializable>
+    extends Service {
     /**
      * 初期化
      * <p>
      * 本サービスのファクトリから実行すること。
      * </p>
-     * @param clazz エンティティクラス
      * @param manager エンティティマネージャ
+     * @param clazz エンティティクラス
      */
-    void setup(Class<E> clazz, EntityManager manager);
+    void setup(EntityManager manager, Class<E> clazz);
     /**
      * 管理エンティティの保存
      * @param entity 新規エンティティ

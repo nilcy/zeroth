@@ -16,7 +16,7 @@ import zeroth.framework.enterprise.domain.Persistable;
  */
 @Local
 public interface NativePersistenceService<E extends Persistable<ID>, ID extends Serializable>
-    extends PersistenceService<E, ID> {
+    extends SimplePersistenceService<E, ID> {
     /**
      * クエリの作成
      * @param sql SQL

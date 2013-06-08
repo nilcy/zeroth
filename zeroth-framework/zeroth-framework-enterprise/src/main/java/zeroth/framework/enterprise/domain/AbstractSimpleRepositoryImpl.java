@@ -10,7 +10,7 @@ import java.util.Collections;
 import javax.persistence.EntityExistsException;
 import javax.persistence.OptimisticLockException;
 import org.apache.commons.lang3.Validate;
-import zeroth.framework.enterprise.infra.persistence.PersistenceService;
+import zeroth.framework.enterprise.infra.persistence.SimplePersistenceService;
 import zeroth.framework.enterprise.infra.persistence.QueryPersistenceService;
 import zeroth.framework.standard.shared.CommonUtils;
 import zeroth.framework.standard.shared.ValueObject;
@@ -121,7 +121,7 @@ public abstract class AbstractSimpleRepositoryImpl<E extends Persistable<ID>, ID
      * データ永続化サービスの取得
      * @return データ永続化サービス
      */
-    protected abstract PersistenceService<E, ID> getPersistenceService();
+    protected abstract SimplePersistenceService<E, ID> getPersistenceService();
     /**
      * 拡張データ永続化サービスの取得
      * @return 拡張データ永続化サービス

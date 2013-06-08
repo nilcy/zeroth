@@ -6,28 +6,42 @@
 package zeroth.framework.enterprise.infra.persistence;
 import java.io.Serializable;
 import java.util.Collection;
-import javax.ejb.Stateless;
+import java.util.concurrent.TimeUnit;
+import java.util.logging.Logger;
+import javax.ejb.Remove;
+import javax.ejb.Stateful;
+import javax.ejb.StatefulTimeout;
 import javax.persistence.EntityManager;
 import javax.persistence.LockModeType;
 import javax.persistence.TypedQuery;
 import zeroth.framework.enterprise.domain.Persistable;
 /**
- * 基本データ永続化サービス
+ * 基本データ永続化サービス(JPA2)
+ * <p>
+ * 使用方法
+ * <ol>
+ * <li>はじめに {@link #setup(EntityManager, Class)} を実行する。</li>
+ * <li>他のメソッドが実行できるようになる。</li>
+ * <li>本クラスは状態を持つためにステートフルのため破棄が必要です。(ejbRemove)</li>
+ * </ol>
+ * </p>
  * @param <E> エンティティ型
  * @param <ID> 識別子オブジェクト型
+ * @since JPA 1.0
  * @author nilcy
  */
-@Stateless
-public class PersistenceServiceImpl<E extends Persistable<ID>, ID extends Serializable>
-    implements PersistenceService<E, ID> {
+@Stateful
+@StatefulTimeout(value = 0, unit = TimeUnit.SECONDS)
+public class SimplePersistenceServiceImpl<E extends Persistable<ID>, ID extends Serializable>
+    implements SimplePersistenceService<E, ID> {
     /** 識別番号 */
     private static final long serialVersionUID = -2663309706616831662L;
-    /** エンティティクラス */
-    protected Class<E> clazz;
     /** エンティティマネージャ */
     protected EntityManager manager;
+    /** エンティティクラス */
+    protected Class<E> clazz;
     /** コンストラクタ */
-    public PersistenceServiceImpl() {
+    public SimplePersistenceServiceImpl() {
     }
     /**
      * {@inheritDoc}
@@ -36,9 +50,9 @@ public class PersistenceServiceImpl<E extends Persistable<ID>, ID extends Serial
      * <p>
      */
     @Override
-    public void setup(final Class<E> clazz, final EntityManager manager) {
-        this.clazz = clazz;
+    public void setup(final EntityManager manager, final Class<E> clazz) {
         this.manager = manager;
+        this.clazz = clazz;
     }
     /** {@inheritDoc} */
     @Override
@@ -120,5 +134,11 @@ public class PersistenceServiceImpl<E extends Persistable<ID>, ID extends Serial
     @Override
     public E findOne(final TypedQuery<E> query) {
         return query.getSingleResult();
+    }
+    /** EJB削除コールバック */
+    @SuppressWarnings("static-method")
+    @Remove
+    private void ejbRemove() {
+        Logger.getGlobal().info("REMOVED.");
     }
 }

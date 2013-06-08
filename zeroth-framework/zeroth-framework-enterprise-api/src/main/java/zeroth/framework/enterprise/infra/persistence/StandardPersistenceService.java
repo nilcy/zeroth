@@ -16,7 +16,7 @@ import zeroth.framework.enterprise.domain.Persistable;
  */
 @Local
 public interface StandardPersistenceService<T extends Persistable<ID>, ID extends Serializable>
-    extends PersistenceService<T, ID> {
+    extends SimplePersistenceService<T, ID> {
     /**
      * クエリの作成
      * @param jpql JPQL

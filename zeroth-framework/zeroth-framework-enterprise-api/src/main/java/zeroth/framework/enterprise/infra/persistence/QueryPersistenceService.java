@@ -24,7 +24,7 @@ import zeroth.framework.standard.shared.Pageable;
  */
 @Local
 public interface QueryPersistenceService<T extends Persistable<ID>, ID extends Serializable>
-    extends PersistenceService<T, ID> {
+    extends SimplePersistenceService<T, ID> {
     /**
      * 標準ビルダーの取得
      * @return 標準ビルダー
