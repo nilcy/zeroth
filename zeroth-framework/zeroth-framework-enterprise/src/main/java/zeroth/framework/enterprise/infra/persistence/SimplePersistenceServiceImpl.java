@@ -5,12 +5,8 @@
 // ========================================================================
 package zeroth.framework.enterprise.infra.persistence;
 import java.io.Serializable;
+import java.lang.reflect.ParameterizedType;
 import java.util.Collection;
-import java.util.concurrent.TimeUnit;
-import java.util.logging.Logger;
-import javax.ejb.Remove;
-import javax.ejb.Stateful;
-import javax.ejb.StatefulTimeout;
 import javax.persistence.EntityManager;
 import javax.persistence.LockModeType;
 import javax.persistence.TypedQuery;
@@ -18,11 +14,11 @@ import zeroth.framework.enterprise.domain.Persistable;
 /**
  * 基本データ永続化サービス(JPA2)
  * <p>
- * 使用方法
+ * 不変表明
  * <ol>
- * <li>はじめに {@link #setup(EntityManager, Class)} を実行する。</li>
- * <li>他のメソッドが実行できるようになる。</li>
- * <li>本クラスは状態を持つためにステートフルのため破棄が必要です。(ejbRemove)</li>
+ * <li>インスタンス化するときにエンティティのマネージャとクラスを保持して、そのあと変更しない。</li>
+ * <li>エンティティのライフサイクル(コンテキスト状態)に応じたJPAの基本操作を提供すること。</li>
+ * <li>DBトランザクションに関する操作を実行しない。(暗黙的にトランザクションタイプ=JTAを想定している)</li>
  * </ol>
  * </p>
  * @param <E> エンティティ型
@@ -30,8 +26,6 @@ import zeroth.framework.enterprise.domain.Persistable;
  * @since JPA 1.0
  * @author nilcy
  */
-@Stateful
-@StatefulTimeout(value = 0, unit = TimeUnit.SECONDS)
 public class SimplePersistenceServiceImpl<E extends Persistable<ID>, ID extends Serializable>
     implements SimplePersistenceService<E, ID> {
     /** 識別番号 */
@@ -40,19 +34,34 @@ public class SimplePersistenceServiceImpl<E extends Persistable<ID>, ID extends 
     protected EntityManager manager;
     /** エンティティクラス */
     protected Class<E> clazz;
-    /** コンストラクタ */
-    public SimplePersistenceServiceImpl() {
-    }
     /**
-     * {@inheritDoc}
-     * <p>
-     * エンティティクラス、エンティティマネージャを設定する。
-     * <p>
+     * コンストラクタ(汎用)
+     * <ul>
+     * <li>各エンティティに依存しない汎用的な永続化サービスのために使用すること。</li>
+     * <li>データ永続化はインフラストラクチャ層のサービスで、エンティティに依存すべきでないため<b>推奨</b>する。</li>
+     * </ul>
+     * @param manager エンティティマネージャ
+     * @param clazz エンティティクラス
      */
-    @Override
-    public void setup(final EntityManager manager, final Class<E> clazz) {
+    public SimplePersistenceServiceImpl(final EntityManager manager, final Class<E> clazz) {
+        assert manager != null && clazz != null;
         this.manager = manager;
         this.clazz = clazz;
+    }
+    /**
+     * コンストラクタ(個別)
+     * <ul>
+     * <li>各エンティティに依存した個別の永続化サービスのために使用すること。</li>
+     * <li>データ永続化はインフラストラクチャ層のサービスで、エンティティに依存すべきでないため<b>非推奨</b>とする。</li>
+     * <li>※(具象クラスのため)エンティティ型からエンティティクラスを実行時に取得できるため引数は不要となる。</li>
+     * </ul>
+     * @param manager エンティティマネージャ
+     */
+    @SuppressWarnings("unchecked")
+    public SimplePersistenceServiceImpl(final EntityManager manager) {
+        this.manager = manager;
+        clazz = (Class<E>) ((ParameterizedType) this.getClass().getGenericSuperclass())
+            .getActualTypeArguments()[0];
     }
     /** {@inheritDoc} */
     @Override
@@ -134,11 +143,5 @@ public class SimplePersistenceServiceImpl<E extends Persistable<ID>, ID extends 
     @Override
     public E findOne(final TypedQuery<E> query) {
         return query.getSingleResult();
-    }
-    /** EJB削除コールバック */
-    @SuppressWarnings("static-method")
-    @Remove
-    private void ejbRemove() {
-        Logger.getGlobal().info("REMOVED.");
     }
 }

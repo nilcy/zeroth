@@ -4,7 +4,6 @@
 // http://www.gnu.org/licenses/agpl-3.0.txt
 // ========================================================================
 package zeroth.framework.enterprise.infra.persistence;
-import javax.ejb.EJB;
 import javax.enterprise.inject.Produces;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
@@ -18,19 +17,18 @@ public class QueryPersistenceServiceFactory {
     @Inject
     @PrimaryEntityManager
     private EntityManager manager;
-    /** テストオブジェクトの拡張データ永続化サービス */
-    @EJB
-    private QueryPersistenceService<TestExample, Long> testExamplePersistenceService;
     /** コンストラクタ */
     public QueryPersistenceServiceFactory() {
     }
     /**
-     * {@link #testExamplePersistenceService} の作成
-     * @return {@link #testExamplePersistenceService}
+     * テスト参照オブジェクトの拡張データ永続化サービスを作成
+     * @return テスト参照オブジェクトの拡張データ永続化サービス
      */
     @Produces
     public QueryPersistenceService<TestExample, Long> createTestExamplePersistenceService() {
-        testExamplePersistenceService.setup(manager, TestExample.class);
-        return testExamplePersistenceService;
+        final QueryPersistenceService<TestExample, Long> service = new QueryPersistenceServiceImpl<>(
+            manager, TestExample.class);
+        // service.setup(manager, TestExample.class);
+        return service;
     }
 }

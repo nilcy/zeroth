@@ -5,7 +5,6 @@
 // ========================================================================
 package zeroth.framework.enterprise.infra.persistence;
 import java.io.Serializable;
-import javax.ejb.Local;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -22,7 +21,6 @@ import zeroth.framework.standard.shared.Pageable;
  * @param <ID> 識別子オブジェクト型
  * @author nilcy
  */
-@Local
 public interface QueryPersistenceService<T extends Persistable<ID>, ID extends Serializable>
     extends SimplePersistenceService<T, ID> {
     /**

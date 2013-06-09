@@ -5,7 +5,6 @@
 // ========================================================================
 package zeroth.framework.enterprise.infra.persistence;
 import java.io.Serializable;
-import javax.ejb.Local;
 import javax.persistence.TypedQuery;
 import zeroth.framework.enterprise.domain.Persistable;
 /**
@@ -14,7 +13,6 @@ import zeroth.framework.enterprise.domain.Persistable;
  * @param <ID> 識別子オブジェクト型
  * @author nilcy
  */
-@Local
 public interface StandardPersistenceService<T extends Persistable<ID>, ID extends Serializable>
     extends SimplePersistenceService<T, ID> {
     /**

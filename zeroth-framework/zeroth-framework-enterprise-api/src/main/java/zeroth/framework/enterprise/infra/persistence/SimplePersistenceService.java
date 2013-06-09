@@ -6,8 +6,6 @@
 package zeroth.framework.enterprise.infra.persistence;
 import java.io.Serializable;
 import java.util.Collection;
-import javax.ejb.Local;
-import javax.persistence.EntityManager;
 import javax.persistence.LockModeType;
 import javax.persistence.TypedQuery;
 import zeroth.framework.enterprise.domain.Persistable;
@@ -25,18 +23,8 @@ import zeroth.framework.standard.shared.Service;
  * @param <ID> 識別子オブジェクト型
  * @author nilcy
  */
-@Local
 public interface SimplePersistenceService<E extends Persistable<ID>, ID extends Serializable>
     extends Service {
-    /**
-     * 初期化
-     * <p>
-     * 本サービスのファクトリから実行すること。
-     * </p>
-     * @param manager エンティティマネージャ
-     * @param clazz エンティティクラス
-     */
-    void setup(EntityManager manager, Class<E> clazz);
     /**
      * 管理エンティティの保存
      * @param entity 新規エンティティ

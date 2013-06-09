@@ -5,7 +5,7 @@
 // ========================================================================
 package zeroth.framework.enterprise.infra.persistence;
 import java.io.Serializable;
-import javax.ejb.Stateful;
+import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 import zeroth.framework.enterprise.domain.Persistable;
 /**
@@ -18,11 +18,18 @@ import zeroth.framework.enterprise.domain.Persistable;
  * @since JPA 1.0
  * @author nilcy
  */
-@Stateful
 public class StandardPersistenceServiceImpl<E extends Persistable<ID>, ID extends Serializable>
     extends SimplePersistenceServiceImpl<E, ID> implements StandardPersistenceService<E, ID> {
     /** 識別番号 */
     private static final long serialVersionUID = -1029454631523751121L;
+    /**
+     * コンストラクタ
+     * @param manager エンティティマネージャ
+     * @param clazz エンティティクラス
+     */
+    public StandardPersistenceServiceImpl(final EntityManager manager, final Class<E> clazz) {
+        super(manager, clazz);
+    }
     /** {@inheritDoc} */
     @Override
     public TypedQuery<E> createQuery(final String jpql) {

@@ -8,7 +8,6 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
-import javax.ejb.Stateful;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
@@ -29,30 +28,40 @@ import zeroth.framework.standard.shared.Sort.Order;
  * @since JPA 2.0
  * @author nilcy
  */
-@Stateful
 public class QueryPersistenceServiceImpl<E extends Persistable<ID>, ID extends Serializable>
     extends SimplePersistenceServiceImpl<E, ID> implements QueryPersistenceService<E, ID> {
     /** 識別番号 */
     private static final long serialVersionUID = 6451157743975586409L;
     /** 標準ビルダー */
-    private CriteriaBuilder builder;
+    private final CriteriaBuilder builder;
     /** 標準クエリ */
     public CriteriaQuery<E> query;
     /** 標準ルート */
     public Root<E> root;
     /**
-     * {@inheritDoc}
-     * <p>
-     * 標準ビルダー、標準クエリ、標準ルートを設定する。
-     * </p>
+     * コンストラクタ
+     * @param manager エンティティマネージャ
+     * @param clazz エンティティクラス
      */
-    @Override
-    public void setup(final EntityManager manager, final Class<E> clazz) {
-        super.setup(manager, clazz);
+    public QueryPersistenceServiceImpl(final EntityManager manager, final Class<E> clazz) {
+        super(manager, clazz);
         builder = manager.getCriteriaBuilder();
         query = builder().createQuery(clazz);
         root = query().from(clazz);
     }
+    // /**
+    // * {@inheritDoc}
+    // * <p>
+    // * 標準ビルダー、標準クエリ、標準ルートを設定する。
+    // * </p>
+    // */
+    // @Override
+    // public void setup(final EntityManager manager, final Class<E> clazz) {
+    // super.setup(manager, clazz);
+    // builder = manager.getCriteriaBuilder();
+    // query = builder().createQuery(clazz);
+    // root = query().from(clazz);
+    // }
     /** {@inheritDoc} */
     @Override
     public CriteriaBuilder builder() {
