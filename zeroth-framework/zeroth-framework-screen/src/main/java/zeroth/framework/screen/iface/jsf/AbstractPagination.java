@@ -16,7 +16,7 @@ abstract class AbstractPagination<T> implements Pagination<T> {
     /** current page. */
     private final int page;
     /**
-     * Constructor.
+     * コンストラクタ
      * @param aPageSize {@link #pageSize}
      * @param aPage {@link #page}
      */

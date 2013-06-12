@@ -28,35 +28,31 @@ import zeroth.framework.standard.shared.ValueObject;
  */
 public abstract class AbstractActionImpl<E extends Persistable<ID>, ID extends Serializable, F extends ValueObject<?>>
     implements Action<E, ID, F> {
-    /** S/N. */
+    /** 製品番号 */
     private static final long serialVersionUID = -8034832957766744039L;
-    /** page size. */
+    /** ページサイズ */
     private static final int PAGE_SIZE = 10;
-    /** key of persistence error. */
+    /** 永続エラーのキー */
     private static final String KEY_PERSISTENCE_ERROR = "PersistenceErrorOccured";
-    /** selected object. */
+    /** 選択オブジェクト */
     private E selected;
-    /** restriction. */
-    private E restriction;
-    /** items. */
+    /** 検索条件 */
+    private F restriction;
+    /** エンティティ集合 */
     private Collection<E> items;
-    /** pagination. */
+    /** ページ条件 */
     private Pagination<E> pagination;
-    /** ID. */
+    /** 識別子 */
     private ID id;
-    /** current page. */
+    /** 現在ページ */
     private int page;
-    /** conversation. */
+    /** 会話オブジェクト */
     @Inject
     private Conversation conversation;
-    /** Constructor. */
+    /** コンストラクタ */
     public AbstractActionImpl() {
-        super();
     }
-    /**
-     * Get {@link #items}.
-     * @return {@link #items}
-     */
+    /** {@inheritDoc} */
     @Override
     public Collection<E> getItems() {
         if (this.items == null) {
@@ -64,10 +60,7 @@ public abstract class AbstractActionImpl<E extends Persistable<ID>, ID extends S
         }
         return this.items;
     }
-    /**
-     * Get {@link #selected}.
-     * @return {@link #selected}
-     */
+    /** {@inheritDoc} */
     @Override
     public E getSelected() {
         if (this.selected == null) {
@@ -161,21 +154,17 @@ public abstract class AbstractActionImpl<E extends Persistable<ID>, ID extends S
         this.endConversation();
         return "cancelled";
     }
-    /**
-     * Get {@link #pagination}.
-     * @return {@link #pagination}
-     */
+    /** {@inheritDoc} */
     @Override
     public Pagination<E> getPagination() {
         if (this.pagination == null) {
             this.pagination = new AbstractPagination<E>(PAGE_SIZE, this.page) {
-                /** items count. */
+                /** 項目の件数 */
                 private int itemsCount;
                 @Override
                 public Collection<E> createCollection() {
-                    final Collection<E> results = AbstractActionImpl.this.getService().find(
-                        AbstractActionImpl.this.getRestriction(), getFirstIndex(),
-                        getFirstIndex() + getPageSize());
+                    final Collection<E> results = AbstractActionImpl.this.getService().findMany(
+                        AbstractActionImpl.this.getRestriction());
                     this.itemsCount = (int) AbstractActionImpl.this.getService().count(
                         AbstractActionImpl.this.getRestriction());
                     return results;
@@ -192,16 +181,16 @@ public abstract class AbstractActionImpl<E extends Persistable<ID>, ID extends S
     @Override
     public abstract SimpleRepositoryService<E, ID, F> getService();
     /**
-     * Load instance.
-     * @return instance
+     * インスタンスのロード
+     * @return インスタンス
      */
     protected E loadInstance() {
         Validate.notNull(this.getId());
         return getService().find(this.getId());
     }
     /**
-     * Create instance.
-     * @return created instance
+     * エンティティの作成
+     * @return エンティティ
      */
     @SuppressWarnings("unchecked")
     protected E createInstance() {
@@ -215,52 +204,52 @@ public abstract class AbstractActionImpl<E extends Persistable<ID>, ID extends S
         }
     }
     /**
-     * Get {@link #restriction}.
-     * @return {@link #restriction}
+     * 検索条件の作成
+     * @return 検索条件
      */
+    @SuppressWarnings("unchecked")
+    protected F createRestriction() {
+        try {
+            return ((Class<F>) ((ParameterizedType) this.getClass().getGenericSuperclass())
+                .getActualTypeArguments()[2]).newInstance();
+        } catch (final InstantiationException e) {
+            throw new EnterpriseRuntimeException(e);
+        } catch (final IllegalAccessException e) {
+            throw new EnterpriseRuntimeException(e);
+        }
+    }
+    /** {@inheritDoc} */
     @Override
-    public E getRestriction() {
+    public F getRestriction() {
         if (this.restriction == null) {
-            this.restriction = this.createInstance();
+            this.restriction = this.createRestriction();
         }
         return this.restriction;
     }
     /**
-     * Process on before save.
-     * @return true if success.
+     * 保存前の処理
+     * @return 成否
      */
     @SuppressWarnings("static-method")
     protected boolean beforeSave() {
         return true;
     }
-    /**
-     * Get {@link #id}.
-     * @return {@link #id}
-     */
+    /** {@inheritDoc} */
     @Override
     public ID getId() {
         return this.id;
     }
-    /**
-     * Set {@link #id}.
-     * @param aId {@link #id}
-     */
+    /** {@inheritDoc} */
     @Override
     public void setId(final ID aId) {
         this.id = aId;
     }
-    /**
-     * Get {@link #page}.
-     * @return {@link #page}
-     */
+    /** {@inheritDoc} */
     @Override
     public int getPage() {
         return this.page;
     }
-    /**
-     * Set {@link #page}.
-     * @param aPage {@link #page}
-     */
+    /** {@inheritDoc} */
     @Override
     public void setPage(final int aPage) {
         this.page = aPage;

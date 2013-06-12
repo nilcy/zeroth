@@ -16,7 +16,7 @@ import org.apache.commons.lang3.StringUtils;
  * @author nilcy
  */
 public final class FacesHelper {
-    /** Constructor. */
+    /** コンストラクタ */
     private FacesHelper() {
     }
     /**

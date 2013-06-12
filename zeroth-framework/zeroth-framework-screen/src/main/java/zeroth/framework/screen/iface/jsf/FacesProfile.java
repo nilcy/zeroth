@@ -35,7 +35,7 @@ public final class FacesProfile {
     private static final String SEPCHR = ",";
     /** ISO 8601. */
     private static final String YMD_ISO8601 = "yyyy-MM-dd";
-    /** Constructor. */
+    /** コンストラクタ */
     private FacesProfile() {
         super();
     }
