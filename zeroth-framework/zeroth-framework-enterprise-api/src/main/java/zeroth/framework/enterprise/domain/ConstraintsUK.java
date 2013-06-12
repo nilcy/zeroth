@@ -4,6 +4,7 @@
 // http://www.gnu.org/licenses/agpl-3.0.txt
 // ========================================================================
 package zeroth.framework.enterprise.domain;
+import zeroth.framework.enterprise.shared.Persistable;
 /**
  * 一意キー制約チェックI/F
  * @param <E> エンティティ型

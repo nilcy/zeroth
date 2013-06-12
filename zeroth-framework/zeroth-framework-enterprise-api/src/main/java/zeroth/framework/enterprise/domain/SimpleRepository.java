@@ -6,6 +6,7 @@
 package zeroth.framework.enterprise.domain;
 import java.io.Serializable;
 import java.util.Collection;
+import zeroth.framework.enterprise.shared.Persistable;
 import zeroth.framework.standard.domain.Repository;
 import zeroth.framework.standard.shared.ValueObject;
 /**

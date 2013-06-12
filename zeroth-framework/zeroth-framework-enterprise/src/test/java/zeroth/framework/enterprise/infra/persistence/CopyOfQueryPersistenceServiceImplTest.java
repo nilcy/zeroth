@@ -25,7 +25,7 @@ import zeroth.framework.enterprise.domain.TestExample;
 @RunWith(JeeunitRunner.class)
 @Transactional
 @SuppressWarnings("all")
-public class QueryPersistenceServiceImplTest {
+public class CopyOfQueryPersistenceServiceImplTest {
     @Inject
     private QueryPersistenceService<TestExample, Long> testee;
     @Inject

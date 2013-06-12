@@ -8,18 +8,19 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
+import javax.enterprise.inject.Default;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
-import zeroth.framework.enterprise.domain.Persistable;
+import zeroth.framework.enterprise.shared.Persistable;
 import zeroth.framework.standard.shared.Pageable;
 import zeroth.framework.standard.shared.Sort.Direction;
 import zeroth.framework.standard.shared.Sort.Order;
 /**
- * 拡張データ永続化サービス(JPA2/CriteriaQuery)
+ * 先進データ永続化サービス(JPA2/CriteriaQuery)
  * <p>
  * {@link SimplePersistenceServiceImpl} へクエリオブジェクト(Criteria)を追加したサービスである。(クエリオブジェクト@PofEAA) である。
  * </p>
@@ -28,6 +29,7 @@ import zeroth.framework.standard.shared.Sort.Order;
  * @since JPA 2.0
  * @author nilcy
  */
+@Default
 public class QueryPersistenceServiceImpl<E extends Persistable<ID>, ID extends Serializable>
     extends SimplePersistenceServiceImpl<E, ID> implements QueryPersistenceService<E, ID> {
     /** 識別番号 */

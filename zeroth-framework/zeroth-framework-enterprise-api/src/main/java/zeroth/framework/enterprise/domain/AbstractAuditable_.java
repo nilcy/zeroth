@@ -16,7 +16,7 @@ import javax.persistence.metamodel.StaticMetamodel;
 public class AbstractAuditable_ extends AbstractPersistable_ {
     /** 作成者(ID) */
     public static volatile SingularAttribute<AbstractAuditable<?>, Long> createdBy;
-    /** 登録日時 */
+    /** 作成日時 */
     public static volatile SingularAttribute<AbstractAuditable<?>, Date> createdDate;
     /** 最終更新者(ID) */
     public static volatile SingularAttribute<AbstractAuditable<?>, Long> lastModifiedBy;

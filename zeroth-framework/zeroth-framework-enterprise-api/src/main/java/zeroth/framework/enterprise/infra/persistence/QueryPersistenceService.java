@@ -10,10 +10,10 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
-import zeroth.framework.enterprise.domain.Persistable;
+import zeroth.framework.enterprise.shared.Persistable;
 import zeroth.framework.standard.shared.Pageable;
 /**
- * 拡張データ永続化サービスI/F(JPA2/CriteriaQuery)
+ * 先進データ永続化サービスI/F(JPA2/CriteriaQuery)
  * <p>
  * クエリオブジェクト@PofEAA
  * </p>

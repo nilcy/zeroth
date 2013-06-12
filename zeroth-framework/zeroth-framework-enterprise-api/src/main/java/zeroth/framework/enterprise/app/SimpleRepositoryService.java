@@ -5,8 +5,8 @@
 // ========================================================================
 package zeroth.framework.enterprise.app;
 import java.io.Serializable;
-import zeroth.framework.enterprise.domain.Persistable;
 import zeroth.framework.enterprise.domain.SimpleRepository;
+import zeroth.framework.enterprise.shared.Persistable;
 import zeroth.framework.standard.shared.ValueObject;
 /**
  * 基本リポジトリサービスI/F

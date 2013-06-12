@@ -14,6 +14,7 @@ import javax.persistence.PostPersist;
 import javax.persistence.PostUpdate;
 import javax.persistence.Transient;
 import org.apache.commons.lang3.builder.EqualsBuilder;
+import zeroth.framework.enterprise.shared.Persistable;
 import zeroth.framework.standard.domain.ReferenceObject;
 import zeroth.framework.standard.shared.AbstractDataObject;
 /**

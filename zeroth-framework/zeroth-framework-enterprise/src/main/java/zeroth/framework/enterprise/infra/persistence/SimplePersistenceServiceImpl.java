@@ -7,10 +7,11 @@ package zeroth.framework.enterprise.infra.persistence;
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
 import java.util.Collection;
+import javax.enterprise.inject.Default;
 import javax.persistence.EntityManager;
 import javax.persistence.LockModeType;
 import javax.persistence.TypedQuery;
-import zeroth.framework.enterprise.domain.Persistable;
+import zeroth.framework.enterprise.shared.Persistable;
 /**
  * 基本データ永続化サービス(JPA2)
  * <p>
@@ -26,6 +27,7 @@ import zeroth.framework.enterprise.domain.Persistable;
  * @since JPA 1.0
  * @author nilcy
  */
+@Default
 public class SimplePersistenceServiceImpl<E extends Persistable<ID>, ID extends Serializable>
     implements SimplePersistenceService<E, ID> {
     /** 識別番号 */
@@ -44,7 +46,7 @@ public class SimplePersistenceServiceImpl<E extends Persistable<ID>, ID extends 
      * @param clazz エンティティクラス
      */
     public SimplePersistenceServiceImpl(final EntityManager manager, final Class<E> clazz) {
-        assert manager != null && clazz != null;
+        assert (manager != null) && (clazz != null);
         this.manager = manager;
         this.clazz = clazz;
     }

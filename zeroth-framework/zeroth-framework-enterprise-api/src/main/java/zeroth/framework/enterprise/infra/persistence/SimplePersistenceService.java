@@ -8,7 +8,7 @@ import java.io.Serializable;
 import java.util.Collection;
 import javax.persistence.LockModeType;
 import javax.persistence.TypedQuery;
-import zeroth.framework.enterprise.domain.Persistable;
+import zeroth.framework.enterprise.shared.Persistable;
 import zeroth.framework.standard.shared.Service;
 /**
  * 基本データ永続化サービスI/F

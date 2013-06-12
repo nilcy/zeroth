@@ -5,9 +5,10 @@
 // ========================================================================
 package zeroth.framework.enterprise.infra.persistence;
 import java.io.Serializable;
+import javax.enterprise.inject.Default;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
-import zeroth.framework.enterprise.domain.Persistable;
+import zeroth.framework.enterprise.shared.Persistable;
 /**
  * 標準データ永続化サービス(JPA2/JPQL)
  * <p>
@@ -18,6 +19,7 @@ import zeroth.framework.enterprise.domain.Persistable;
  * @since JPA 1.0
  * @author nilcy
  */
+@Default
 public class StandardPersistenceServiceImpl<E extends Persistable<ID>, ID extends Serializable>
     extends SimplePersistenceServiceImpl<E, ID> implements StandardPersistenceService<E, ID> {
     /** 識別番号 */

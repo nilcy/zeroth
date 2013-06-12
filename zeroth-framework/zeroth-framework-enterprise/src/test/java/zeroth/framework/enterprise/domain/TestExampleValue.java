@@ -4,6 +4,7 @@
 // http://www.gnu.org/licenses/agpl-3.0.txt
 // ========================================================================
 package zeroth.framework.enterprise.domain;
+import zeroth.framework.standard.shared.AbstractValueObject;
 import zeroth.framework.standard.shared.PageRequest;
 /**
  * テスト値オブジェクト

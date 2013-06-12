@@ -3,10 +3,8 @@
 // GNU AFFERO GENERAL PUBLIC LICENSE Version 3, 19 November 2007
 // http://www.gnu.org/licenses/agpl-3.0.txt
 // ========================================================================
-package zeroth.framework.enterprise.domain;
+package zeroth.framework.standard.shared;
 import org.apache.commons.lang3.builder.EqualsBuilder;
-import zeroth.framework.standard.shared.AbstractDataObject;
-import zeroth.framework.standard.shared.ValueObject;
 /**
  * 値オブジェクト
  * @param <T> 値オブジェクト型

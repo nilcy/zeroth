@@ -27,7 +27,7 @@ public abstract class AbstractAuditable<E extends AbstractAuditable<E>> extends
     /** 作成者(ID) */
     @Column(name = "createdBy", nullable = true, insertable = true, updatable = false)
     private Long createdBy;
-    /** 登録日時 */
+    /** 作成日時 */
     @Column(name = "createdDate", nullable = true)
     @Temporal(TemporalType.TIMESTAMP)
     private Date createdDate;

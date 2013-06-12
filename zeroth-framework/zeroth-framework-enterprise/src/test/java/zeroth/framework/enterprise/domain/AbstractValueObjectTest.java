@@ -8,6 +8,7 @@ import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
+import zeroth.framework.standard.shared.AbstractValueObject;
 /**
  * {@link AbstractValueObject} のユニットテスト
  * @author nilcy

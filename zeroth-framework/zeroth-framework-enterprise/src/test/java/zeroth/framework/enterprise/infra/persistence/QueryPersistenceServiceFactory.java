@@ -17,6 +17,9 @@ public class QueryPersistenceServiceFactory {
     @Inject
     @PrimaryEntityManager
     private EntityManager manager;
+    /** データ永続化サービスのファクトリ */
+    @Inject
+    private PersistenceServiceFactory factory;
     /** コンストラクタ */
     public QueryPersistenceServiceFactory() {
     }
@@ -26,9 +29,6 @@ public class QueryPersistenceServiceFactory {
      */
     @Produces
     public QueryPersistenceService<TestExample, Long> createTestExamplePersistenceService() {
-        final QueryPersistenceService<TestExample, Long> service = new QueryPersistenceServiceImpl<>(
-            manager, TestExample.class);
-        // service.setup(manager, TestExample.class);
-        return service;
+        return factory.createQueryPersistenceService(manager, TestExample.class);
     }
 }

@@ -6,6 +6,7 @@
 package zeroth.framework.enterprise.domain;
 import java.io.Serializable;
 import java.util.Date;
+import zeroth.framework.enterprise.shared.Persistable;
 /**
  * 監査可能エンティティI/F
  * @param <U> 利用者オブジェクト型

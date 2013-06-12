@@ -7,7 +7,7 @@ package zeroth.framework.screen.iface.jsf;
 import java.io.Serializable;
 import java.util.Collection;
 import zeroth.framework.enterprise.app.SimpleRepositoryService;
-import zeroth.framework.enterprise.domain.Persistable;
+import zeroth.framework.enterprise.shared.Persistable;
 import zeroth.framework.standard.shared.ValueObject;
 /**
  * JSFアクションI/F

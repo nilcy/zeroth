@@ -6,7 +6,7 @@
 package zeroth.framework.enterprise.infra.persistence;
 import java.io.Serializable;
 import javax.persistence.Query;
-import zeroth.framework.enterprise.domain.Persistable;
+import zeroth.framework.enterprise.shared.Persistable;
 /**
  * 原始データ永続化サービスI/F(JPA2/NativeQuery)
  * @param <E> エンティティ型

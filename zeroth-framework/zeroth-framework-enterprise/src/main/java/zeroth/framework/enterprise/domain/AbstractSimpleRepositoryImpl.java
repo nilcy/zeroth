@@ -12,6 +12,7 @@ import javax.persistence.OptimisticLockException;
 import org.apache.commons.lang3.Validate;
 import zeroth.framework.enterprise.infra.persistence.SimplePersistenceService;
 import zeroth.framework.enterprise.infra.persistence.QueryPersistenceService;
+import zeroth.framework.enterprise.shared.Persistable;
 import zeroth.framework.standard.shared.CommonUtils;
 import zeroth.framework.standard.shared.ValueObject;
 /**

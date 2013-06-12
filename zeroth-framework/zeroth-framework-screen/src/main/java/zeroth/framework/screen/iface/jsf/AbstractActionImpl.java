@@ -16,8 +16,8 @@ import javax.inject.Inject;
 import org.apache.commons.lang3.Validate;
 import zeroth.framework.enterprise.app.SimpleRepositoryService;
 import zeroth.framework.enterprise.domain.ConstraintsException;
-import zeroth.framework.enterprise.domain.Persistable;
 import zeroth.framework.enterprise.shared.EnterpriseRuntimeException;
+import zeroth.framework.enterprise.shared.Persistable;
 import zeroth.framework.standard.shared.ValueObject;
 /**
  * JSFアクション
