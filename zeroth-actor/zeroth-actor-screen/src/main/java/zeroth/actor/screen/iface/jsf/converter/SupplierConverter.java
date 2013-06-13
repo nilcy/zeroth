@@ -12,7 +12,7 @@ import zeroth.actor.domain.Supplier;
  */
 @FacesConverter(value = "supplierConverter", forClass = Supplier.class)
 public final class SupplierConverter extends AbstractEntityConverter {
-    /** Constructor. */
+    /** コンストラクタ */
     public SupplierConverter() {
         super("supplierAction");
     }

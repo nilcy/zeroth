@@ -54,6 +54,7 @@ public abstract class AbstractDataObject implements DataObject {
     public int hashCode() {
         return HashCodeBuilder.reflectionHashCode(this, true);
     }
+    /** {@inheritDoc} */
     @Override
     public Object clone() throws CloneNotSupportedException {
         return super.clone();

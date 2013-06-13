@@ -16,7 +16,7 @@ public class ResourceException extends WebApplicationException {
     /** S/N. */
     private static final long serialVersionUID = -6533374162841417982L;
     /**
-     * Constructor.
+     * コンストラクタ
      * @param aFault resource fault
      */
     public ResourceException(final ResourceFault aFault) {

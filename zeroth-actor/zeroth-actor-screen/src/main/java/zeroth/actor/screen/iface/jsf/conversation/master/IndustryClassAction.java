@@ -23,7 +23,7 @@ public class IndustryClassAction extends AbstractActionImpl<IndustryClass, Long,
     /** industry classification service Local-I/F. */
     @EJB
     private IndustryClassServiceLocal service;
-    /** Constructor. */
+    /** コンストラクタ */
     public IndustryClassAction() {
         super();
     }

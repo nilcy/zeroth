@@ -7,21 +7,21 @@ package zeroth.framework.standard.shared;
 import java.text.MessageFormat;
 import java.util.ResourceBundle;
 /**
- * Message helper.
+ * メッセージのユーティリティ
  * @author nilcy
  */
-public final class MessageHelper {
-    /** resource bundle. */
+public final class MessageUtils {
+    /** メッセージバンドル */
     private static final ResourceBundle MESSAGE = ResourceBundle
-        .getBundle("com.kuzumeji.framework-message");
-    /** Constructor. */
-    private MessageHelper() {
+        .getBundle("zeroth.framework.standard.bundle.bundle");
+    /** 非公開コンストラクタ */
+    private MessageUtils() {
     }
     /**
-     * build.
-     * @param key key
-     * @param objects Objects
-     * @return message
+     * メッセージの構築
+     * @param key メッセージバンドルのキー
+     * @param objects 展開オブジェクト
+     * @return メッセージ
      */
     public static String build(final String key, final Object... objects) {
         return MessageFormat.format(MESSAGE.getString(key), objects);

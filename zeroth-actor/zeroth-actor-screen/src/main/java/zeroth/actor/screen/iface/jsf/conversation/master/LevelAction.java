@@ -23,7 +23,7 @@ public class LevelAction extends AbstractActionImpl<Level, Long, Level> {
     /** level service Local-I/F. */
     @EJB
     private LevelServiceLocal service;
-    /** Constructor. */
+    /** コンストラクタ */
     public LevelAction() {
         super();
     }

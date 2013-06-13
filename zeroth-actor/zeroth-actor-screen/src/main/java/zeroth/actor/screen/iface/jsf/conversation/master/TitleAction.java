@@ -23,7 +23,7 @@ public class TitleAction extends AbstractActionImpl<Title, Long, Title> {
     /** industry classification service Local-I/F. */
     @EJB
     private TitleServiceLocal service;
-    /** Constructor. */
+    /** コンストラクタ */
     public TitleAction() {
         super();
     }

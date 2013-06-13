@@ -45,7 +45,7 @@ public class OfficeAddressAction implements Serializable {
     private static final int POS_NAME = 2;
     /** address map. */
     private Map<String, OfficeAddress> map;
-    /** Constructor. */
+    /** コンストラクタ */
     public OfficeAddressAction() {
         super();
     }

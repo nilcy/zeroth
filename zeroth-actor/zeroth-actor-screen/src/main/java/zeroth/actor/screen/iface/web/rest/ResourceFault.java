@@ -15,12 +15,12 @@ public class ResourceFault {
     private String code;
     /** Fault message. */
     private String message;
-    /** Constructor. */
+    /** コンストラクタ */
     public ResourceFault() {
         super();
     }
     /**
-     * Constructor.
+     * コンストラクタ
      * @param aCode fault code
      * @param aMessage fault message
      */
@@ -30,28 +30,28 @@ public class ResourceFault {
         this.message = aMessage;
     }
     /**
-     * Get {@link #code}.
+     * {@link #code}.
      * @return {@link #code}
      */
     public String getCode() {
         return this.code;
     }
     /**
-     * Set {@link #code}.
+     * {@link #code}.
      * @param aCode {@link #code}
      */
     public void setCode(final String aCode) {
         this.code = aCode;
     }
     /**
-     * Get {@link #message}.
+     * {@link #message}.
      * @return {@link #message}
      */
     public String getMessage() {
         return this.message;
     }
     /**
-     * Set {@link #message}.
+     * {@link #message}.
      * @param aMessage {@link #message}
      */
     public void setMessage(final String aMessage) {

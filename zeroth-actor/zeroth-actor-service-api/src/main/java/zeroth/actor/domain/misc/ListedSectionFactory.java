@@ -10,7 +10,7 @@ import zeroth.framework.standard.shared.AbstractFactory;
  * @author nilcy
  */
 public class ListedSectionFactory extends AbstractFactory<ListedSection> {
-    /** Constructor. */
+    /** コンストラクタ */
     public ListedSectionFactory() {
         super();
     }

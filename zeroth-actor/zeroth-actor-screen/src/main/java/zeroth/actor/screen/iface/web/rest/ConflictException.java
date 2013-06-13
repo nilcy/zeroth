@@ -16,19 +16,19 @@ import javax.ws.rs.core.Response.Status;
 public class ConflictException extends WebApplicationException {
     /** S/N. */
     private static final long serialVersionUID = -3079453625686757347L;
-    /** Constructor. */
+    /** コンストラクタ */
     public ConflictException() {
         this(null, null);
     }
     /**
-     * Constructor.
+     * コンストラクタ
      * @param aLocation location
      */
     public ConflictException(final URI aLocation) {
         this(aLocation, null);
     }
     /**
-     * Constructor.
+     * コンストラクタ
      * @param aLocation location
      * @param aEntity entity
      */

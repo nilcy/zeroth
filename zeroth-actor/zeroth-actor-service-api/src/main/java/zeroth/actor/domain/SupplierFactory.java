@@ -10,7 +10,7 @@ import zeroth.actor.domain.parts.SupplierContactFactory;
  * @author nilcy
  */
 public class SupplierFactory extends AbstractCompanyFactory<Supplier> {
-    /** Constructor. */
+    /** コンストラクタ */
     public SupplierFactory() {
         super();
     }

@@ -30,7 +30,7 @@ public class DateConverter implements Converter {
     private static final int LENGTH_MMDD = 4;
     /** length of DD. */
     private static final int LENGTH_DD = 2;
-    /** Constructor. */
+    /** コンストラクタ */
     public DateConverter() {
         super();
     }

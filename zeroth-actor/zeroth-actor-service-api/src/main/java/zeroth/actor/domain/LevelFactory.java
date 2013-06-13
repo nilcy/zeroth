@@ -10,7 +10,7 @@ import zeroth.framework.standard.shared.AbstractFactory;
  * @author nilcy
  */
 public class LevelFactory extends AbstractFactory<Level> {
-    /** Constructor. */
+    /** コンストラクタ */
     public LevelFactory() {
         super();
     }

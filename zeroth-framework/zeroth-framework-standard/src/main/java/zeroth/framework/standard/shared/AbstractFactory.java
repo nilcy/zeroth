@@ -6,18 +6,20 @@
 package zeroth.framework.standard.shared;
 import java.lang.reflect.ParameterizedType;
 /**
- * Entity factory.
- * @param <T> entity type
+ * データオブジェクトのファクトリ
+ * <p>
+ * データオブジェクトのファクトリ基本クラス。データオブジェクト固有のファクトリは本クラスを継承することで標準コンストラクタの呼出しが共通化される。
+ * </p>
+ * @param <T> データオブジェクト型
  * @author nilcy
  */
 public abstract class AbstractFactory<T extends DataObject> {
-    /** Constructor. */
+    /** コンストラクタ */
     protected AbstractFactory() {
-        super();
     }
     /**
-     * Create instance.
-     * @return created instance
+     * インスタンスの作成
+     * @return インスタンス
      */
     @SuppressWarnings("unchecked")
     public T create() {
@@ -30,14 +32,4 @@ public abstract class AbstractFactory<T extends DataObject> {
             throw new StandardRuntimeException(e);
         }
     }
-    // /**
-    // * Create instance.
-    // * @param aKeyword keyword
-    // * @return created instance
-    // */
-    // public T createKeyword(final String aKeyword) {
-    // final T i = create();
-    // i.setKeyword(aKeyword);
-    // return i;
-    // }
 }

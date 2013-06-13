@@ -25,7 +25,7 @@ public class CustomerAction extends AbstractActionImpl<Customer, Long, Customer>
     /** customer service Local-I/F. */
     @EJB
     private CustomerServiceLocal service;
-    /** Constructor. */
+    /** コンストラクタ */
     public CustomerAction() {
         super();
     }

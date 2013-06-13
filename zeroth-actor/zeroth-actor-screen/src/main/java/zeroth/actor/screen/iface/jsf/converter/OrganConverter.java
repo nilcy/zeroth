@@ -12,7 +12,7 @@ import zeroth.actor.domain.Organ;
  */
 @FacesConverter(value = "organConverter", forClass = Organ.class)
 public final class OrganConverter extends AbstractEntityConverter {
-    /** Constructor. */
+    /** コンストラクタ */
     public OrganConverter() {
         super("organAction");
     }

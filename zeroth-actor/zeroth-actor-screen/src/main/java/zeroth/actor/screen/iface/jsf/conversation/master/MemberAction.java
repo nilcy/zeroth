@@ -13,7 +13,7 @@ import zeroth.actor.domain.Member;
 import zeroth.actor.domain.MemberFactory;
 import zeroth.framework.enterprise.app.SimpleRepositoryService;
 import zeroth.framework.screen.iface.jsf.AbstractActionImpl;
-import zeroth.framework.standard.shared.CodecHelper;
+import zeroth.framework.standard.shared.CodecUtils;
 /**
  * Member action.
  * @author nilcy
@@ -28,7 +28,7 @@ public class MemberAction extends AbstractActionImpl<Member, Long, Member> {
     private MemberServiceLocal service;
     /** temporary password. */
     private String tempPassword;
-    /** Constructor. */
+    /** コンストラクタ */
     public MemberAction() {
         super();
     }
@@ -55,19 +55,19 @@ public class MemberAction extends AbstractActionImpl<Member, Long, Member> {
             c.getContact().setName(c.getFamilyName());
         }
         if (StringUtils.isNotEmpty(getTempPassword())) {
-            c.setPassword(CodecHelper.sha256Hex(getTempPassword()));
+            c.setPassword(CodecUtils.sha256Hex(getTempPassword()));
         }
         return super.beforeSave();
     }
     /**
-     * Get {@link #tempPassword}.
+     * {@link #tempPassword}.
      * @return {@link #tempPassword}
      */
     public String getTempPassword() {
         return tempPassword;
     }
     /**
-     * Set {@link #tempPassword}.
+     * {@link #tempPassword}.
      * @param aTempPassword {@link #tempPassword}
      */
     public void setTempPassword(final String aTempPassword) {

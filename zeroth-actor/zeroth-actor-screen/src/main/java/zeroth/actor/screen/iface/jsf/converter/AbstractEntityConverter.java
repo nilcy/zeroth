@@ -19,7 +19,7 @@ public abstract class AbstractEntityConverter implements Converter {
     /** faces action name. */
     private final String actionName;
     /**
-     * Constructor.
+     * コンストラクタ
      * @param aActionName {@link #actionName}
      */
     public AbstractEntityConverter(final String aActionName) {

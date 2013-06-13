@@ -68,28 +68,28 @@ public final class FacesHelper {
         addSuccessMessage(getBundleMessage(aKey));
     }
     /**
-     * Get current instance.
+     * current instance.
      * @return getCurrentInstance
      */
     public static FacesContext getCurrentInstance() {
         return FacesContext.getCurrentInstance();
     }
     /**
-     * Get external context.
+     * external context.
      * @return getExternalContext
      */
     public static ExternalContext getExternalContext() {
         return getCurrentInstance().getExternalContext();
     }
     /**
-     * Get flash.
+     * flash.
      * @return flash
      */
     public static Flash getFlash() {
         return getExternalContext().getFlash();
     }
     /**
-     * Get bundle.
+     * bundle.
      * @return bundle
      */
     private static ResourceBundle getBundle() {
@@ -97,7 +97,7 @@ public final class FacesHelper {
             .getRequestLocale());
     }
     /**
-     * Get bundle message.
+     * bundle message.
      * @param aKey key
      * @return bundle message
      */

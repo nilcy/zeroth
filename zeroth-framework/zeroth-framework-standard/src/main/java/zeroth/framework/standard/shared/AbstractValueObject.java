@@ -17,9 +17,14 @@ public abstract class AbstractValueObject<T extends AbstractValueObject<T>> exte
     /** コンストラクタ */
     public AbstractValueObject() {
     }
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     * <p>
+     * すべての属性値について同一性を自動的に確認する。ただし、一時項目(transient)は比較対象から除外とする。
+     * </p>
+     */
     @Override
     public boolean sameValueAs(final T other) {
-        return EqualsBuilder.reflectionEquals(this, other, true);
+        return EqualsBuilder.reflectionEquals(this, other, false);
     }
 }

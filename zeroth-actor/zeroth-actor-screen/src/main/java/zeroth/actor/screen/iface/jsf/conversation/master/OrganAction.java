@@ -26,7 +26,7 @@ public class OrganAction extends AbstractActionImpl<Organ, Long, Organ> {
     /** organization service Local-I/F. */
     @EJB
     private OrganServiceLocal service;
-    /** Constructor. */
+    /** コンストラクタ */
     public OrganAction() {
         super();
     }

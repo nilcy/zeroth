@@ -4,11 +4,11 @@
 // http://www.gnu.org/licenses/agpl-3.0.txt
 // ========================================================================
 package zeroth.framework.enterprise.shared;
+import java.util.logging.Logger;
 import javax.interceptor.AroundInvoke;
 import javax.interceptor.Interceptor;
 import javax.interceptor.InvocationContext;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import zeroth.framework.standard.shared.MessageUtils;
 /**
  * 追跡者の横断処理
  * @author nilcy
@@ -25,16 +25,16 @@ public class TracerInterceptor {
     @SuppressWarnings("static-method")
     @AroundInvoke
     public Object traceLog(final InvocationContext aContext) throws Exception {
-        final Logger log = LoggerFactory.getLogger(aContext.getMethod().getDeclaringClass());
+        final Logger log = Logger.getLogger(aContext.getMethod().getDeclaringClass().toString());
         final String methodName = aContext.getMethod().getName();
-        log.trace("Entering #{} with {}.", new Object[] { methodName, aContext.getParameters() });
+        log.info(MessageUtils.build("Entering #{0} with {1}.", methodName, aContext.getParameters()));
         try {
             final Object result = aContext.proceed();
-            log.trace("Exiting #{} with {}.", new Object[] { methodName, result });
+            log.info(MessageUtils.build("Exiting #{} with {}.", methodName, result));
             return result;
         } catch (final Exception e) {
             // OK to catch Exception here
-            log.warn("Catching exception.", e);
+            log.warning(e.getLocalizedMessage());
             throw e;
         }
     }

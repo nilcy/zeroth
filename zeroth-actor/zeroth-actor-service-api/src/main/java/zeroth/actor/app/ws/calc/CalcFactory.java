@@ -9,7 +9,7 @@ package zeroth.actor.app.ws.calc;
  * @author nilcy
  */
 public final class CalcFactory {
-    /** Constructor. */
+    /** コンストラクタ */
     private CalcFactory() {
         super();
     }

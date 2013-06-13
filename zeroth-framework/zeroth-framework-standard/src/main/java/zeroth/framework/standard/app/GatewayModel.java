@@ -12,71 +12,70 @@ import javax.xml.bind.annotation.XmlType;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 /**
- * Gateway model.
+ * ゲートウェイサービスの集約オブジェクト
  * @author nilcy
  */
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "GatewayModel", propOrder = { "header", "status", "body" })
 public final class GatewayModel {
-    /** Gateway header. */
+    /** ゲートウェイサービスのヘッダ情報 */
     @XmlElement(name = "header", required = true)
     private GatewayHeader header;
-    /** Gateway status. */
+    /** ゲートウェイサービスのステータス情報 */
     @XmlElement(name = "status", required = false)
     private GatewayStatus status;
-    /** Gateway body. required JSON encoded. */
+    /** ゲートウェイサービスのボディ情報(JSON形式) */
     @XmlElement(name = "body", required = false)
     private String body;
-    /** Constructor. */
+    /** コンストラクタ */
     public GatewayModel() {
-        super();
     }
     /**
-     * Get {@link #header}.
+     * {@link #header} の取得
      * @return {@link #header}
      */
     public GatewayHeader getHeader() {
-        return this.header;
+        return header;
     }
     /**
-     * Set {@link #header}.
-     * @param aHeader {@link #header}
+     * {@link #header} の設定
+     * @param header {@link #header}
      */
-    public void setHeader(final GatewayHeader aHeader) {
-        this.header = aHeader;
+    public void setHeader(final GatewayHeader header) {
+        this.header = header;
     }
     /**
-     * Get {@link #status}.
+     * {@link #status} の取得
      * @return {@link #status}
      */
     public GatewayStatus getStatus() {
-        return this.status;
+        return status;
     }
     /**
-     * Set {@link #status}.
-     * @param astatus {@link #status}
+     * {@link #status} の設定
+     * @param status {@link #status}
      */
-    public void setStatus(final GatewayStatus astatus) {
-        this.status = astatus;
+    public void setStatus(final GatewayStatus status) {
+        this.status = status;
     }
     /**
-     * Get {@link #body}.
+     * {@link #body} の取得
      * @return {@link #body}
      */
     public String getBody() {
-        return this.body;
+        return body;
     }
     /**
-     * Set {@link #body}.
-     * @param aBody {@link #body}
+     * {@link #body} の設定
+     * @param body {@link #body}
      */
-    public void setBody(final String aBody) {
-        this.body = aBody;
+    public void setBody(final String body) {
+        this.body = body;
     }
     /**
-     * Build toString.
-     * @return String result
+     * 文字列表現の作成
+     * @return 文字列表現
      */
     @Override
     public String toString() {

@@ -23,7 +23,7 @@ public class ListedSectionAction extends AbstractActionImpl<ListedSection, Long,
     /** listed section service Local-I/F. */
     @EJB
     private ListedSectionServiceLocal service;
-    /** Constructor. */
+    /** コンストラクタ */
     public ListedSectionAction() {
         super();
     }

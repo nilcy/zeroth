@@ -25,7 +25,7 @@ public class PartnerAction extends AbstractActionImpl<Partner, Long, Partner> {
     /** partner service Local-I/F. */
     @EJB
     private PartnerServiceLocal service;
-    /** Constructor. */
+    /** コンストラクタ */
     public PartnerAction() {
         super();
     }

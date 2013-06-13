@@ -70,12 +70,12 @@ public class GlobalAction implements Serializable {
     private List<SelectItem> levelItems;
     /** gender items. */
     private List<SelectItem> genderItems;
-    /** Constructor. */
+    /** コンストラクタ */
     public GlobalAction() {
         super();
     }
     /**
-     * Get {@link #industryClassItems}.
+     * {@link #industryClassItems}.
      * @return {@link #industryClassItems}
      */
     public List<SelectItem> getIndustryClassItems() {
@@ -90,7 +90,7 @@ public class GlobalAction implements Serializable {
         return industryClassItems;
     }
     /**
-     * Get {@link #listedSectionItems}.
+     * {@link #listedSectionItems}.
      * @return {@link #listedSectionItems}
      */
     public List<SelectItem> getListedSectionItems() {
@@ -105,7 +105,7 @@ public class GlobalAction implements Serializable {
         return listedSectionItems;
     }
     /**
-     * Get {@link #organItems}.
+     * {@link #organItems}.
      * @return {@link #organItems}
      */
     public List<SelectItem> getOrganItems() {
@@ -119,7 +119,7 @@ public class GlobalAction implements Serializable {
         return organItems;
     }
     /**
-     * Get {@link #titleItems}.
+     * {@link #titleItems}.
      * @return {@link #titleItems}
      */
     public List<SelectItem> getTitleItems() {
@@ -133,7 +133,7 @@ public class GlobalAction implements Serializable {
         return titleItems;
     }
     /**
-     * Get {@link #levelItems}.
+     * {@link #levelItems}.
      * @return {@link #levelItems}
      */
     public List<SelectItem> getLevelItems() {
@@ -147,7 +147,7 @@ public class GlobalAction implements Serializable {
         return levelItems;
     }
     /**
-     * Get {@link #genderItems}.
+     * {@link #genderItems}.
      * @return {@link #genderItems}
      */
     public List<SelectItem> getGenderItems() {
@@ -160,7 +160,7 @@ public class GlobalAction implements Serializable {
         return genderItems;
     }
     /**
-     * Get default if blank.
+     * default if blank.
      * @param aValue value
      * @return default if blank
      */
@@ -169,7 +169,7 @@ public class GlobalAction implements Serializable {
         return StringUtils.defaultIfBlank(aValue, FacesProfile.VIEW_NULL);
     }
     /**
-     * Get default if empty.
+     * default if empty.
      * @param aValue value
      * @return default if empty
      */
@@ -178,7 +178,7 @@ public class GlobalAction implements Serializable {
         return StringUtils.defaultIfEmpty(aValue, FacesProfile.VIEW_NULL);
     }
     /**
-     * Get default if null.
+     * default if null.
      * @param aValue value
      * @return default if null
      */

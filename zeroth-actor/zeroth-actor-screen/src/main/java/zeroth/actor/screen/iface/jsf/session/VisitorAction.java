@@ -8,13 +8,13 @@ import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
 import java.util.Map;
+import java.util.logging.Logger;
 import javax.ejb.EJB;
 import javax.enterprise.context.Conversation;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
-import org.slf4j.Logger;
 import zeroth.actor.app.actor.MemberServiceLocal;
 import zeroth.actor.domain.Member;
 import zeroth.actor.domain.MemberFactory;
@@ -41,10 +41,10 @@ public class VisitorAction implements Serializable {
     /** conversation. */
     @Inject
     private Conversation conversation;
-    /** Logger. */
+    /** ロガー */
     @Inject
     private Logger log;
-    /** Constructor. */
+    /** コンストラクタ */
     public VisitorAction() {
         super();
     }
@@ -53,17 +53,17 @@ public class VisitorAction implements Serializable {
      * @return true if logged-in
      */
     public boolean isLoggedIn() {
-        log.trace("getUserPrincipal = {}", FacesHelper.getExternalContext().getUserPrincipal());
+        log.info("getUserPrincipal = " + FacesHelper.getExternalContext().getUserPrincipal());
         return FacesHelper.getExternalContext().getUserPrincipal() != null;
     }
     /**
-     * Get {@link #member}.
+     * {@link #member}.
      * @return {@link #member}
      */
     public Member getMember() {
         if ((member == null) && isLoggedIn()) {
             final String account = FacesHelper.getExternalContext().getRemoteUser();
-            log.trace("account = {}", account);
+            log.info("account = " + account);
             final Collection<Member> members = memberService.findMany(new MemberFactory()
                 .create(account));
             member = members.iterator().next();
@@ -77,7 +77,7 @@ public class VisitorAction implements Serializable {
         return member;
     }
     /**
-     * Get {@link #loggedInDate}.
+     * {@link #loggedInDate}.
      * @return {@link #loggedInDate}
      */
     public Date getLoggedInDate() {
@@ -93,7 +93,7 @@ public class VisitorAction implements Serializable {
         return FacesHelper.getExternalContext().isUserInRole(aRole);
     }
     /**
-     * Get stack-trace.
+     * stack-trace.
      * @return stack-trace
      */
     @SuppressWarnings("static-method")
@@ -110,7 +110,7 @@ public class VisitorAction implements Serializable {
         return builder.toString();
     }
     /**
-     * Get {@link #conversation}.
+     * {@link #conversation}.
      * @return {@link #conversation}
      */
     public Conversation getConversation() {

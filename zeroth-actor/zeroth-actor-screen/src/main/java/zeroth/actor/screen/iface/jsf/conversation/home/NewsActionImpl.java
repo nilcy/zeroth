@@ -27,7 +27,7 @@ public class NewsActionImpl extends AbstractActionImpl<News, Long, News> impleme
     /** news service Local-I/F. */
     @EJB
     private NewsServiceLocal newsService;
-    /** Constructor. */
+    /** コンストラクタ */
     public NewsActionImpl() {
         super();
     }

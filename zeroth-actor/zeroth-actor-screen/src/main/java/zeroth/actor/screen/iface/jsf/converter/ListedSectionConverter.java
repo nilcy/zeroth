@@ -12,7 +12,7 @@ import zeroth.actor.domain.misc.ListedSection;
  */
 @FacesConverter(value = "listedSectionConverter", forClass = ListedSection.class)
 public final class ListedSectionConverter extends AbstractEntityConverter {
-    /** Constructor. */
+    /** コンストラクタ */
     public ListedSectionConverter() {
         super("listedSectionAction");
     }

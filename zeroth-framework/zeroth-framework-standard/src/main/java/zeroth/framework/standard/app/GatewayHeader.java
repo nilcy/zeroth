@@ -11,122 +11,121 @@ import javax.xml.bind.annotation.XmlType;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 /**
- * Gateway header.
+ * ゲートウェイサービスのヘッダオブジェクト
  * @author nilcy
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "GatewayHeader", propOrder = { "wsdlLocation", "namespaceURI", "localPart",
     "endpoint", "operation", "parameter" })
 public final class GatewayHeader {
-    /** WSDL document location. */
+    /** WSDLロケーション */
     @XmlElement(name = "wsdlLocation", required = true)
     private String wsdlLocation;
-    /** Namespace URI of service name. */
+    /** URIネームスペース */
     @XmlElement(name = "namespaceURI", required = true)
     private String namespaceURI;
-    /** Local part of service name. */
+    /** ローカルパート */
     @XmlElement(name = "localPart", required = true)
     private String localPart;
-    /** Endpoint interface. */
+    /** エンドポイントI/F */
     @XmlElement(name = "endpoint", required = true)
     private String endpoint;
-    /** Operation name. */
+    /** オペレーション名 */
     @XmlElement(name = "operation", required = true)
     private String operation;
-    /** Parameter class. */
+    /** パラメータクラス名 */
     @XmlElement(name = "parameter", required = true)
     private String parameter;
-    /** Constructor. */
+    /** コンストラクタ */
     public GatewayHeader() {
-        super();
     }
     /**
-     * Get {@link #wsdlLocation}.
+     * {@link #wsdlLocation} の取得
      * @return {@link #wsdlLocation}
      */
     public String getWsdlLocation() {
-        return this.wsdlLocation;
+        return wsdlLocation;
     }
     /**
-     * Set {@link #wsdlLocation}.
-     * @param aWsdlLocation {@link #wsdlLocation}
+     * {@link #wsdlLocation} の設定
+     * @param wsdlLocation {@link #wsdlLocation}
      */
-    public void setWsdlLocation(final String aWsdlLocation) {
-        this.wsdlLocation = aWsdlLocation;
+    public void setWsdlLocation(final String wsdlLocation) {
+        this.wsdlLocation = wsdlLocation;
     }
     /**
-     * Get {@link #namespaceURI}.
+     * {@link #namespaceURI} の取得
      * @return {@link #namespaceURI}
      */
     public String getNamespaceURI() {
-        return this.namespaceURI;
+        return namespaceURI;
     }
     /**
-     * Set {@link #namespaceURI}.
-     * @param aNamespaceURI {@link #namespaceURI}
+     * {@link #namespaceURI} の設定
+     * @param namespaceURI {@link #namespaceURI}
      */
-    public void setNamespaceURI(final String aNamespaceURI) {
-        this.namespaceURI = aNamespaceURI;
+    public void setNamespaceURI(final String namespaceURI) {
+        this.namespaceURI = namespaceURI;
     }
     /**
-     * Get {@link #localPart}.
+     * {@link #localPart} の取得
      * @return {@link #localPart}
      */
     public String getLocalPart() {
-        return this.localPart;
+        return localPart;
     }
     /**
-     * Set {@link #localPart}.
-     * @param aLocalPart {@link #localPart}
+     * {@link #localPart} の設定
+     * @param localPart {@link #localPart}
      */
-    public void setLocalPart(final String aLocalPart) {
-        this.localPart = aLocalPart;
+    public void setLocalPart(final String localPart) {
+        this.localPart = localPart;
     }
     /**
-     * Get {@link #operation}.
+     * {@link #operation} の取得
      * @return {@link #operation}
      */
     public String getOperation() {
-        return this.operation;
+        return operation;
     }
     /**
-     * Get {@link #endpoint}.
+     * {@link #operation} の設定
+     * @param operationName {@link #operation}
+     */
+    public void setOperation(final String operationName) {
+        operation = operationName;
+    }
+    /**
+     * {@link #endpoint} の設定
      * @return {@link #endpoint}
      */
     public String getEndpoint() {
-        return this.endpoint;
+        return endpoint;
     }
     /**
-     * Set {@link #endpoint}.
-     * @param aEndpoint {@link #endpoint}
+     * {@link #endpoint} の取得
+     * @param endpoint {@link #endpoint}
      */
-    public void setEndpoint(final String aEndpoint) {
-        this.endpoint = aEndpoint;
+    public void setEndpoint(final String endpoint) {
+        this.endpoint = endpoint;
     }
     /**
-     * Set {@link #operation}.
-     * @param aOperationName {@link #operation}
-     */
-    public void setOperation(final String aOperationName) {
-        this.operation = aOperationName;
-    }
-    /**
-     * Get {@link #parameter}.
+     * {@link #parameter} の取得
      * @return {@link #parameter}
      */
     public String getParameter() {
-        return this.parameter;
+        return parameter;
     }
     /**
-     * Set {@link #parameter}.
-     * @param aParameter {@link #parameter}
+     * {@link #parameter} の設定
+     * @param parameter {@link #parameter}
      */
-    public void setParameter(final String aParameter) {
-        this.parameter = aParameter;
+    public void setParameter(final String parameter) {
+        this.parameter = parameter;
     }
     /**
-     * Build toString.
-     * @return String result
+     * 文字列表現の作成
+     * @return 文字列表現
      */
     @Override
     public String toString() {

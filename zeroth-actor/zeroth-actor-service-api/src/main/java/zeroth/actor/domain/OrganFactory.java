@@ -10,7 +10,7 @@ import zeroth.framework.standard.shared.AbstractFactory;
  * @author nilcy
  */
 public class OrganFactory extends AbstractFactory<Organ> {
-    /** Constructor. */
+    /** コンストラクタ */
     public OrganFactory() {
         super();
     }

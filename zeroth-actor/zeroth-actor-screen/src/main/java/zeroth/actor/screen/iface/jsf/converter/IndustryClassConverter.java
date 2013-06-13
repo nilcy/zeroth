@@ -12,7 +12,7 @@ import zeroth.actor.domain.misc.IndustryClass;
  */
 @FacesConverter(value = "industryClassConverter", forClass = IndustryClass.class)
 public final class IndustryClassConverter extends AbstractEntityConverter {
-    /** Constructor. */
+    /** コンストラクタ */
     public IndustryClassConverter() {
         super("industryClassAction");
     }

@@ -12,7 +12,7 @@ import zeroth.actor.domain.Partner;
  */
 @FacesConverter(value = "partnerConverter", forClass = Partner.class)
 public final class PartnerConverter extends AbstractEntityConverter {
-    /** Constructor. */
+    /** コンストラクタ */
     public PartnerConverter() {
         super("partnerAction");
     }

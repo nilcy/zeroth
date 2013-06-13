@@ -11,7 +11,7 @@ import zeroth.framework.standard.shared.AbstractFactory;
  * @author nilcy
  */
 public class MemberAuthFactory extends AbstractFactory<MemberAuth> {
-    /** Constructor. */
+    /** コンストラクタ */
     public MemberAuthFactory() {
         super();
     }

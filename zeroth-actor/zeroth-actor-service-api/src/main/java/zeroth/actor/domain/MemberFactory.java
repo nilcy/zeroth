@@ -13,7 +13,7 @@ import zeroth.actor.domain.parts.MemberContactFactory;
  * @author nilcy
  */
 public class MemberFactory extends AbstractStaffFactory<Member> {
-    /** Constructor. */
+    /** コンストラクタ */
     public MemberFactory() {
         super();
     }

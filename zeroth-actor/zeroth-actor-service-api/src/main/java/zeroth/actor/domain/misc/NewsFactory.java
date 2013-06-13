@@ -9,7 +9,7 @@ package zeroth.actor.domain.misc;
  * @author nilcy
  */
 public class NewsFactory extends AbstractNoticeFactory<News> {
-    /** Constructor. */
+    /** コンストラクタ */
     public NewsFactory() {
         super();
     }

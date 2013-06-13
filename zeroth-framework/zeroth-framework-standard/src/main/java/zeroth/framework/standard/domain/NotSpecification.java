@@ -19,6 +19,7 @@ public class NotSpecification<T> extends AbstractSpecification<T> {
     public NotSpecification(final Specification<T> spec) {
         this.spec = spec;
     }
+    /** {@inheritDoc} */
     @Override
     public boolean isSatisfiedBy(final T object) {
         return !this.spec.isSatisfiedBy(object);

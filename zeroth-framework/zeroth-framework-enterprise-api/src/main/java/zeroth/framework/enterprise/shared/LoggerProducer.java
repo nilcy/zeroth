@@ -14,7 +14,7 @@ import javax.enterprise.inject.spi.InjectionPoint;
  */
 @SuppressWarnings("static-method")
 public class LoggerProducer {
-    /** コンストラクタ */
+    /** 非公開コンストラクタ */
     private LoggerProducer() {
     }
     /**

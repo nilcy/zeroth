@@ -21,7 +21,7 @@ public final class EnterpriseProfile {
     public static final String REPORT_SUBJECT;
     /** REPORT_MAILER. */
     public static final String REPORT_MAILER;
-    /** Constructor. */
+    /** コンストラクタ */
     private EnterpriseProfile() {
         super();
     }

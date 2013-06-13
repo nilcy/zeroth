@@ -22,14 +22,14 @@ public class BadRequestException extends WebApplicationException {
     /** Errors. */
     private final List<String> errors;
     /**
-     * Constructor.
+     * コンストラクタ
      * @param aErrors errors
      */
     public BadRequestException(final String... aErrors) {
         this(Arrays.asList(aErrors));
     }
     /**
-     * Constructor.
+     * コンストラクタ
      * @param aErrors errors
      */
     public BadRequestException(final List<String> aErrors) {
@@ -39,7 +39,7 @@ public class BadRequestException extends WebApplicationException {
         this.errors = aErrors;
     }
     /**
-     * Get errors.
+     * errors.
      * @return errors
      */
     public List<String> getErrors() {

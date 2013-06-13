@@ -12,18 +12,18 @@ import java.util.ResourceBundle;
  * @author nilcy
  */
 public final class EnterpriseBundle {
-    /** Constructor. */
+    /** コンストラクタ */
     private EnterpriseBundle() {
     }
     /**
-     * Get bundle.
+     * bundle.
      * @return bundle
      */
     private static ResourceBundle getBundle() {
         return ResourceBundle.getBundle(EnterpriseProfile.BUNDLE_BASENAME, Locale.getDefault());
     }
     /**
-     * Get bundle message.
+     * bundle message.
      * @param aKey key
      * @return bundle message
      */

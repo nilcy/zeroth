@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
 public class LogoutServlet extends HttpServlet {
     /** S/N. */
     private static final long serialVersionUID = -2564378030285785954L;
-    /** Constructor. */
+    /** コンストラクタ */
     public LogoutServlet() {
         super();
     }
@@ -32,9 +32,9 @@ public class LogoutServlet extends HttpServlet {
             }
             aResponse.sendRedirect(aRequest.getContextPath() + "/index.xhtml");
         } catch (final ServletException e) {
-            Logger.getAnonymousLogger().severe(e.getMessage());
+            Logger.getGlobal().severe(e.getMessage());
         } catch (final IOException e) {
-            Logger.getAnonymousLogger().severe(e.getMessage());
+            Logger.getGlobal().severe(e.getMessage());
         }
     }
 }

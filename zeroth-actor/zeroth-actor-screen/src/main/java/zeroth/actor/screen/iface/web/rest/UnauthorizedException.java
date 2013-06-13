@@ -15,12 +15,12 @@ import javax.ws.rs.core.Response.Status;
 public class UnauthorizedException extends WebApplicationException {
     /** S/N. */
     private static final long serialVersionUID = -6796772574451059099L;
-    /** Constructor. */
+    /** コンストラクタ */
     public UnauthorizedException() {
         this("Please authenticate.", "Name of your web service");
     }
     /**
-     * Constructor.
+     * コンストラクタ
      * @param message message
      * @param realm realm
      */

@@ -17,22 +17,22 @@ public interface Pagination<T> {
      */
     Collection<T> createCollection();
     /**
-     * Get items count.
+     * items count.
      * @return items count
      */
     int getItemsCount();
     /**
-     * Get first index.
+     * first index.
      * @return first index
      */
     int getFirstIndex();
     /**
-     * Get last index.
+     * last index.
      * @return last index
      */
     int getLastIndex();
     /**
-     * Get page size.
+     * page size.
      * @return page size
      */
     int getPageSize();

@@ -11,7 +11,7 @@ import zeroth.framework.standard.shared.AbstractFactory;
  * @author nilcy
  */
 public abstract class AbstractNoticeFactory<T extends Notice<T>> extends AbstractFactory<T> {
-    /** Constructor. */
+    /** コンストラクタ */
     public AbstractNoticeFactory() {
         super();
     }

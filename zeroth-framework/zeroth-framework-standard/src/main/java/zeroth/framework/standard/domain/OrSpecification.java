@@ -23,6 +23,7 @@ public class OrSpecification<T> extends AbstractSpecification<T> {
         this.spec1 = spec1;
         this.spec2 = spec2;
     }
+    /** {@inheritDoc} */
     @Override
     public boolean isSatisfiedBy(final T object) {
         return this.spec1.isSatisfiedBy(object) || this.spec2.isSatisfiedBy(object);

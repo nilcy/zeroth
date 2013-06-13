@@ -23,33 +23,33 @@ public final class CalcRequest {
     /** 2nd parameter. */
     @XmlElement(name = "param2", required = true)
     private long param2;
-    /** Constructor. */
+    /** コンストラクタ */
     public CalcRequest() {
         super();
     }
     /**
-     * Get {@link #param1}.
+     * {@link #param1}.
      * @return {@link #param1}
      */
     public long getParam1() {
         return this.param1;
     }
     /**
-     * Set {@link #param1}.
+     * {@link #param1}.
      * @param aParam1 {@link #param1}
      */
     public void setParam1(final long aParam1) {
         this.param1 = aParam1;
     }
     /**
-     * Get {@link #param2}.
+     * {@link #param2}.
      * @return {@link #param2}
      */
     public long getParam2() {
         return this.param2;
     }
     /**
-     * Set {@link #param2}.
+     * {@link #param2}.
      * @param aParam2 {@link #param2}
      */
     public void setParam2(final long aParam2) {

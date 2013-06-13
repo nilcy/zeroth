@@ -11,70 +11,69 @@ import javax.xml.bind.annotation.XmlType;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 /**
- * Gateway status.
+ * ゲートウェイサービスのステータスオブジェクト
  * @author nilcy
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "GatewayFault", propOrder = { "code", "reason", "message" })
 public final class GatewayStatus {
-    /** Associated status code. */
+    /** ステータスコード(HTTP標準) */
     @XmlElement(name = "code", required = false)
     private Integer code;
-    /** Reason phrase. */
+    /** ステータス概説(HTTP標準ベース) */
     @XmlElement(name = "reason", required = false)
     private String reason;
-    /** Status message. */
+    /** ステータスメッセージ(自由形式) */
     @XmlElement(name = "message", required = false)
     private String message;
-    /** Constructor. */
+    /** コンストラクタ */
     public GatewayStatus() {
-        super();
     }
     /**
-     * Get {@link #code}.
+     * {@link #code} の取得
      * @return {@link #code}
      */
     public Integer getCode() {
-        return this.code;
+        return code;
     }
     /**
-     * Set {@link #code}.
-     * @param aCode {@link #code}
+     * {@link #code} の設定
+     * @param code {@link #code}
      */
-    public void setCode(final Integer aCode) {
-        this.code = aCode;
+    public void setCode(final Integer code) {
+        this.code = code;
     }
     /**
-     * Get {@link #reason}.
+     * {@link #reason} の取得
      * @return {@link #reason}
      */
     public String getReason() {
-        return this.reason;
+        return reason;
     }
     /**
-     * Set {@link #reason}.
-     * @param aReason {@link #reason}
+     * {@link #reason} の設定
+     * @param reason {@link #reason}
      */
-    public void setReason(final String aReason) {
-        this.reason = aReason;
+    public void setReason(final String reason) {
+        this.reason = reason;
     }
     /**
-     * Get {@link #message}.
+     * {@link #message} の取得
      * @return {@link #message}
      */
     public String getMessage() {
-        return this.message;
+        return message;
     }
     /**
-     * Set {@link #message}.
-     * @param aMessage {@link #message}
+     * {@link #message} の設定
+     * @param message {@link #message}
      */
-    public void setMessage(final String aMessage) {
-        this.message = aMessage;
+    public void setMessage(final String message) {
+        this.message = message;
     }
     /**
-     * Build toString.
-     * @return String result
+     * 文字列表現の作成
+     * @return 文字列表現
      */
     @Override
     public String toString() {

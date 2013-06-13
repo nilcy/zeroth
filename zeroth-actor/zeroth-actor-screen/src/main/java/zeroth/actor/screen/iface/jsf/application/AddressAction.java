@@ -30,7 +30,7 @@ public class AddressAction implements Serializable {
     /** office address action. */
     @Inject
     private OfficeAddressAction officeAction;
-    /** Constructor. */
+    /** コンストラクタ */
     public AddressAction() {
         super();
     }

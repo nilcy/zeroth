@@ -5,6 +5,7 @@
 // ========================================================================
 package zeroth.actor.screen.iface.web.rest.home;
 import java.util.Collection;
+import java.util.logging.Logger;
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -16,7 +17,6 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import org.slf4j.Logger;
 import zeroth.actor.app.misc.NewsServiceLocal;
 import zeroth.actor.domain.misc.News;
 import zeroth.actor.screen.iface.web.rest.ResourceException;
@@ -35,12 +35,12 @@ public class NewsResource {
     /** logger. */
     @Inject
     private Logger log;
-    /** Constructor. */
+    /** コンストラクタ */
     public NewsResource() {
         super();
     }
     /**
-     * Get news list.
+     * news list.
      * @return news list
      */
     @GET
@@ -50,7 +50,7 @@ public class NewsResource {
         return newsService.findMany(null);
     }
     /**
-     * Get news.
+     * news.
      * @param aId ID
      * @return news
      */

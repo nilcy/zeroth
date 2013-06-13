@@ -10,7 +10,7 @@ import zeroth.framework.standard.shared.AbstractFactory;
  * @author nilcy
  */
 public class TitleFactory extends AbstractFactory<Title> {
-    /** Constructor. */
+    /** コンストラクタ */
     public TitleFactory() {
         super();
     }

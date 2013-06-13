@@ -10,7 +10,7 @@ import zeroth.framework.standard.shared.AbstractFactory;
  * @author nilcy
  */
 public class HomeAddressFactory extends AbstractFactory<HomeAddress> {
-    /** Constructor. */
+    /** コンストラクタ */
     public HomeAddressFactory() {
         super();
     }

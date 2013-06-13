@@ -25,7 +25,7 @@ public class SupplierAction extends AbstractActionImpl<Supplier, Long, Supplier>
     /** supplier service Local-I/F. */
     @EJB
     private SupplierServiceLocal service;
-    /** Constructor. */
+    /** コンストラクタ */
     public SupplierAction() {
         super();
     }

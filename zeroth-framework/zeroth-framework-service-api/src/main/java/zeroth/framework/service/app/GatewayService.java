@@ -10,17 +10,17 @@ import javax.jws.WebParam;
 import javax.jws.WebService;
 import zeroth.framework.standard.app.GatewayModel;
 /**
- * Gateway service I/F.
+ * ゲートウェイサービスI/F
  * @author nilcy
  */
 @Local
 @WebService
 public interface GatewayService {
     /**
-     * Submit.
-     * @param aGatewayRequest gateway request
-     * @return gateway response
+     * RPCサービスの実行
+     * @param request RPCサービスの引数オブジェクト
+     * @return RPCサービスの応答オブジェクト
      */
     @WebMethod
-    GatewayModel submit(@WebParam(name = "request") GatewayModel aGatewayRequest);
+    GatewayModel submit(@WebParam(name = "request") GatewayModel request);
 }

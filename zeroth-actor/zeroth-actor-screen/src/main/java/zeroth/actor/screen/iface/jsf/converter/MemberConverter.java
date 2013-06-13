@@ -12,7 +12,7 @@ import zeroth.actor.domain.Member;
  */
 @FacesConverter(value = "memberConverter", forClass = Member.class)
 public final class MemberConverter extends AbstractEntityConverter {
-    /** Constructor. */
+    /** コンストラクタ */
     public MemberConverter() {
         super("memberAction");
     }

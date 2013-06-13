@@ -9,7 +9,7 @@ package zeroth.actor.domain.parts;
  * @author nilcy
  */
 public class MemberContactFactory extends AbstractContactFactory<MemberContact> {
-    /** Constructor. */
+    /** コンストラクタ */
     public MemberContactFactory() {
         super();
     }

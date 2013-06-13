@@ -42,7 +42,7 @@ public class HomeAddressAction implements Serializable {
     private static final int POS_CITY = 8;
     /** address map. */
     private Map<String, HomeAddress> map;
-    /** Constructor. */
+    /** コンストラクタ */
     public HomeAddressAction() {
         super();
     }

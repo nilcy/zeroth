@@ -11,61 +11,60 @@ import zeroth.framework.standard.app.GatewayModel;
 import zeroth.framework.standard.app.GatewayStatus;
 import zeroth.framework.standard.app.GatewayUtil;
 /**
- * Gateway model factory.
+ * ゲートウェイオブジェクトのファクトリ
  * @author nilcy
  */
 public final class GatewayFactory {
-    /** Constructor. */
+    /** 非公開コンストラクタ */
     private GatewayFactory() {
-        super();
     }
     /**
-     * Create {@link GatewayHeader}.
-     * @param aWsdlLocation {@link GatewayHeader#setWsdlLocation(String)}
-     * @param aNamespaceURI {@link GatewayHeader#setNamespaceURI(String)}
-     * @param aLocalPart {@link GatewayHeader#setLocalPart(String)}
-     * @param aEndpoint {@link GatewayHeader#setEndpoint(String)}
-     * @param aOperation {@link GatewayHeader#setOperation(String)}
-     * @param aParameter {@link GatewayHeader#setParameter(String)}
+     * {@link GatewayHeader} の作成
+     * @param wsdlLocation {@link GatewayHeader#setWsdlLocation(String)}
+     * @param namespaceURI {@link GatewayHeader#setNamespaceURI(String)}
+     * @param localPart {@link GatewayHeader#setLocalPart(String)}
+     * @param endpoint {@link GatewayHeader#setEndpoint(String)}
+     * @param operation {@link GatewayHeader#setOperation(String)}
+     * @param parameter {@link GatewayHeader#setParameter(String)}
      * @return {@link GatewayHeader}
      */
-    public static GatewayHeader createHeader(final String aWsdlLocation,
-        final String aNamespaceURI, final String aLocalPart, final String aEndpoint,
-        final String aOperation, final String aParameter) {
+    public static GatewayHeader createHeader(final String wsdlLocation,
+        final String namespaceURI, final String localPart, final String endpoint,
+        final String operation, final String parameter) {
         final GatewayHeader header = new GatewayHeader();
-        header.setWsdlLocation(aWsdlLocation);
-        header.setNamespaceURI(aNamespaceURI);
-        header.setLocalPart(aLocalPart);
-        header.setEndpoint(aEndpoint);
-        header.setOperation(aOperation);
-        header.setParameter(aParameter);
+        header.setWsdlLocation(wsdlLocation);
+        header.setNamespaceURI(namespaceURI);
+        header.setLocalPart(localPart);
+        header.setEndpoint(endpoint);
+        header.setOperation(operation);
+        header.setParameter(parameter);
         return header;
     }
     /**
-     * Create {@link GatewayStatus}.
-     * @param aStatus {@link Status}
+     * {@link GatewayStatus} の作成
+     * @param httpStatus {@link Status}
      * @return {@link GatewayStatus}
      */
-    public static GatewayStatus createStatus(final Status aStatus) {
+    public static GatewayStatus createStatus(final Status httpStatus) {
         final GatewayStatus status = new GatewayStatus();
-        status.setCode(Integer.valueOf(aStatus.getStatusCode()));
-        status.setReason(aStatus.toString());
+        status.setCode(Integer.valueOf(httpStatus.getStatusCode()));
+        status.setReason(httpStatus.toString());
         status.setMessage(StringUtils.EMPTY);
         return status;
     }
     /**
-     * Create {@link GatewayStatus}.
-     * @param aStatus {@link Status}
-     * @param aMessage {@link GatewayStatus#setMessage(String)}
+     * {@link GatewayStatus}　の作成
+     * @param httpStatus {@link Status}
+     * @param message {@link GatewayStatus#setMessage(String)}
      * @return {@link GatewayStatus}
      */
-    public static GatewayStatus createStatus(final Status aStatus, final String aMessage) {
-        final GatewayStatus status = createStatus(aStatus);
-        status.setMessage(aMessage);
+    public static GatewayStatus createStatus(final Status httpStatus, final String message) {
+        final GatewayStatus status = createStatus(httpStatus);
+        status.setMessage(message);
         return status;
     }
     /**
-     * Create {@link GatewayModel}.
+     * {@link GatewayModel}　の作成
      * @return {@link GatewayModel}
      */
     public static GatewayModel create() {
@@ -75,14 +74,14 @@ public final class GatewayFactory {
         return model;
     }
     /**
-     * Create {@link GatewayModel}.
-     * @param <T> body type
-     * @param aBody body
+     * {@link GatewayModel} の作成
+     * @param <T> ボディオブジェクト型
+     * @param body ボディオブジェクト
      * @return {@link GatewayModel}
      */
-    public static <T> GatewayModel create(final T aBody) {
+    public static <T> GatewayModel create(final T body) {
         final GatewayModel model = create();
-        model.setBody(GatewayUtil.encode(aBody));
+        model.setBody(GatewayUtil.encode(body));
         return model;
     }
 }

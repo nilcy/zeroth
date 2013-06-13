@@ -20,19 +20,19 @@ public final class CalcResponse {
     /** Answer. */
     @XmlElement(name = "answer", required = true)
     private long answer;
-    /** Constructor. */
+    /** コンストラクタ */
     public CalcResponse() {
         super();
     }
     /**
-     * Get {@link #answer}.
+     * {@link #answer}.
      * @return {@link #answer}
      */
     public long getAnswer() {
         return this.answer;
     }
     /**
-     * Set {@link #answer}.
+     * {@link #answer}.
      * @param aAnswer {@link #answer}
      */
     public void setAnswer(final long aAnswer) {
