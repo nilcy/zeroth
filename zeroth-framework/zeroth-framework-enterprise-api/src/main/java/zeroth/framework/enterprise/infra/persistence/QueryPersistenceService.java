@@ -17,12 +17,12 @@ import zeroth.framework.standard.shared.Pageable;
  * <p>
  * クエリオブジェクト@PofEAA
  * </p>
- * @param <T> エンティティ型
+ * @param <E> エンティティ型
  * @param <ID> 識別子オブジェクト型
  * @author nilcy
  */
-public interface QueryPersistenceService<T extends Persistable<ID>, ID extends Serializable>
-    extends SimplePersistenceService<T, ID> {
+public interface QueryPersistenceService<E extends Persistable<ID>, ID extends Serializable>
+    extends SimplePersistenceService<E, ID> {
     /**
      * 標準ビルダーの取得
      * @return 標準ビルダー
@@ -35,23 +35,23 @@ public interface QueryPersistenceService<T extends Persistable<ID>, ID extends S
      * </p>
      * @return 標準クエリ
      */
-    CriteriaQuery<T> query();
+    CriteriaQuery<E> query();
     /**
      * 標準ルートの取得
      * @return 標準ルート
      */
-    Root<T> root();
+    Root<E> root();
     /**
      * クエリの作成
      * @return クエリ
      */
-    TypedQuery<T> createQuery();
+    TypedQuery<E> createQuery();
     /**
      * クエリの作成
      * @param pageable ページ条件I/F
      * @return クエリ
      */
-    TypedQuery<T> createQuery(Pageable pageable);
+    TypedQuery<E> createQuery(Pageable pageable);
     /**
      * 件数クエリの作成
      * @param expression WHERE句

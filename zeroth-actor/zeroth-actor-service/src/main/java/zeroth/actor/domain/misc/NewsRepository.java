@@ -3,20 +3,12 @@
 // GNU AFFERO GENERAL PUBLIC LICENSE Version 3, 19 November 2007
 // http://www.gnu.org/licenses/agpl-3.0.txt
 // ========================================================================
-package zeroth.actor.service;
+package zeroth.actor.domain.misc;
+import zeroth.actor.domain.CrudRepository;
+import zeroth.actor.entity.misc.News;
 /**
- * Example.
+ * News repository I/F.
  * @author nilcy
  */
-public final class Example {
-    /** コンストラクタ */
-    private Example() {
-    }
-    /**
-     * Say hello.
-     * @return hello
-     */
-    public static String sayHello() {
-        return "Hello";
-    }
+public interface NewsRepository extends CrudRepository<News> {
 }

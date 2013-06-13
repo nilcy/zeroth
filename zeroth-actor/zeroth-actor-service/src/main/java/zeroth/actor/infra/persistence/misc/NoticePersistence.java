@@ -3,18 +3,13 @@
 // GNU AFFERO GENERAL PUBLIC LICENSE Version 3, 19 November 2007
 // http://www.gnu.org/licenses/agpl-3.0.txt
 // ========================================================================
-package zeroth.actor.service;
-import static org.hamcrest.CoreMatchers.*;
-import static org.junit.Assert.*;
-import org.junit.Test;
+package zeroth.actor.infra.persistence.misc;
+import zeroth.actor.entity.misc.Notice;
+import zeroth.actor.infra.persistence.PersistenceSupport;
 /**
- * Test {@link Example}.
+ * Notice persistence I/F.
+ * @param <T> entity type
  * @author nilcy
  */
-@SuppressWarnings("all")
-public class ExampleTest {
-    @Test
-    public void testSayHello() {
-        assertThat(Example.sayHello(), is("Hello"));
-    }
+public interface NoticePersistence<T extends Notice<T>> extends PersistenceSupport<T> {
 }

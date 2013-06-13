@@ -9,22 +9,22 @@ import javax.persistence.TypedQuery;
 import zeroth.framework.enterprise.shared.Persistable;
 /**
  * 標準データ永続化サービスI/F(JPA2/JPQL)
- * @param <T> エンティティ型
+ * @param <E> エンティティ型
  * @param <ID> 識別子オブジェクト型
  * @author nilcy
  */
-public interface StandardPersistenceService<T extends Persistable<ID>, ID extends Serializable>
-    extends SimplePersistenceService<T, ID> {
+public interface StandardPersistenceService<E extends Persistable<ID>, ID extends Serializable>
+    extends SimplePersistenceService<E, ID> {
     /**
      * クエリの作成
      * @param jpql JPQL
      * @return クエリ
      */
-    TypedQuery<T> createQuery(final String jpql);
+    TypedQuery<E> createQuery(final String jpql);
     /**
      * クエリの作成
      * @param queryName クエリ名
      * @return クエリ
      */
-    TypedQuery<T> createNamedQuery(final String queryName);
+    TypedQuery<E> createNamedQuery(final String queryName);
 }
