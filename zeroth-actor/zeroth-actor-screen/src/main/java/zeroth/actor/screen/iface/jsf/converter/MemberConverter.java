@@ -5,7 +5,7 @@
 // ========================================================================
 package zeroth.actor.screen.iface.jsf.converter;
 import javax.faces.convert.FacesConverter;
-import com.kuzumeji.entity.actor.Member;
+import zeroth.actor.domain.Member;
 /**
  * Member converter.
  * @author nilcy

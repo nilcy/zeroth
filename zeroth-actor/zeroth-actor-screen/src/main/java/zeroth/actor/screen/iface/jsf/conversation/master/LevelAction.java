@@ -7,17 +7,17 @@ package zeroth.actor.screen.iface.jsf.conversation.master;
 import javax.ejb.EJB;
 import javax.enterprise.context.ConversationScoped;
 import javax.inject.Named;
-import com.kuzumeji.entity.actor.Level;
-import zeroth.actor.screen.iface.jsf.AbstractActionImpl;
+import zeroth.actor.app.actor.LevelServiceLocal;
+import zeroth.actor.domain.Level;
 import zeroth.framework.enterprise.app.SimpleRepositoryService;
-import zeroth.framework.enterprise.app.actor.LevelServiceLocal;
+import zeroth.framework.screen.iface.jsf.AbstractActionImpl;
 /**
  * Level action.
  * @author nilcy
  */
 @Named(value = "levelAction")
 @ConversationScoped
-public class LevelAction extends AbstractActionImpl<Level> {
+public class LevelAction extends AbstractActionImpl<Level, Long, Level> {
     /** S/N. */
     private static final long serialVersionUID = 944558410807492976L;
     /** level service Local-I/F. */
@@ -28,7 +28,7 @@ public class LevelAction extends AbstractActionImpl<Level> {
         super();
     }
     @Override
-    public SimpleRepositoryService<Level> getService() {
-        return this.service;
+    public SimpleRepositoryService<Level, Long, Level> getService() {
+        return service;
     }
 }

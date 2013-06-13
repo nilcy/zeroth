@@ -9,8 +9,8 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import org.apache.commons.lang3.StringUtils;
-import com.kuzumeji.entity.ReferenceObject;
-import zeroth.actor.screen.iface.jsf.Action;
+import zeroth.framework.enterprise.shared.Persistable;
+import zeroth.framework.screen.iface.jsf.Action;
 /**
  * Entity converter.
  * @author nilcy
@@ -23,9 +23,9 @@ public abstract class AbstractEntityConverter implements Converter {
      * @param aActionName {@link #actionName}
      */
     public AbstractEntityConverter(final String aActionName) {
-        this.actionName = aActionName;
+        actionName = aActionName;
     }
-    @SuppressWarnings("rawtypes")
+    @SuppressWarnings({ "rawtypes", "unchecked" })
     @Override
     public Object getAsObject(final FacesContext aFacesContext, final UIComponent aComponent,
         final String aParam) {
@@ -33,7 +33,7 @@ public abstract class AbstractEntityConverter implements Converter {
             return null;
         }
         final Object object = ((Action) aFacesContext.getApplication().getELResolver()
-            .getValue(aFacesContext.getELContext(), null, this.actionName)).getService().find(
+            .getValue(aFacesContext.getELContext(), null, actionName)).getService().find(
             Long.valueOf(aParam));
         return object;
     }
@@ -43,8 +43,8 @@ public abstract class AbstractEntityConverter implements Converter {
         if ((aObject == null)
             || ((aObject instanceof String) && StringUtils.isEmpty((CharSequence) aObject))) {
             return null;
-        } else if (aObject instanceof ReferenceObject<?>) {
-            final String string = ((ReferenceObject<?>) aObject).getId().toString();
+        } else if (aObject instanceof Persistable<?>) {
+            final String string = ((Persistable<?>) aObject).identity().toString();
             return string;
         }
         throw new IllegalArgumentException(MessageFormat.format(

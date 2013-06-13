@@ -8,18 +8,18 @@ import javax.ejb.EJB;
 import javax.enterprise.context.ConversationScoped;
 import javax.inject.Named;
 import org.apache.commons.lang3.StringUtils;
-import com.kuzumeji.domain.actor.SupplierFactory;
-import com.kuzumeji.entity.actor.Supplier;
-import zeroth.actor.screen.iface.jsf.AbstractActionImpl;
+import zeroth.actor.app.actor.SupplierServiceLocal;
+import zeroth.actor.domain.Supplier;
+import zeroth.actor.domain.SupplierFactory;
 import zeroth.framework.enterprise.app.SimpleRepositoryService;
-import zeroth.framework.enterprise.app.actor.SupplierServiceLocal;
+import zeroth.framework.screen.iface.jsf.AbstractActionImpl;
 /**
  * Supplier action.
  * @author nilcy
  */
 @Named(value = "supplierAction")
 @ConversationScoped
-public class SupplierAction extends AbstractActionImpl<Supplier> {
+public class SupplierAction extends AbstractActionImpl<Supplier, Long, Supplier> {
     /** S/N. */
     private static final long serialVersionUID = 873776474936603723L;
     /** supplier service Local-I/F. */
@@ -30,8 +30,8 @@ public class SupplierAction extends AbstractActionImpl<Supplier> {
         super();
     }
     @Override
-    public SimpleRepositoryService<Supplier> getService() {
-        return this.service;
+    public SimpleRepositoryService<Supplier, Long, Supplier> getService() {
+        return service;
     }
     /** {@inheritDoc} */
     @Override

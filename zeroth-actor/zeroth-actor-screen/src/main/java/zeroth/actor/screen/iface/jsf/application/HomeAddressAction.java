@@ -16,9 +16,9 @@ import javax.ejb.Singleton;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Named;
 import org.apache.commons.lang3.Validate;
-import com.kuzumeji.domain.actor.parts.HomeAddressFactory;
-import com.kuzumeji.entity.actor.parts.Address;
-import com.kuzumeji.entity.actor.parts.HomeAddress;
+import zeroth.actor.domain.parts.Address;
+import zeroth.actor.domain.parts.HomeAddress;
+import zeroth.actor.domain.parts.HomeAddressFactory;
 /**
  * Home address action.
  * @author nilcy
@@ -55,7 +55,7 @@ public class HomeAddressAction implements Serializable {
         try (InputStream is = this.getClass().getResourceAsStream("/address/HomeAddress.csv");
             BufferedReader br = new BufferedReader(new InputStreamReader(is, "Windows-31J"));) {
             String line;
-            this.map = new HashMap<>();
+            map = new HashMap<>();
             while ((line = br.readLine()) != null) {
                 final String[] tmp = line.split(",");
                 final String code = trimQuote(tmp[POS_CODE]);
@@ -63,7 +63,7 @@ public class HomeAddressAction implements Serializable {
                 final String town = trimQuote(tmp[POS_TOWN]);
                 final String city = trimQuote(tmp[POS_CITY]);
                 final HomeAddress address = new HomeAddressFactory().create(code, pref, town, city);
-                this.map.put(code, address);
+                map.put(code, address);
             }
         }
     }
@@ -86,7 +86,7 @@ public class HomeAddressAction implements Serializable {
         if (key.length() != LEN_CODE) {
             return false;
         }
-        final HomeAddress address = this.map.get(key);
+        final HomeAddress address = map.get(key);
         if (address != null) {
             aAddress.setPref(address.getPref());
             aAddress.setCity(address.getCity());

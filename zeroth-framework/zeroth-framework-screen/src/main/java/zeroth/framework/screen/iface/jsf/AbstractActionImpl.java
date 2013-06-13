@@ -18,15 +18,14 @@ import zeroth.framework.enterprise.app.SimpleRepositoryService;
 import zeroth.framework.enterprise.domain.ConstraintsException;
 import zeroth.framework.enterprise.shared.EnterpriseRuntimeException;
 import zeroth.framework.enterprise.shared.Persistable;
-import zeroth.framework.standard.shared.ValueObject;
 /**
  * JSFアクション
  * @param <E> エンティティ型
  * @param <ID> 識別子オブジェクト型
- * @param <F> 検索条件オブジェクト型
+ * @param <F> 検索条件オブジェクト型 TODO extends ValueObject<?>
  * @author nilcy
  */
-public abstract class AbstractActionImpl<E extends Persistable<ID>, ID extends Serializable, F extends ValueObject<?>>
+public abstract class AbstractActionImpl<E extends Persistable<ID>, ID extends Serializable, F extends Serializable>
     implements Action<E, ID, F> {
     /** 製品番号 */
     private static final long serialVersionUID = -8034832957766744039L;

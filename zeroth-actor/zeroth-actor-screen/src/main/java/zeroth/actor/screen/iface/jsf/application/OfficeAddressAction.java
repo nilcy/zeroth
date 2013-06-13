@@ -16,8 +16,8 @@ import javax.ejb.Singleton;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Named;
 import org.apache.commons.lang3.Validate;
-import com.kuzumeji.domain.actor.parts.OfficeAddressFactory;
-import com.kuzumeji.entity.actor.parts.OfficeAddress;
+import zeroth.actor.domain.parts.OfficeAddress;
+import zeroth.actor.domain.parts.OfficeAddressFactory;
 /**
  * Office address action.
  * @author nilcy
@@ -58,7 +58,7 @@ public class OfficeAddressAction implements Serializable {
         try (InputStream is = this.getClass().getResourceAsStream("/address/OfficeAddress.csv");
             BufferedReader br = new BufferedReader(new InputStreamReader(is, "Windows-31J"))) {
             String line;
-            this.map = new HashMap<>();
+            map = new HashMap<>();
             while ((line = br.readLine()) != null) {
                 final String[] tmp = line.split(",");
                 final String code = trimQuote(tmp[POS_CODE]);
@@ -69,7 +69,7 @@ public class OfficeAddressAction implements Serializable {
                 final String name = trimQuote(tmp[POS_NAME]);
                 final OfficeAddress address = new OfficeAddressFactory().create(name, code, pref,
                     town, city, street);
-                this.map.put(code, address);
+                map.put(code, address);
             }
         }
     }
@@ -92,7 +92,7 @@ public class OfficeAddressAction implements Serializable {
         if (key.length() != LEN_CODE) {
             return false;
         }
-        final OfficeAddress address = this.map.get(key);
+        final OfficeAddress address = map.get(key);
         if (address != null) {
             aAddress.setPref(address.getPref());
             aAddress.setCity(address.getCity());

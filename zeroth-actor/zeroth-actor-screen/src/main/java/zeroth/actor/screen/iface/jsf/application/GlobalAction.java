@@ -14,24 +14,24 @@ import javax.faces.model.SelectItem;
 import javax.inject.Named;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
-import com.kuzumeji.domain.actor.LevelFactory;
-import com.kuzumeji.domain.actor.OrganFactory;
-import com.kuzumeji.domain.actor.TitleFactory;
-import com.kuzumeji.domain.misc.IndustryClassFactory;
-import com.kuzumeji.domain.misc.ListedSectionFactory;
-import com.kuzumeji.entity.actor.Gender;
-import com.kuzumeji.entity.actor.Level;
-import com.kuzumeji.entity.actor.Organ;
-import com.kuzumeji.entity.actor.Title;
-import com.kuzumeji.entity.misc.IndustryClass;
-import com.kuzumeji.entity.misc.ListedSection;
-import zeroth.actor.screen.iface.jsf.FacesHelper;
-import zeroth.actor.screen.iface.jsf.FacesProfile;
-import zeroth.framework.enterprise.app.actor.LevelServiceLocal;
-import zeroth.framework.enterprise.app.actor.OrganServiceLocal;
-import zeroth.framework.enterprise.app.actor.TitleServiceLocal;
-import zeroth.framework.enterprise.app.misc.IndustryClassServiceLocal;
-import zeroth.framework.enterprise.app.misc.ListedSectionServiceLocal;
+import zeroth.actor.app.actor.LevelServiceLocal;
+import zeroth.actor.app.actor.OrganServiceLocal;
+import zeroth.actor.app.actor.TitleServiceLocal;
+import zeroth.actor.app.misc.IndustryClassServiceLocal;
+import zeroth.actor.app.misc.ListedSectionServiceLocal;
+import zeroth.actor.domain.Gender;
+import zeroth.actor.domain.Level;
+import zeroth.actor.domain.LevelFactory;
+import zeroth.actor.domain.Organ;
+import zeroth.actor.domain.OrganFactory;
+import zeroth.actor.domain.Title;
+import zeroth.actor.domain.TitleFactory;
+import zeroth.actor.domain.misc.IndustryClass;
+import zeroth.actor.domain.misc.IndustryClassFactory;
+import zeroth.actor.domain.misc.ListedSection;
+import zeroth.actor.domain.misc.ListedSectionFactory;
+import zeroth.framework.screen.iface.jsf.FacesHelper;
+import zeroth.framework.screen.iface.jsf.FacesProfile;
 /**
  * Global action.
  * @author nilcy
@@ -79,85 +79,85 @@ public class GlobalAction implements Serializable {
      * @return {@link #industryClassItems}
      */
     public List<SelectItem> getIndustryClassItems() {
-        if (this.industryClassItems == null) {
+        if (industryClassItems == null) {
             final List<SelectItem> items = new ArrayList<>();
-            for (final IndustryClass o : this.industryClassService.find(new IndustryClassFactory()
+            for (final IndustryClass o : industryClassService.findMany(new IndustryClassFactory()
                 .create())) {
                 items.add(new SelectItem(o, o.getDescription()));
             }
-            this.industryClassItems = items;
+            industryClassItems = items;
         }
-        return this.industryClassItems;
+        return industryClassItems;
     }
     /**
      * Get {@link #listedSectionItems}.
      * @return {@link #listedSectionItems}
      */
     public List<SelectItem> getListedSectionItems() {
-        if (this.listedSectionItems == null) {
+        if (listedSectionItems == null) {
             final List<SelectItem> items = new ArrayList<>();
-            for (final ListedSection o : this.listedSectionService.find(new ListedSectionFactory()
+            for (final ListedSection o : listedSectionService.findMany(new ListedSectionFactory()
                 .create())) {
                 items.add(new SelectItem(o, o.getSection()));
             }
-            this.listedSectionItems = items;
+            listedSectionItems = items;
         }
-        return this.listedSectionItems;
+        return listedSectionItems;
     }
     /**
      * Get {@link #organItems}.
      * @return {@link #organItems}
      */
     public List<SelectItem> getOrganItems() {
-        if (this.organItems == null) {
+        if (organItems == null) {
             final List<SelectItem> items = new ArrayList<>();
-            for (final Organ o : this.organService.find(new OrganFactory().create())) {
+            for (final Organ o : organService.findMany(new OrganFactory().create())) {
                 items.add(new SelectItem(o, o.getName()));
             }
-            this.organItems = items;
+            organItems = items;
         }
-        return this.organItems;
+        return organItems;
     }
     /**
      * Get {@link #titleItems}.
      * @return {@link #titleItems}
      */
     public List<SelectItem> getTitleItems() {
-        if (this.titleItems == null) {
+        if (titleItems == null) {
             final List<SelectItem> items = new ArrayList<>();
-            for (final Title o : this.titleService.find(new TitleFactory().create())) {
+            for (final Title o : titleService.findMany(new TitleFactory().create())) {
                 items.add(new SelectItem(o, o.getName()));
             }
-            this.titleItems = items;
+            titleItems = items;
         }
-        return this.titleItems;
+        return titleItems;
     }
     /**
      * Get {@link #levelItems}.
      * @return {@link #levelItems}
      */
     public List<SelectItem> getLevelItems() {
-        if (this.levelItems == null) {
+        if (levelItems == null) {
             final List<SelectItem> items = new ArrayList<>();
-            for (final Level o : this.levelService.find(new LevelFactory().create())) {
+            for (final Level o : levelService.findMany(new LevelFactory().create())) {
                 items.add(new SelectItem(o, o.getName()));
             }
-            this.levelItems = items;
+            levelItems = items;
         }
-        return this.levelItems;
+        return levelItems;
     }
     /**
      * Get {@link #genderItems}.
      * @return {@link #genderItems}
      */
     public List<SelectItem> getGenderItems() {
-        if (this.genderItems == null) {
+        if (genderItems == null) {
             final List<SelectItem> items = new ArrayList<>();
             items.add(new SelectItem(Gender.MALE, FacesHelper.getBundleMessage("Gender_MALE")));
             items.add(new SelectItem(Gender.FEMALE, FacesHelper.getBundleMessage("Gender_FEMALE")));
-            this.genderItems = items;
+            genderItems = items;
         }
-        return this.genderItems;
+        return genderItems;
     }
     /**
      * Get default if blank.

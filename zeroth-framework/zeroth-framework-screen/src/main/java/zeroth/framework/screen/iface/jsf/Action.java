@@ -8,15 +8,14 @@ import java.io.Serializable;
 import java.util.Collection;
 import zeroth.framework.enterprise.app.SimpleRepositoryService;
 import zeroth.framework.enterprise.shared.Persistable;
-import zeroth.framework.standard.shared.ValueObject;
 /**
  * JSFアクションI/F
  * @param <E> エンティティ型
  * @param <ID> 識別子オブジェクト型
- * @param <F> 検索条件オブジェクト型
+ * @param <F> 検索条件オブジェクト型 TODO extends ValueObject<?>
  * @author nilcy
  */
-public interface Action<E extends Persistable<ID>, ID extends Serializable, F extends ValueObject<?>>
+public interface Action<E extends Persistable<ID>, ID extends Serializable, F extends Serializable>
     extends Serializable {
     /**
      * エンティティ集合の取得

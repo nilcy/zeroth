@@ -8,15 +8,14 @@ import java.io.Serializable;
 import java.util.Collection;
 import zeroth.framework.enterprise.shared.Persistable;
 import zeroth.framework.standard.domain.Repository;
-import zeroth.framework.standard.shared.ValueObject;
 /**
  * 基本リポジトリI/F
  * @param <E> エンティティ型
  * @param <ID> 識別子オブジェクト型
- * @param <F> 検索条件オブジェクト型
+ * @param <F> 検索条件オブジェクト型 TODO extends ValueObject<?>
  * @author nilcy
  */
-public interface SimpleRepository<E extends Persistable<ID>, ID extends Serializable, F extends ValueObject<?>>
+public interface SimpleRepository<E extends Persistable<ID>, ID extends Serializable, F extends Serializable>
     extends Repository {
     /**
      * エンティティ保存

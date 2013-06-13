@@ -8,19 +8,19 @@ import javax.ejb.EJB;
 import javax.enterprise.context.ConversationScoped;
 import javax.inject.Named;
 import org.apache.commons.lang3.StringUtils;
-import com.kuzumeji.domain.actor.MemberFactory;
-import com.kuzumeji.entity.actor.Member;
-import com.kuzumeji.util.CodecHelper;
-import zeroth.actor.screen.iface.jsf.AbstractActionImpl;
+import zeroth.actor.app.actor.MemberServiceLocal;
+import zeroth.actor.domain.Member;
+import zeroth.actor.domain.MemberFactory;
 import zeroth.framework.enterprise.app.SimpleRepositoryService;
-import zeroth.framework.enterprise.app.actor.MemberServiceLocal;
+import zeroth.framework.screen.iface.jsf.AbstractActionImpl;
+import zeroth.framework.standard.shared.CodecHelper;
 /**
  * Member action.
  * @author nilcy
  */
 @Named(value = "memberAction")
 @ConversationScoped
-public class MemberAction extends AbstractActionImpl<Member> {
+public class MemberAction extends AbstractActionImpl<Member, Long, Member> {
     /** S/N. */
     private static final long serialVersionUID = 3945061120130283444L;
     /** member service Local-I/F. */
@@ -33,8 +33,8 @@ public class MemberAction extends AbstractActionImpl<Member> {
         super();
     }
     @Override
-    public SimpleRepositoryService<Member> getService() {
-        return this.service;
+    public SimpleRepositoryService<Member, Long, Member> getService() {
+        return service;
     }
     /**
      * {@inheritDoc}
@@ -64,13 +64,13 @@ public class MemberAction extends AbstractActionImpl<Member> {
      * @return {@link #tempPassword}
      */
     public String getTempPassword() {
-        return this.tempPassword;
+        return tempPassword;
     }
     /**
      * Set {@link #tempPassword}.
      * @param aTempPassword {@link #tempPassword}
      */
     public void setTempPassword(final String aTempPassword) {
-        this.tempPassword = aTempPassword;
+        tempPassword = aTempPassword;
     }
 }

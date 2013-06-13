@@ -7,17 +7,17 @@ package zeroth.actor.screen.iface.jsf.conversation.master;
 import javax.ejb.EJB;
 import javax.enterprise.context.ConversationScoped;
 import javax.inject.Named;
-import com.kuzumeji.entity.misc.IndustryClass;
-import zeroth.actor.screen.iface.jsf.AbstractActionImpl;
+import zeroth.actor.app.misc.IndustryClassServiceLocal;
+import zeroth.actor.domain.misc.IndustryClass;
 import zeroth.framework.enterprise.app.SimpleRepositoryService;
-import zeroth.framework.enterprise.app.misc.IndustryClassServiceLocal;
+import zeroth.framework.screen.iface.jsf.AbstractActionImpl;
 /**
  * Industry classification action.
  * @author nilcy
  */
 @Named(value = "industryClassAction")
 @ConversationScoped
-public class IndustryClassAction extends AbstractActionImpl<IndustryClass> {
+public class IndustryClassAction extends AbstractActionImpl<IndustryClass, Long, IndustryClass> {
     /** S/N. */
     private static final long serialVersionUID = 7243039551620767571L;
     /** industry classification service Local-I/F. */
@@ -28,7 +28,7 @@ public class IndustryClassAction extends AbstractActionImpl<IndustryClass> {
         super();
     }
     @Override
-    public SimpleRepositoryService<IndustryClass> getService() {
-        return this.service;
+    public SimpleRepositoryService<IndustryClass, Long, IndustryClass> getService() {
+        return service;
     }
 }

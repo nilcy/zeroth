@@ -9,18 +9,18 @@ import javax.ejb.EJB;
 import javax.enterprise.context.ConversationScoped;
 import javax.faces.application.FacesMessage;
 import javax.inject.Named;
-import com.kuzumeji.entity.actor.Organ;
-import zeroth.actor.screen.iface.jsf.AbstractActionImpl;
-import zeroth.actor.screen.iface.jsf.FacesHelper;
+import zeroth.actor.app.actor.OrganServiceLocal;
+import zeroth.actor.domain.Organ;
 import zeroth.framework.enterprise.app.SimpleRepositoryService;
-import zeroth.framework.enterprise.app.actor.OrganServiceLocal;
+import zeroth.framework.screen.iface.jsf.AbstractActionImpl;
+import zeroth.framework.screen.iface.jsf.FacesHelper;
 /**
  * Organization action.
  * @author nilcy
  */
 @Named(value = "organAction")
 @ConversationScoped
-public class OrganAction extends AbstractActionImpl<Organ> {
+public class OrganAction extends AbstractActionImpl<Organ, Long, Organ> {
     /** S/N. */
     private static final long serialVersionUID = 7243039551620767571L;
     /** organization service Local-I/F. */
@@ -31,8 +31,8 @@ public class OrganAction extends AbstractActionImpl<Organ> {
         super();
     }
     @Override
-    public SimpleRepositoryService<Organ> getService() {
-        return this.service;
+    public SimpleRepositoryService<Organ, Long, Organ> getService() {
+        return service;
     }
     /** {@inheritDoc} false if parent >= target. */
     @Override

@@ -7,17 +7,17 @@ package zeroth.actor.screen.iface.jsf.conversation.master;
 import javax.ejb.EJB;
 import javax.enterprise.context.ConversationScoped;
 import javax.inject.Named;
-import com.kuzumeji.entity.misc.ListedSection;
-import zeroth.actor.screen.iface.jsf.AbstractActionImpl;
+import zeroth.actor.app.misc.ListedSectionServiceLocal;
+import zeroth.actor.domain.misc.ListedSection;
 import zeroth.framework.enterprise.app.SimpleRepositoryService;
-import zeroth.framework.enterprise.app.misc.ListedSectionServiceLocal;
+import zeroth.framework.screen.iface.jsf.AbstractActionImpl;
 /**
  * Listed section action.
  * @author nilcy
  */
 @Named(value = "listedSectionAction")
 @ConversationScoped
-public class ListedSectionAction extends AbstractActionImpl<ListedSection> {
+public class ListedSectionAction extends AbstractActionImpl<ListedSection, Long, ListedSection> {
     /** S/N. */
     private static final long serialVersionUID = 7243039551620767571L;
     /** listed section service Local-I/F. */
@@ -28,7 +28,7 @@ public class ListedSectionAction extends AbstractActionImpl<ListedSection> {
         super();
     }
     @Override
-    public SimpleRepositoryService<ListedSection> getService() {
-        return this.service;
+    public SimpleRepositoryService<ListedSection, Long, ListedSection> getService() {
+        return service;
     }
 }

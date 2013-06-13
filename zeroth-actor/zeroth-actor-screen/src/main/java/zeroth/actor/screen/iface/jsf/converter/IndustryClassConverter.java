@@ -5,7 +5,7 @@
 // ========================================================================
 package zeroth.actor.screen.iface.jsf.converter;
 import javax.faces.convert.FacesConverter;
-import com.kuzumeji.entity.misc.IndustryClass;
+import zeroth.actor.domain.misc.IndustryClass;
 /**
  * Industry classification converter.
  * @author nilcy

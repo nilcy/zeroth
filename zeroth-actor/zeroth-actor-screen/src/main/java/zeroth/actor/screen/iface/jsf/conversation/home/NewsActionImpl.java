@@ -9,11 +9,11 @@ import javax.ejb.EJB;
 import javax.enterprise.context.ConversationScoped;
 import javax.enterprise.inject.Default;
 import javax.inject.Named;
-import com.kuzumeji.domain.misc.NewsFactory;
-import com.kuzumeji.entity.misc.News;
-import zeroth.actor.screen.iface.jsf.AbstractActionImpl;
+import zeroth.actor.app.misc.NewsServiceLocal;
+import zeroth.actor.domain.misc.News;
+import zeroth.actor.domain.misc.NewsFactory;
 import zeroth.framework.enterprise.app.SimpleRepositoryService;
-import zeroth.framework.enterprise.app.misc.NewsServiceLocal;
+import zeroth.framework.screen.iface.jsf.AbstractActionImpl;
 /**
  * News action.
  * @author nilcy
@@ -21,7 +21,7 @@ import zeroth.framework.enterprise.app.misc.NewsServiceLocal;
 @Named(value = "newsAction")
 @ConversationScoped
 @Default
-public class NewsActionImpl extends AbstractActionImpl<News> implements NewsAction {
+public class NewsActionImpl extends AbstractActionImpl<News, Long, News> implements NewsAction {
     /** S/N. */
     private static final long serialVersionUID = 7243039551620767571L;
     /** news service Local-I/F. */
@@ -32,8 +32,8 @@ public class NewsActionImpl extends AbstractActionImpl<News> implements NewsActi
         super();
     }
     @Override
-    public SimpleRepositoryService<News> getService() {
-        return this.newsService;
+    public SimpleRepositoryService<News, Long, News> getService() {
+        return newsService;
     }
     /**
      * {@inheritDoc}

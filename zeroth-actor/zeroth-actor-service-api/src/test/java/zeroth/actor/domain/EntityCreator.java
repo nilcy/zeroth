@@ -10,7 +10,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
 import org.junit.Test;
 /**
- * {@link com.kuzumeji.entity}
+ * {@link zeroth.actor.entity}
  * @author nilcy
  */
 @SuppressWarnings("all")

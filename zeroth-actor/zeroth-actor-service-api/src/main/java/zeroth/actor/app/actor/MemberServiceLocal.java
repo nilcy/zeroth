@@ -3,18 +3,14 @@
 // GNU AFFERO GENERAL PUBLIC LICENSE Version 3, 19 November 2007
 // http://www.gnu.org/licenses/agpl-3.0.txt
 // ========================================================================
-package zeroth.framework.service;
-import static org.hamcrest.CoreMatchers.*;
-import static org.junit.Assert.*;
-import org.junit.Test;
+package zeroth.actor.app.actor;
+import javax.ejb.Local;
+import zeroth.actor.domain.Member;
+import zeroth.framework.enterprise.app.SimpleRepositoryService;
 /**
- * Test {@link Example}.
+ * Member service Local-I/F.
  * @author nilcy
  */
-@SuppressWarnings("all")
-public class ExampleTest {
-    @Test
-    public void testSayHello() {
-        assertThat(Example.sayHello(), is("Hello"));
-    }
+@Local
+public interface MemberServiceLocal extends SimpleRepositoryService<Member, Long, Member> {
 }

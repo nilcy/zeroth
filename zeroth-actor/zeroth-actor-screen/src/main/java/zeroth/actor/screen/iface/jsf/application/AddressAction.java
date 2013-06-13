@@ -10,9 +10,9 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import org.apache.commons.lang3.Validate;
-import com.kuzumeji.entity.actor.parts.Address;
-import com.kuzumeji.entity.actor.parts.HomeAddress;
-import com.kuzumeji.entity.actor.parts.OfficeAddress;
+import zeroth.actor.domain.parts.Address;
+import zeroth.actor.domain.parts.HomeAddress;
+import zeroth.actor.domain.parts.OfficeAddress;
 /**
  * Address action.
  * @author nilcy
@@ -44,11 +44,11 @@ public class AddressAction implements Serializable {
         Validate.notNull(aAddress.getCode());
         boolean found = false;
         if (aAddress instanceof HomeAddress) {
-            found = this.homeAction.load(aAddress);
+            found = homeAction.load(aAddress);
         } else if (aAddress instanceof OfficeAddress) {
-            found = this.officeAction.load((OfficeAddress) aAddress);
+            found = officeAction.load((OfficeAddress) aAddress);
             if (!found) {
-                found = this.homeAction.load(aAddress);
+                found = homeAction.load(aAddress);
             }
         }
         return found;

@@ -15,10 +15,10 @@ import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 import org.slf4j.Logger;
-import com.kuzumeji.domain.actor.MemberFactory;
-import com.kuzumeji.entity.actor.Member;
-import zeroth.actor.screen.iface.jsf.FacesHelper;
-import zeroth.framework.enterprise.app.actor.MemberServiceLocal;
+import zeroth.actor.app.actor.MemberServiceLocal;
+import zeroth.actor.domain.Member;
+import zeroth.actor.domain.MemberFactory;
+import zeroth.framework.screen.iface.jsf.FacesHelper;
 /**
  * Visitor controller.
  * @author nilcy
@@ -53,8 +53,7 @@ public class VisitorAction implements Serializable {
      * @return true if logged-in
      */
     public boolean isLoggedIn() {
-        this.log
-            .trace("getUserPrincipal = {}", FacesHelper.getExternalContext().getUserPrincipal());
+        log.trace("getUserPrincipal = {}", FacesHelper.getExternalContext().getUserPrincipal());
         return FacesHelper.getExternalContext().getUserPrincipal() != null;
     }
     /**
@@ -62,27 +61,27 @@ public class VisitorAction implements Serializable {
      * @return {@link #member}
      */
     public Member getMember() {
-        if ((this.member == null) && this.isLoggedIn()) {
+        if ((member == null) && isLoggedIn()) {
             final String account = FacesHelper.getExternalContext().getRemoteUser();
-            this.log.trace("account = {}", account);
-            final Collection<Member> members = this.memberService.find(new MemberFactory()
+            log.trace("account = {}", account);
+            final Collection<Member> members = memberService.findMany(new MemberFactory()
                 .create(account));
-            this.member = members.iterator().next();
-            this.loggedInDate = new Date();
+            member = members.iterator().next();
+            loggedInDate = new Date();
             // InfraHelper.addSuccessBundleMessage("LoggedIn");
             // InfraHelper.keepMessage();
-        } else if (!this.isLoggedIn()) {
-            this.member = null;
-            this.loggedInDate = null;
+        } else if (!isLoggedIn()) {
+            member = null;
+            loggedInDate = null;
         }
-        return this.member;
+        return member;
     }
     /**
      * Get {@link #loggedInDate}.
      * @return {@link #loggedInDate}
      */
     public Date getLoggedInDate() {
-        return this.loggedInDate;
+        return loggedInDate;
     }
     /**
      * Determine if user in role.
@@ -115,6 +114,6 @@ public class VisitorAction implements Serializable {
      * @return {@link #conversation}
      */
     public Conversation getConversation() {
-        return this.conversation;
+        return conversation;
     }
 }

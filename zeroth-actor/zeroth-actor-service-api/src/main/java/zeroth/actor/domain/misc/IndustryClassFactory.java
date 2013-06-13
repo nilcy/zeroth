@@ -3,20 +3,15 @@
 // GNU AFFERO GENERAL PUBLIC LICENSE Version 3, 19 November 2007
 // http://www.gnu.org/licenses/agpl-3.0.txt
 // ========================================================================
-package zeroth.framework.service;
+package zeroth.actor.domain.misc;
+import zeroth.framework.standard.shared.AbstractFactory;
 /**
- * Example.
+ * Industry classification factory.
  * @author nilcy
  */
-public final class Example {
-    /** コンストラクタ */
-    private Example() {
-    }
-    /**
-     * Say hello.
-     * @return hello
-     */
-    public static String sayHello() {
-        return "Hello";
+public class IndustryClassFactory extends AbstractFactory<IndustryClass> {
+    /** Constructor. */
+    public IndustryClassFactory() {
+        super();
     }
 }

@@ -7,17 +7,17 @@ package zeroth.actor.screen.iface.jsf.conversation.master;
 import javax.ejb.EJB;
 import javax.enterprise.context.ConversationScoped;
 import javax.inject.Named;
-import com.kuzumeji.entity.actor.Title;
-import zeroth.actor.screen.iface.jsf.AbstractActionImpl;
+import zeroth.actor.app.actor.TitleServiceLocal;
+import zeroth.actor.domain.Title;
 import zeroth.framework.enterprise.app.SimpleRepositoryService;
-import zeroth.framework.enterprise.app.actor.TitleServiceLocal;
+import zeroth.framework.screen.iface.jsf.AbstractActionImpl;
 /**
  * Title action.
  * @author nilcy
  */
 @Named(value = "titleAction")
 @ConversationScoped
-public class TitleAction extends AbstractActionImpl<Title> {
+public class TitleAction extends AbstractActionImpl<Title, Long, Title> {
     /** S/N. */
     private static final long serialVersionUID = -1742312463790367432L;
     /** industry classification service Local-I/F. */
@@ -28,7 +28,7 @@ public class TitleAction extends AbstractActionImpl<Title> {
         super();
     }
     @Override
-    public SimpleRepositoryService<Title> getService() {
-        return this.service;
+    public SimpleRepositoryService<Title, Long, Title> getService() {
+        return service;
     }
 }

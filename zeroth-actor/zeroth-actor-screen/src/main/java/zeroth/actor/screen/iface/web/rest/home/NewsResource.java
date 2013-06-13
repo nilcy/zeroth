@@ -17,11 +17,11 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import org.slf4j.Logger;
-import com.kuzumeji.entity.misc.News;
-import com.kuzumeji.persistence.ConstraintsException;
+import zeroth.actor.app.misc.NewsServiceLocal;
+import zeroth.actor.domain.misc.News;
 import zeroth.actor.screen.iface.web.rest.ResourceException;
 import zeroth.actor.screen.iface.web.rest.ResourceFault;
-import zeroth.framework.enterprise.app.misc.NewsServiceLocal;
+import zeroth.framework.enterprise.domain.ConstraintsException;
 /**
  * News resources.
  * @author nilcy
@@ -47,7 +47,7 @@ public class NewsResource {
     @Path("/")
     @Produces({ MediaType.TEXT_XML, MediaType.APPLICATION_JSON })
     public Collection<News> getList() {
-        return this.newsService.find();
+        return newsService.findMany(null);
     }
     /**
      * Get news.
@@ -58,7 +58,7 @@ public class NewsResource {
     @Path("/{id}")
     @Produces({ MediaType.TEXT_XML, MediaType.APPLICATION_JSON })
     public News getItem(@PathParam("id") final Long aId) {
-        final News item = this.newsService.find(aId);
+        final News item = newsService.find(aId);
         if (item == null) {
             throw new ResourceException(new ResourceFault("ERR001", "GET_ERROR"));
         }
@@ -73,7 +73,7 @@ public class NewsResource {
     @Consumes({ MediaType.TEXT_XML, MediaType.APPLICATION_JSON })
     public void postItem(final News aNews) {
         try {
-            this.newsService.save(aNews);
+            newsService.save(aNews);
         } catch (final ConstraintsException e) {
             throw new ResourceException(new ResourceFault("ERR002", "POST_ERROR"));
         }
@@ -87,7 +87,7 @@ public class NewsResource {
     @Consumes({ MediaType.TEXT_XML, MediaType.APPLICATION_JSON })
     public void deleteItem(@PathParam("id") final Long aId) {
         try {
-            this.newsService.delete(this.newsService.find(aId));
+            newsService.delete(newsService.find(aId));
         } catch (final ConstraintsException e) {
             throw new ResourceException(new ResourceFault("ERR003", "DELETE_ERROR"));
         }
