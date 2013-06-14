@@ -46,7 +46,7 @@ public class SimplePersistenceServiceImpl<E extends Persistable<ID>, ID extends 
      * @param clazz エンティティクラス
      */
     public SimplePersistenceServiceImpl(final EntityManager manager, final Class<E> clazz) {
-        assert (manager != null) && (clazz != null);
+        assert manager != null && clazz != null;
         this.manager = manager;
         this.clazz = clazz;
     }

@@ -10,6 +10,7 @@ import static zeroth.framework.enterprise.domain.TestExample_.*;
 import java.util.Collection;
 import java.util.logging.Logger;
 import javax.inject.Inject;
+import javax.inject.Named;
 import javax.persistence.LockModeType;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.Root;
@@ -27,6 +28,7 @@ import zeroth.framework.enterprise.domain.TestExample;
 @SuppressWarnings("all")
 public class QueryPersistenceServiceImplTest {
     @Inject
+    @Named("TestExamplePersistenceService")
     private QueryPersistenceService<TestExample, Long> testee;
     @Inject
     private Logger log;

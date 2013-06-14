@@ -11,7 +11,6 @@ import javax.persistence.EntityExistsException;
 import javax.persistence.OptimisticLockException;
 import org.apache.commons.lang3.Validate;
 import zeroth.framework.enterprise.infra.persistence.SimplePersistenceService;
-import zeroth.framework.enterprise.infra.persistence.QueryPersistenceService;
 import zeroth.framework.enterprise.shared.Persistable;
 import zeroth.framework.standard.shared.CommonUtils;
 import zeroth.framework.standard.shared.ValueObject;
@@ -20,9 +19,10 @@ import zeroth.framework.standard.shared.ValueObject;
  * @param <E> エンティティ型
  * @param <ID> 識別子オブジェクト型
  * @param <F> フィルタ型
+ * @param <P> データ永続化サービス型
  * @author nilcy
  */
-public abstract class AbstractSimpleRepositoryImpl<E extends Persistable<ID>, ID extends Serializable, F extends ValueObject<?>>
+public abstract class AbstractSimpleRepositoryImpl<E extends Persistable<ID>, ID extends Serializable, F extends ValueObject<?>, P extends SimplePersistenceService<E, ID>>
     implements SimpleRepository<E, ID, F> {
     /** 識別番号 */
     private static final long serialVersionUID = -5578612922301298194L;
@@ -34,7 +34,7 @@ public abstract class AbstractSimpleRepositoryImpl<E extends Persistable<ID>, ID
     /**
      * {@inheritDoc}
      * <p>
-     * データ永続化サービスでエンティティを登録して同期する。
+     * 必要に応じて一意キー制約チェックを実行する。 管理エンティティの保存、または分離エンティティの保存を実行する。
      * </p>
      */
     @SuppressWarnings("unchecked")
@@ -46,16 +46,9 @@ public abstract class AbstractSimpleRepositoryImpl<E extends Persistable<ID>, ID
         }
         try {
             getPersistenceService().persist(entity);
-            getPersistenceService().flush();
             return entity;
         } catch (final EntityExistsException e) {
-            try {
-                final E merged = getPersistenceService().merge(entity);
-                getPersistenceService().flush();
-                return merged;
-            } catch (final OptimisticLockException e1) {
-                throw new ConstraintsException(KEY_LOCK_EXCEPTION);
-            }
+            return getPersistenceService().merge(entity);
         }
     }
     /**
@@ -73,7 +66,6 @@ public abstract class AbstractSimpleRepositoryImpl<E extends Persistable<ID>, ID
         }
         try {
             getPersistenceService().remove(getPersistenceService().merge(entity));
-            getPersistenceService().flush();
         } catch (final OptimisticLockException e) {
             throw new ConstraintsException(KEY_LOCK_EXCEPTION);
         }
@@ -122,10 +114,5 @@ public abstract class AbstractSimpleRepositoryImpl<E extends Persistable<ID>, ID
      * データ永続化サービスの取得
      * @return データ永続化サービス
      */
-    protected abstract SimplePersistenceService<E, ID> getPersistenceService();
-    /**
-     * 拡張データ永続化サービスの取得
-     * @return 拡張データ永続化サービス
-     */
-    protected abstract QueryPersistenceService<E, ID> getQueryPersistenceService();
+    protected abstract P getPersistenceService();
 }

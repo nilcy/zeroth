@@ -22,9 +22,9 @@ import zeroth.framework.standard.shared.Sort.Direction;
 @RunWith(JeeunitRunner.class)
 @Transactional
 @SuppressWarnings("all")
-public class AbstractSimpleRepositoryImplTest {
+public class AbstractQueryRepositoryImplTest {
     @Inject
-    private TestExampleSimpleRepository testee;
+    private TestExampleQueryRepository testee;
     @Inject
     private TestExampleFactory entityFactory;
     @Inject
@@ -37,7 +37,6 @@ public class AbstractSimpleRepositoryImplTest {
         final TestExample ex00 = entityFactory.create("code-00");
         testee.save(ex00);
         assertThat(ex00.getId(), is(not(nullValue())));
-        assertThat(ex00.getVersion(), is(not(nullValue())));
         // エンティティ検索
         final TestExample exId = testee.find(01L);
         assertThat(exId.getId(), is(ex00.getId()));

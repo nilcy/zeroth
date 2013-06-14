@@ -6,6 +6,7 @@
 package zeroth.framework.enterprise.infra.persistence;
 import javax.enterprise.inject.Produces;
 import javax.inject.Inject;
+import javax.inject.Named;
 import javax.persistence.EntityManager;
 import zeroth.framework.enterprise.domain.TestExample;
 /**
@@ -28,6 +29,7 @@ public class QueryPersistenceServiceFactory {
      * @return テスト参照オブジェクトの拡張データ永続化サービス
      */
     @Produces
+    @Named("TestExamplePersistenceService")
     public QueryPersistenceService<TestExample, Long> createTestExamplePersistenceService() {
         return factory.createQueryPersistenceService(manager, TestExample.class);
     }

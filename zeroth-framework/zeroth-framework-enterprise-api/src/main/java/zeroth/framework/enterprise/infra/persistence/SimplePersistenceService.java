@@ -26,8 +26,11 @@ import zeroth.framework.standard.shared.Service;
 public interface SimplePersistenceService<E extends Persistable<ID>, ID extends Serializable>
     extends Service {
     /**
-     * 管理エンティティの保存
-     * @param entity 新規エンティティ
+     * 管理エンティティの永続化
+     * <p>
+     * エンティティ状態の遷移は「新規→管理、削除→管理、管理→(無視)」となる。分離のとき EntityExistsException 例外を発生する。
+     * </p>
+     * @param entity エンティティ
      */
     void persist(E entity);
     /**
@@ -44,9 +47,9 @@ public interface SimplePersistenceService<E extends Persistable<ID>, ID extends 
      */
     E find(ID id, LockModeType lockModeType);
     /**
-     * 分離エンティティの保存
+     * 分離エンティティの永続化
      * <p>
-     * Detached(分離)からManaged(管理)への復帰
+     * エンティティ状態の遷移は「新規→管理、管理→(無視)、分離→管理」となる。削除のとき IllegalArgumentException 例外を発生する。
      * </p>
      * @param entity 分離エンティティ
      * @return 管理エンティティ
@@ -54,6 +57,9 @@ public interface SimplePersistenceService<E extends Persistable<ID>, ID extends 
     E merge(E entity);
     /**
      * 管理エンティティの削除
+     * <p>
+     * エンティティ状態の遷移は「新規→(無視)、管理→削除、削除→(無視)」となる。分離のとき IllegalArgumentException 例外を発生する。
+     * </p>
      * @param entity 管理エンティティ
      */
     void remove(E entity);

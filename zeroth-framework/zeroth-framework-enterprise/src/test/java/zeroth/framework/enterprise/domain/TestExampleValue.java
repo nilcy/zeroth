@@ -6,11 +6,13 @@
 package zeroth.framework.enterprise.domain;
 import zeroth.framework.standard.shared.AbstractValueObject;
 import zeroth.framework.standard.shared.PageRequest;
+import zeroth.framework.standard.shared.WithPageRequest;
 /**
  * テスト値オブジェクト
  * @author nilcy
  */
-public class TestExampleValue extends AbstractValueObject<TestExampleValue> {
+public class TestExampleValue extends AbstractValueObject<TestExampleValue> implements
+    WithPageRequest {
     /** 製品番号 */
     private static final long serialVersionUID = -5878383282091462127L;
     /** コード */
@@ -45,6 +47,7 @@ public class TestExampleValue extends AbstractValueObject<TestExampleValue> {
      * {@link #pageRequest} の取得
      * @return {@link #pageRequest}
      */
+    @Override
     public PageRequest getPageRequest() {
         return pageRequest;
     }

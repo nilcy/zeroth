@@ -51,19 +51,6 @@ public class QueryPersistenceServiceImpl<E extends Persistable<ID>, ID extends S
         query = builder().createQuery(clazz);
         root = query().from(clazz);
     }
-    // /**
-    // * {@inheritDoc}
-    // * <p>
-    // * 標準ビルダー、標準クエリ、標準ルートを設定する。
-    // * </p>
-    // */
-    // @Override
-    // public void setup(final EntityManager manager, final Class<E> clazz) {
-    // super.setup(manager, clazz);
-    // builder = manager.getCriteriaBuilder();
-    // query = builder().createQuery(clazz);
-    // root = query().from(clazz);
-    // }
     /** {@inheritDoc} */
     @Override
     public CriteriaBuilder builder() {
