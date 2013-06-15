@@ -7,7 +7,7 @@ package zeroth.actor.screen.iface.jsf.conversation.master;
 import javax.ejb.EJB;
 import javax.enterprise.context.ConversationScoped;
 import javax.inject.Named;
-import zeroth.actor.app.misc.IndustryClassServiceLocal;
+import zeroth.actor.app.misc.IndustryClassApplication;
 import zeroth.actor.domain.misc.IndustryClass;
 import zeroth.framework.enterprise.app.SimpleRepositoryApplication;
 import zeroth.framework.screen.iface.jsf.AbstractActionImpl;
@@ -22,7 +22,7 @@ public class IndustryClassAction extends AbstractActionImpl<IndustryClass, Long,
     private static final long serialVersionUID = 7243039551620767571L;
     /** industry classification service Local-I/F. */
     @EJB
-    private IndustryClassServiceLocal service;
+    private IndustryClassApplication service;
     /** コンストラクタ */
     public IndustryClassAction() {
         super();

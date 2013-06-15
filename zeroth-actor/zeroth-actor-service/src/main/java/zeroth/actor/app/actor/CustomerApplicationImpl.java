@@ -7,34 +7,30 @@ package zeroth.actor.app.actor;
 import javax.ejb.Stateless;
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
-import zeroth.actor.app.AbstractCrudService;
-import zeroth.actor.common.TraceLog;
+import zeroth.actor.domain.Customer;
 import zeroth.actor.domain.CustomerRepository;
-import zeroth.actor.domain.Repository;
-import zeroth.actor.entity.actor.Customer;
+import zeroth.framework.enterprise.app.AbstractSimpleRepositoryApplication;
+import zeroth.framework.enterprise.domain.SimpleRepository;
+import zeroth.framework.enterprise.shared.Tracer;
+import zeroth.framework.standard.shared.SimpleFilter;
 /**
- * Customer service implementation.
+ * 得意先アプリケーション
  * @author nilcy
  */
 @Stateless
 @Default
-@TraceLog
-public class CustomerServiceImpl extends AbstractCrudService<Customer> implements
-    CustomerServiceLocal {
+@Tracer
+public class CustomerApplicationImpl extends
+    AbstractSimpleRepositoryApplication<Customer, Long, SimpleFilter> implements
+    CustomerApplication {
     /** 製品番号 */
     private static final long serialVersionUID = 2537651945740718957L;
-    /** customer repository I/F. */
+    /** 得意先リポジトリ */
     @Inject
     private CustomerRepository repository;
-    /** コンストラクタ */
-    public CustomerServiceImpl() {
-        super();
-    }
-    /**
-     * {@inheritDoc} Get {@link #repository}.
-     */
+    /** {@inheritDoc} */
     @Override
-    protected Repository<Customer> getRepository() {
-        return this.repository;
+    protected SimpleRepository<Customer, Long, SimpleFilter> getRepository() {
+        return repository;
     }
 }

@@ -7,33 +7,29 @@ package zeroth.actor.app.misc;
 import javax.ejb.Stateless;
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
-import zeroth.actor.app.AbstractCrudService;
-import zeroth.actor.common.TraceLog;
-import zeroth.actor.domain.Repository;
+import zeroth.actor.domain.misc.News;
 import zeroth.actor.domain.misc.NewsRepository;
-import zeroth.actor.entity.misc.News;
+import zeroth.framework.enterprise.app.AbstractSimpleRepositoryApplication;
+import zeroth.framework.enterprise.domain.SimpleRepository;
+import zeroth.framework.enterprise.shared.Tracer;
+import zeroth.framework.standard.shared.SimpleFilter;
 /**
- * News service implementation.
+ * お知らせアプリケーション
  * @author nilcy
  */
 @Stateless
 @Default
-@TraceLog
-public class NewsServiceImpl extends AbstractCrudService<News> implements NewsServiceLocal {
+@Tracer
+public class NewsApplicationImpl extends AbstractSimpleRepositoryApplication<News, Long, SimpleFilter>
+    implements NewsApplication {
     /** 製品番号 */
     private static final long serialVersionUID = 7126614585601195838L;
-    /** news repository I/F. */
+    /** お知らせリポジトリ */
     @Inject
     private NewsRepository repository;
-    /** コンストラクタ */
-    public NewsServiceImpl() {
-        super();
-    }
-    /**
-     * {@inheritDoc} Get {@link #repository}.
-     */
+    /** {@inheritDoc} */
     @Override
-    protected Repository<News> getRepository() {
-        return this.repository;
+    protected SimpleRepository<News, Long, SimpleFilter> getRepository() {
+        return repository;
     }
 }

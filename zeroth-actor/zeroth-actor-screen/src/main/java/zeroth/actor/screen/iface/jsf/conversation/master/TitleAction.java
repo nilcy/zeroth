@@ -7,7 +7,7 @@ package zeroth.actor.screen.iface.jsf.conversation.master;
 import javax.ejb.EJB;
 import javax.enterprise.context.ConversationScoped;
 import javax.inject.Named;
-import zeroth.actor.app.actor.TitleServiceLocal;
+import zeroth.actor.app.actor.TitleApplication;
 import zeroth.actor.domain.Title;
 import zeroth.framework.enterprise.app.SimpleRepositoryApplication;
 import zeroth.framework.screen.iface.jsf.AbstractActionImpl;
@@ -22,7 +22,7 @@ public class TitleAction extends AbstractActionImpl<Title, Long, Title> {
     private static final long serialVersionUID = -1742312463790367432L;
     /** industry classification service Local-I/F. */
     @EJB
-    private TitleServiceLocal service;
+    private TitleApplication service;
     /** コンストラクタ */
     public TitleAction() {
         super();

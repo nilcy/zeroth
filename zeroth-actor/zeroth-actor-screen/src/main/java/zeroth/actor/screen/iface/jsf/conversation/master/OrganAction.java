@@ -9,7 +9,7 @@ import javax.ejb.EJB;
 import javax.enterprise.context.ConversationScoped;
 import javax.faces.application.FacesMessage;
 import javax.inject.Named;
-import zeroth.actor.app.actor.OrganServiceLocal;
+import zeroth.actor.app.actor.OrganApplication;
 import zeroth.actor.domain.Organ;
 import zeroth.framework.enterprise.app.SimpleRepositoryApplication;
 import zeroth.framework.screen.iface.jsf.AbstractActionImpl;
@@ -25,7 +25,7 @@ public class OrganAction extends AbstractActionImpl<Organ, Long, Organ> {
     private static final long serialVersionUID = 7243039551620767571L;
     /** organization service Local-I/F. */
     @EJB
-    private OrganServiceLocal service;
+    private OrganApplication service;
     /** コンストラクタ */
     public OrganAction() {
         super();

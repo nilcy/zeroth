@@ -7,33 +7,29 @@ package zeroth.actor.app.actor;
 import javax.ejb.Stateless;
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
-import zeroth.actor.app.AbstractCrudService;
-import zeroth.actor.common.TraceLog;
-import zeroth.actor.domain.Repository;
+import zeroth.actor.domain.Title;
 import zeroth.actor.domain.TitleRepository;
-import zeroth.actor.entity.actor.Title;
+import zeroth.framework.enterprise.app.AbstractSimpleRepositoryApplication;
+import zeroth.framework.enterprise.domain.SimpleRepository;
+import zeroth.framework.enterprise.shared.Tracer;
+import zeroth.framework.standard.shared.SimpleFilter;
 /**
- * Title service implementation.
+ * 職名アプリケーション
  * @author nilcy
  */
 @Stateless
 @Default
-@TraceLog
-public class TitleServiceImpl extends AbstractCrudService<Title> implements TitleServiceLocal {
+@Tracer
+public class TitleApplicationImpl extends
+    AbstractSimpleRepositoryApplication<Title, Long, SimpleFilter> implements TitleApplication {
     /** 製品番号 */
     private static final long serialVersionUID = -2055548765950043371L;
-    /** title repository I/F. */
+    /** 職名リポジトリ */
     @Inject
     private TitleRepository repository;
-    /** コンストラクタ */
-    public TitleServiceImpl() {
-        super();
-    }
-    /**
-     * {@inheritDoc} Get {@link #repository}.
-     */
+    /** {@inheritDoc} */
     @Override
-    protected Repository<Title> getRepository() {
-        return this.repository;
+    protected SimpleRepository<Title, Long, SimpleFilter> getRepository() {
+        return repository;
     }
 }

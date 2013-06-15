@@ -8,7 +8,7 @@ import javax.ejb.EJB;
 import javax.enterprise.context.ConversationScoped;
 import javax.inject.Named;
 import org.apache.commons.lang3.StringUtils;
-import zeroth.actor.app.actor.MemberServiceLocal;
+import zeroth.actor.app.actor.MemberApplication;
 import zeroth.actor.domain.Member;
 import zeroth.actor.domain.MemberFactory;
 import zeroth.framework.enterprise.app.SimpleRepositoryApplication;
@@ -25,7 +25,7 @@ public class MemberAction extends AbstractActionImpl<Member, Long, Member> {
     private static final long serialVersionUID = 3945061120130283444L;
     /** member service Local-I/F. */
     @EJB
-    private MemberServiceLocal service;
+    private MemberApplication service;
     /** temporary password. */
     private String tempPassword;
     /** コンストラクタ */

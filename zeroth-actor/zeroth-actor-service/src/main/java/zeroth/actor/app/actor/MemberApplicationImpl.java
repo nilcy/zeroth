@@ -7,33 +7,29 @@ package zeroth.actor.app.actor;
 import javax.ejb.Stateless;
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
-import zeroth.actor.app.AbstractCrudService;
-import zeroth.actor.common.TraceLog;
-import zeroth.actor.domain.Repository;
-import zeroth.actor.domain.actor.MemberRepository;
-import zeroth.actor.entity.actor.Member;
+import zeroth.actor.domain.Member;
+import zeroth.actor.domain.MemberRepository;
+import zeroth.framework.enterprise.app.AbstractSimpleRepositoryApplication;
+import zeroth.framework.enterprise.domain.SimpleRepository;
+import zeroth.framework.enterprise.shared.Tracer;
+import zeroth.framework.standard.shared.SimpleFilter;
 /**
- * Member service implementation.
+ * 社員アプリケーション
  * @author nilcy
  */
 @Stateless
 @Default
-@TraceLog
-public class MemberServiceImpl extends AbstractCrudService<Member> implements MemberServiceLocal {
+@Tracer
+public class MemberApplicationImpl extends
+    AbstractSimpleRepositoryApplication<Member, Long, SimpleFilter> implements MemberApplication {
     /** 製品番号 */
     private static final long serialVersionUID = 2537651945740718957L;
-    /** member repository I/F. */
+    /** 社員リポジトリ */
     @Inject
     private MemberRepository repository;
-    /** コンストラクタ */
-    public MemberServiceImpl() {
-        super();
-    }
-    /**
-     * {@inheritDoc} Get {@link #repository}.
-     */
+    /** {@inheritDoc} */
     @Override
-    protected Repository<Member> getRepository() {
-        return this.repository;
+    protected SimpleRepository<Member, Long, SimpleFilter> getRepository() {
+        return repository;
     }
 }

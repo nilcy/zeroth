@@ -9,7 +9,7 @@ import javax.ejb.EJB;
 import javax.enterprise.context.ConversationScoped;
 import javax.enterprise.inject.Default;
 import javax.inject.Named;
-import zeroth.actor.app.misc.NewsServiceLocal;
+import zeroth.actor.app.misc.NewsApplication;
 import zeroth.actor.domain.misc.News;
 import zeroth.actor.domain.misc.NewsFactory;
 import zeroth.framework.enterprise.app.SimpleRepositoryApplication;
@@ -26,7 +26,7 @@ public class NewsActionImpl extends AbstractActionImpl<News, Long, News> impleme
     private static final long serialVersionUID = 7243039551620767571L;
     /** news service Local-I/F. */
     @EJB
-    private NewsServiceLocal newsService;
+    private NewsApplication newsService;
     /** コンストラクタ */
     public NewsActionImpl() {
         super();

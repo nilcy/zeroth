@@ -3,12 +3,15 @@
 // GNU AFFERO GENERAL PUBLIC LICENSE Version 3, 19 November 2007
 // http://www.gnu.org/licenses/agpl-3.0.txt
 // ========================================================================
-package zeroth.actor.domain;
-import zeroth.framework.enterprise.domain.SimpleRepository;
+package zeroth.actor.app.actor;
+import javax.ejb.Local;
+import zeroth.actor.domain.Organ;
+import zeroth.framework.enterprise.app.SimpleRepositoryApplication;
 import zeroth.framework.standard.shared.SimpleFilter;
 /**
- * 職名リポジトリI/F
+ * 組織アプリケーションI/F
  * @author nilcy
  */
-public interface TitleRepository extends SimpleRepository<Title, Long, SimpleFilter> {
+@Local
+public interface OrganApplication extends SimpleRepositoryApplication<Organ, Long, SimpleFilter> {
 }

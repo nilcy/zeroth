@@ -3,15 +3,16 @@
 // GNU AFFERO GENERAL PUBLIC LICENSE Version 3, 19 November 2007
 // http://www.gnu.org/licenses/agpl-3.0.txt
 // ========================================================================
-package zeroth.actor.app.misc;
+package zeroth.actor.app.actor;
 import javax.ejb.Local;
-import zeroth.actor.domain.misc.ListedSection;
+import zeroth.actor.domain.Partner;
 import zeroth.framework.enterprise.app.SimpleRepositoryApplication;
+import zeroth.framework.standard.shared.SimpleFilter;
 /**
- * Listed section service Local-I/F.
+ * 外注アプリケーションI/F
  * @author nilcy
  */
 @Local
-public interface ListedSectionServiceLocal extends
-    SimpleRepositoryApplication<ListedSection, Long, ListedSection> {
+public interface PartnerApplication extends
+    SimpleRepositoryApplication<Partner, Long, SimpleFilter> {
 }

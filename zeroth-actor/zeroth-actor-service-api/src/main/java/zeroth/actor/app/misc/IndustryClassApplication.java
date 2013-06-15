@@ -7,11 +7,12 @@ package zeroth.actor.app.misc;
 import javax.ejb.Local;
 import zeroth.actor.domain.misc.IndustryClass;
 import zeroth.framework.enterprise.app.SimpleRepositoryApplication;
+import zeroth.framework.standard.shared.SimpleFilter;
 /**
- * Industry classification service Local-I/F.
+ * 業種アプリケーションI/F
  * @author nilcy
  */
 @Local
-public interface IndustryClassServiceLocal extends
-    SimpleRepositoryApplication<IndustryClass, Long, IndustryClass> {
+public interface IndustryClassApplication extends
+    SimpleRepositoryApplication<IndustryClass, Long, SimpleFilter> {
 }

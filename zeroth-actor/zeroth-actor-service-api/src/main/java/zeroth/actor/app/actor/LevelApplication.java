@@ -5,12 +5,13 @@
 // ========================================================================
 package zeroth.actor.app.actor;
 import javax.ejb.Local;
-import zeroth.actor.domain.Member;
+import zeroth.actor.domain.Level;
 import zeroth.framework.enterprise.app.SimpleRepositoryApplication;
+import zeroth.framework.standard.shared.SimpleFilter;
 /**
- * Member service Local-I/F.
+ * 職級アプリケーションI/F
  * @author nilcy
  */
 @Local
-public interface MemberServiceLocal extends SimpleRepositoryApplication<Member, Long, Member> {
+public interface LevelApplication extends SimpleRepositoryApplication<Level, Long, SimpleFilter> {
 }

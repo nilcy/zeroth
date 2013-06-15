@@ -7,33 +7,29 @@ package zeroth.actor.app.actor;
 import javax.ejb.Stateless;
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
-import zeroth.actor.app.AbstractCrudService;
-import zeroth.actor.common.TraceLog;
+import zeroth.actor.domain.Level;
 import zeroth.actor.domain.LevelRepository;
-import zeroth.actor.domain.Repository;
-import zeroth.actor.entity.actor.Level;
+import zeroth.framework.enterprise.app.AbstractSimpleRepositoryApplication;
+import zeroth.framework.enterprise.domain.SimpleRepository;
+import zeroth.framework.enterprise.shared.Tracer;
+import zeroth.framework.standard.shared.SimpleFilter;
 /**
- * Level service implementation.
+ * 職級アプリケーション
  * @author nilcy
  */
 @Stateless
 @Default
-@TraceLog
-public class LevelServiceImpl extends AbstractCrudService<Level> implements LevelServiceLocal {
+@Tracer
+public class LevelApplicationImpl extends
+    AbstractSimpleRepositoryApplication<Level, Long, SimpleFilter> implements LevelApplication {
     /** 製品番号 */
     private static final long serialVersionUID = -3833130543168027472L;
-    /** level repository I/F. */
+    /** 職級リポジトリ */
     @Inject
     private LevelRepository repository;
-    /** コンストラクタ */
-    public LevelServiceImpl() {
-        super();
-    }
-    /**
-     * {@inheritDoc} Get {@link #repository}.
-     */
+    /** {@inheritDoc} */
     @Override
-    protected Repository<Level> getRepository() {
-        return this.repository;
+    protected SimpleRepository<Level, Long, SimpleFilter> getRepository() {
+        return repository;
     }
 }

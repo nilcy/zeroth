@@ -5,12 +5,14 @@
 // ========================================================================
 package zeroth.actor.app.actor;
 import javax.ejb.Local;
-import zeroth.actor.domain.Supplier;
+import zeroth.actor.domain.Customer;
 import zeroth.framework.enterprise.app.SimpleRepositoryApplication;
+import zeroth.framework.standard.shared.SimpleFilter;
 /**
- * Supplier service Local-I/F.
+ * 得意先アプリケーションI/F
  * @author nilcy
  */
 @Local
-public interface SupplierServiceLocal extends SimpleRepositoryApplication<Supplier, Long, Supplier> {
+public interface CustomerApplication extends
+    SimpleRepositoryApplication<Customer, Long, SimpleFilter> {
 }

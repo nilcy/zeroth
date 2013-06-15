@@ -15,7 +15,7 @@ import javax.enterprise.context.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
-import zeroth.actor.app.actor.MemberServiceLocal;
+import zeroth.actor.app.actor.MemberApplication;
 import zeroth.actor.domain.Member;
 import zeroth.actor.domain.MemberFactory;
 import zeroth.framework.screen.iface.jsf.FacesHelper;
@@ -37,7 +37,7 @@ public class VisitorAction implements Serializable {
     private Date loggedInDate;
     /** member service Local-I/F. */
     @EJB
-    private MemberServiceLocal memberService;
+    private MemberApplication memberService;
     /** conversation. */
     @Inject
     private Conversation conversation;

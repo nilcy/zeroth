@@ -7,7 +7,7 @@ package zeroth.actor.screen.iface.jsf.conversation.master;
 import javax.ejb.EJB;
 import javax.enterprise.context.ConversationScoped;
 import javax.inject.Named;
-import zeroth.actor.app.actor.LevelServiceLocal;
+import zeroth.actor.app.actor.LevelApplication;
 import zeroth.actor.domain.Level;
 import zeroth.framework.enterprise.app.SimpleRepositoryApplication;
 import zeroth.framework.screen.iface.jsf.AbstractActionImpl;
@@ -22,7 +22,7 @@ public class LevelAction extends AbstractActionImpl<Level, Long, Level> {
     private static final long serialVersionUID = 944558410807492976L;
     /** level service Local-I/F. */
     @EJB
-    private LevelServiceLocal service;
+    private LevelApplication service;
     /** コンストラクタ */
     public LevelAction() {
         super();

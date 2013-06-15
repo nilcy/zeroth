@@ -7,33 +7,29 @@ package zeroth.actor.app.actor;
 import javax.ejb.Stateless;
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
-import zeroth.actor.app.AbstractCrudService;
-import zeroth.actor.common.TraceLog;
+import zeroth.actor.domain.Partner;
 import zeroth.actor.domain.PartnerRepository;
-import zeroth.actor.domain.Repository;
-import zeroth.actor.entity.actor.Partner;
+import zeroth.framework.enterprise.app.AbstractSimpleRepositoryApplication;
+import zeroth.framework.enterprise.domain.SimpleRepository;
+import zeroth.framework.enterprise.shared.Tracer;
+import zeroth.framework.standard.shared.SimpleFilter;
 /**
- * Partner service implementation.
+ * 外注アプリケーション
  * @author nilcy
  */
 @Stateless
 @Default
-@TraceLog
-public class PartnerServiceImpl extends AbstractCrudService<Partner> implements PartnerServiceLocal {
+@Tracer
+public class PartnerApplicationImpl extends
+    AbstractSimpleRepositoryApplication<Partner, Long, SimpleFilter> implements PartnerApplication {
     /** 製品番号 */
     private static final long serialVersionUID = -3688733534957646527L;
-    /** partner repository I/F. */
+    /** 外注リポジトリ */
     @Inject
     private PartnerRepository repository;
-    /** コンストラクタ */
-    public PartnerServiceImpl() {
-        super();
-    }
-    /**
-     * {@inheritDoc} Get {@link #repository}.
-     */
+    /** {@inheritDoc} */
     @Override
-    protected Repository<Partner> getRepository() {
-        return this.repository;
+    protected SimpleRepository<Partner, Long, SimpleFilter> getRepository() {
+        return repository;
     }
 }

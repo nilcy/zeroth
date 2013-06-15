@@ -4,11 +4,11 @@
 // http://www.gnu.org/licenses/agpl-3.0.txt
 // ========================================================================
 package zeroth.actor.domain;
-import zeroth.framework.enterprise.domain.QueryRepository;
+import zeroth.framework.enterprise.domain.SimpleRepository;
 import zeroth.framework.standard.shared.SimpleFilter;
 /**
  * 社員リポジトリI/F
  * @author nilcy
  */
-public interface MemberRepository extends QueryRepository<Member, Long, SimpleFilter> {
+public interface MemberRepository extends SimpleRepository<Member, Long, SimpleFilter> {
 }

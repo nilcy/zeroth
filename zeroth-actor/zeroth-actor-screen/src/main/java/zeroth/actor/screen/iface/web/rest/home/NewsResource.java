@@ -17,7 +17,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import zeroth.actor.app.misc.NewsServiceLocal;
+import zeroth.actor.app.misc.NewsApplication;
 import zeroth.actor.domain.misc.News;
 import zeroth.actor.screen.iface.web.rest.ResourceException;
 import zeroth.actor.screen.iface.web.rest.ResourceFault;
@@ -31,7 +31,7 @@ import zeroth.framework.enterprise.domain.ConstraintsException;
 public class NewsResource {
     /** news service Local-I/F. */
     @EJB
-    private NewsServiceLocal newsService;
+    private NewsApplication newsService;
     /** logger. */
     @Inject
     private Logger log;

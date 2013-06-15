@@ -8,7 +8,7 @@ import javax.ejb.EJB;
 import javax.enterprise.context.ConversationScoped;
 import javax.inject.Named;
 import org.apache.commons.lang3.StringUtils;
-import zeroth.actor.app.actor.CustomerServiceLocal;
+import zeroth.actor.app.actor.CustomerApplication;
 import zeroth.actor.domain.Customer;
 import zeroth.actor.domain.CustomerFactory;
 import zeroth.framework.enterprise.app.SimpleRepositoryApplication;
@@ -24,7 +24,7 @@ public class CustomerAction extends AbstractActionImpl<Customer, Long, Customer>
     private static final long serialVersionUID = 873776474936603723L;
     /** customer service Local-I/F. */
     @EJB
-    private CustomerServiceLocal service;
+    private CustomerApplication service;
     /** コンストラクタ */
     public CustomerAction() {
         super();

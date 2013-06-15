@@ -8,7 +8,7 @@ import javax.ejb.EJB;
 import javax.enterprise.context.ConversationScoped;
 import javax.inject.Named;
 import org.apache.commons.lang3.StringUtils;
-import zeroth.actor.app.actor.PartnerServiceLocal;
+import zeroth.actor.app.actor.PartnerApplication;
 import zeroth.actor.domain.Partner;
 import zeroth.actor.domain.PartnerFactory;
 import zeroth.framework.enterprise.app.SimpleRepositoryApplication;
@@ -24,7 +24,7 @@ public class PartnerAction extends AbstractActionImpl<Partner, Long, Partner> {
     private static final long serialVersionUID = -1406530105042380063L;
     /** partner service Local-I/F. */
     @EJB
-    private PartnerServiceLocal service;
+    private PartnerApplication service;
     /** コンストラクタ */
     public PartnerAction() {
         super();

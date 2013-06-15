@@ -8,7 +8,7 @@ import javax.ejb.EJB;
 import javax.enterprise.context.ConversationScoped;
 import javax.inject.Named;
 import org.apache.commons.lang3.StringUtils;
-import zeroth.actor.app.actor.SupplierServiceLocal;
+import zeroth.actor.app.actor.SupplierApplication;
 import zeroth.actor.domain.Supplier;
 import zeroth.actor.domain.SupplierFactory;
 import zeroth.framework.enterprise.app.SimpleRepositoryApplication;
@@ -24,7 +24,7 @@ public class SupplierAction extends AbstractActionImpl<Supplier, Long, Supplier>
     private static final long serialVersionUID = 873776474936603723L;
     /** supplier service Local-I/F. */
     @EJB
-    private SupplierServiceLocal service;
+    private SupplierApplication service;
     /** コンストラクタ */
     public SupplierAction() {
         super();

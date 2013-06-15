@@ -7,34 +7,30 @@ package zeroth.actor.app.misc;
 import javax.ejb.Stateless;
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
-import zeroth.actor.app.AbstractCrudService;
-import zeroth.actor.common.TraceLog;
-import zeroth.actor.domain.Repository;
+import zeroth.actor.domain.misc.IndustryClass;
 import zeroth.actor.domain.misc.IndustryClassRepository;
-import zeroth.actor.entity.misc.IndustryClass;
+import zeroth.framework.enterprise.app.AbstractSimpleRepositoryApplication;
+import zeroth.framework.enterprise.domain.SimpleRepository;
+import zeroth.framework.enterprise.shared.Tracer;
+import zeroth.framework.standard.shared.SimpleFilter;
 /**
- * Industry classification service implementation.
+ * 業種アプリケーション
  * @author nilcy
  */
 @Stateless
 @Default
-@TraceLog
-public class IndustryClassServiceImpl extends AbstractCrudService<IndustryClass> implements
-    IndustryClassServiceLocal {
+@Tracer
+public class IndustryClassApplicationImpl extends
+    AbstractSimpleRepositoryApplication<IndustryClass, Long, SimpleFilter> implements
+    IndustryClassApplication {
     /** 製品番号 */
     private static final long serialVersionUID = 2537651945740718957L;
-    /** organization repository I/F. */
+    /** 業種リポジトリ */
     @Inject
     private IndustryClassRepository repository;
-    /** コンストラクタ */
-    public IndustryClassServiceImpl() {
-        super();
-    }
-    /**
-     * {@inheritDoc} Get {@link #repository}.
-     */
+    /** {@inheritDoc} */
     @Override
-    protected Repository<IndustryClass> getRepository() {
-        return this.repository;
+    protected SimpleRepository<IndustryClass, Long, SimpleFilter> getRepository() {
+        return repository;
     }
 }

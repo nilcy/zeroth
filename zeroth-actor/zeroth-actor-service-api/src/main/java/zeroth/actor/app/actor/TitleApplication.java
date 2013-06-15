@@ -4,20 +4,14 @@
 // http://www.gnu.org/licenses/agpl-3.0.txt
 // ========================================================================
 package zeroth.actor.app.actor;
-import java.util.Collection;
 import javax.ejb.Local;
-import zeroth.actor.domain.Organ;
+import zeroth.actor.domain.Title;
 import zeroth.framework.enterprise.app.SimpleRepositoryApplication;
+import zeroth.framework.standard.shared.SimpleFilter;
 /**
- * Organization service Local-I/F.
+ * 職名アプリケーションI/F
  * @author nilcy
  */
 @Local
-public interface OrganServiceLocal extends SimpleRepositoryApplication<Organ, Long, Organ> {
-    /**
-     * Suggest parents.
-     * @param aTarget target
-     * @return parents
-     */
-    Collection<Organ> suggestParents(final Organ aTarget);
+public interface TitleApplication extends SimpleRepositoryApplication<Title, Long, SimpleFilter> {
 }

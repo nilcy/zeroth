@@ -14,11 +14,11 @@ import javax.faces.model.SelectItem;
 import javax.inject.Named;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
-import zeroth.actor.app.actor.LevelServiceLocal;
-import zeroth.actor.app.actor.OrganServiceLocal;
-import zeroth.actor.app.actor.TitleServiceLocal;
-import zeroth.actor.app.misc.IndustryClassServiceLocal;
-import zeroth.actor.app.misc.ListedSectionServiceLocal;
+import zeroth.actor.app.actor.LevelApplication;
+import zeroth.actor.app.actor.OrganApplication;
+import zeroth.actor.app.actor.TitleApplication;
+import zeroth.actor.app.misc.IndustryClassApplication;
+import zeroth.actor.app.misc.ListedSectionApplication;
 import zeroth.actor.domain.Gender;
 import zeroth.actor.domain.Level;
 import zeroth.actor.domain.LevelFactory;
@@ -45,19 +45,19 @@ public class GlobalAction implements Serializable {
     private static final long serialVersionUID = 7243039551620767571L;
     /** industry classification service Local-I/F. */
     @EJB
-    private IndustryClassServiceLocal industryClassService;
+    private IndustryClassApplication industryClassService;
     /** listed section service Local-I/F. */
     @EJB
-    private ListedSectionServiceLocal listedSectionService;
+    private ListedSectionApplication listedSectionService;
     /** organization service Local-I/F. */
     @EJB
-    private OrganServiceLocal organService;
+    private OrganApplication organService;
     /** title Local-I/F. */
     @EJB
-    private TitleServiceLocal titleService;
+    private TitleApplication titleService;
     /** level Local-I/F. */
     @EJB
-    private LevelServiceLocal levelService;
+    private LevelApplication levelService;
     /** industry classification items. */
     private List<SelectItem> industryClassItems;
     /** listed section items. */

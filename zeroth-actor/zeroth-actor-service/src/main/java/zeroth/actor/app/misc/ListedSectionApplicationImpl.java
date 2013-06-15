@@ -7,34 +7,30 @@ package zeroth.actor.app.misc;
 import javax.ejb.Stateless;
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
-import zeroth.actor.app.AbstractCrudService;
-import zeroth.actor.common.TraceLog;
-import zeroth.actor.domain.Repository;
+import zeroth.actor.domain.misc.ListedSection;
 import zeroth.actor.domain.misc.ListedSectionRepository;
-import zeroth.actor.entity.misc.ListedSection;
+import zeroth.framework.enterprise.app.AbstractSimpleRepositoryApplication;
+import zeroth.framework.enterprise.domain.SimpleRepository;
+import zeroth.framework.enterprise.shared.Tracer;
+import zeroth.framework.standard.shared.SimpleFilter;
 /**
- * Listed section service implementation.
+ * 上場先アプリケーション
  * @author nilcy
  */
 @Stateless
 @Default
-@TraceLog
-public class ListedSectionServiceImpl extends AbstractCrudService<ListedSection> implements
-    ListedSectionServiceLocal {
+@Tracer
+public class ListedSectionApplicationImpl extends
+    AbstractSimpleRepositoryApplication<ListedSection, Long, SimpleFilter> implements
+    ListedSectionApplication {
     /** 製品番号 */
     private static final long serialVersionUID = 2537651945740718957L;
-    /** organization repository I/F. */
+    /** 上場先リポジトリ */
     @Inject
     private ListedSectionRepository repository;
-    /** コンストラクタ */
-    public ListedSectionServiceImpl() {
-        super();
-    }
-    /**
-     * {@inheritDoc} Get {@link #repository}.
-     */
+    /** {@inheritDoc} */
     @Override
-    protected Repository<ListedSection> getRepository() {
-        return this.repository;
+    protected SimpleRepository<ListedSection, Long, SimpleFilter> getRepository() {
+        return repository;
     }
 }

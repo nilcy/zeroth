@@ -8,7 +8,7 @@ import java.io.Serializable;
 import zeroth.framework.enterprise.domain.SimpleRepository;
 import zeroth.framework.enterprise.shared.Persistable;
 /**
- * 基本リポジトリサービスI/F
+ * 基本リポジトリアプリケーションI/F
  * @param <E> エンティティ型
  * @param <ID> 識別子オブジェクト型
  * @param <F> 検索条件オブジェクト型 TODO extends ValueObject<?>

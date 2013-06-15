@@ -19,8 +19,7 @@ import zeroth.framework.standard.shared.WithPageRequest;
  * @author nilcy
  */
 public abstract class AbstractQueryRepositoryImpl<E extends Persistable<ID>, ID extends Serializable, F extends Serializable>
-    extends AbstractSimpleRepositoryImpl<E, ID, F, QueryPersistenceService<E, ID>> implements
-    QueryRepository<E, ID, F> {
+    extends AbstractSimpleRepositoryImpl<E, ID, F, QueryPersistenceService<E, ID>> {
     /** 識別番号 */
     private static final long serialVersionUID = -5208804239051677983L;
     /** あいまい検索ワイルドカード(0文字以上の文字列) */

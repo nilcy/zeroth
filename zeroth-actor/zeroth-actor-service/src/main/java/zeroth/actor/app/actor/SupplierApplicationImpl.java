@@ -7,34 +7,30 @@ package zeroth.actor.app.actor;
 import javax.ejb.Stateless;
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
-import zeroth.actor.app.AbstractCrudService;
-import zeroth.actor.common.TraceLog;
-import zeroth.actor.domain.Repository;
+import zeroth.actor.domain.Supplier;
 import zeroth.actor.domain.SupplierRepository;
-import zeroth.actor.entity.actor.Supplier;
+import zeroth.framework.enterprise.app.AbstractSimpleRepositoryApplication;
+import zeroth.framework.enterprise.domain.SimpleRepository;
+import zeroth.framework.enterprise.shared.Tracer;
+import zeroth.framework.standard.shared.SimpleFilter;
 /**
- * Supplier service implementation.
+ * 調達先アプリケーション
  * @author nilcy
  */
 @Stateless
 @Default
-@TraceLog
-public class SupplierServiceImpl extends AbstractCrudService<Supplier> implements
-    SupplierServiceLocal {
+@Tracer
+public class SupplierApplicationImpl extends
+    AbstractSimpleRepositoryApplication<Supplier, Long, SimpleFilter> implements
+    SupplierApplication {
     /** 製品番号 */
     private static final long serialVersionUID = 2537651945740718957L;
-    /** supplier repository I/F. */
+    /** 調達先リポジトリ */
     @Inject
     private SupplierRepository repository;
-    /** コンストラクタ */
-    public SupplierServiceImpl() {
-        super();
-    }
-    /**
-     * {@inheritDoc} Get {@link #repository}.
-     */
+    /** {@inheritDoc} */
     @Override
-    protected Repository<Supplier> getRepository() {
-        return this.repository;
+    protected SimpleRepository<Supplier, Long, SimpleFilter> getRepository() {
+        return repository;
     }
 }
