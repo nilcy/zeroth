@@ -6,8 +6,8 @@
 package zeroth.actor.domain.misc;
 import zeroth.framework.enterprise.domain.QueryRepository;
 /**
- * News repository I/F.
+ * お知らせリポジトリI/F
  * @author nilcy
  */
-public interface NewsRepository extends QueryRepository<News, Long, News> {
+public interface NewsRepository extends QueryRepository<News, Long, NoticeFilter> {
 }
