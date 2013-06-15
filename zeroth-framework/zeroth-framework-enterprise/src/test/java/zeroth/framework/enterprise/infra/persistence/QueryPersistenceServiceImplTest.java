@@ -10,7 +10,6 @@ import static zeroth.framework.enterprise.domain.TestExample_.*;
 import java.util.Collection;
 import java.util.logging.Logger;
 import javax.inject.Inject;
-import javax.inject.Named;
 import javax.persistence.LockModeType;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.Root;
@@ -19,6 +18,7 @@ import org.junit.runner.RunWith;
 import com.googlecode.jeeunit.JeeunitRunner;
 import com.googlecode.jeeunit.Transactional;
 import zeroth.framework.enterprise.domain.TestExample;
+import zeroth.framework.enterprise.domain.persistence.TestExamplePersistenceService;
 /**
  * {@link QueryPersistenceServiceImpl} のユニットテスト
  * @author nilcy
@@ -28,7 +28,7 @@ import zeroth.framework.enterprise.domain.TestExample;
 @SuppressWarnings("all")
 public class QueryPersistenceServiceImplTest {
     @Inject
-    @Named("TestExamplePersistenceService")
+    @TestExamplePersistenceService
     private QueryPersistenceService<TestExample, Long> testee;
     @Inject
     private Logger log;

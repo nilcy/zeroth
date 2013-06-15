@@ -3,17 +3,19 @@
 // GNU AFFERO GENERAL PUBLIC LICENSE Version 3, 19 November 2007
 // http://www.gnu.org/licenses/agpl-3.0.txt
 // ========================================================================
-package zeroth.framework.enterprise.infra.persistence;
+package zeroth.framework.enterprise.domain.persistence;
 import javax.enterprise.inject.Produces;
 import javax.inject.Inject;
-import javax.inject.Named;
 import javax.persistence.EntityManager;
 import zeroth.framework.enterprise.domain.TestExample;
+import zeroth.framework.enterprise.infra.persistence.PersistenceServiceFactory;
+import zeroth.framework.enterprise.infra.persistence.PrimaryEntityManager;
+import zeroth.framework.enterprise.infra.persistence.QueryPersistenceService;
 /**
  * 拡張データ永続化サービスのファクトリ
  * @author nilcy
  */
-public class QueryPersistenceServiceFactory {
+public class PersistenceServiceProducer {
     /** 基礎エンティティマネージャ */
     @Inject
     @PrimaryEntityManager
@@ -22,14 +24,14 @@ public class QueryPersistenceServiceFactory {
     @Inject
     private PersistenceServiceFactory factory;
     /** コンストラクタ */
-    public QueryPersistenceServiceFactory() {
+    public PersistenceServiceProducer() {
     }
     /**
      * テスト参照オブジェクトの拡張データ永続化サービスを作成
      * @return テスト参照オブジェクトの拡張データ永続化サービス
      */
     @Produces
-    @Named("TestExamplePersistenceService")
+    @TestExamplePersistenceService
     public QueryPersistenceService<TestExample, Long> createTestExamplePersistenceService() {
         return factory.createQueryPersistenceService(manager, TestExample.class);
     }

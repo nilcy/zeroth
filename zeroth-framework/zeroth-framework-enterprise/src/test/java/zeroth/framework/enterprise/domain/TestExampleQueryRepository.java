@@ -7,8 +7,8 @@ package zeroth.framework.enterprise.domain;
 import static zeroth.framework.enterprise.domain.TestExample_.*;
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
-import javax.inject.Named;
 import javax.persistence.criteria.Predicate;
+import zeroth.framework.enterprise.domain.persistence.TestExamplePersistenceService;
 import zeroth.framework.enterprise.infra.persistence.QueryPersistenceService;
 /**
  * テストオブジェクト基本リポジトリ
@@ -21,7 +21,7 @@ public class TestExampleQueryRepository extends
     private static final long serialVersionUID = 5224122483123731291L;
     /** 拡張データ永続化サービス */
     @Inject
-    @Named("TestExamplePersistenceService")
+    @TestExamplePersistenceService
     private QueryPersistenceService<TestExample, Long> service;
     /** {@inheritDoc} */
     @Override
