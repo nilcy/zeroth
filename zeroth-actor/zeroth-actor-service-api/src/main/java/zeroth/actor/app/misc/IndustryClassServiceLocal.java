@@ -6,12 +6,12 @@
 package zeroth.actor.app.misc;
 import javax.ejb.Local;
 import zeroth.actor.domain.misc.IndustryClass;
-import zeroth.framework.enterprise.app.SimpleRepositoryService;
+import zeroth.framework.enterprise.app.SimpleRepositoryApplication;
 /**
  * Industry classification service Local-I/F.
  * @author nilcy
  */
 @Local
 public interface IndustryClassServiceLocal extends
-    SimpleRepositoryService<IndustryClass, Long, IndustryClass> {
+    SimpleRepositoryApplication<IndustryClass, Long, IndustryClass> {
 }

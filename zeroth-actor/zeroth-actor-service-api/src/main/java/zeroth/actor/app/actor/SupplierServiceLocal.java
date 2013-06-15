@@ -6,11 +6,11 @@
 package zeroth.actor.app.actor;
 import javax.ejb.Local;
 import zeroth.actor.domain.Supplier;
-import zeroth.framework.enterprise.app.SimpleRepositoryService;
+import zeroth.framework.enterprise.app.SimpleRepositoryApplication;
 /**
  * Supplier service Local-I/F.
  * @author nilcy
  */
 @Local
-public interface SupplierServiceLocal extends SimpleRepositoryService<Supplier, Long, Supplier> {
+public interface SupplierServiceLocal extends SimpleRepositoryApplication<Supplier, Long, Supplier> {
 }

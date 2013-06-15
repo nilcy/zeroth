@@ -7,8 +7,6 @@ package zeroth.actor.domain.misc;
 import javax.enterprise.inject.Produces;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
-import zeroth.actor.domain.misc.News;
-import zeroth.actor.domain.misc.Notice;
 import zeroth.actor.domain.misc.PersistenceServiceAnnotation.NewsPersistenceService;
 import zeroth.actor.domain.misc.PersistenceServiceAnnotation.NoticePersistenceService;
 import zeroth.framework.enterprise.infra.persistence.PersistenceServiceFactory;
@@ -36,7 +34,7 @@ public class PersistenceServiceProducer {
     @SuppressWarnings("unchecked")
     @Produces
     @NoticePersistenceService
-    public QueryPersistenceService<Notice<?>, Long> createNoticePersistenceService() {
+    public QueryPersistenceService<? extends Notice<?>, Long> createNoticePersistenceService() {
         return factory.createQueryPersistenceService(manager, Notice.class);
     }
     /**

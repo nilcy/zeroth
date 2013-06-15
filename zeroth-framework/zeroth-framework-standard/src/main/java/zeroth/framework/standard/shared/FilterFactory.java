@@ -3,9 +3,7 @@
 // GNU AFFERO GENERAL PUBLIC LICENSE Version 3, 19 November 2007
 // http://www.gnu.org/licenses/agpl-3.0.txt
 // ========================================================================
-package zeroth.actor.domain.misc;
-import java.util.Date;
-import zeroth.framework.standard.shared.PageRequest;
+package zeroth.framework.standard.shared;
 /**
  * フィルタのファクトリ
  * @author nilcy
@@ -13,23 +11,19 @@ import zeroth.framework.standard.shared.PageRequest;
 @SuppressWarnings("static-method")
 public class FilterFactory {
     /**
-     * 告知フィルタの生成
+     * 基本フィルタの生成
      * <dl>
      * <dt>事前条件</dt>
      * <dd>ページ条件は非NULLであること。</dd>
      * <dt>事後条件</dt>
-     * <dd>告知フィルタは不変オブジェクトである。</dd>
+     * <dd>基本フィルタは不変オブジェクトである。</dd>
      * </dl>
-     * @param title 表題
-     * @param description 説明
-     * @param published 発行日
-     * @param category カテゴリ
+     * @param keyword キーワード
      * @param pageRequest ページ条件
-     * @return 告知フィルタ
+     * @return 基本フィルタ
      */
-    public NoticeFilter createNoticeFilter(final String title, final String description,
-        final Date published, final String category, final PageRequest pageRequest) {
+    public SimpleFilter createNoticeFilter(final String keyword, final PageRequest pageRequest) {
         assert pageRequest != null;
-        return new NoticeFilter(title, description, published, category, pageRequest);
+        return new SimpleFilter(keyword, pageRequest);
     }
 }

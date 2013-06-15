@@ -11,7 +11,7 @@ import org.apache.commons.lang3.StringUtils;
 import zeroth.actor.app.actor.SupplierServiceLocal;
 import zeroth.actor.domain.Supplier;
 import zeroth.actor.domain.SupplierFactory;
-import zeroth.framework.enterprise.app.SimpleRepositoryService;
+import zeroth.framework.enterprise.app.SimpleRepositoryApplication;
 import zeroth.framework.screen.iface.jsf.AbstractActionImpl;
 /**
  * Supplier action.
@@ -30,7 +30,7 @@ public class SupplierAction extends AbstractActionImpl<Supplier, Long, Supplier>
         super();
     }
     @Override
-    public SimpleRepositoryService<Supplier, Long, Supplier> getService() {
+    public SimpleRepositoryApplication<Supplier, Long, Supplier> getService() {
         return service;
     }
     /** {@inheritDoc} */

@@ -4,11 +4,11 @@
 // http://www.gnu.org/licenses/agpl-3.0.txt
 // ========================================================================
 package zeroth.actor.domain.misc;
-import zeroth.actor.domain.CrudRepository;
-import zeroth.actor.entity.misc.ListedSection;
+import zeroth.framework.enterprise.domain.QueryRepository;
+import zeroth.framework.standard.shared.SimpleFilter;
 /**
- * Listed section repository I/F.
+ * 上場先リポジトリI/F
  * @author nilcy
  */
-public interface ListedSectionRepository extends CrudRepository<ListedSection> {
+public interface ListedSectionRepository extends QueryRepository<ListedSection, Long, SimpleFilter> {
 }

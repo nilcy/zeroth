@@ -11,7 +11,7 @@ import javax.faces.application.FacesMessage;
 import javax.inject.Named;
 import zeroth.actor.app.actor.OrganServiceLocal;
 import zeroth.actor.domain.Organ;
-import zeroth.framework.enterprise.app.SimpleRepositoryService;
+import zeroth.framework.enterprise.app.SimpleRepositoryApplication;
 import zeroth.framework.screen.iface.jsf.AbstractActionImpl;
 import zeroth.framework.screen.iface.jsf.FacesHelper;
 /**
@@ -31,7 +31,7 @@ public class OrganAction extends AbstractActionImpl<Organ, Long, Organ> {
         super();
     }
     @Override
-    public SimpleRepositoryService<Organ, Long, Organ> getService() {
+    public SimpleRepositoryApplication<Organ, Long, Organ> getService() {
         return service;
     }
     /** {@inheritDoc} false if parent >= target. */

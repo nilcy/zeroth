@@ -6,11 +6,11 @@
 package zeroth.actor.app.misc;
 import javax.ejb.Local;
 import zeroth.actor.domain.misc.News;
-import zeroth.framework.enterprise.app.SimpleRepositoryService;
+import zeroth.framework.enterprise.app.SimpleRepositoryApplication;
 /**
  * News service Local-I/F.
  * @author nilcy
  */
 @Local
-public interface NewsServiceLocal extends SimpleRepositoryService<News, Long, News> {
+public interface NewsServiceLocal extends SimpleRepositoryApplication<News, Long, News> {
 }

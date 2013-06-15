@@ -3,13 +3,12 @@
 // GNU AFFERO GENERAL PUBLIC LICENSE Version 3, 19 November 2007
 // http://www.gnu.org/licenses/agpl-3.0.txt
 // ========================================================================
-package zeroth.actor.infra.persistence.misc;
-import zeroth.actor.entity.misc.Notice;
-import zeroth.actor.infra.persistence.PersistenceSupport;
+package zeroth.actor.domain;
+import zeroth.framework.enterprise.domain.QueryRepository;
+import zeroth.framework.standard.shared.SimpleFilter;
 /**
- * Notice persistence I/F.
- * @param <T> entity type
+ * 社員リポジトリI/F
  * @author nilcy
  */
-public interface NoticePersistence<T extends Notice<T>> extends PersistenceSupport<T> {
+public interface MemberRepository extends QueryRepository<Member, Long, SimpleFilter> {
 }

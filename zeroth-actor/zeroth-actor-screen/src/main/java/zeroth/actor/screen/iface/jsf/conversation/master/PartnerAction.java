@@ -11,7 +11,7 @@ import org.apache.commons.lang3.StringUtils;
 import zeroth.actor.app.actor.PartnerServiceLocal;
 import zeroth.actor.domain.Partner;
 import zeroth.actor.domain.PartnerFactory;
-import zeroth.framework.enterprise.app.SimpleRepositoryService;
+import zeroth.framework.enterprise.app.SimpleRepositoryApplication;
 import zeroth.framework.screen.iface.jsf.AbstractActionImpl;
 /**
  * Partner action.
@@ -30,7 +30,7 @@ public class PartnerAction extends AbstractActionImpl<Partner, Long, Partner> {
         super();
     }
     @Override
-    public SimpleRepositoryService<Partner, Long, Partner> getService() {
+    public SimpleRepositoryApplication<Partner, Long, Partner> getService() {
         return service;
     }
     /** {@inheritDoc} */

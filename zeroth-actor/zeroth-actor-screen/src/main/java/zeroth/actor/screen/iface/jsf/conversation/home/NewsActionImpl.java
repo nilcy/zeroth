@@ -12,7 +12,7 @@ import javax.inject.Named;
 import zeroth.actor.app.misc.NewsServiceLocal;
 import zeroth.actor.domain.misc.News;
 import zeroth.actor.domain.misc.NewsFactory;
-import zeroth.framework.enterprise.app.SimpleRepositoryService;
+import zeroth.framework.enterprise.app.SimpleRepositoryApplication;
 import zeroth.framework.screen.iface.jsf.AbstractActionImpl;
 /**
  * News action.
@@ -32,7 +32,7 @@ public class NewsActionImpl extends AbstractActionImpl<News, Long, News> impleme
         super();
     }
     @Override
-    public SimpleRepositoryService<News, Long, News> getService() {
+    public SimpleRepositoryApplication<News, Long, News> getService() {
         return newsService;
     }
     /**

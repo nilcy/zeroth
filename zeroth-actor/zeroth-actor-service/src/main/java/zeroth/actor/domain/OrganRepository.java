@@ -4,18 +4,11 @@
 // http://www.gnu.org/licenses/agpl-3.0.txt
 // ========================================================================
 package zeroth.actor.domain;
-import java.util.Collection;
-import zeroth.actor.domain.CrudRepository;
-import zeroth.actor.entity.actor.Organ;
+import zeroth.framework.enterprise.domain.QueryRepository;
+import zeroth.framework.standard.shared.SimpleFilter;
 /**
- * Organization repository I/F.
+ * 組織リポジトリI/F
  * @author nilcy
  */
-public interface OrganRepository extends CrudRepository<Organ> {
-    /**
-     * Suggest parents.
-     * @param aTarget target
-     * @return parents
-     */
-    Collection<Organ> suggestParents(final Organ aTarget);
+public interface OrganRepository extends QueryRepository<Organ, Long, SimpleFilter> {
 }

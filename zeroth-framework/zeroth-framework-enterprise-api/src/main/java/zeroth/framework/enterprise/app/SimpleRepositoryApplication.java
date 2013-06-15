@@ -14,6 +14,6 @@ import zeroth.framework.enterprise.shared.Persistable;
  * @param <F> 検索条件オブジェクト型 TODO extends ValueObject<?>
  * @author nilcy
  */
-public interface SimpleRepositoryService<E extends Persistable<ID>, ID extends Serializable, F extends Serializable>
+public interface SimpleRepositoryApplication<E extends Persistable<ID>, ID extends Serializable, F extends Serializable>
     extends SimpleRepository<E, ID, F> {
 }

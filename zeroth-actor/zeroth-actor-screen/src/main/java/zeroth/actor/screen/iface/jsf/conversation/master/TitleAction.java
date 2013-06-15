@@ -9,7 +9,7 @@ import javax.enterprise.context.ConversationScoped;
 import javax.inject.Named;
 import zeroth.actor.app.actor.TitleServiceLocal;
 import zeroth.actor.domain.Title;
-import zeroth.framework.enterprise.app.SimpleRepositoryService;
+import zeroth.framework.enterprise.app.SimpleRepositoryApplication;
 import zeroth.framework.screen.iface.jsf.AbstractActionImpl;
 /**
  * Title action.
@@ -28,7 +28,7 @@ public class TitleAction extends AbstractActionImpl<Title, Long, Title> {
         super();
     }
     @Override
-    public SimpleRepositoryService<Title, Long, Title> getService() {
+    public SimpleRepositoryApplication<Title, Long, Title> getService() {
         return service;
     }
 }

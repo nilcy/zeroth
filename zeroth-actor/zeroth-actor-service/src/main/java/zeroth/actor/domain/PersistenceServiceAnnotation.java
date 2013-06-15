@@ -3,7 +3,7 @@
 // GNU AFFERO GENERAL PUBLIC LICENSE Version 3, 19 November 2007
 // http://www.gnu.org/licenses/agpl-3.0.txt
 // ========================================================================
-package zeroth.actor.domain.misc;
+package zeroth.actor.domain;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -14,28 +14,46 @@ import javax.inject.Qualifier;
  * @author nilcy
  */
 public @interface PersistenceServiceAnnotation {
-    /** 業種のデータ永続化サービス */
+    /** 得意先データ永続化サービス */
     @Qualifier
     @Target({ ElementType.TYPE, ElementType.METHOD, ElementType.PARAMETER, ElementType.FIELD })
     @Retention(RetentionPolicy.RUNTIME)
-    public @interface IndustryClassPersistenceService {
+    public @interface CustomerPersistenceService {
     }
-    /** 上場先のデータ永続化サービス */
+    /** 職級データ永続化サービス */
     @Qualifier
     @Target({ ElementType.TYPE, ElementType.METHOD, ElementType.PARAMETER, ElementType.FIELD })
     @Retention(RetentionPolicy.RUNTIME)
-    public @interface ListedSectionPersistenceService {
+    public @interface LevelPersistenceService {
     }
-    /** 告知のデータ永続化サービス */
+    /** 社員データ永続化サービス */
     @Qualifier
     @Target({ ElementType.TYPE, ElementType.METHOD, ElementType.PARAMETER, ElementType.FIELD })
     @Retention(RetentionPolicy.RUNTIME)
-    public @interface NoticePersistenceService {
+    public @interface MemberPersistenceService {
     }
-    /** お知らせのデータ永続化サービス */
+    /** 組織データ永続化サービス */
     @Qualifier
     @Target({ ElementType.TYPE, ElementType.METHOD, ElementType.PARAMETER, ElementType.FIELD })
     @Retention(RetentionPolicy.RUNTIME)
-    public @interface NewsPersistenceService {
+    public @interface OrganPersistenceService {
+    }
+    /** 外注データ永続化サービス */
+    @Qualifier
+    @Target({ ElementType.TYPE, ElementType.METHOD, ElementType.PARAMETER, ElementType.FIELD })
+    @Retention(RetentionPolicy.RUNTIME)
+    public @interface PartnerPersistenceService {
+    }
+    /** 調達先データ永続化サービス */
+    @Qualifier
+    @Target({ ElementType.TYPE, ElementType.METHOD, ElementType.PARAMETER, ElementType.FIELD })
+    @Retention(RetentionPolicy.RUNTIME)
+    public @interface SupplierPersistenceService {
+    }
+    /** 職名データ永続化サービス */
+    @Qualifier
+    @Target({ ElementType.TYPE, ElementType.METHOD, ElementType.PARAMETER, ElementType.FIELD })
+    @Retention(RetentionPolicy.RUNTIME)
+    public @interface TitlePersistenceService {
     }
 }

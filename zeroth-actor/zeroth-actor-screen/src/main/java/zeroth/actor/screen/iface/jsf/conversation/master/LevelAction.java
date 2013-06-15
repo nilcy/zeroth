@@ -9,7 +9,7 @@ import javax.enterprise.context.ConversationScoped;
 import javax.inject.Named;
 import zeroth.actor.app.actor.LevelServiceLocal;
 import zeroth.actor.domain.Level;
-import zeroth.framework.enterprise.app.SimpleRepositoryService;
+import zeroth.framework.enterprise.app.SimpleRepositoryApplication;
 import zeroth.framework.screen.iface.jsf.AbstractActionImpl;
 /**
  * Level action.
@@ -28,7 +28,7 @@ public class LevelAction extends AbstractActionImpl<Level, Long, Level> {
         super();
     }
     @Override
-    public SimpleRepositoryService<Level, Long, Level> getService() {
+    public SimpleRepositoryApplication<Level, Long, Level> getService() {
         return service;
     }
 }

@@ -11,7 +11,7 @@ import org.apache.commons.lang3.StringUtils;
 import zeroth.actor.app.actor.MemberServiceLocal;
 import zeroth.actor.domain.Member;
 import zeroth.actor.domain.MemberFactory;
-import zeroth.framework.enterprise.app.SimpleRepositoryService;
+import zeroth.framework.enterprise.app.SimpleRepositoryApplication;
 import zeroth.framework.screen.iface.jsf.AbstractActionImpl;
 import zeroth.framework.standard.shared.CodecUtils;
 /**
@@ -33,7 +33,7 @@ public class MemberAction extends AbstractActionImpl<Member, Long, Member> {
         super();
     }
     @Override
-    public SimpleRepositoryService<Member, Long, Member> getService() {
+    public SimpleRepositoryApplication<Member, Long, Member> getService() {
         return service;
     }
     /**

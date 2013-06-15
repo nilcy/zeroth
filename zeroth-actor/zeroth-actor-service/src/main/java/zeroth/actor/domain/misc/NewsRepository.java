@@ -4,10 +4,9 @@
 // http://www.gnu.org/licenses/agpl-3.0.txt
 // ========================================================================
 package zeroth.actor.domain.misc;
-import zeroth.framework.enterprise.domain.QueryRepository;
 /**
  * お知らせリポジトリI/F
  * @author nilcy
  */
-public interface NewsRepository extends QueryRepository<News, Long, NoticeFilter> {
+public interface NewsRepository extends NoticeRepository<News> {
 }

@@ -9,7 +9,7 @@ import javax.enterprise.context.ConversationScoped;
 import javax.inject.Named;
 import zeroth.actor.app.misc.IndustryClassServiceLocal;
 import zeroth.actor.domain.misc.IndustryClass;
-import zeroth.framework.enterprise.app.SimpleRepositoryService;
+import zeroth.framework.enterprise.app.SimpleRepositoryApplication;
 import zeroth.framework.screen.iface.jsf.AbstractActionImpl;
 /**
  * Industry classification action.
@@ -28,7 +28,7 @@ public class IndustryClassAction extends AbstractActionImpl<IndustryClass, Long,
         super();
     }
     @Override
-    public SimpleRepositoryService<IndustryClass, Long, IndustryClass> getService() {
+    public SimpleRepositoryApplication<IndustryClass, Long, IndustryClass> getService() {
         return service;
     }
 }

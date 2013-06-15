@@ -7,13 +7,13 @@ package zeroth.actor.app.actor;
 import java.util.Collection;
 import javax.ejb.Local;
 import zeroth.actor.domain.Organ;
-import zeroth.framework.enterprise.app.SimpleRepositoryService;
+import zeroth.framework.enterprise.app.SimpleRepositoryApplication;
 /**
  * Organization service Local-I/F.
  * @author nilcy
  */
 @Local
-public interface OrganServiceLocal extends SimpleRepositoryService<Organ, Long, Organ> {
+public interface OrganServiceLocal extends SimpleRepositoryApplication<Organ, Long, Organ> {
     /**
      * Suggest parents.
      * @param aTarget target

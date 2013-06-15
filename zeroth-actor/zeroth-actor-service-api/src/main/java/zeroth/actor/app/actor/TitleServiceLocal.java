@@ -6,11 +6,11 @@
 package zeroth.actor.app.actor;
 import javax.ejb.Local;
 import zeroth.actor.domain.Title;
-import zeroth.framework.enterprise.app.SimpleRepositoryService;
+import zeroth.framework.enterprise.app.SimpleRepositoryApplication;
 /**
  * Title service Local-I/F.
  * @author nilcy
  */
 @Local
-public interface TitleServiceLocal extends SimpleRepositoryService<Title, Long, Title> {
+public interface TitleServiceLocal extends SimpleRepositoryApplication<Title, Long, Title> {
 }

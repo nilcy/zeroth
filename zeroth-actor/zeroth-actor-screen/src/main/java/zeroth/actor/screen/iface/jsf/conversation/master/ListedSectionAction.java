@@ -9,7 +9,7 @@ import javax.enterprise.context.ConversationScoped;
 import javax.inject.Named;
 import zeroth.actor.app.misc.ListedSectionServiceLocal;
 import zeroth.actor.domain.misc.ListedSection;
-import zeroth.framework.enterprise.app.SimpleRepositoryService;
+import zeroth.framework.enterprise.app.SimpleRepositoryApplication;
 import zeroth.framework.screen.iface.jsf.AbstractActionImpl;
 /**
  * Listed section action.
@@ -28,7 +28,7 @@ public class ListedSectionAction extends AbstractActionImpl<ListedSection, Long,
         super();
     }
     @Override
-    public SimpleRepositoryService<ListedSection, Long, ListedSection> getService() {
+    public SimpleRepositoryApplication<ListedSection, Long, ListedSection> getService() {
         return service;
     }
 }

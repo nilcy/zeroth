@@ -6,11 +6,11 @@
 package zeroth.actor.app.actor;
 import javax.ejb.Local;
 import zeroth.actor.domain.Member;
-import zeroth.framework.enterprise.app.SimpleRepositoryService;
+import zeroth.framework.enterprise.app.SimpleRepositoryApplication;
 /**
  * Member service Local-I/F.
  * @author nilcy
  */
 @Local
-public interface MemberServiceLocal extends SimpleRepositoryService<Member, Long, Member> {
+public interface MemberServiceLocal extends SimpleRepositoryApplication<Member, Long, Member> {
 }

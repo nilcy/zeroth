@@ -6,34 +6,29 @@
 package zeroth.actor.domain.misc;
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
-import zeroth.actor.common.TraceLog;
-import zeroth.actor.domain.AbstractCrudRepository;
-import zeroth.actor.entity.misc.IndustryClass;
-import zeroth.actor.infra.persistence.PersistenceSupport;
-import zeroth.actor.infra.persistence.misc.IndustryClassPersistence;
+import zeroth.actor.domain.misc.PersistenceServiceAnnotation.IndustryClassPersistenceService;
+import zeroth.framework.enterprise.domain.AbstractQueryRepositoryImpl;
+import zeroth.framework.enterprise.infra.persistence.QueryPersistenceService;
+import zeroth.framework.enterprise.shared.Tracer;
+import zeroth.framework.standard.shared.SimpleFilter;
 /**
- * Industry classification repository implementation.
+ * 業種リポジトリ
  * @author nilcy
  */
 @Default
-@TraceLog
-public class IndustryClassRepositoryImpl extends AbstractCrudRepository<IndustryClass> implements
+@Tracer
+public class IndustryClassRepositoryImpl extends
+    AbstractQueryRepositoryImpl<IndustryClass, Long, SimpleFilter> implements
     IndustryClassRepository {
     /** 製品番号 */
     private static final long serialVersionUID = 2537651945740718957L;
-    /** industry classification persistence I/F. */
+    /** 先進データ永続化サービス */
     @Inject
-    private IndustryClassPersistence helper;
-    /** コンストラクタ */
-    public IndustryClassRepositoryImpl() {
-        super();
-    }
-    /**
-     * {@inheritDoc} Get {@link #helper}.
-     * @return {@inheritDoc}
-     */
+    @IndustryClassPersistenceService
+    private QueryPersistenceService<IndustryClass, Long> service;
+    /** {@inheritDoc} */
     @Override
-    public PersistenceSupport<IndustryClass> getPersistenceSupport() {
-        return this.helper;
+    protected QueryPersistenceService<IndustryClass, Long> getPersistenceService() {
+        return service;
     }
 }

@@ -4,11 +4,11 @@
 // http://www.gnu.org/licenses/agpl-3.0.txt
 // ========================================================================
 package zeroth.actor.domain;
-import zeroth.actor.domain.CrudRepository;
-import zeroth.actor.entity.actor.Title;
+import zeroth.framework.enterprise.domain.QueryRepository;
+import zeroth.framework.standard.shared.SimpleFilter;
 /**
- * Title repository I/F.
+ * 職名リポジトリI/F
  * @author nilcy
  */
-public interface TitleRepository extends CrudRepository<Title> {
+public interface TitleRepository extends QueryRepository<Title, Long, SimpleFilter> {
 }

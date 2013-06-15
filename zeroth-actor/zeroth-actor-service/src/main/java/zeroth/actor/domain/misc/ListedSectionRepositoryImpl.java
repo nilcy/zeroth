@@ -6,34 +6,29 @@
 package zeroth.actor.domain.misc;
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
-import zeroth.actor.common.TraceLog;
-import zeroth.actor.domain.AbstractCrudRepository;
-import zeroth.actor.entity.misc.ListedSection;
-import zeroth.actor.infra.persistence.PersistenceSupport;
-import zeroth.actor.infra.persistence.misc.ListedSectionPersistence;
+import zeroth.actor.domain.misc.PersistenceServiceAnnotation.ListedSectionPersistenceService;
+import zeroth.framework.enterprise.domain.AbstractQueryRepositoryImpl;
+import zeroth.framework.enterprise.infra.persistence.QueryPersistenceService;
+import zeroth.framework.enterprise.shared.Tracer;
+import zeroth.framework.standard.shared.SimpleFilter;
 /**
  * Listed section repository implementation.
  * @author nilcy
  */
 @Default
-@TraceLog
-public class ListedSectionRepositoryImpl extends AbstractCrudRepository<ListedSection> implements
+@Tracer
+public class ListedSectionRepositoryImpl extends
+    AbstractQueryRepositoryImpl<ListedSection, Long, SimpleFilter> implements
     ListedSectionRepository {
     /** 製品番号 */
     private static final long serialVersionUID = 2537651945740718957L;
-    /** organization persistence I/F. */
+    /** 先進データ永続化サービス */
     @Inject
-    private ListedSectionPersistence helper;
-    /** コンストラクタ */
-    public ListedSectionRepositoryImpl() {
-        super();
-    }
-    /**
-     * {@inheritDoc} Get {@link #helper}.
-     * @return {@inheritDoc}
-     */
+    @ListedSectionPersistenceService
+    private QueryPersistenceService<ListedSection, Long> service;
+    /** {@inheritDoc} */
     @Override
-    public PersistenceSupport<ListedSection> getPersistenceSupport() {
-        return this.helper;
+    protected QueryPersistenceService<ListedSection, Long> getPersistenceService() {
+        return service;
     }
 }

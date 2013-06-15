@@ -6,33 +6,28 @@
 package zeroth.actor.domain;
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
-import zeroth.actor.common.TraceLog;
-import zeroth.actor.domain.AbstractCrudRepository;
-import zeroth.actor.entity.actor.Level;
-import zeroth.actor.infra.persistence.PersistenceSupport;
-import zeroth.actor.infra.persistence.actor.LevelPersistence;
+import zeroth.actor.domain.PersistenceServiceAnnotation.LevelPersistenceService;
+import zeroth.framework.enterprise.domain.AbstractQueryRepositoryImpl;
+import zeroth.framework.enterprise.infra.persistence.QueryPersistenceService;
+import zeroth.framework.enterprise.shared.Tracer;
+import zeroth.framework.standard.shared.SimpleFilter;
 /**
  * Level repository implementation.
  * @author nilcy
  */
 @Default
-@TraceLog
-public class LevelRepositoryImpl extends AbstractCrudRepository<Level> implements LevelRepository {
+@Tracer
+public class LevelRepositoryImpl extends AbstractQueryRepositoryImpl<Level, Long, SimpleFilter>
+    implements LevelRepository {
     /** 製品番号 */
     private static final long serialVersionUID = 8040284229107206109L;
-    /** level persistence I/F. */
+    /** 先進データ永続化サービス */
     @Inject
-    private LevelPersistence helper;
-    /** コンストラクタ */
-    public LevelRepositoryImpl() {
-        super();
-    }
-    /**
-     * {@inheritDoc} Get {@link #helper}.
-     * @return {@inheritDoc}
-     */
+    @LevelPersistenceService
+    private QueryPersistenceService<Level, Long> service;
+    /** {@inheritDoc} */
     @Override
-    public PersistenceSupport<Level> getPersistenceSupport() {
-        return this.helper;
+    protected QueryPersistenceService<Level, Long> getPersistenceService() {
+        return service;
     }
 }

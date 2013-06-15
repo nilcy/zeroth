@@ -6,7 +6,7 @@
 package zeroth.framework.screen.iface.jsf;
 import java.io.Serializable;
 import java.util.Collection;
-import zeroth.framework.enterprise.app.SimpleRepositoryService;
+import zeroth.framework.enterprise.app.SimpleRepositoryApplication;
 import zeroth.framework.enterprise.shared.Persistable;
 /**
  * JSFアクションI/F
@@ -62,7 +62,7 @@ public interface Action<E extends Persistable<ID>, ID extends Serializable, F ex
      * 基本リポジトリサービスI/Fの取得
      * @return 基本リポジトリサービスI/F
      */
-    SimpleRepositoryService<E, ID, F> getService();
+    SimpleRepositoryApplication<E, ID, F> getService();
     /**
      * 検索条件の取得
      * @return restriction

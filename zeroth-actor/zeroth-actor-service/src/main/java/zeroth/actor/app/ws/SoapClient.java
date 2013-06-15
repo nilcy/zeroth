@@ -10,7 +10,7 @@ import javax.xml.namespace.QName;
 import javax.xml.ws.Service;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import zeroth.actor.app.ws.gateway.GatewayModel;
+import zeroth.framework.standard.app.GatewayModel;
 /**
  * SOAP client.
  * @author nilcy

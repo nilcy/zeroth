@@ -13,9 +13,9 @@ import javax.xml.ws.BindingProvider;
 import javax.xml.ws.Service;
 import javax.xml.ws.WebServiceException;
 import org.slf4j.Logger;
-import zeroth.actor.ApplicationBusinessException;
-import zeroth.actor.app.ws.gateway.GatewayModel;
-import zeroth.actor.app.ws.gateway.GatewayService;
+import zeroth.framework.enterprise.shared.EnterpriseException;
+import zeroth.framework.service.app.GatewayService;
+import zeroth.framework.standard.app.GatewayModel;
 /**
  * Gateway service client.
  * @author nilcy
@@ -33,28 +33,28 @@ public final class GatewayServiceClient {
      * @param <T> application model type
      * @param aSoapRequest SOAP request
      * @return SOAP response
-     * @throws ApplicationBusinessException MalformedURLException or
+     * @throws EnterpriseException MalformedURLException or
      *             WebServiceException
      */
     @SuppressWarnings("unchecked")
-    public <T> T submit(final GatewayModel aSoapRequest) throws ApplicationBusinessException {
+    public <T> T submit(final GatewayModel aSoapRequest) throws EnterpriseException {
         URL url;
         try {
             url = new URL("http://localhost:8080/ReferenceService/CalcService?wsdl");
             final QName serviceName = new QName("http://kuzumeji.com/soap/", "ReferenceService");
             final Service service = Service.create(url, serviceName);
-            this.log.debug(service.getWSDLDocumentLocation().toString());
+            log.debug(service.getWSDLDocumentLocation().toString());
             final GatewayService port = service.getPort(GatewayService.class);
             final Map<String, Object> context = ((BindingProvider) port).getRequestContext();
-            this.log.debug(context.entrySet().toString());
+            log.debug(context.entrySet().toString());
             final GatewayModel returnedValue = port.submit(aSoapRequest);
             return (T) returnedValue.getBody();
         } catch (final MalformedURLException e) {
-            this.log.warn(e.getLocalizedMessage(), e);
-            throw new ApplicationBusinessException(e.getLocalizedMessage());
+            log.warn(e.getLocalizedMessage(), e);
+            throw new EnterpriseException(e.getLocalizedMessage());
         } catch (final WebServiceException e) {
-            this.log.warn(e.getLocalizedMessage(), e);
-            throw new ApplicationBusinessException(e.getLocalizedMessage());
+            log.warn(e.getLocalizedMessage(), e);
+            throw new EnterpriseException(e.getLocalizedMessage());
         }
     }
 }

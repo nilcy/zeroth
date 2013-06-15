@@ -6,34 +6,28 @@
 package zeroth.actor.domain;
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
-import zeroth.actor.common.TraceLog;
-import zeroth.actor.domain.AbstractCrudRepository;
-import zeroth.actor.entity.actor.Supplier;
-import zeroth.actor.infra.persistence.PersistenceSupport;
-import zeroth.actor.infra.persistence.actor.SupplierPersistence;
+import zeroth.actor.domain.PersistenceServiceAnnotation.SupplierPersistenceService;
+import zeroth.framework.enterprise.domain.AbstractQueryRepositoryImpl;
+import zeroth.framework.enterprise.infra.persistence.QueryPersistenceService;
+import zeroth.framework.enterprise.shared.Tracer;
+import zeroth.framework.standard.shared.SimpleFilter;
 /**
  * Supplier repository implementation.
  * @author nilcy
  */
 @Default
-@TraceLog
-public class SupplierRepositoryImpl extends AbstractCrudRepository<Supplier> implements
-    SupplierRepository {
+@Tracer
+public class SupplierRepositoryImpl extends
+    AbstractQueryRepositoryImpl<Supplier, Long, SimpleFilter> implements SupplierRepository {
     /** 製品番号 */
     private static final long serialVersionUID = 3003296026718089910L;
-    /** supplier persistence I/F. */
+    /** 先進データ永続化サービス */
     @Inject
-    private SupplierPersistence helper;
-    /** コンストラクタ */
-    public SupplierRepositoryImpl() {
-        super();
-    }
-    /**
-     * {@inheritDoc} Get {@link #helper}.
-     * @return {@inheritDoc}
-     */
+    @SupplierPersistenceService
+    private QueryPersistenceService<Supplier, Long> service;
+    /** {@inheritDoc} */
     @Override
-    public PersistenceSupport<Supplier> getPersistenceSupport() {
-        return this.helper;
+    protected QueryPersistenceService<Supplier, Long> getPersistenceService() {
+        return service;
     }
 }

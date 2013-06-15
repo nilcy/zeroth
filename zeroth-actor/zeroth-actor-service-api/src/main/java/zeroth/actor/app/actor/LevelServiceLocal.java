@@ -6,11 +6,11 @@
 package zeroth.actor.app.actor;
 import javax.ejb.Local;
 import zeroth.actor.domain.Level;
-import zeroth.framework.enterprise.app.SimpleRepositoryService;
+import zeroth.framework.enterprise.app.SimpleRepositoryApplication;
 /**
  * Level service Local-I/F.
  * @author nilcy
  */
 @Local
-public interface LevelServiceLocal extends SimpleRepositoryService<Level, Long, Level> {
+public interface LevelServiceLocal extends SimpleRepositoryApplication<Level, Long, Level> {
 }

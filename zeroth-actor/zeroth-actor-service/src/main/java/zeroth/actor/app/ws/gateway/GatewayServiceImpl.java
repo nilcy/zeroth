@@ -13,7 +13,11 @@ import javax.jws.WebParam;
 import javax.jws.WebService;
 import javax.ws.rs.core.Response.Status;
 import org.slf4j.Logger;
-import zeroth.actor.app.ws.WsUtil;
+import zeroth.framework.service.app.GatewayFactory;
+import zeroth.framework.service.app.GatewayService;
+import zeroth.framework.standard.app.GatewayHeader;
+import zeroth.framework.standard.app.GatewayModel;
+import zeroth.framework.standard.app.GatewayUtil;
 /**
  * Gateway service.
  * @author nilcy
@@ -36,7 +40,7 @@ public class GatewayServiceImpl implements GatewayService {
             final GatewayHeader header = aRequest.getHeader();
             final Class<?> interfaceClass = Class.forName(header.getEndpoint());
             final Class<?> parameterClass = Class.forName(header.getParameter());
-            final Object proxy = WsUtil.getProxy(header.getWsdlLocation(),
+            final Object proxy = GatewayUtil.getProxy(header.getWsdlLocation(),
                 header.getNamespaceURI(), header.getLocalPart(), interfaceClass);
             final Method method = interfaceClass.getMethod(header.getOperation(),
                 new Class[] { parameterClass });

@@ -4,40 +4,30 @@
 // http://www.gnu.org/licenses/agpl-3.0.txt
 // ========================================================================
 package zeroth.actor.domain;
-import java.util.Collection;
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
-import zeroth.actor.common.TraceLog;
-import zeroth.actor.domain.AbstractCrudRepository;
-import zeroth.actor.entity.actor.Organ;
-import zeroth.actor.infra.persistence.PersistenceSupport;
-import zeroth.actor.infra.persistence.actor.OrganPersistence;
+import zeroth.actor.domain.PersistenceServiceAnnotation.OrganPersistenceService;
+import zeroth.framework.enterprise.domain.AbstractQueryRepositoryImpl;
+import zeroth.framework.enterprise.infra.persistence.QueryPersistenceService;
+import zeroth.framework.enterprise.shared.Tracer;
+import zeroth.framework.standard.shared.SimpleFilter;
 /**
  * Organization repository implementation.
  * @author nilcy
  */
 @Default
-@TraceLog
-public class OrganRepositoryImpl extends AbstractCrudRepository<Organ> implements OrganRepository {
+@Tracer
+public class OrganRepositoryImpl extends AbstractQueryRepositoryImpl<Organ, Long, SimpleFilter>
+    implements OrganRepository {
     /** 製品番号 */
     private static final long serialVersionUID = 2537651945740718957L;
-    /** organization persistence I/F. */
+    /** 先進データ永続化サービス */
     @Inject
-    private OrganPersistence helper;
-    /** コンストラクタ */
-    public OrganRepositoryImpl() {
-        super();
-    }
-    /**
-     * {@inheritDoc} Get {@link #helper}.
-     * @return {@inheritDoc}
-     */
+    @OrganPersistenceService
+    private QueryPersistenceService<Organ, Long> service;
+    /** {@inheritDoc} */
     @Override
-    public PersistenceSupport<Organ> getPersistenceSupport() {
-        return this.helper;
-    }
-    @Override
-    public Collection<Organ> suggestParents(final Organ aTarget) {
-        return this.helper.suggestParents(aTarget);
+    protected QueryPersistenceService<Organ, Long> getPersistenceService() {
+        return service;
     }
 }

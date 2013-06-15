@@ -14,7 +14,7 @@ import javax.enterprise.context.Conversation;
 import javax.faces.application.FacesMessage;
 import javax.inject.Inject;
 import org.apache.commons.lang3.Validate;
-import zeroth.framework.enterprise.app.SimpleRepositoryService;
+import zeroth.framework.enterprise.app.SimpleRepositoryApplication;
 import zeroth.framework.enterprise.domain.ConstraintsException;
 import zeroth.framework.enterprise.shared.EnterpriseRuntimeException;
 import zeroth.framework.enterprise.shared.Persistable;
@@ -178,7 +178,7 @@ public abstract class AbstractActionImpl<E extends Persistable<ID>, ID extends S
     }
     /** {@inheritDoc} */
     @Override
-    public abstract SimpleRepositoryService<E, ID, F> getService();
+    public abstract SimpleRepositoryApplication<E, ID, F> getService();
     /**
      * インスタンスのロード
      * @return インスタンス

@@ -23,6 +23,10 @@ public abstract class AbstractQueryRepositoryImpl<E extends Persistable<ID>, ID 
     QueryRepository<E, ID, F> {
     /** 識別番号 */
     private static final long serialVersionUID = -5208804239051677983L;
+    /** あいまい検索ワイルドカード(0文字以上の文字列) */
+    protected static final char WILDCARD_MULTI = '%';
+    /** あいまい検索ワイルドカード(任意の1文字) */
+    protected static final char WILDCARD_SINGLE = '_';
     /** コンストラクタ */
     public AbstractQueryRepositoryImpl() {
     }
@@ -65,5 +69,18 @@ public abstract class AbstractQueryRepositoryImpl<E extends Persistable<ID>, ID 
      */
     protected Predicate expression(final F filter) {
         return getPersistenceService().builder().conjunction();
+    }
+    /**
+     * ワイルドカードのラップ
+     * <dl>
+     * <dt>事前条件</dt>
+     * <dd>文字列は非NULLであること。</dd>
+     * </dl>
+     * @param value 文字列
+     * @return %文字列%
+     */
+    protected static String wrapWildcard(final String value) {
+        assert value != null;
+        return WILDCARD_MULTI + value + WILDCARD_MULTI;
     }
 }
