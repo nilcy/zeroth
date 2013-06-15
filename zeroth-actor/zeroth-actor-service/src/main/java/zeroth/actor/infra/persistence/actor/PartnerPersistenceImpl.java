@@ -13,9 +13,9 @@ import zeroth.actor.entity.actor.Partner;
 @Default
 public class PartnerPersistenceImpl extends AbstractStaffPersistence<Partner> implements
     PartnerPersistence {
-    /** S/N. */
+    /** 製品番号 */
     private static final long serialVersionUID = 2426399469775914866L;
-    /** Constructor. */
+    /** コンストラクタ */
     public PartnerPersistenceImpl() {
         super();
     }

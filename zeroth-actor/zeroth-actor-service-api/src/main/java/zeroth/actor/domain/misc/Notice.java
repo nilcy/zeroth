@@ -18,7 +18,7 @@ import javax.persistence.TemporalType;
 import zeroth.framework.enterprise.domain.AbstractPersistable;
 /**
  * 告知
- * @param <T> notice type
+ * @param <T> 告知オブジェクト型
  * @author nilcy
  */
 @Entity

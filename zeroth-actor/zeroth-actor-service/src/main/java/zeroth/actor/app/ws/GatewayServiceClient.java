@@ -24,7 +24,7 @@ public final class GatewayServiceClient {
     /** Logger. */
     @Inject
     private Logger log;
-    /** Constructor. */
+    /** コンストラクタ */
     private GatewayServiceClient() {
         super();
     }

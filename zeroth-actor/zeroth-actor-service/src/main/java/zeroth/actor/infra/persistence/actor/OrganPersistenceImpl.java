@@ -23,9 +23,9 @@ import zeroth.actor.infra.persistence.ConstraintsException;
  */
 @Default
 public class OrganPersistenceImpl extends AbstractPersistenceJta<Organ> implements OrganPersistence {
-    /** S/N. */
+    /** 製品番号 */
     private static final long serialVersionUID = 3307601051415437141L;
-    /** Constructor. */
+    /** コンストラクタ */
     public OrganPersistenceImpl() {
         super();
     }

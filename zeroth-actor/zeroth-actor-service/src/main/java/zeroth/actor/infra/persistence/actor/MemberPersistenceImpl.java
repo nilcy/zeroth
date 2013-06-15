@@ -20,9 +20,9 @@ import zeroth.actor.infra.persistence.ConstraintsException;
 @Default
 public class MemberPersistenceImpl extends AbstractStaffPersistence<Member> implements
     MemberPersistence {
-    /** S/N. */
+    /** 製品番号 */
     private static final long serialVersionUID = 8231055109883857841L;
-    /** Constructor. */
+    /** コンストラクタ */
     public MemberPersistenceImpl() {
         super();
     }

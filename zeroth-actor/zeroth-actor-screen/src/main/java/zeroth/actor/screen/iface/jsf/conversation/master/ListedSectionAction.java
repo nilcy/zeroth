@@ -18,7 +18,7 @@ import zeroth.framework.screen.iface.jsf.AbstractActionImpl;
 @Named(value = "listedSectionAction")
 @ConversationScoped
 public class ListedSectionAction extends AbstractActionImpl<ListedSection, Long, ListedSection> {
-    /** S/N. */
+    /** 製品番号 */
     private static final long serialVersionUID = 7243039551620767571L;
     /** listed section service Local-I/F. */
     @EJB

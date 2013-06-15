@@ -4,7 +4,6 @@
 // http://www.gnu.org/licenses/agpl-3.0.txt
 // ========================================================================
 /**
- * Actor domain module.
  * @author nilcy
  */
-package zeroth.actor.domain.actor;
+package zeroth.actor.domain.persistence;

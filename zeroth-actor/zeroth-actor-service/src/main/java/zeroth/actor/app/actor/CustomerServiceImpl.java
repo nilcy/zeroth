@@ -9,8 +9,8 @@ import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 import zeroth.actor.app.AbstractCrudService;
 import zeroth.actor.common.TraceLog;
+import zeroth.actor.domain.CustomerRepository;
 import zeroth.actor.domain.Repository;
-import zeroth.actor.domain.actor.CustomerRepository;
 import zeroth.actor.entity.actor.Customer;
 /**
  * Customer service implementation.
@@ -21,12 +21,12 @@ import zeroth.actor.entity.actor.Customer;
 @TraceLog
 public class CustomerServiceImpl extends AbstractCrudService<Customer> implements
     CustomerServiceLocal {
-    /** S/N. */
+    /** 製品番号 */
     private static final long serialVersionUID = 2537651945740718957L;
     /** customer repository I/F. */
     @Inject
     private CustomerRepository repository;
-    /** Constructor. */
+    /** コンストラクタ */
     public CustomerServiceImpl() {
         super();
     }

@@ -3,28 +3,29 @@
 // GNU AFFERO GENERAL PUBLIC LICENSE Version 3, 19 November 2007
 // http://www.gnu.org/licenses/agpl-3.0.txt
 // ========================================================================
-package zeroth.actor.domain.actor;
+package zeroth.actor.domain;
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 import zeroth.actor.common.TraceLog;
 import zeroth.actor.domain.AbstractCrudRepository;
-import zeroth.actor.entity.actor.Level;
+import zeroth.actor.entity.actor.Supplier;
 import zeroth.actor.infra.persistence.PersistenceSupport;
-import zeroth.actor.infra.persistence.actor.LevelPersistence;
+import zeroth.actor.infra.persistence.actor.SupplierPersistence;
 /**
- * Level repository implementation.
+ * Supplier repository implementation.
  * @author nilcy
  */
 @Default
 @TraceLog
-public class LevelRepositoryImpl extends AbstractCrudRepository<Level> implements LevelRepository {
-    /** S/N. */
-    private static final long serialVersionUID = 8040284229107206109L;
-    /** level persistence I/F. */
+public class SupplierRepositoryImpl extends AbstractCrudRepository<Supplier> implements
+    SupplierRepository {
+    /** 製品番号 */
+    private static final long serialVersionUID = 3003296026718089910L;
+    /** supplier persistence I/F. */
     @Inject
-    private LevelPersistence helper;
-    /** Constructor. */
-    public LevelRepositoryImpl() {
+    private SupplierPersistence helper;
+    /** コンストラクタ */
+    public SupplierRepositoryImpl() {
         super();
     }
     /**
@@ -32,7 +33,7 @@ public class LevelRepositoryImpl extends AbstractCrudRepository<Level> implement
      * @return {@inheritDoc}
      */
     @Override
-    public PersistenceSupport<Level> getPersistenceSupport() {
+    public PersistenceSupport<Supplier> getPersistenceSupport() {
         return this.helper;
     }
 }

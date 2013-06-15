@@ -20,7 +20,7 @@ import zeroth.framework.screen.iface.jsf.AbstractActionImpl;
 @Named(value = "supplierAction")
 @ConversationScoped
 public class SupplierAction extends AbstractActionImpl<Supplier, Long, Supplier> {
-    /** S/N. */
+    /** 製品番号 */
     private static final long serialVersionUID = 873776474936603723L;
     /** supplier service Local-I/F. */
     @EJB

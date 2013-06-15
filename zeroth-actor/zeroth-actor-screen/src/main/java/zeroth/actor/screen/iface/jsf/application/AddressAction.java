@@ -22,7 +22,7 @@ import zeroth.actor.domain.parts.OfficeAddress;
 @Singleton
 // @Startup
 public class AddressAction implements Serializable {
-    /** S/N. */
+    /** 製品番号 */
     private static final long serialVersionUID = -1455192251688608331L;
     /** home address action. */
     @Inject

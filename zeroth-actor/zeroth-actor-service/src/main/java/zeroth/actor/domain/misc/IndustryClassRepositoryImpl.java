@@ -19,12 +19,12 @@ import zeroth.actor.infra.persistence.misc.IndustryClassPersistence;
 @TraceLog
 public class IndustryClassRepositoryImpl extends AbstractCrudRepository<IndustryClass> implements
     IndustryClassRepository {
-    /** S/N. */
+    /** 製品番号 */
     private static final long serialVersionUID = 2537651945740718957L;
     /** industry classification persistence I/F. */
     @Inject
     private IndustryClassPersistence helper;
-    /** Constructor. */
+    /** コンストラクタ */
     public IndustryClassRepositoryImpl() {
         super();
     }

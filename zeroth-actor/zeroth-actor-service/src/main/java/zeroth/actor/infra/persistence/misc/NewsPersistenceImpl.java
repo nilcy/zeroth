@@ -12,9 +12,9 @@ import zeroth.actor.entity.misc.News;
  */
 @Default
 public class NewsPersistenceImpl extends AbstractNoticePersistence<News> implements NewsPersistence {
-    /** S/N. */
+    /** 製品番号 */
     private static final long serialVersionUID = 6636565061976375548L;
-    /** Constructor. */
+    /** コンストラクタ */
     public NewsPersistenceImpl() {
         super();
     }

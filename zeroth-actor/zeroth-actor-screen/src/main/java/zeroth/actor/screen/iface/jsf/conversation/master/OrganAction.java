@@ -21,7 +21,7 @@ import zeroth.framework.screen.iface.jsf.FacesHelper;
 @Named(value = "organAction")
 @ConversationScoped
 public class OrganAction extends AbstractActionImpl<Organ, Long, Organ> {
-    /** S/N. */
+    /** 製品番号 */
     private static final long serialVersionUID = 7243039551620767571L;
     /** organization service Local-I/F. */
     @EJB

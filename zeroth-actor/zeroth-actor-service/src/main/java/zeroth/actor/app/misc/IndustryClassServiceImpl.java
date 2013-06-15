@@ -21,12 +21,12 @@ import zeroth.actor.entity.misc.IndustryClass;
 @TraceLog
 public class IndustryClassServiceImpl extends AbstractCrudService<IndustryClass> implements
     IndustryClassServiceLocal {
-    /** S/N. */
+    /** 製品番号 */
     private static final long serialVersionUID = 2537651945740718957L;
     /** organization repository I/F. */
     @Inject
     private IndustryClassRepository repository;
-    /** Constructor. */
+    /** コンストラクタ */
     public IndustryClassServiceImpl() {
         super();
     }

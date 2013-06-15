@@ -20,9 +20,9 @@ import zeroth.framework.enterprise.domain.ConstraintsException;
  */
 public abstract class AbstractCompanyPersistence<T extends Company<T>> extends
     AbstractPersistenceJta<T> implements CompanyPersistence<T> {
-    /** S/N. */
+    /** 製品番号 */
     private static final long serialVersionUID = -7714499275722958386L;
-    /** Constructor. */
+    /** コンストラクタ */
     public AbstractCompanyPersistence() {
         super();
     }

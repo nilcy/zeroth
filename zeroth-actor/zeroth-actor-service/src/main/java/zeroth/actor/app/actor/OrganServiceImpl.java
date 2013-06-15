@@ -10,8 +10,8 @@ import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 import zeroth.actor.app.AbstractCrudService;
 import zeroth.actor.common.TraceLog;
+import zeroth.actor.domain.OrganRepository;
 import zeroth.actor.domain.Repository;
-import zeroth.actor.domain.actor.OrganRepository;
 import zeroth.actor.entity.actor.Organ;
 /**
  * Organization service implementation.
@@ -21,12 +21,12 @@ import zeroth.actor.entity.actor.Organ;
 @Default
 @TraceLog
 public class OrganServiceImpl extends AbstractCrudService<Organ> implements OrganServiceLocal {
-    /** S/N. */
+    /** 製品番号 */
     private static final long serialVersionUID = 2537651945740718957L;
     /** organization repository I/F. */
     @Inject
     private OrganRepository repository;
-    /** Constructor. */
+    /** コンストラクタ */
     public OrganServiceImpl() {
         super();
     }

@@ -18,7 +18,7 @@ import zeroth.framework.screen.iface.jsf.AbstractActionImpl;
 @Named(value = "levelAction")
 @ConversationScoped
 public class LevelAction extends AbstractActionImpl<Level, Long, Level> {
-    /** S/N. */
+    /** 製品番号 */
     private static final long serialVersionUID = 944558410807492976L;
     /** level service Local-I/F. */
     @EJB

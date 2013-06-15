@@ -10,7 +10,7 @@ import javax.inject.Inject;
 import zeroth.actor.app.AbstractCrudService;
 import zeroth.actor.common.TraceLog;
 import zeroth.actor.domain.Repository;
-import zeroth.actor.domain.actor.SupplierRepository;
+import zeroth.actor.domain.SupplierRepository;
 import zeroth.actor.entity.actor.Supplier;
 /**
  * Supplier service implementation.
@@ -21,12 +21,12 @@ import zeroth.actor.entity.actor.Supplier;
 @TraceLog
 public class SupplierServiceImpl extends AbstractCrudService<Supplier> implements
     SupplierServiceLocal {
-    /** S/N. */
+    /** 製品番号 */
     private static final long serialVersionUID = 2537651945740718957L;
     /** supplier repository I/F. */
     @Inject
     private SupplierRepository repository;
-    /** Constructor. */
+    /** コンストラクタ */
     public SupplierServiceImpl() {
         super();
     }

@@ -11,6 +11,7 @@
   <name>zeroth-framework-service</name>
   <description>zeroth Framework Domain. Service Module.</description>
   <properties>
+    <zeroth-framework-enterprise.version>0.0.1-SNAPSHOT</zeroth-framework-enterprise.version>
     <zeroth-framework-service-api.version>0.0.1-SNAPSHOT</zeroth-framework-service-api.version>
   </properties>
   <dependencies>
@@ -49,6 +50,12 @@
       <artifactId>javaee-api</artifactId>
       <version>${javaee-api.version}</version>
       <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.github.nilcy</groupId>
+      <artifactId>zeroth-framework-enterprise</artifactId>
+      <version>${zeroth-framework-enterprise.version}</version>
+      <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>com.github.nilcy</groupId>

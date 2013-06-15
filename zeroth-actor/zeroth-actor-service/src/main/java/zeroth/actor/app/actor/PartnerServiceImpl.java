@@ -9,8 +9,8 @@ import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 import zeroth.actor.app.AbstractCrudService;
 import zeroth.actor.common.TraceLog;
+import zeroth.actor.domain.PartnerRepository;
 import zeroth.actor.domain.Repository;
-import zeroth.actor.domain.actor.PartnerRepository;
 import zeroth.actor.entity.actor.Partner;
 /**
  * Partner service implementation.
@@ -20,12 +20,12 @@ import zeroth.actor.entity.actor.Partner;
 @Default
 @TraceLog
 public class PartnerServiceImpl extends AbstractCrudService<Partner> implements PartnerServiceLocal {
-    /** S/N. */
+    /** 製品番号 */
     private static final long serialVersionUID = -3688733534957646527L;
     /** partner repository I/F. */
     @Inject
     private PartnerRepository repository;
-    /** Constructor. */
+    /** コンストラクタ */
     public PartnerServiceImpl() {
         super();
     }

@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "logoutServlet", urlPatterns = { "/logout" })
 public class LogoutServlet extends HttpServlet {
-    /** S/N. */
+    /** 製品番号 */
     private static final long serialVersionUID = -2564378030285785954L;
     /** コンストラクタ */
     public LogoutServlet() {

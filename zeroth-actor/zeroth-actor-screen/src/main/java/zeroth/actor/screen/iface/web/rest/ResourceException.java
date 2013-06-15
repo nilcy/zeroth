@@ -13,7 +13,7 @@ import javax.ws.rs.core.Response.Status;
  * @author nilcy
  */
 public class ResourceException extends WebApplicationException {
-    /** S/N. */
+    /** 製品番号 */
     private static final long serialVersionUID = -6533374162841417982L;
     /**
      * コンストラクタ

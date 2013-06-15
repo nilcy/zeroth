@@ -17,9 +17,9 @@ import zeroth.actor.infra.persistence.AbstractPersistenceJta;
  */
 public abstract class AbstractStaffPersistence<T extends Staff<T>> extends
     AbstractPersistenceJta<T> implements StaffPersistence<T> {
-    /** S/N. */
+    /** 製品番号 */
     private static final long serialVersionUID = -344704859939311369L;
-    /** Constructor. */
+    /** コンストラクタ */
     public AbstractStaffPersistence() {
         super();
     }

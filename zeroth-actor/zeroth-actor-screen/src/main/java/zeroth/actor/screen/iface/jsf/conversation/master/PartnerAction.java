@@ -20,7 +20,7 @@ import zeroth.framework.screen.iface.jsf.AbstractActionImpl;
 @Named(value = "partnerAction")
 @ConversationScoped
 public class PartnerAction extends AbstractActionImpl<Partner, Long, Partner> {
-    /** S/N. */
+    /** 製品番号 */
     private static final long serialVersionUID = -1406530105042380063L;
     /** partner service Local-I/F. */
     @EJB

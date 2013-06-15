@@ -22,9 +22,9 @@ import zeroth.actor.infra.persistence.ConstraintsException;
 @Default
 public class IndustryClassPersistenceImpl extends AbstractPersistenceJta<IndustryClass> implements
     IndustryClassPersistence {
-    /** S/N. */
+    /** 製品番号 */
     private static final long serialVersionUID = 7089621081283633688L;
-    /** Constructor. */
+    /** コンストラクタ */
     public IndustryClassPersistenceImpl() {
         super();
     }

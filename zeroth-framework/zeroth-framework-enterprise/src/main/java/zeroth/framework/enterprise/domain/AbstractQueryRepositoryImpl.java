@@ -10,16 +10,15 @@ import javax.persistence.TypedQuery;
 import javax.persistence.criteria.Predicate;
 import zeroth.framework.enterprise.infra.persistence.QueryPersistenceService;
 import zeroth.framework.enterprise.shared.Persistable;
-import zeroth.framework.standard.shared.ValueObject;
 import zeroth.framework.standard.shared.WithPageRequest;
 /**
  * 先進リポジトリ
  * @param <E> エンティティ型
  * @param <ID> 識別子オブジェクト型
- * @param <F> フィルタ型
+ * @param <F> フィルタ型 TODO extends ValueObject<?>
  * @author nilcy
  */
-public abstract class AbstractQueryRepositoryImpl<E extends Persistable<ID>, ID extends Serializable, F extends ValueObject<?>>
+public abstract class AbstractQueryRepositoryImpl<E extends Persistable<ID>, ID extends Serializable, F extends Serializable>
     extends AbstractSimpleRepositoryImpl<E, ID, F, QueryPersistenceService<E, ID>> implements
     QueryRepository<E, ID, F> {
     /** 識別番号 */

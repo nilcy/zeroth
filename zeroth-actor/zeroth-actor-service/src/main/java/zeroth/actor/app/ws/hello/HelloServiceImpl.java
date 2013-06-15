@@ -15,7 +15,7 @@ import javax.jws.WebService;
 @Stateless
 @WebService(portName = "HelloPort", serviceName = "HelloService", name = "Hello", targetNamespace = "http://kuzumeji.com/ws/hello", endpointInterface = "zeroth.actor.app.ws.hello.HelloService")
 public class HelloServiceImpl implements HelloService {
-    /** Constructor. */
+    /** コンストラクタ */
     public HelloServiceImpl() {
         super();
     }

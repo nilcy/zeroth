@@ -24,7 +24,7 @@ public class GatewayServiceImpl implements GatewayService {
     /** Logger. */
     @Inject
     private Logger log;
-    /** Constructor. */
+    /** コンストラクタ */
     public GatewayServiceImpl() {
         super();
     }

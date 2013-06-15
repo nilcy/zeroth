@@ -21,9 +21,9 @@ import zeroth.actor.infra.persistence.ConstraintsException;
  */
 @Default
 public class TitlePersistenceImpl extends AbstractPersistenceJta<Title> implements TitlePersistence {
-    /** S/N. */
+    /** 製品番号 */
     private static final long serialVersionUID = 6418178537462135117L;
-    /** Constructor. */
+    /** コンストラクタ */
     public TitlePersistenceImpl() {
         super();
     }

@@ -3,8 +3,12 @@
 // GNU AFFERO GENERAL PUBLIC LICENSE Version 3, 19 November 2007
 // http://www.gnu.org/licenses/agpl-3.0.txt
 // ========================================================================
+package zeroth.actor.domain;
+import zeroth.actor.domain.CrudRepository;
+import zeroth.actor.entity.actor.Level;
 /**
- * Actor parts domain module.
+ * Level repository I/F.
  * @author nilcy
  */
-package zeroth.actor.domain.actor.parts;
+public interface LevelRepository extends CrudRepository<Level> {
+}

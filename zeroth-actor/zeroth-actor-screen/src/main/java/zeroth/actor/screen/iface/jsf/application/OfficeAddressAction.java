@@ -27,7 +27,7 @@ import zeroth.actor.domain.parts.OfficeAddressFactory;
 @Singleton
 // @Startup
 public class OfficeAddressAction implements Serializable {
-    /** S/N. */
+    /** 製品番号 */
     private static final long serialVersionUID = 2297830030681637217L;
     /** LEN_CODE. */
     private static final int LEN_CODE = 7;

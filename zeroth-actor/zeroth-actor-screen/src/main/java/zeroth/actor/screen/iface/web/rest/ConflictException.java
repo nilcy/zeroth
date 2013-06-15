@@ -14,7 +14,7 @@ import javax.ws.rs.core.Response.Status;
  * @author nilcy
  */
 public class ConflictException extends WebApplicationException {
-    /** S/N. */
+    /** 製品番号 */
     private static final long serialVersionUID = -3079453625686757347L;
     /** コンストラクタ */
     public ConflictException() {

@@ -22,9 +22,9 @@ import zeroth.actor.infra.persistence.ConstraintsException;
 @Default
 public class ListedSectionPersistenceImpl extends AbstractPersistenceJta<ListedSection> implements
     ListedSectionPersistence {
-    /** S/N. */
+    /** 製品番号 */
     private static final long serialVersionUID = -4273326519345393635L;
-    /** Constructor. */
+    /** コンストラクタ */
     public ListedSectionPersistenceImpl() {
         super();
     }

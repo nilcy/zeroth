@@ -3,16 +3,19 @@
 // GNU AFFERO GENERAL PUBLIC LICENSE Version 3, 19 November 2007
 // http://www.gnu.org/licenses/agpl-3.0.txt
 // ========================================================================
-package zeroth.framework.enterprise.domain.persistence;
+package zeroth.actor.domain.misc;
 import javax.enterprise.inject.Produces;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
-import zeroth.framework.enterprise.domain.TestExample;
+import zeroth.actor.domain.misc.News;
+import zeroth.actor.domain.misc.Notice;
+import zeroth.actor.domain.misc.PersistenceServiceAnnotation.NewsPersistenceService;
+import zeroth.actor.domain.misc.PersistenceServiceAnnotation.NoticePersistenceService;
 import zeroth.framework.enterprise.infra.persistence.PersistenceServiceFactory;
 import zeroth.framework.enterprise.infra.persistence.PrimaryEntityManager;
 import zeroth.framework.enterprise.infra.persistence.QueryPersistenceService;
 /**
- * 拡張データ永続化サービスのファクトリ
+ * データ永続化サービスのファクトリ
  * @author nilcy
  */
 public class PersistenceServiceProducer {
@@ -27,12 +30,23 @@ public class PersistenceServiceProducer {
     public PersistenceServiceProducer() {
     }
     /**
-     * テスト参照オブジェクトの拡張データ永続化サービスを作成
-     * @return テスト参照オブジェクトの拡張データ永続化サービス
+     * 告知の先進データ永続化サービスを作成
+     * @return 告知の先進データ永続化サービス
      */
+    @SuppressWarnings("unchecked")
     @Produces
-    @TestExamplePersistenceService
-    public QueryPersistenceService<TestExample, Long> createTestExamplePersistenceService() {
-        return factory.createQueryPersistenceService(manager, TestExample.class);
+    @NoticePersistenceService
+    public QueryPersistenceService<Notice<?>, Long> createNoticePersistenceService() {
+        return factory.createQueryPersistenceService(manager, Notice.class);
+    }
+    /**
+     * お知らせの先進データ永続化サービスを作成
+     * @return お知らせの先進データ永続化サービス
+     */
+    @SuppressWarnings("unchecked")
+    @Produces
+    @NewsPersistenceService
+    public QueryPersistenceService<News, Long> createNewsPersistenceService() {
+        return factory.createQueryPersistenceService(manager, Notice.class);
     }
 }

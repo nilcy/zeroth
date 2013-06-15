@@ -21,9 +21,9 @@ import zeroth.actor.infra.persistence.ConstraintsException;
 @Default
 public class MemberAuthPersistenceImpl extends AbstractPersistenceJta<MemberAuth> implements
     MemberAuthPersistence {
-    /** S/N. */
+    /** 製品番号 */
     private static final long serialVersionUID = -3347884638019540774L;
-    /** Constructor. */
+    /** コンストラクタ */
     public MemberAuthPersistenceImpl() {
         super();
     }

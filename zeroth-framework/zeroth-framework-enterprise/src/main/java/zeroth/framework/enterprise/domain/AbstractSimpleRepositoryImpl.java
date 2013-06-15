@@ -13,16 +13,15 @@ import org.apache.commons.lang3.Validate;
 import zeroth.framework.enterprise.infra.persistence.SimplePersistenceService;
 import zeroth.framework.enterprise.shared.Persistable;
 import zeroth.framework.standard.shared.CommonUtils;
-import zeroth.framework.standard.shared.ValueObject;
 /**
  * 基本リポジトリ
  * @param <E> エンティティ型
  * @param <ID> 識別子オブジェクト型
- * @param <F> フィルタ型
+ * @param <F> フィルタ型 TODO extends ValueObject<?>
  * @param <P> データ永続化サービス型
  * @author nilcy
  */
-public abstract class AbstractSimpleRepositoryImpl<E extends Persistable<ID>, ID extends Serializable, F extends ValueObject<?>, P extends SimplePersistenceService<E, ID>>
+public abstract class AbstractSimpleRepositoryImpl<E extends Persistable<ID>, ID extends Serializable, F extends Serializable, P extends SimplePersistenceService<E, ID>>
     implements SimpleRepository<E, ID, F> {
     /** 識別番号 */
     private static final long serialVersionUID = -5578612922301298194L;

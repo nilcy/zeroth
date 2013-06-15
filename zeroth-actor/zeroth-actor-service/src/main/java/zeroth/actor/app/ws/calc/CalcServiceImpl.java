@@ -20,7 +20,7 @@ public class CalcServiceImpl implements CalcService {
     /** Logger. */
     @Inject
     private Logger log;
-    /** Constructor. */
+    /** コンストラクタ */
     public CalcServiceImpl() {
         super();
     }

@@ -9,8 +9,8 @@ import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 import zeroth.actor.app.AbstractCrudService;
 import zeroth.actor.common.TraceLog;
+import zeroth.actor.domain.LevelRepository;
 import zeroth.actor.domain.Repository;
-import zeroth.actor.domain.actor.LevelRepository;
 import zeroth.actor.entity.actor.Level;
 /**
  * Level service implementation.
@@ -20,12 +20,12 @@ import zeroth.actor.entity.actor.Level;
 @Default
 @TraceLog
 public class LevelServiceImpl extends AbstractCrudService<Level> implements LevelServiceLocal {
-    /** S/N. */
+    /** 製品番号 */
     private static final long serialVersionUID = -3833130543168027472L;
     /** level repository I/F. */
     @Inject
     private LevelRepository repository;
-    /** Constructor. */
+    /** コンストラクタ */
     public LevelServiceImpl() {
         super();
     }

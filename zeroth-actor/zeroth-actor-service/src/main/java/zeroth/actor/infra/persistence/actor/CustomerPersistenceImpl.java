@@ -13,9 +13,9 @@ import zeroth.actor.entity.actor.Customer;
 @Default
 public class CustomerPersistenceImpl extends AbstractCompanyPersistence<Customer> implements
     CustomerPersistence {
-    /** S/N. */
+    /** 製品番号 */
     private static final long serialVersionUID = 2720549212163035028L;
-    /** Constructor. */
+    /** コンストラクタ */
     public CustomerPersistenceImpl() {
         super();
     }

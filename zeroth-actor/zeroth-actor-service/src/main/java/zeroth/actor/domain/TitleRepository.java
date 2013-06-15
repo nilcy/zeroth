@@ -3,8 +3,12 @@
 // GNU AFFERO GENERAL PUBLIC LICENSE Version 3, 19 November 2007
 // http://www.gnu.org/licenses/agpl-3.0.txt
 // ========================================================================
+package zeroth.actor.domain;
+import zeroth.actor.domain.CrudRepository;
+import zeroth.actor.entity.actor.Title;
 /**
- * Miscellaneous domain module.
+ * Title repository I/F.
  * @author nilcy
  */
-package zeroth.actor.domain.misc;
+public interface TitleRepository extends CrudRepository<Title> {
+}

@@ -20,12 +20,12 @@ import zeroth.actor.entity.misc.News;
 @Default
 @TraceLog
 public class NewsServiceImpl extends AbstractCrudService<News> implements NewsServiceLocal {
-    /** S/N. */
+    /** 製品番号 */
     private static final long serialVersionUID = 7126614585601195838L;
     /** news repository I/F. */
     @Inject
     private NewsRepository repository;
-    /** Constructor. */
+    /** コンストラクタ */
     public NewsServiceImpl() {
         super();
     }

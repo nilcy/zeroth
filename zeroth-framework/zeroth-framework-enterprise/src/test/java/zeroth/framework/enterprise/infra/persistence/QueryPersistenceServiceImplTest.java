@@ -18,7 +18,7 @@ import org.junit.runner.RunWith;
 import com.googlecode.jeeunit.JeeunitRunner;
 import com.googlecode.jeeunit.Transactional;
 import zeroth.framework.enterprise.domain.TestExample;
-import zeroth.framework.enterprise.domain.persistence.TestExamplePersistenceService;
+import zeroth.framework.enterprise.domain.PersistenceServiceAnnotation.TestExamplePersistenceService;
 /**
  * {@link QueryPersistenceServiceImpl} のユニットテスト
  * @author nilcy

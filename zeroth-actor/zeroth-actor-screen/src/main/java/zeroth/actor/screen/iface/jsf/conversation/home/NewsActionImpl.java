@@ -22,7 +22,7 @@ import zeroth.framework.screen.iface.jsf.AbstractActionImpl;
 @ConversationScoped
 @Default
 public class NewsActionImpl extends AbstractActionImpl<News, Long, News> implements NewsAction {
-    /** S/N. */
+    /** 製品番号 */
     private static final long serialVersionUID = 7243039551620767571L;
     /** news service Local-I/F. */
     @EJB

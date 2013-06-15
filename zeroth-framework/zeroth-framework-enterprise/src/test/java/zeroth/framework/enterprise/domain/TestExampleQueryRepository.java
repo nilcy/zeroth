@@ -8,7 +8,7 @@ import static zeroth.framework.enterprise.domain.TestExample_.*;
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 import javax.persistence.criteria.Predicate;
-import zeroth.framework.enterprise.domain.persistence.TestExamplePersistenceService;
+import zeroth.framework.enterprise.domain.PersistenceServiceAnnotation.TestExamplePersistenceService;
 import zeroth.framework.enterprise.infra.persistence.QueryPersistenceService;
 /**
  * テストオブジェクト基本リポジトリ

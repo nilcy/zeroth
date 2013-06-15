@@ -20,12 +20,12 @@ import zeroth.actor.entity.actor.Member;
 @Default
 @TraceLog
 public class MemberServiceImpl extends AbstractCrudService<Member> implements MemberServiceLocal {
-    /** S/N. */
+    /** 製品番号 */
     private static final long serialVersionUID = 2537651945740718957L;
     /** member repository I/F. */
     @Inject
     private MemberRepository repository;
-    /** Constructor. */
+    /** コンストラクタ */
     public MemberServiceImpl() {
         super();
     }

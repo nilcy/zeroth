@@ -20,7 +20,7 @@ import zeroth.framework.screen.iface.jsf.AbstractActionImpl;
 @Named(value = "customerAction")
 @ConversationScoped
 public class CustomerAction extends AbstractActionImpl<Customer, Long, Customer> {
-    /** S/N. */
+    /** 製品番号 */
     private static final long serialVersionUID = 873776474936603723L;
     /** customer service Local-I/F. */
     @EJB

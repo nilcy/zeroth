@@ -21,9 +21,9 @@ import zeroth.actor.infra.persistence.ConstraintsException;
  */
 @Default
 public class LevelPersistenceImpl extends AbstractPersistenceJta<Level> implements LevelPersistence {
-    /** S/N. */
+    /** 製品番号 */
     private static final long serialVersionUID = -6479710336837000717L;
-    /** Constructor. */
+    /** コンストラクタ */
     public LevelPersistenceImpl() {
         super();
     }

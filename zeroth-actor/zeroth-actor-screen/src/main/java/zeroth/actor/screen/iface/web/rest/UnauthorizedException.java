@@ -13,7 +13,7 @@ import javax.ws.rs.core.Response.Status;
  * @author nilcy
  */
 public class UnauthorizedException extends WebApplicationException {
-    /** S/N. */
+    /** 製品番号 */
     private static final long serialVersionUID = -6796772574451059099L;
     /** コンストラクタ */
     public UnauthorizedException() {

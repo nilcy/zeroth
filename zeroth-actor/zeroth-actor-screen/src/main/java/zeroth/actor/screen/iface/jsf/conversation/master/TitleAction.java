@@ -18,7 +18,7 @@ import zeroth.framework.screen.iface.jsf.AbstractActionImpl;
 @Named(value = "titleAction")
 @ConversationScoped
 public class TitleAction extends AbstractActionImpl<Title, Long, Title> {
-    /** S/N. */
+    /** 製品番号 */
     private static final long serialVersionUID = -1742312463790367432L;
     /** industry classification service Local-I/F. */
     @EJB

@@ -21,12 +21,12 @@ import zeroth.actor.entity.misc.ListedSection;
 @TraceLog
 public class ListedSectionServiceImpl extends AbstractCrudService<ListedSection> implements
     ListedSectionServiceLocal {
-    /** S/N. */
+    /** 製品番号 */
     private static final long serialVersionUID = 2537651945740718957L;
     /** organization repository I/F. */
     @Inject
     private ListedSectionRepository repository;
-    /** Constructor. */
+    /** コンストラクタ */
     public ListedSectionServiceImpl() {
         super();
     }

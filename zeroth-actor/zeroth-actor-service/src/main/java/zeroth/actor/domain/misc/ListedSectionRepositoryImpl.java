@@ -19,12 +19,12 @@ import zeroth.actor.infra.persistence.misc.ListedSectionPersistence;
 @TraceLog
 public class ListedSectionRepositoryImpl extends AbstractCrudRepository<ListedSection> implements
     ListedSectionRepository {
-    /** S/N. */
+    /** 製品番号 */
     private static final long serialVersionUID = 2537651945740718957L;
     /** organization persistence I/F. */
     @Inject
     private ListedSectionPersistence helper;
-    /** Constructor. */
+    /** コンストラクタ */
     public ListedSectionRepositoryImpl() {
         super();
     }

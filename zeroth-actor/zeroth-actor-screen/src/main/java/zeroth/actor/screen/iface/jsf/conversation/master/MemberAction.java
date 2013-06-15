@@ -21,7 +21,7 @@ import zeroth.framework.standard.shared.CodecUtils;
 @Named(value = "memberAction")
 @ConversationScoped
 public class MemberAction extends AbstractActionImpl<Member, Long, Member> {
-    /** S/N. */
+    /** 製品番号 */
     private static final long serialVersionUID = 3945061120130283444L;
     /** member service Local-I/F. */
     @EJB

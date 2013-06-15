@@ -4,35 +4,40 @@
 // http://www.gnu.org/licenses/agpl-3.0.txt
 // ========================================================================
 package zeroth.actor.domain.misc;
+import static zeroth.actor.domain.misc.Notice_.*;
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
-import zeroth.actor.common.TraceLog;
-import zeroth.actor.domain.AbstractCrudRepository;
-import zeroth.actor.entity.misc.News;
-import zeroth.actor.infra.persistence.PersistenceSupport;
-import zeroth.actor.infra.persistence.misc.NewsPersistence;
+import javax.persistence.criteria.Predicate;
+import zeroth.actor.domain.misc.PersistenceServiceAnnotation.NewsPersistenceService;
+import zeroth.framework.enterprise.domain.AbstractQueryRepositoryImpl;
+import zeroth.framework.enterprise.infra.persistence.QueryPersistenceService;
 /**
  * News repository implementation.
  * @author nilcy
  */
 @Default
-@TraceLog
-public class NewsRepositoryImpl extends AbstractCrudRepository<News> implements NewsRepository {
-    /** S/N. */
+public class NewsRepositoryImpl extends AbstractQueryRepositoryImpl<News, Long, News> implements
+    NewsRepository {
+    /** 製品番号 */
     private static final long serialVersionUID = 8151517797978098457L;
-    /** news persistence I/F. */
+    /** 先進データ永続化サービス */
     @Inject
-    private NewsPersistence helper;
-    /** Constructor. */
-    public NewsRepositoryImpl() {
-        super();
+    @NewsPersistenceService
+    private QueryPersistenceService<News, Long> service;
+    /** {@inheritDoc} */
+    @Override
+    protected QueryPersistenceService<News, Long> getPersistenceService() {
+        return service;
     }
     /**
-     * {@inheritDoc} Get {@link #helper}.
-     * @return {@inheritDoc}
+     * {@inheritDoc}
+     * <p>
+     * 検索条件は、表題とする。
+     * </p>
      */
     @Override
-    public PersistenceSupport<News> getPersistenceSupport() {
-        return this.helper;
+    protected Predicate expression(final News filter) {
+        return getPersistenceService().builder().equal(getPersistenceService().root().get(title),
+            filter.getTitle());
     }
 }

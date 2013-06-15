@@ -17,7 +17,7 @@ import javax.ws.rs.core.Response.Status;
  * @author nilcy
  */
 public class BadRequestException extends WebApplicationException {
-    /** S/N. */
+    /** 製品番号 */
     private static final long serialVersionUID = -3044929615860691176L;
     /** Errors. */
     private final List<String> errors;

@@ -16,9 +16,9 @@ import zeroth.actor.infra.persistence.AbstractPersistenceJta;
  */
 public abstract class AbstractNoticePersistence<T extends Notice<T>> extends
     AbstractPersistenceJta<T> implements NoticePersistence<T> {
-    /** S/N. */
+    /** 製品番号 */
     private static final long serialVersionUID = -932535992210987810L;
-    /** Constructor. */
+    /** コンストラクタ */
     public AbstractNoticePersistence() {
         super();
     }

@@ -13,9 +13,9 @@ import zeroth.actor.entity.actor.Supplier;
 @Default
 public class SupplierPersistenceImpl extends AbstractCompanyPersistence<Supplier> implements
     SupplierPersistence {
-    /** S/N. */
+    /** 製品番号 */
     private static final long serialVersionUID = 278048625105529796L;
-    /** Constructor. */
+    /** コンストラクタ */
     public SupplierPersistenceImpl() {
         super();
     }

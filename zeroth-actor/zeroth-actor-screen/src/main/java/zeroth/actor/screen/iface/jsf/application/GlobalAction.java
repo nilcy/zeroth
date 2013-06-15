@@ -41,7 +41,7 @@ import zeroth.framework.screen.iface.jsf.FacesProfile;
 @Singleton
 // @Startup
 public class GlobalAction implements Serializable {
-    /** S/N. */
+    /** 製品番号 */
     private static final long serialVersionUID = 7243039551620767571L;
     /** industry classification service Local-I/F. */
     @EJB

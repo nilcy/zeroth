@@ -29,7 +29,7 @@ import zeroth.framework.screen.iface.jsf.FacesHelper;
 // CREATOR, EDITOR,
 // AUDITOR, READER }))
 public class VisitorAction implements Serializable {
-    /** S/N. */
+    /** 製品番号 */
     private static final long serialVersionUID = -6272066593466089850L;
     /** member. */
     private Member member;

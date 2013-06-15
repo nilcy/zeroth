@@ -28,7 +28,7 @@ import zeroth.actor.domain.parts.HomeAddressFactory;
 @Singleton
 // @Startup
 public class HomeAddressAction implements Serializable {
-    /** S/N. */
+    /** 製品番号 */
     private static final long serialVersionUID = -4847634579319468521L;
     /** LEN_CODE. */
     private static final int LEN_CODE = 7;

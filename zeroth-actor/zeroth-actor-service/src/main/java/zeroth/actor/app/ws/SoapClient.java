@@ -18,7 +18,7 @@ import zeroth.actor.app.ws.gateway.GatewayModel;
 public final class SoapClient {
     /** Logger. */
     private static final Logger LOG = LoggerFactory.getLogger(SoapClient.class);
-    /** Constructor. */
+    /** コンストラクタ */
     private SoapClient() {
         super();
     }
