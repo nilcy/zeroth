@@ -16,8 +16,8 @@ import javax.ejb.Singleton;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Named;
 import org.apache.commons.lang3.Validate;
-import zeroth.actor.domain.parts.OfficeAddress;
-import zeroth.actor.domain.parts.OfficeAddressFactory;
+import zeroth.actor.service.domain.parts.OfficeAddress;
+import zeroth.actor.service.domain.parts.OfficeAddressFactory;
 /**
  * Office address action.
  * @author nilcy

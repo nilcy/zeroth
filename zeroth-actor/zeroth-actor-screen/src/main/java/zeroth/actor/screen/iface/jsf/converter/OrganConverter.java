@@ -5,7 +5,7 @@
 // ========================================================================
 package zeroth.actor.screen.iface.jsf.converter;
 import javax.faces.convert.FacesConverter;
-import zeroth.actor.domain.Organ;
+import zeroth.actor.service.domain.Organ;
 /**
  * Organ converter.
  * @author nilcy

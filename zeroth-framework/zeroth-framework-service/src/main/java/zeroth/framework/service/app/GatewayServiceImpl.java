@@ -7,11 +7,8 @@ package zeroth.framework.service.app;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.logging.Logger;
-import javax.ejb.Stateless;
 import javax.inject.Inject;
-import javax.jws.WebMethod;
 import javax.jws.WebParam;
-import javax.jws.WebService;
 import javax.ws.rs.core.Response.Status;
 import zeroth.framework.standard.app.GatewayHeader;
 import zeroth.framework.standard.app.GatewayModel;
@@ -20,8 +17,10 @@ import zeroth.framework.standard.app.GatewayUtil;
  * ゲートウェイサービス
  * @author nilcy
  */
-@Stateless
-@WebService(portName = "GatewayPort", serviceName = "GatewayService", name = "Gateway", targetNamespace = "http://kuzumeji.com/ws/gateway", endpointInterface = "com.kuzumeji.ws.gateway.GatewayService")
+// @Stateless
+// @WebService(portName = "GatewayPort", serviceName = "GatewayService", name = "Gateway",
+// targetNamespace = "http://kuzumeji.com/ws/gateway", endpointInterface =
+// "com.kuzumeji.ws.gateway.GatewayService")
 public class GatewayServiceImpl implements GatewayService {
     /** ロガー */
     @Inject
@@ -32,7 +31,7 @@ public class GatewayServiceImpl implements GatewayService {
     }
     /** {@inheritDoc} */
     @Override
-    @WebMethod
+    // @WebMethod
     public GatewayModel submit(@WebParam(name = "request") final GatewayModel request) {
         try {
             final GatewayHeader header = request.getHeader();

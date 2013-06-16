@@ -8,9 +8,9 @@ import javax.ejb.EJB;
 import javax.enterprise.context.ConversationScoped;
 import javax.inject.Named;
 import org.apache.commons.lang3.StringUtils;
-import zeroth.actor.app.actor.CustomerApplication;
-import zeroth.actor.domain.Customer;
-import zeroth.actor.domain.CustomerFactory;
+import zeroth.actor.service.app.actor.CustomerApplication;
+import zeroth.actor.service.domain.Customer;
+import zeroth.actor.service.domain.CustomerFactory;
 import zeroth.framework.enterprise.app.SimpleRepositoryApplication;
 import zeroth.framework.screen.iface.jsf.AbstractActionImpl;
 /**

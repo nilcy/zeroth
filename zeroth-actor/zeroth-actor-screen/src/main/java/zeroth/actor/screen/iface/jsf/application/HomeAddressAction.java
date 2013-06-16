@@ -16,9 +16,9 @@ import javax.ejb.Singleton;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Named;
 import org.apache.commons.lang3.Validate;
-import zeroth.actor.domain.parts.Address;
-import zeroth.actor.domain.parts.HomeAddress;
-import zeroth.actor.domain.parts.HomeAddressFactory;
+import zeroth.actor.service.domain.parts.Address;
+import zeroth.actor.service.domain.parts.HomeAddress;
+import zeroth.actor.service.domain.parts.HomeAddressFactory;
 /**
  * Home address action.
  * @author nilcy

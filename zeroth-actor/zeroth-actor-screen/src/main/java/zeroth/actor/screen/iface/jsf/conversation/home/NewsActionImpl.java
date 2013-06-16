@@ -9,9 +9,9 @@ import javax.ejb.EJB;
 import javax.enterprise.context.ConversationScoped;
 import javax.enterprise.inject.Default;
 import javax.inject.Named;
-import zeroth.actor.app.misc.NewsApplication;
-import zeroth.actor.domain.misc.News;
-import zeroth.actor.domain.misc.NewsFactory;
+import zeroth.actor.service.app.misc.NewsApplication;
+import zeroth.actor.service.domain.misc.News;
+import zeroth.actor.service.domain.misc.NewsFactory;
 import zeroth.framework.enterprise.app.SimpleRepositoryApplication;
 import zeroth.framework.screen.iface.jsf.AbstractActionImpl;
 /**

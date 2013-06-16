@@ -15,9 +15,9 @@ import javax.enterprise.context.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
-import zeroth.actor.app.actor.MemberApplication;
-import zeroth.actor.domain.Member;
-import zeroth.actor.domain.MemberFactory;
+import zeroth.actor.service.app.actor.MemberApplication;
+import zeroth.actor.service.domain.Member;
+import zeroth.actor.service.domain.MemberFactory;
 import zeroth.framework.screen.iface.jsf.FacesHelper;
 /**
  * Visitor controller.

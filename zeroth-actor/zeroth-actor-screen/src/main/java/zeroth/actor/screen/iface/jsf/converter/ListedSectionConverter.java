@@ -5,7 +5,7 @@
 // ========================================================================
 package zeroth.actor.screen.iface.jsf.converter;
 import javax.faces.convert.FacesConverter;
-import zeroth.actor.domain.misc.ListedSection;
+import zeroth.actor.service.domain.misc.ListedSection;
 /**
  * Listed section converter.
  * @author nilcy

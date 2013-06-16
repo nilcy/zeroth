@@ -10,9 +10,9 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import org.apache.commons.lang3.Validate;
-import zeroth.actor.domain.parts.Address;
-import zeroth.actor.domain.parts.HomeAddress;
-import zeroth.actor.domain.parts.OfficeAddress;
+import zeroth.actor.service.domain.parts.Address;
+import zeroth.actor.service.domain.parts.HomeAddress;
+import zeroth.actor.service.domain.parts.OfficeAddress;
 /**
  * Address action.
  * @author nilcy

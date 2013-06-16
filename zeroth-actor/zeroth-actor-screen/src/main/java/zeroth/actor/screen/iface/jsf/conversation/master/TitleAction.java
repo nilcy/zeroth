@@ -7,8 +7,8 @@ package zeroth.actor.screen.iface.jsf.conversation.master;
 import javax.ejb.EJB;
 import javax.enterprise.context.ConversationScoped;
 import javax.inject.Named;
-import zeroth.actor.app.actor.TitleApplication;
-import zeroth.actor.domain.Title;
+import zeroth.actor.service.app.actor.TitleApplication;
+import zeroth.actor.service.domain.Title;
 import zeroth.framework.enterprise.app.SimpleRepositoryApplication;
 import zeroth.framework.screen.iface.jsf.AbstractActionImpl;
 /**
