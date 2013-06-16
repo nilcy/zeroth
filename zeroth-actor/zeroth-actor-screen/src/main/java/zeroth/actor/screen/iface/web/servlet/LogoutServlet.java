@@ -32,9 +32,9 @@ public class LogoutServlet extends HttpServlet {
             }
             aResponse.sendRedirect(aRequest.getContextPath() + "/index.xhtml");
         } catch (final ServletException e) {
-            ロガーgetGlobal().severe(e.getMessage());
+            Logger.getGlobal().severe(e.getMessage());
         } catch (final IOException e) {
-            ロガーgetGlobal().severe(e.getMessage());
+            Logger.getGlobal().severe(e.getMessage());
         }
     }
 }

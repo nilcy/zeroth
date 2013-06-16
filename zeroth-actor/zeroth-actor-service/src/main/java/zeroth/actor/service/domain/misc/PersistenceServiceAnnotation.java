@@ -26,12 +26,12 @@ public @interface PersistenceServiceAnnotation {
     @Retention(RetentionPolicy.RUNTIME)
     public @interface ListedSectionPersistenceService {
     }
-    /** 告知のデータ永続化サービス */
-    @Qualifier
-    @Target({ ElementType.TYPE, ElementType.METHOD, ElementType.PARAMETER, ElementType.FIELD })
-    @Retention(RetentionPolicy.RUNTIME)
-    public @interface NoticePersistenceService {
-    }
+    // /** 告知のデータ永続化サービス */
+    // @Qualifier
+    // @Target({ ElementType.TYPE, ElementType.METHOD, ElementType.PARAMETER, ElementType.FIELD })
+    // @Retention(RetentionPolicy.RUNTIME)
+    // public @interface NoticePersistenceService {
+    // }
     /** お知らせのデータ永続化サービス */
     @Qualifier
     @Target({ ElementType.TYPE, ElementType.METHOD, ElementType.PARAMETER, ElementType.FIELD })

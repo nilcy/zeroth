@@ -4,22 +4,19 @@
 // http://www.gnu.org/licenses/agpl-3.0.txt
 // ========================================================================
 package zeroth.actor.service.app.ws.hello;
-import javax.ejb.Local;
-import javax.jws.WebMethod;
 import javax.jws.WebParam;
-import javax.jws.WebService;
 /**
  * Hello service I/F.
  * @author nilcy
  */
-@Local
-@WebService
+// @Local
+// @WebService
 public interface HelloService {
     /**
      * Say hello.
      * @param aName name
      * @return hello message
      */
-    @WebMethod
+    // @WebMethod
     Object sayHello(@WebParam(name = "name") String aName);
 }

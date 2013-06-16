@@ -4,22 +4,19 @@
 // http://www.gnu.org/licenses/agpl-3.0.txt
 // ========================================================================
 package zeroth.actor.service.app.ws.calc;
-import javax.ejb.Local;
-import javax.jws.WebMethod;
 import javax.jws.WebParam;
-import javax.jws.WebService;
 /**
  * Calculator service I/F.
  * @author nilcy
  */
-@Local
-@WebService
+// @Local
+// @WebService
 public interface CalcService {
     /**
      * add.
      * @param aRequest {@link CalcRequest}
      * @return {@link CalcResponse}
      */
-    @WebMethod
+    // @WebMethod
     CalcResponse add(@WebParam(name = "request") CalcRequest aRequest);
 }
