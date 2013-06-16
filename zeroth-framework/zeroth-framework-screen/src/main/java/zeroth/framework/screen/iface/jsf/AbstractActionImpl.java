@@ -162,8 +162,10 @@ public abstract class AbstractActionImpl<E extends Persistable<ID>, ID extends S
                 private int itemsCount;
                 @Override
                 public Collection<E> createCollection() {
-                    final Collection<E> results = getApplication().findMany(getRestriction());
-                    itemsCount = (int) getApplication().count(getRestriction());
+                    final Collection<E> results = AbstractActionImpl.this.getApplication()
+                        .findMany(AbstractActionImpl.this.getRestriction());
+                    itemsCount = (int) AbstractActionImpl.this.getApplication().count(
+                        AbstractActionImpl.this.getRestriction());
                     return results;
                 }
                 @Override
