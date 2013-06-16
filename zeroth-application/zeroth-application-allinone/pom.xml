@@ -55,6 +55,7 @@
             <webModule>
               <groupId>com.github.nilcy</groupId>
               <artifactId>zeroth-actor-screen</artifactId>
+              <contextRoot>/zeroth-actor</contextRoot>
             </webModule>
             <ejbModule>
               <groupId>com.github.nilcy</groupId>

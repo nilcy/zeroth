@@ -254,7 +254,7 @@
           <reuseForks>true</reuseForks>
           <argLine>-Xmx512m -XX:MaxPermSize=128m -XX:-UseSplitVerifier</argLine>
           <testFailureIgnore>false</testFailureIgnore>
-          <skip>false</skip>
+          <!-- <skip>false</skip> -->
           <systemProperties>
             <property>
               <name>net.sourceforge.cobertura.datafile</name>
