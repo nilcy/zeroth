@@ -22,7 +22,7 @@
                              styleClass="control-label" />
             </h:panelGroup>
             <h:panelGroup>
-              <h:inputText id="keyword" size="30" value="#{newsAction.restriction.keyword}"
+              <h:inputText id="keyword" size="30" value="#{newsAction.filter.keyword}"
                            styleClass="input-large"
                            title="#{bundle.Entity_keyword}: #{bundle.Notice_title},#{bundle.Notice_description},#{bundle.Notice_category}">
                 <f:ajax execute="@this" render="resultPanel" event="keyup" />

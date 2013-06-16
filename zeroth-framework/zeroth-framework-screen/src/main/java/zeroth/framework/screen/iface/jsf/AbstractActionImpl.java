@@ -29,18 +29,18 @@ public abstract class AbstractActionImpl<E extends Persistable<ID>, ID extends S
     implements Action<E, ID, F> {
     /** 製品番号 */
     private static final long serialVersionUID = -8034832957766744039L;
-    /** ページサイズ */
-    private static final int PAGE_SIZE = 10;
+    // /** ページサイズ */
+    // private static final int PAGE_SIZE = 10;
     /** 永続エラーのキー */
     private static final String KEY_PERSISTENCE_ERROR = "PersistenceErrorOccured";
     /** 選択オブジェクト */
     private E selected;
     /** 検索条件 */
-    private F restriction;
+    private F filter;
     /** エンティティ集合 */
     private Collection<E> items;
-    /** ページ条件 */
-    private Pagination<E> pagination;
+    // /** ページ条件 */
+    // private Pagination<E> pagination;
     /** 識別子 */
     private ID id;
     /** 現在ページ */
@@ -54,9 +54,9 @@ public abstract class AbstractActionImpl<E extends Persistable<ID>, ID extends S
     /** {@inheritDoc} */
     @Override
     public Collection<E> getItems() {
-        if (this.items == null) {
-            this.items = this.getPagination().createCollection();
-        }
+        // if (this.items == null) {
+        // this.items = getPagination().createCollection();
+        // }
         return this.items;
     }
     /** {@inheritDoc} */
@@ -71,7 +71,7 @@ public abstract class AbstractActionImpl<E extends Persistable<ID>, ID extends S
     @Override
     public void refresh() {
         this.items = null;
-        this.pagination = null;
+        // pagination = null;
         return;
     }
     /** {@inheritDoc} */
@@ -153,29 +153,29 @@ public abstract class AbstractActionImpl<E extends Persistable<ID>, ID extends S
         this.endConversation();
         return "cancelled";
     }
-    /** {@inheritDoc} */
-    @Override
-    public Pagination<E> getPagination() {
-        if (this.pagination == null) {
-            this.pagination = new AbstractPagination<E>(PAGE_SIZE, this.page) {
-                /** 項目の件数 */
-                private int itemsCount;
-                @Override
-                public Collection<E> createCollection() {
-                    final Collection<E> results = AbstractActionImpl.this.getApplication()
-                        .findMany(AbstractActionImpl.this.getRestriction());
-                    itemsCount = (int) AbstractActionImpl.this.getApplication().count(
-                        AbstractActionImpl.this.getRestriction());
-                    return results;
-                }
-                @Override
-                public int getItemsCount() {
-                    return itemsCount;
-                }
-            };
-        }
-        return this.pagination;
-    }
+    // /** {@inheritDoc} */
+    // @Override
+    // public Pagination<E> getPagination() {
+    // if (pagination == null) {
+    // pagination = new AbstractPagination<E>(PAGE_SIZE, this.page) {
+    // /** 項目の件数 */
+    // private int itemsCount;
+    // @Override
+    // public Collection<E> createCollection() {
+    // final Collection<E> results = AbstractActionImpl.this.getApplication()
+    // .findMany(AbstractActionImpl.this.getRestriction());
+    // itemsCount = (int) AbstractActionImpl.this.getApplication().count(
+    // AbstractActionImpl.this.getRestriction());
+    // return results;
+    // }
+    // @Override
+    // public int getItemsCount() {
+    // return itemsCount;
+    // }
+    // };
+    // }
+    // return pagination;
+    // }
     /** {@inheritDoc} */
     @Override
     public abstract SimpleRepositoryApplication<E, ID, F> getApplication();
@@ -224,11 +224,11 @@ public abstract class AbstractActionImpl<E extends Persistable<ID>, ID extends S
     // }
     /** {@inheritDoc} */
     @Override
-    public F getRestriction() {
-        if (this.restriction == null) {
-            this.restriction = this.createRestriction();
+    public F getFilter() {
+        if (this.filter == null) {
+            this.filter = this.createRestriction();
         }
-        return this.restriction;
+        return this.filter;
     }
     /**
      * 保存前の処理
