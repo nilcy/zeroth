@@ -14,7 +14,7 @@ import zeroth.actor.service.app.ws.hello.HelloService;
  * @author nilcy
  */
 @Stateless
-@WebService(portName = "HelloPort", serviceName = "HelloService", name = "Hello", targetNamespace = "http://kuzumeji.com/ws/hello", endpointInterface = "zeroth.actor.app.ws.hello.HelloService")
+@WebService(portName = "HelloPort", serviceName = "HelloService", name = "Hello", targetNamespace = "http://zeroth.com/ws/hello", endpointInterface = "zeroth.actor.app.ws.hello.HelloService")
 public class HelloServiceImpl implements HelloService {
     /** コンストラクタ */
     public HelloServiceImpl() {

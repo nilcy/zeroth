@@ -19,8 +19,8 @@ import zeroth.framework.standard.app.GatewayUtil;
  */
 // @Stateless
 // @WebService(portName = "GatewayPort", serviceName = "GatewayService", name = "Gateway",
-// targetNamespace = "http://kuzumeji.com/ws/gateway", endpointInterface =
-// "com.kuzumeji.ws.gateway.GatewayService")
+// targetNamespace = "http://zeroth.com/ws/gateway", endpointInterface =
+// "com.zeroth.ws.gateway.GatewayService")
 public class GatewayServiceImpl implements GatewayService {
     /** ロガー */
     @Inject

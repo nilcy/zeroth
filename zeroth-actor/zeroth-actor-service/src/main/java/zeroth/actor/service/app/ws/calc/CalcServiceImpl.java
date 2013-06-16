@@ -19,7 +19,7 @@ import zeroth.actor.service.app.ws.calc.CalcService;
  * @author nilcy
  */
 @Stateless
-@WebService(portName = "CalcPort", serviceName = "CalcService", name = "Calc", targetNamespace = "http://kuzumeji.com/ws/calc", endpointInterface = "zeroth.actor.app.ws.calc.CalcService")
+@WebService(portName = "CalcPort", serviceName = "CalcService", name = "Calc", targetNamespace = "http://zeroth.com/ws/calc", endpointInterface = "zeroth.actor.app.ws.calc.CalcService")
 public class CalcServiceImpl implements CalcService {
     /** ロガー */
     @Inject

@@ -41,7 +41,7 @@ public final class GatewayServiceClient {
         URL url;
         try {
             url = new URL("http://localhost:8080/ReferenceService/CalcService?wsdl");
-            final QName serviceName = new QName("http://kuzumeji.com/soap/", "ReferenceService");
+            final QName serviceName = new QName("http://zeroth.com/soap/", "ReferenceService");
             final Service service = Service.create(url, serviceName);
             log.fine(service.getWSDLDocumentLocation().toString());
             final GatewayService port = service.getPort(GatewayService.class);
