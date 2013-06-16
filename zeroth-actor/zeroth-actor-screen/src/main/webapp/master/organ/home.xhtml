@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+  xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" template="_default.xhtml">
+  <f:metadata>
+    <f:viewParam id="page" name="page" value="#{organAction.page}" label="page">
+      <f:validateLongRange minimum="0" />
+    </f:viewParam>
+  </f:metadata>
+  <ui:define name="header">
+    <h2>
+      <h:outputText value="#{bundle.Organ}" />
+      <small><h:outputText value="#{bundle.Title_list}" /></small>
+    </h2>
+  </ui:define>
+  <ui:define name="article">
+    <h:form>
+      <h:outputText escape="false" value="#{bundle.ListEmpty}" rendered="#{empty organAction.items}" />
+      <h:panelGroup rendered="#{not empty organAction.items}">
+        <h:dataTable value="#{organAction.items}" var="item" styleClass="table">
+          <f:facet name="caption">
+            <ui:include src="/WEB-INF/templates/navi-pagination.xhtml">
+              <ui:param name="entityAction" value="#{organAction}" />
+            </ui:include>
+          </f:facet>
+          <h:column>
+            <f:facet name="header">
+              <h:outputText value="#{bundle.Organ_parent}" />
+            </f:facet>
+            <h:outputText value="#{item.parent.name}" />
+          </h:column>
+          <h:column>
+            <f:facet name="header">
+              <h:outputText value="#{bundle.Organ_name}" />
+            </f:facet>
+            <h:outputText value="#{item.name}" />
+          </h:column>
+          <h:column>
+            <f:facet name="header">
+              <h:outputText value="#{bundle.Organ_level}" />
+            </f:facet>
+            <h:outputText value="#{item.level}" />
+          </h:column>
+          <h:column>
+            <f:facet name="header">
+              <h:outputText value="#{bundle.Organ_order}" />
+            </f:facet>
+            <h:outputText value="#{item.order}" />
+          </h:column>
+          <h:column>
+            <ui:include src="/WEB-INF/templates/navi-record.xhtml">
+              <ui:param name="outcome" value="organ" />
+            </ui:include>
+          </h:column>
+          <f:facet name="footer" />
+        </h:dataTable>
+      </h:panelGroup>
+      <ui:include src="/WEB-INF/templates/navi-home.xhtml">
+        <ui:param name="outcome" value="organ" />
+      </ui:include>
+    </h:form>
+  </ui:define>
+</ui:composition>

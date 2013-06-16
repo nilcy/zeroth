@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+  xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" template="default.xhtml">
+  <ui:define name="adminnav">
+    <ui:include src="/WEB-INF/templates/localnav-admin.xhtml">
+      <ui:param name="active" value="hotnews" />
+    </ui:include>
+  </ui:define>
+  <ui:define name="header">
+    <h2>
+      <h:outputText value="#{bundle.Navi_hotnews}" />
+    </h2>
+  </ui:define>
+  <ui:define name="article">
+  </ui:define>
+</ui:composition>

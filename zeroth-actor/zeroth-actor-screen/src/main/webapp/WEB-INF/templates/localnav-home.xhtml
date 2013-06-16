@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+  xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
+  <ul class="nav nav-list">
+    <li class="#{active=='news'?'active':''}"><h:link outcome="/home/news/index.xhtml">
+        <i class="icon-tasks #{active=='news'?'icon-white':''}"></i>
+        <h:outputText value="#{bundle.Navi_news}" />
+      </h:link></li>
+    <ui:fragment rendered="#{visitorAction.loggedIn}">
+      <li class="#{active=='visitor'?'active':''}"><h:link outcome="/home/news/index.xhtml">
+          <i class="icon-user"></i>
+          <h:outputText value="#{bundle.Navi_visitor}" />
+        </h:link></li>
+    </ui:fragment>
+  </ul>
+</ui:composition>

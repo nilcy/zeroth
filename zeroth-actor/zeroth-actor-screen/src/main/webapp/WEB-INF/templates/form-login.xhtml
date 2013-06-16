@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+  xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
+  <form action="j_security_check" method="POST" class="form-inline">
+    <input id="j_username" name="j_username" type="text" class="input-small" placeholder="#{bundle.Member_account}" />
+    <input id="j_password" name="j_password" type="password" class="input-small" placeholder="#{bundle.Member_password}" />
+    <button type="submit" class="btn btn-primary">
+      <h:outputText value="#{bundle.Action_login}" />
+    </button>
+  </form>
+</ui:composition>

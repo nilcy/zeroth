@@ -1,0 +1,19 @@
+h1. Japanese Zip-Code
+
+h2. Address 
+
+see http://www.post.japanpost.jp/zipcode/dl/kogaki.html
+download http://www.post.japanpost.jp/zipcode/dl/kogaki/lzh/ken_all.lzh
+
+$ awk '{FS=","};{OFS=","};{print $3,$7,$8,$9}' KEN_ALL.CSV | tail -n +2 | sort -u > /tmp/zip.csv
+
+> psql -U pit pit
+pit=# SET client_encoding TO 'SJIS';
+pit=# COPY zip (code,pref,city,town) FROM '/tmp/zip.csv' WITH CSV;
+
+h2. Company
+
+see http://www.post.japanpost.jp/zipcode/dl/jigyosyo/index.html
+download http://www.post.japanpost.jp/zipcode/dl/jigyosyo/lzh/jigyosyo.lzh
+
+

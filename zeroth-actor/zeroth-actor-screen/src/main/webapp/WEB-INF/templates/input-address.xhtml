@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+  xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
+  <h:panelGroup id="addressPanel">
+    <div class="control-group">
+      <ui:include src="/WEB-INF/templates/input-text.xhtml">
+        <ui:param name="label" value="#{bundle.Address_name}" />
+        <ui:param name="value" value="#{address.name}" />
+        <ui:param name="class" value="input-xlarge" />
+      </ui:include>
+    </div>
+    <div class="control-group input-append">
+      <ui:include src="/WEB-INF/templates/input-text.xhtml">
+        <ui:param name="label" value="#{bundle.Address_code}" />
+        <ui:param name="value" value="#{address.code}" />
+        <ui:param name="class" value="input-small" />
+      </ui:include>
+      <h:commandLink styleClass="btn btn-info" action="#{addressAction.load(address)}" style="margin-left:10px">
+        <i class="icon-white icon-search"></i>
+        <h:outputText value="#{bundle.Address_code}" />
+        <h:outputText value="#{bundle.Action_search}" />
+        <f:ajax execute="#{bundle.Address_code}" render="addressPanel" />
+      </h:commandLink>
+    </div>
+    <div class="control-group">
+      <ui:include src="/WEB-INF/templates/input-text.xhtml">
+        <ui:param name="label" value="#{bundle.Address_pref}" />
+        <ui:param name="value" value="#{address.pref}" />
+        <ui:param name="class" value="input-small" />
+      </ui:include>
+    </div>
+    <div class="control-group">
+      <ui:include src="/WEB-INF/templates/input-text.xhtml">
+        <ui:param name="label" value="#{bundle.Address_city}" />
+        <ui:param name="value" value="#{address.city}" />
+        <ui:param name="class" value="input-medium" />
+      </ui:include>
+    </div>
+    <div class="control-group">
+      <ui:include src="/WEB-INF/templates/input-text.xhtml">
+        <ui:param name="label" value="#{bundle.Address_town}" />
+        <ui:param name="value" value="#{address.town}" />
+        <ui:param name="class" value="input-large" />
+      </ui:include>
+    </div>
+    <div class="control-group">
+      <ui:include src="/WEB-INF/templates/input-text.xhtml">
+        <ui:param name="label" value="#{bundle.Address_street}" />
+        <ui:param name="value" value="#{address.street}" />
+        <ui:param name="class" value="input-xxlarge" />
+      </ui:include>
+    </div>
+  </h:panelGroup>
+</ui:composition>

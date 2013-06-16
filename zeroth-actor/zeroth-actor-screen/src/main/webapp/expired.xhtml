@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+  xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" template="default.xhtml">
+  <ui:define name="header">
+    <h2>
+      <h:outputText value="#{bundle.Navi_login}" />
+      <span class="label label-warning"> <h:outputText value="#{bundle.Caption_expired}" />
+      </span>
+    </h2>
+  </ui:define>
+  <ui:define name="article">
+    <ui:include src="/WEB-INF/templates/form-login.xhtml" />
+  </ui:define>
+</ui:composition>

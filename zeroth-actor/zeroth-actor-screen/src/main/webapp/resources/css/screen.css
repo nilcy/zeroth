@@ -1,0 +1,341 @@
+@CHARSET "UTF-8";
+
+/* $Id: screen.css 911 2011-04-21 04:32:24Z shimokawa@PRIMO.MAMEZOU.COM $ */
+* {
+	margin: 0; padding: 0; font-family: Tahoma, Courier, 'Meiryo UI', Verdana, sans-serif;
+}
+
+body {
+	background-color: #f6f6f6; font-size: 0.8em;
+}
+
+h1 {
+	font-size: 1.3em; font-weight: normal; margin: 1px 8px;
+}
+
+h2 {
+	font-size: 1.1em; font-weight: normal; margin: 1px 6px;
+}
+
+h3 {
+	font-size: 0.9em; font-weight: normal; margin: 1px 4px; line-height: 120%;
+}
+
+th {
+	font-weight: normal;
+}
+
+hr {
+	border-width: 1px 0px 0px 0px; border-style: dashed; border-color: #aaaaaa; height: 1px;
+}
+
+#container { /*  margin: 0px auto;
+  padding: 0px 0px;*/
+	border: thin solid #aaaaaa; background: #FFFFFF;
+}
+
+#content {
+	margin: 10px auto; padding: 0px 10px;
+	/*  border: thin solid #aaaaaa;
+  background: #FFFFFF;*/
+}
+
+#headbar { /*  border: thin solid #aaaaaa;;
+  background: #f2f2f2;
+  color: #000000;
+  padding: 0px 10px;*/
+	padding: 0px 4px;
+}
+
+#sidebar {
+	margin: 4px 0px; font-size: 0.9em;
+	/*  width: 20%;*/ float: right; border: thin solid /*#ececec*/   /*#d7ecfa*/   #aaaaaa;
+	background: #ffffff /*#edf4f8*/   /*#f9f9f9*/; text-align: center; text-decoration: none;
+}
+
+#sidebar td {
+	padding: 0px 3px;
+}
+
+#footer {
+	clear: both; text-align: center; color: #666666; font-size: 0.75em; padding-top: 30px;
+}
+
+code {
+	font-size: 1.0em;
+}
+
+span.invalid {
+	padding-left: 3px; color: red;
+}
+
+table.list {
+	width: 100%; border: thin solid #aaaaaa; border-collapse: collapse; border-spacing: 0;
+}
+
+table.list th {
+	padding: 5px; border: thin solid #f6f6f6; border-width: 0px 1px; background: #e8e8e8;
+	font-weight: normal; line-height: 120%;
+}
+
+table.list td {
+	padding: 2px; border: thin solid #e8e8e8; border-width: 0px 1px;
+}
+
+table.list a {
+	padding: 0px 4px;
+}
+
+.pagination {
+	font-size: 0.9em; text-align: right;
+}
+
+.caption {
+	font-size: 1.1em;
+}
+
+.header {
+	font-size: 0.9em;
+}
+
+.footer {
+	font-size: 0.8em;
+}
+
+tr.odd {
+	background-color: #ffffff;
+}
+
+tr.even {
+	background-color: #f6f6f6;
+}
+
+/* from zeroth-tomcat6 */
+.message {
+	padding: 1px; list-style: none; border: 0; background: none; color: #203B30;
+	margin: 2px 0px 2px 0px; font-size: 0.9em;
+}
+
+.message li {
+	background: no-repeat left center; padding-top: 1px; padding-left: 20px; margin-left: 3px;
+}
+
+.message li.infomsg {
+	background-image: url(#{request.contextPath}/resources/images/msginfo.png);
+}
+
+.message li.errormsg {
+	background-image: url(#{request.contextPath}/resources/images/msgerror.png);
+}
+
+.message li.warnmsg {
+	background-image: url(#{request.contextPath}/resources/images/msgwarn.png);
+}
+
+.name {
+	vertical-align: top; font-weight: normal; font-style: normal; /* oblique;*/ float: left;
+	padding: 0px; margin: 0px 4px; /*clear: left;*/
+}
+
+.value {
+	vertical-align: top; font-weight: normal; font-style: normal; float: left; padding: 0px;
+	margin: 0px 0px 0px 4px;
+}
+
+.button {
+	vertical-align: bottom; font-weight: normal; font-style: normal; float: left; padding: 0px;
+	margin: 0px 0px 0px 10px;
+}
+
+.error {
+	float: left; padding: 0px 2px 0px 2px; margin: 0px 0px 0px 0px;
+}
+
+.errors {
+	color: #F47528; vertical-align: middle;
+}
+
+img.errors {
+	padding-right: 5px;
+}
+
+.errors input,.errors textarea,.errors select {
+	border: 1px solid red !important;
+}
+
+.required {
+	color: #F47528; padding-left: 2px;
+}
+
+.tableControl select {
+	margin-left: 2px; position: relative; top: 1px;
+}
+
+.actionButtons {
+	padding-left: 1px;
+}
+
+.actionButtons select {
+	margin: 5px 5px 5px 0; vertical-align: bottom;
+}
+
+div.info {
+	font-size: 0.9em;
+}
+
+ul.bullets {
+	list-style: square;
+}
+
+ul.bullets li {
+	padding-bottom: 2px;
+}
+
+td.action {
+	text-align: center; width: 8em; white-space: nowrap;
+}
+
+td.action a {
+	padding-left: 1px; padding-right: 1px;
+}
+
+table.radio {
+	border: 0;
+}
+
+table.radio td {
+	padding: 0 0px;
+}
+
+table.radio input[type=radio] {
+	vertical-align: bottom;
+}
+
+/* table background-color */
+.odd-row {
+	background-color: #F9F8F4;
+}
+
+.even-row {
+	background-color: #F3F1E5;
+}
+
+.active-row {
+	background-color: #F2F7FF;
+}
+
+/* text-align */
+.left {
+	text-align: left;
+}
+
+.center {
+	text-align: center;
+}
+
+.right {
+	text-align: right;
+}
+
+/* control IME */
+.ime-active {
+	ime-mode: active;
+}
+
+.ime-inactive {
+	ime-mode: inactive;
+}
+
+.ime-disabled {
+	ime-mode: disabled;
+}
+
+/* edit  */
+.editNum {
+	text-align: right; ime-mode: disabled;
+}
+
+.editAlpha {
+	text-align: left; ime-mode: disabled;
+}
+
+.editAlphaIME {
+	text-align: left; ime-mode: inactive;
+}
+
+.editIME {
+	text-align: left; ime-mode: active;
+}
+
+div.checkmark {
+	background: url(#{request.contextPath}/resources/images/checkmark.png) top left no-repeat;
+	width: 14px; height: 15px; margin-left: auto; margin-right: auto;
+}
+
+div.cross {
+	background: url(#{request.contextPath}/resources/images/cross.png) top left no-repeat; width: 14px;
+	height: 15px; margin-left: auto; margin-right: auto;
+}
+
+.wii {
+	width: 90px; display: inline-block; color: #0067c0;
+	background: #fff url(#{request.contextPath}/resources/images/wii_90.png) center center no-repeat;
+	font-size: 0.9em; font-weight: bold; border: none; text-align: center; text-decoration: none;
+	padding: 7px 0px 8px 0px;
+}
+
+.wii:visited {
+	color: #0067c0; background-color: #fff;
+}
+
+.wii:hover {
+	color: #de424c; background-color: #3cc6f5; cursor: pointer;
+}
+
+.wii:active {
+	color: #de424c; background-color: #faa;
+}
+
+a:link {
+	color: #0067c0; text-decoration: none;
+}
+
+a:visited {
+	color: #0067c0; text-decoration: none;
+}
+
+a:active {
+	color: #de424c; text-decoration: underline; font-size: 100%;
+}
+
+a:hover {
+	color: #de424c; text-decoration: underline; font-size: 100%;
+}
+
+.search {
+	border: thin solid #aaaaaa;
+}
+
+.msgInfo {
+	font-size: 1.1em; color: #0033CC; /*green;*/
+}
+
+.msgWarn {
+	font-size: 1.1em; color: #CC6633; /*orange;*/
+}
+
+.msgError {
+	font-size: 1.1em; color: #FF0033; /*red;*/
+}
+
+.msgFatal {
+	font-size: 1.1em; color: #990099; /*purple;*/
+}
+
+.remarks {
+	font-size: 0.9em; padding-left: 100px;
+}
+
+.required {
+	color: #F47528; padding-left: 2px;
+}

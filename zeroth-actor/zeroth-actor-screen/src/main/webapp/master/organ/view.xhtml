@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+  xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" template="_default.xhtml">
+  <f:metadata>
+    <f:viewParam id="id" name="id" value="#{organAction.id}" label="#{bundle.Entity_id}">
+      <f:validateLongRange minimum="1" />
+    </f:viewParam>
+  </f:metadata>
+  <ui:define name="header">
+    <h2>
+      <h:outputText value="#{bundle.Organ}" />
+      <small><h:outputText value="#{bundle.Title_view}" /></small>
+    </h2>
+  </ui:define>
+  <ui:define name="article">
+    <h:form>
+      <h:panelGrid columns="2" styleClass="table">
+        <h:outputLabel for="parent" value="#{bundle.Organ_parent}" />
+        <h:outputText id="parent" value="#{organAction.selected.parent.name}" />
+        <h:outputLabel for="name" value="#{bundle.Organ_name}" />
+        <h:outputText id="name" value="#{organAction.selected.name}" />
+        <h:outputLabel for="level" value="#{bundle.Organ_level}" />
+        <h:outputText id="level" value="#{organAction.selected.level}" />
+        <h:outputLabel for="order" value="#{bundle.Organ_order}" />
+        <h:outputText id="order" value="#{organAction.selected.order}" />
+        <f:facet name="footer">
+          <ui:include src="/WEB-INF/templates/output-implicit.xhtml">
+            <ui:param name="entityAction" value="#{organAction}" />
+          </ui:include>
+        </f:facet>
+      </h:panelGrid>
+      <ui:include src="/WEB-INF/templates/navi-back.xhtml" />
+    </h:form>
+  </ui:define>
+</ui:composition>

@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+  xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
+  <h:outputLabel for="#{label}" value="#{label}" />
+  <h:outputFormat id="#{label}" value="{2} {3}{4}{5}{6}&lt;br/&gt;{0}:{1}" escape="false">
+    <f:param value="#{bundle.Address_name}" />
+    <f:param value="#{address.name}" />
+    <f:param value="#{address.code}" />
+    <f:param value="#{address.pref}" />
+    <f:param value="#{address.city}" />
+    <f:param value="#{address.town}" />
+    <f:param value="#{address.street}" />
+  </h:outputFormat>
+</ui:composition>

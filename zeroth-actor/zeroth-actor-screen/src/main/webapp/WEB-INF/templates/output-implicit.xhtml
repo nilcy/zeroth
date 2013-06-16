@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+  xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
+  <abbr title="To control concurrent access to objects optimistic locking">
+    <h:outputFormat value="{0} {1,number,##########}-{2}"
+		    styleClass="badge pull-right" rendered="#{entityAction.managed}">
+      <f:param value="#{bundle.Title_implicit}" />
+      <f:param value="#{entityAction.selected.id}" />
+      <f:param value="#{entityAction.selected.version}" />
+    </h:outputFormat>
+  </abbr>
+</ui:composition>

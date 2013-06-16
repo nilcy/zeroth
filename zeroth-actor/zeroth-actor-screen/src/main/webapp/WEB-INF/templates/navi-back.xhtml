@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+  xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
+  <div class="btn-group">
+    <h:link outcome="home" styleClass="btn btn-primary" rendered="#{entityAction == null}">
+      <i class="icon-white icon-list"></i>
+      <h:outputText value=" #{bundle.Action_list}" />
+    </h:link>
+    <h:commandLink styleClass="btn btn-primary" action="#{entityAction.cancel}" immediate="true"
+      rendered="#{entityAction != null}">
+      <i class="icon-white icon-list"></i>
+      <h:outputText value="#{bundle.Action_list}" />
+    </h:commandLink>
+  </div>
+</ui:composition>

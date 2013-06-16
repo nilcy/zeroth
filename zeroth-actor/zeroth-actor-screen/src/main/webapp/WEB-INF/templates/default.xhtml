@@ -1,0 +1,115 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+  xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+  <meta charset="utf-8" />
+  <title>#{bundle.Brand}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="description" content="#{bundle.Brand}" />
+  <meta name="author" content="shimokawa@mamezou.com" />
+  <ui:include src="/WEB-INF/templates/link-bootstrap-css.xhtml" />
+  <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script> <![endif]-->
+</h:head>
+<h:body>
+  <!-- Navbar
+         ================================================================-->
+  <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar" /> <span class="icon-bar" /> <span class="icon-bar" />
+        </button>
+        <a class="brand" href="#{bundle.Brand_uri}"> #{bundle.Brand} </a>
+        <div class="nav-collapse collapse">
+          <ui:insert name="globalnav">[insert globalnav template]</ui:insert>
+          <!-- <form class="navbar-search pull-left"> -->
+          <!--   <input type="text" class="search-query span2" placeholder="Search" /> -->
+          <!-- </form> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="span8">
+        <ui:insert name="breadcrumb">[insert breadcrumb template]</ui:insert>
+        <section id="content">
+          <ui:insert name="header">[insert header template]</ui:insert>
+          <h:panelGroup layout="block">
+            <h:panelGrid columns="1">
+              <h:messages id="globalMessages" layout="table" globalOnly="false" showSummary="false" showDetail="true" tooltip="false"
+                infoClass="alert alert-success" warnClass="alert alert-warning" errorClass="alert alert-important"
+                fatalClass="alert alert-important" style="font-size:120%;" />
+            </h:panelGrid>
+          </h:panelGroup>
+          <ui:insert name="article">[insert article template]</ui:insert>
+        </section>
+      </div>
+      <div class="span4">
+        <div class="well">
+          <ui:insert name="localnav">
+            <ui:include src="/WEB-INF/templates/localnav-home.xhtml" />
+          </ui:insert>
+        </div>
+        <div class="well">
+          <ui:insert name="adminnav">
+            <ui:include src="/WEB-INF/templates/localnav-admin.xhtml" />
+          </ui:insert>
+        </div>
+        <ui:fragment rendered="#{visitorAction.loggedIn}">
+          <table class="table table-condensed">
+            <tr>
+              <td><h:outputText value="#{bundle.Visitor}" /></td>
+              <td><h:outputFormat value="{0} {1}">
+                  <f:param value="#{visitorAction.member.familyName}" />
+                  <f:param value="#{visitorAction.member.givenName}" />
+                </h:outputFormat></td>
+            </tr>
+            <tr>
+              <td><h:outputText value="#{bundle.Member_organ}" /></td>
+              <td><h:outputFormat value="{0}">
+                  <f:param value="#{visitorAction.member.organ.name}" />
+                </h:outputFormat></td>
+            </tr>
+            <tr>
+              <td><h:outputText value="#{bundle.MemberAuth}" /></td>
+              <td><h:outputFormat value="{0} {1} {2} {3} {4} {5}">
+                  <f:param value="#{visitorAction.hasRole('SPONSOR')?bundle.SPONSOR:''}" />
+                  <f:param value="#{visitorAction.hasRole('DIRECTOR')?bundle.DIRECTOR:''}" />
+                  <f:param value="#{visitorAction.hasRole('CREATOR')?bundle.CREATOR:''}" />
+                  <f:param value="#{visitorAction.hasRole('EDITOR')?bundle.EDITOR:''}" />
+                  <f:param value="#{visitorAction.hasRole('AUDITOR')?bundle.AUDITOR:''}" />
+                  <f:param value="#{visitorAction.hasRole('READER')?bundle.READER:''}" />
+                </h:outputFormat></td>
+            </tr>
+            <tr>
+              <td><h:outputText value="#{bundle.LoggedInDate}" /></td>
+              <td><h:outputText value="#{visitorAction.loggedInDate}">
+                  <f:convertDateTime dateStyle="full" type="both" timeZone="Asia/Tokyo" />
+                </h:outputText></td>
+            </tr>
+            <ui:fragment rendered="#{not visitorAction.conversation.transient}">
+              <tr>
+                <td><h:outputText value="#{bundle.InConversation}" /></td>
+                <td><h:outputFormat value="ID={0} timeout={1}sec">
+                    <f:param value="#{visitorAction.conversation.id}" />
+                    <f:param value="#{visitorAction.conversation.timeout/1000}" />
+                  </h:outputFormat></td>
+              </tr>
+            </ui:fragment>
+          </table>
+        </ui:fragment>
+      </div>
+    </div>
+    <hr />
+    <footer>
+      <abbr class="pull-left" style="margin: 20px 0px 20px 0px;"> <h:outputText value="#{bundle.Copyright}" />
+      </abbr>
+    </footer>
+  </div>
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
+  <script src="#{request.contextPath}/assets/js/bootstrap.min.js"></script>
+</h:body>
+</html>

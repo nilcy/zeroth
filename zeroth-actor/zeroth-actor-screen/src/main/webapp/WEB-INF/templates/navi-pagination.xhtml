@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+  xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
+  <ul class="pager">
+    <li class="previous #{!entityAction.pagination.hasPrev ?'disabled':''}">
+      <h:link outcome="home" rendered="#{entityAction.pagination.hasPrev}">
+        <h:outputText value=" #{bundle.Prev}" />
+        <f:param name="page" value="#{entityAction.page - 1}" />
+      </h:link>
+      <h:outputLink value="#" rendered="#{!entityAction.pagination.hasPrev}">
+        <h:outputText value="#{bundle.Prev}" />
+      </h:outputLink>
+    </li>
+    <li class="label label-inverse">
+      <h:outputFormat value="{0} - {1} / {2}">
+	<f:param value="#{entityAction.pagination.firstIndex + 1}" />
+	<f:param value="#{entityAction.pagination.lastIndex + 1}" />
+	<f:param value="#{entityAction.pagination.itemsCount}" />
+      </h:outputFormat>
+    </li>
+    <li class="next #{!entityAction.pagination.hasNext ?'disabled':''}">
+      <h:link outcome="home" rendered="#{entityAction.pagination.hasNext}">
+        <h:outputText value=" #{bundle.Next}" />
+        <f:param name="page" value="#{entityAction.page + 1}" />
+      </h:link>
+      <h:outputLink value="#" rendered="#{!entityAction.pagination.hasNext}">
+        <h:outputText value="#{bundle.Next}" />
+      </h:outputLink>
+    </li>
+  </ul>
+</ui:composition>

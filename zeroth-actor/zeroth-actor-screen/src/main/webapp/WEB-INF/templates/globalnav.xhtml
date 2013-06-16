@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+  xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
+  <ul class="nav">
+    <li class="#{active=='home'?'active':''}"><h:link outcome="/home/news/index.xhtml">
+        <i class="icon-white icon-home" />
+        <h:outputText value="#{bundle.Navi_home}" />
+      </h:link></li>
+    <ui:fragment rendered="#{not visitorAction.loggedIn}">
+      <li class="divider-vertical"></li>
+      <li><h:outputLink value="#{request.contextPath}/login.xhtml">
+          <i class="icon-white icon-user" />
+          <h:outputText value="#{bundle.Navi_login}" />
+        </h:outputLink></li>
+    </ui:fragment>
+    <ui:fragment rendered="#{visitorAction.loggedIn}">
+      <li class="#{active=='manage'?'active':''}"><h:link outcome="/home/news/index.xhtml">
+          <h:outputText value="#{bundle.Navi_manage}" />
+        </h:link></li>
+      <li class="#{active=='sales'?'active':''}"><h:link outcome="/home/news/index.xhtml">
+          <h:outputText value="#{bundle.Navi_sales}" />
+        </h:link></li>
+      <li class="#{active=='contract'?'active':''}"><h:link outcome="/home/news/index.xhtml">
+          <h:outputText value="#{bundle.Navi_contract}" />
+        </h:link></li>
+      <li class="#{active=='supply'?'active':''}"><h:link outcome="/home/news/index.xhtml">
+          <h:outputText value="#{bundle.Navi_supply}" />
+        </h:link></li>
+      <li class="#{active=='cash'?'active':''}"><h:link outcome="/home/news/index.xhtml">
+          <h:outputText value="#{bundle.Navi_cash}" />
+        </h:link></li>
+      <li class="#{active=='account'?'active':''}"><h:link outcome="/home/news/index.xhtml">
+          <h:outputText value="#{bundle.Navi_account}" />
+        </h:link></li>
+      <li class="#{active=='master'?'active':''}"><h:link outcome="/master/index.xhtml">
+          <h:outputText value="#{bundle.Navi_master}" />
+        </h:link></li>
+      <li class="divider-vertical"></li>
+      <li><h:outputLink value="#{request.contextPath}/logout">
+          <i class="icon-white icon-user" />
+          <h:outputText value="#{bundle.Navi_logout}" />
+        </h:outputLink></li>
+    </ui:fragment>
+  </ul>
+</ui:composition>

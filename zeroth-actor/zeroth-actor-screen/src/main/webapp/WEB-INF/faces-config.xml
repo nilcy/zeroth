@@ -1,5 +1,245 @@
-<?xml version="1.0" encoding="utf-8"?>
-<faces-config xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_1.xsd"
-  version="2.1">
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config version="2.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="
+        http://java.sun.com/xml/ns/javaee
+        http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd">
+  <application>
+    <message-bundle>FacesMessages</message-bundle>
+    <locale-config>
+      <default-locale>ja</default-locale>
+      <supported-locale>ja</supported-locale>
+    </locale-config>
+    <resource-bundle>
+      <base-name>/bundle</base-name>
+      <var>bundle</var>
+    </resource-bundle>
+  </application>
+  <navigation-rule>
+    <from-view-id>/home/news/*</from-view-id>
+    <navigation-case>
+      <from-outcome>home</from-outcome>
+      <to-view-id>/home/news/home.xhtml</to-view-id>
+      <redirect />
+    </navigation-case>
+    <navigation-case>
+      <from-outcome>view</from-outcome>
+      <to-view-id>/home/news/view.xhtml</to-view-id>
+      <redirect />
+    </navigation-case>
+    <navigation-case>
+      <from-outcome>edit</from-outcome>
+      <to-view-id>/home/news/edit.xhtml</to-view-id>
+      <redirect />
+    </navigation-case>
+    <navigation-case>
+      <from-outcome>saved</from-outcome>
+      <to-view-id>/home/news/view.xhtml</to-view-id>
+      <redirect>
+        <view-param>
+          <name>id</name>
+          <value>#{flash.id}</value>
+        </view-param>
+      </redirect>
+    </navigation-case>
+    <navigation-case>
+      <from-outcome>deleted</from-outcome>
+      <to-view-id>/home/news/home.xhtml</to-view-id>
+      <redirect />
+    </navigation-case>
+    <navigation-case>
+      <from-outcome>cancelled</from-outcome>
+      <to-view-id>/home/news/home.xhtml</to-view-id>
+      <redirect />
+    </navigation-case>
+  </navigation-rule>
+  <navigation-rule>
+    <from-view-id>/master/customer/*</from-view-id>
+    <navigation-case>
+      <from-outcome>home</from-outcome>
+      <to-view-id>/master/customer/home.xhtml</to-view-id>
+      <redirect />
+    </navigation-case>
+    <navigation-case>
+      <from-outcome>view</from-outcome>
+      <to-view-id>/master/customer/view.xhtml</to-view-id>
+      <redirect />
+    </navigation-case>
+    <navigation-case>
+      <from-outcome>edit</from-outcome>
+      <to-view-id>/master/customer/edit.xhtml</to-view-id>
+      <redirect />
+    </navigation-case>
+    <navigation-case>
+      <from-outcome>saved</from-outcome>
+      <to-view-id>/master/customer/view.xhtml</to-view-id>
+      <redirect>
+        <view-param>
+          <name>id</name>
+          <value>#{flash.id}</value>
+        </view-param>
+      </redirect>
+    </navigation-case>
+    <navigation-case>
+      <from-outcome>deleted</from-outcome>
+      <to-view-id>/master/customer/home.xhtml</to-view-id>
+      <redirect />
+    </navigation-case>
+    <navigation-case>
+      <from-outcome>cancelled</from-outcome>
+      <to-view-id>/master/customer/home.xhtml</to-view-id>
+      <redirect />
+    </navigation-case>
+  </navigation-rule>
+  <navigation-rule>
+    <from-view-id>/master/supplier/*</from-view-id>
+    <navigation-case>
+      <from-outcome>home</from-outcome>
+      <to-view-id>/master/supplier/home.xhtml</to-view-id>
+      <redirect />
+    </navigation-case>
+    <navigation-case>
+      <from-outcome>view</from-outcome>
+      <to-view-id>/master/supplier/view.xhtml</to-view-id>
+      <redirect />
+    </navigation-case>
+    <navigation-case>
+      <from-outcome>edit</from-outcome>
+      <to-view-id>/master/supplier/edit.xhtml</to-view-id>
+      <redirect />
+    </navigation-case>
+    <navigation-case>
+      <from-outcome>saved</from-outcome>
+      <to-view-id>/master/supplier/view.xhtml</to-view-id>
+      <redirect>
+        <view-param>
+          <name>id</name>
+          <value>#{flash.id}</value>
+        </view-param>
+      </redirect>
+    </navigation-case>
+    <navigation-case>
+      <from-outcome>deleted</from-outcome>
+      <to-view-id>/master/supplier/home.xhtml</to-view-id>
+      <redirect />
+    </navigation-case>
+    <navigation-case>
+      <from-outcome>cancelled</from-outcome>
+      <to-view-id>/master/supplier/home.xhtml</to-view-id>
+      <redirect />
+    </navigation-case>
+  </navigation-rule>
+  <navigation-rule>
+    <from-view-id>/master/organ/*</from-view-id>
+    <navigation-case>
+      <from-outcome>home</from-outcome>
+      <to-view-id>/master/organ/home.xhtml</to-view-id>
+      <redirect />
+    </navigation-case>
+    <navigation-case>
+      <from-outcome>view</from-outcome>
+      <to-view-id>/master/organ/view.xhtml</to-view-id>
+      <redirect />
+    </navigation-case>
+    <navigation-case>
+      <from-outcome>edit</from-outcome>
+      <to-view-id>/master/organ/edit.xhtml</to-view-id>
+      <redirect />
+    </navigation-case>
+    <navigation-case>
+      <from-outcome>saved</from-outcome>
+      <to-view-id>/master/organ/view.xhtml</to-view-id>
+      <redirect>
+        <view-param>
+          <name>id</name>
+          <value>#{flash.id}</value>
+        </view-param>
+      </redirect>
+    </navigation-case>
+    <navigation-case>
+      <from-outcome>deleted</from-outcome>
+      <to-view-id>/master/organ/home.xhtml</to-view-id>
+      <redirect />
+    </navigation-case>
+    <navigation-case>
+      <from-outcome>cancelled</from-outcome>
+      <to-view-id>/master/organ/home.xhtml</to-view-id>
+      <redirect />
+    </navigation-case>
+  </navigation-rule>
+  <navigation-rule>
+    <from-view-id>/master/member/*</from-view-id>
+    <navigation-case>
+      <from-outcome>home</from-outcome>
+      <to-view-id>/master/member/home.xhtml</to-view-id>
+      <redirect />
+    </navigation-case>
+    <navigation-case>
+      <from-outcome>view</from-outcome>
+      <to-view-id>/master/member/view.xhtml</to-view-id>
+      <redirect />
+    </navigation-case>
+    <navigation-case>
+      <from-outcome>edit</from-outcome>
+      <to-view-id>/master/member/edit.xhtml</to-view-id>
+      <redirect />
+    </navigation-case>
+    <navigation-case>
+      <from-outcome>saved</from-outcome>
+      <to-view-id>/master/member/view.xhtml</to-view-id>
+      <redirect>
+        <view-param>
+          <name>id</name>
+          <value>#{flash.id}</value>
+        </view-param>
+      </redirect>
+    </navigation-case>
+    <navigation-case>
+      <from-outcome>deleted</from-outcome>
+      <to-view-id>/master/member/home.xhtml</to-view-id>
+      <redirect />
+    </navigation-case>
+    <navigation-case>
+      <from-outcome>cancelled</from-outcome>
+      <to-view-id>/master/member/home.xhtml</to-view-id>
+      <redirect />
+    </navigation-case>
+  </navigation-rule>
+  <navigation-rule>
+    <from-view-id>/master/partner/*</from-view-id>
+    <navigation-case>
+      <from-outcome>home</from-outcome>
+      <to-view-id>/master/partner/home.xhtml</to-view-id>
+      <redirect />
+    </navigation-case>
+    <navigation-case>
+      <from-outcome>view</from-outcome>
+      <to-view-id>/master/partner/view.xhtml</to-view-id>
+      <redirect />
+    </navigation-case>
+    <navigation-case>
+      <from-outcome>edit</from-outcome>
+      <to-view-id>/master/partner/edit.xhtml</to-view-id>
+      <redirect />
+    </navigation-case>
+    <navigation-case>
+      <from-outcome>saved</from-outcome>
+      <to-view-id>/master/partner/view.xhtml</to-view-id>
+      <redirect>
+        <view-param>
+          <name>id</name>
+          <value>#{flash.id}</value>
+        </view-param>
+      </redirect>
+    </navigation-case>
+    <navigation-case>
+      <from-outcome>deleted</from-outcome>
+      <to-view-id>/master/partner/home.xhtml</to-view-id>
+      <redirect />
+    </navigation-case>
+    <navigation-case>
+      <from-outcome>cancelled</from-outcome>
+      <to-view-id>/master/partner/home.xhtml</to-view-id>
+      <redirect />
+    </navigation-case>
+  </navigation-rule>
 </faces-config>

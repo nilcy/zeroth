@@ -1,0 +1,25 @@
+@CHARSET "UTF-8";
+
+.msgInfo {
+	font-size: 1.1em; color: #0033CC; /*green;*/
+}
+
+.msgWarn {
+	font-size: 1.1em; color: #CC6633; /*orange;*/
+}
+
+.msgError {
+	font-size: 1.1em; color: #FF0033; /*red;*/
+}
+
+.msgFatal {
+	font-size: 1.1em; color: #990099; /*purple;*/
+}
+
+.remarks {
+	font-size: 0.9em; padding-left: 100px;
+}
+
+.required {
+	color: #F47528; padding-left: 2px;
+}

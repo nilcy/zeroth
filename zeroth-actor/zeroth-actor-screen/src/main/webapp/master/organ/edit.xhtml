@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+  xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" template="_default.xhtml">
+  <f:metadata>
+    <f:viewParam id="id" name="id" value="#{organAction.id}" label="#{bundle.Entity_id}">
+      <f:validateLongRange minimum="1" />
+    </f:viewParam>
+    <f:event type="preRenderView" listener="#{organAction.beginConversation}" />
+  </f:metadata>
+  <ui:define name="header">
+    <h2>
+      <h:outputText value="#{bundle.Organ}" />
+      <small> <h:outputText value="#{!organAction.managed ? bundle.Title_create : bundle.Title_edit}" />
+      </small>
+    </h2>
+  </ui:define>
+  <ui:define name="article">
+    <h:form class="form-vertical">
+      <fieldset>
+        <div class="control-group">
+          <ui:include src="/WEB-INF/templates/input-select.xhtml">
+            <ui:param name="label" value="#{bundle.Organ_parent}" />
+            <ui:param name="value" value="#{organAction.selected.parent}" />
+            <ui:param name="selector" value="#{globalAction.organItems}" />
+            <ui:param name="converterId" value="organConverter" />
+          </ui:include>
+        </div>
+        <div class="control-group">
+          <ui:include src="/WEB-INF/templates/input-text.xhtml">
+            <ui:param name="label" value="#{bundle.Organ_name}" />
+            <ui:param name="value" value="#{organAction.selected.name}" />
+            <ui:param name="class" value="input-large" />
+            <ui:param name="required" value="true" />
+          </ui:include>
+        </div>
+        <div class="control-group">
+          <ui:include src="/WEB-INF/templates/input-text.xhtml">
+            <ui:param name="label" value="#{bundle.Organ_level}" />
+            <ui:param name="value" value="#{organAction.selected.level}" />
+            <ui:param name="class" value="input-mini" />
+          </ui:include>
+        </div>
+        <div class="control-group">
+          <ui:include src="/WEB-INF/templates/input-text.xhtml">
+            <ui:param name="label" value="#{bundle.Organ_order}" />
+            <ui:param name="value" value="#{organAction.selected.order}" />
+            <ui:param name="class" value="input-mini" />
+          </ui:include>
+        </div>
+      </fieldset>
+      <ui:include src="/WEB-INF/templates/output-implicit.xhtml">
+        <ui:param name="entityAction" value="#{organAction}" />
+      </ui:include>
+      <ui:include src="/WEB-INF/templates/navi-edit.xhtml">
+        <ui:param name="entityAction" value="#{organAction}" />
+      </ui:include>
+    </h:form>
+  </ui:define>
+</ui:composition>

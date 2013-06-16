@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+  xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
+  <f:facet name="header" />
+  <div class="btn-group pull-right">
+    <h:link outcome="view" styleClass="btn btn-small">
+      <i class="icon-search"></i>
+      <h:outputText value=" #{bundle.Action_view}" />
+      <f:param name="id" value="#{item.id}" />
+    </h:link>
+    <h:link outcome="edit" styleClass="btn btn-small">
+      <i class="icon-pencil"></i>
+      <h:outputText value=" #{bundle.Action_edit}" />
+      <f:param name="id" value="#{item.id}" />
+    </h:link>
+  </div>
+</ui:composition>

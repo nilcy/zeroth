@@ -42,8 +42,9 @@ public class VisitorAction implements Serializable {
     @Inject
     private Conversation conversation;
     /** ロガー */
-    @Inject
-    private Logger log;
+    // @Inject
+    // private Logger log;
+    private static Logger log = Logger.getGlobal();
     /** コンストラクタ */
     public VisitorAction() {
         super();
@@ -52,6 +53,7 @@ public class VisitorAction implements Serializable {
      * Determine if logged-in.
      * @return true if logged-in
      */
+    @SuppressWarnings("static-method")
     public boolean isLoggedIn() {
         log.info("getUserPrincipal = " + FacesHelper.getExternalContext().getUserPrincipal());
         return FacesHelper.getExternalContext().getUserPrincipal() != null;

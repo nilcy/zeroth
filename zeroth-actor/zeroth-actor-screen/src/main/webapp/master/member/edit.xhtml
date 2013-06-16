@@ -1,0 +1,156 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+  xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" template="_default.xhtml">
+  <f:metadata>
+    <f:viewParam id="id" name="id" value="#{memberAction.id}" label="#{bundle.Entity_id}">
+      <f:validateLongRange minimum="1" />
+    </f:viewParam>
+    <f:event type="preRenderView" listener="#{memberAction.beginConversation}" />
+  </f:metadata>
+  <ui:define name="header">
+    <h2>
+      <h:outputText value="#{bundle.Member}" />
+      <small> <h:outputText value="#{!memberAction.managed ? bundle.Title_create : bundle.Title_edit}" />
+      </small>
+    </h2>
+  </ui:define>
+  <ui:define name="article">
+    <h:form class="form-vertical">
+      <div class="tabbable">
+        <ul class="nav nav-tabs">
+          <li class="active"><a href="#basic" data-toggle="tab"> <h:outputText value="#{bundle.Legend_basic}" />
+          </a></li>
+          <li><a href="#misc" data-toggle="tab"> <h:outputText value="#{bundle.Legend_misc}" />
+          </a></li>
+          <li><a href="#address" data-toggle="tab"> <h:outputText value="#{bundle.Legend_address}" />
+          </a></li>
+          <li><a href="#contact" data-toggle="tab"> <h:outputText value="#{bundle.Legend_contact}" />
+          </a></li>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane active" id="basic">
+            <fieldset>
+              <div class="control-group">
+                <ui:include src="/WEB-INF/templates/input-text.xhtml">
+                  <ui:param name="label" value="#{bundle.Staff_familyName}" />
+                  <ui:param name="value" value="#{memberAction.selected.familyName}" />
+                  <ui:param name="class" value="input-medium" />
+                  <ui:param name="required" value="true" />
+                </ui:include>
+              </div>
+              <div class="control-group">
+                <ui:include src="/WEB-INF/templates/input-text.xhtml">
+                  <ui:param name="label" value="#{bundle.Staff_givenName}" />
+                  <ui:param name="value" value="#{memberAction.selected.givenName}" />
+                  <ui:param name="class" value="input-medium" />
+                  <ui:param name="required" value="true" />
+                </ui:include>
+              </div>
+              <div class="control-group">
+                <ui:include src="/WEB-INF/templates/input-text.xhtml">
+                  <ui:param name="label" value="#{bundle.Staff_familyAlias}" />
+                  <ui:param name="value" value="#{memberAction.selected.familyAlias}" />
+                  <ui:param name="class" value="input-medium" />
+                  <ui:param name="required" value="true" />
+                </ui:include>
+              </div>
+              <div class="control-group">
+                <ui:include src="/WEB-INF/templates/input-text.xhtml">
+                  <ui:param name="label" value="#{bundle.Staff_givenAlias}" />
+                  <ui:param name="value" value="#{memberAction.selected.givenAlias}" />
+                  <ui:param name="class" value="input-medium" />
+                  <ui:param name="required" value="true" />
+                </ui:include>
+              </div>
+            </fieldset>
+          </div>
+          <div class="tab-pane" id="misc">
+            <fieldset>
+              <div class="control-group">
+                <ui:include src="/WEB-INF/templates/input-select.xhtml">
+                  <ui:param name="label" value="#{bundle.Member_organ}" />
+                  <ui:param name="value" value="#{memberAction.selected.organ}" />
+                  <ui:param name="selector" value="#{globalAction.organItems}" />
+                  <ui:param name="converterId" value="organConverter" />
+                  <ui:param name="class" value="input-large" />
+                </ui:include>
+              </div>
+              <div class="control-group">
+                <ui:include src="/WEB-INF/templates/input-text.xhtml">
+                  <ui:param name="label" value="#{bundle.Member_account}" />
+                  <ui:param name="value" value="#{memberAction.selected.account}" />
+                  <ui:param name="class" value="input-small" />
+                </ui:include>
+              </div>
+              <div class="control-group">
+                <ui:include src="/WEB-INF/templates/input-text.xhtml">
+                  <ui:param name="label" value="#{bundle.Member_password}" />
+                  <ui:param name="value" value="#{memberAction.tempPassword}" />
+                  <ui:param name="class" value="input-large" />
+                  <ui:param name="helptext" value="#{bundle.Member_password_helptext}" />
+                </ui:include>
+              </div>
+              <div class="control-group">
+                <ui:include src="/WEB-INF/templates/input-enum.xhtml">
+                  <ui:param name="label" value="#{bundle.Member_gender}" />
+                  <ui:param name="value" value="#{memberAction.selected.gender}" />
+                  <ui:param name="selector" value="#{globalAction.genderItems}" />
+                  <ui:param name="class" value="input-small" />
+                </ui:include>
+              </div>
+              <div class="control-group">
+                <ui:include src="/WEB-INF/templates/input-date.xhtml">
+                  <ui:param name="label" value="#{bundle.Member_birthDate}" />
+                  <ui:param name="value" value="#{memberAction.selected.birthDate}" />
+                  <ui:param name="class" value="input-small" />
+                </ui:include>
+              </div>
+              <div class="control-group">
+                <ui:include src="/WEB-INF/templates/input-select.xhtml">
+                  <ui:param name="label" value="#{bundle.Member_title}" />
+                  <ui:param name="value" value="#{memberAction.selected.title}" />
+                  <ui:param name="selector" value="#{globalAction.titleItems}" />
+                  <ui:param name="converterId" value="titleConverter" />
+                  <ui:param name="class" value="input-small" />
+                </ui:include>
+              </div>
+              <div class="control-group">
+                <ui:include src="/WEB-INF/templates/input-select.xhtml">
+                  <ui:param name="label" value="#{bundle.Member_level}" />
+                  <ui:param name="value" value="#{memberAction.selected.level}" />
+                  <ui:param name="selector" value="#{globalAction.levelItems}" />
+                  <ui:param name="converterId" value="levelConverter" />
+                  <ui:param name="class" value="input-small" />
+                </ui:include>
+              </div>
+            </fieldset>
+          </div>
+          <div class="tab-pane" id="address">
+            <fieldset>
+              <div class="control-group">
+                <ui:include src="/WEB-INF/templates/input-address.xhtml">
+                  <ui:param name="address" value="#{memberAction.selected.address}" />
+                </ui:include>
+              </div>
+            </fieldset>
+          </div>
+          <div class="tab-pane" id="contact">
+            <fieldset>
+              <div class="control-group">
+                <ui:include src="/WEB-INF/templates/input-contact.xhtml">
+                  <ui:param name="contact" value="#{memberAction.selected.contact}" />
+                </ui:include>
+              </div>
+            </fieldset>
+          </div>
+        </div>
+      </div>
+      <ui:include src="/WEB-INF/templates/output-implicit.xhtml">
+        <ui:param name="entityAction" value="#{memberAction}" />
+      </ui:include>
+      <ui:include src="/WEB-INF/templates/navi-edit.xhtml">
+        <ui:param name="entityAction" value="#{memberAction}" />
+      </ui:include>
+    </h:form>
+  </ui:define>
+</ui:composition>

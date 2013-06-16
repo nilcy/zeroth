@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+  xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html"
+  template="/WEB-INF/templates/default.xhtml">
+  <ui:define name="globalnav">
+    <ui:include src="/WEB-INF/templates/globalnav.xhtml">
+      <ui:param name="active" value="master" />
+    </ui:include>
+  </ui:define>
+  <ui:define name="breadcrumb">
+    <ul class="breadcrumb">
+      <li><h:link outcome="/master/index.xhtml">
+          <h:outputText value="#{bundle.Navi_master}" />
+        </h:link> <span class="divider"><i class="icon-play" /></span></li>
+      <li><h:outputText value="#{bundle.Navi_supplier}" /></li>
+    </ul>
+  </ui:define>
+  <ui:define name="localnav">
+    <ui:include src="/WEB-INF/templates/localnav-master.xhtml">
+      <ui:param name="active" value="supplier" />
+    </ui:include>
+  </ui:define>
+</ui:composition>

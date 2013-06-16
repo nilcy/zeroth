@@ -1,0 +1,148 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+  xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" template="_default.xhtml">
+  <f:metadata>
+    <f:viewParam id="id" name="id" value="#{supplierAction.id}" label="#{bundle.Entity_id}">
+      <f:validateLongRange minimum="1" />
+    </f:viewParam>
+    <f:event type="preRenderView" listener="#{supplierAction.beginConversation}" />
+  </f:metadata>
+  <ui:define name="header">
+    <h2>
+      <h:outputText value="#{bundle.Supplier}" />
+      <small> <h:outputText value="#{!supplierAction.managed ? bundle.Title_create : bundle.Title_edit}" />
+      </small>
+    </h2>
+  </ui:define>
+  <ui:define name="article">
+    <h:form class="form-vertical">
+      <div class="tabbable">
+        <ul class="nav nav-tabs">
+          <li class="active"><a href="#basic" data-toggle="tab"> <h:outputText value="#{bundle.Legend_basic}" />
+          </a></li>
+          <li><a href="#misc" data-toggle="tab"> <h:outputText value="#{bundle.Legend_misc}" />
+          </a></li>
+          <li><a href="#address" data-toggle="tab"> <h:outputText value="#{bundle.Legend_address}" />
+          </a></li>
+          <li><a href="#contact" data-toggle="tab"> <h:outputText value="#{bundle.Legend_contact}" />
+          </a></li>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane active" id="basic">
+            <fieldset>
+              <div class="control-group">
+                <ui:include src="/WEB-INF/templates/input-text.xhtml">
+                  <ui:param name="label" value="#{bundle.Company_officialName}" />
+                  <ui:param name="value" value="#{supplierAction.selected.officialName}" />
+                  <ui:param name="class" value="input-xlarge" />
+                  <ui:param name="required" value="true" />
+                </ui:include>
+              </div>
+              <div class="control-group">
+                <ui:include src="/WEB-INF/templates/input-text.xhtml">
+                  <ui:param name="label" value="#{bundle.Company_aliasName}" />
+                  <ui:param name="value" value="#{supplierAction.selected.aliasName}" />
+                  <ui:param name="class" value="input-xlarge" />
+                  <ui:param name="required" value="true" />
+                </ui:include>
+              </div>
+              <div class="control-group">
+                <ui:include src="/WEB-INF/templates/input-text.xhtml">
+                  <ui:param name="label" value="#{bundle.Company_englishName}" />
+                  <ui:param name="value" value="#{supplierAction.selected.englishName}" />
+                  <ui:param name="class" value="input-xlarge" />
+                </ui:include>
+              </div>
+              <div class="control-group">
+                <ui:include src="/WEB-INF/templates/input-text.xhtml">
+                  <ui:param name="label" value="#{bundle.Company_summaryName}" />
+                  <ui:param name="value" value="#{supplierAction.selected.summaryName}" />
+                  <ui:param name="class" value="input-large" />
+                </ui:include>
+              </div>
+            </fieldset>
+          </div>
+          <div class="tab-pane" id="misc">
+            <fieldset>
+              <div class="control-group">
+                <ui:include src="/WEB-INF/templates/input-text.xhtml">
+                  <ui:param name="label" value="#{bundle.Company_telno}" />
+                  <ui:param name="value" value="#{supplierAction.selected.telno}" />
+                  <ui:param name="class" value="input-small" />
+                </ui:include>
+              </div>
+              <div class="control-group">
+                <ui:include src="/WEB-INF/templates/input-date.xhtml">
+                  <ui:param name="label" value="#{bundle.Company_established}" />
+                  <ui:param name="value" value="#{supplierAction.selected.established}" />
+                  <ui:param name="class" value="input-small" />
+                </ui:include>
+              </div>
+              <div class="control-group">
+                <ui:include src="/WEB-INF/templates/input-select.xhtml">
+                  <ui:param name="label" value="#{bundle.Company_industryClass}" />
+                  <ui:param name="value" value="#{supplierAction.selected.industryClass}" />
+                  <ui:param name="selector" value="#{globalAction.industryClassItems}" />
+                  <ui:param name="converterId" value="industryClassConverter" />
+                </ui:include>
+              </div>
+              <div class="control-group">
+                <ui:include src="/WEB-INF/templates/input-text.xhtml">
+                  <ui:param name="label" value="#{bundle.Company_representative}" />
+                  <ui:param name="value" value="#{supplierAction.selected.representative}" />
+                  <ui:param name="class" value="input-medium" />
+                </ui:include>
+              </div>
+              <div class="control-group">
+                <ui:include src="/WEB-INF/templates/input-currency.xhtml">
+                  <ui:param name="label" value="#{bundle.Company_capital}" />
+                  <ui:param name="value" value="#{supplierAction.selected.capital}" />
+                  <ui:param name="class" value="input-medium" />
+                </ui:include>
+              </div>
+              <div class="control-group">
+                <ui:include src="/WEB-INF/templates/input-text.xhtml">
+                  <ui:param name="label" value="#{bundle.Company_accountingPeriod}" />
+                  <ui:param name="value" value="#{supplierAction.selected.accountingPeriod}" />
+                  <ui:param name="class" value="input-small" />
+                </ui:include>
+              </div>
+              <div class="control-group">
+                <ui:include src="/WEB-INF/templates/input-select.xhtml">
+                  <ui:param name="label" value="#{bundle.Company_listedSection}" />
+                  <ui:param name="value" value="#{supplierAction.selected.listedSection}" />
+                  <ui:param name="selector" value="#{globalAction.listedSectionItems}" />
+                  <ui:param name="converterId" value="listedSectionConverter" />
+                </ui:include>
+              </div>
+            </fieldset>
+          </div>
+          <div class="tab-pane" id="address">
+            <fieldset>
+              <div class="control-group">
+                <ui:include src="/WEB-INF/templates/input-address.xhtml">
+                  <ui:param name="address" value="#{supplierAction.selected.address}" />
+                </ui:include>
+              </div>
+            </fieldset>
+          </div>
+          <div class="tab-pane" id="contact">
+            <fieldset>
+              <div class="control-group">
+                <ui:include src="/WEB-INF/templates/input-contact.xhtml">
+                  <ui:param name="contact" value="#{supplierAction.selected.contact}" />
+                </ui:include>
+              </div>
+            </fieldset>
+          </div>
+        </div>
+      </div>
+      <ui:include src="/WEB-INF/templates/output-implicit.xhtml">
+        <ui:param name="entityAction" value="#{supplierAction}" />
+      </ui:include>
+      <ui:include src="/WEB-INF/templates/navi-edit.xhtml">
+        <ui:param name="entityAction" value="#{supplierAction}" />
+      </ui:include>
+    </h:form>
+  </ui:define>
+</ui:composition>

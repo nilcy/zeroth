@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+  xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" template="_default.xhtml">
+  <f:metadata>
+    <f:viewParam id="id" name="id" value="#{partnerAction.id}" label="#{bundle.Entity_id}">
+      <f:validateLongRange minimum="1" />
+    </f:viewParam>
+  </f:metadata>
+  <ui:define name="header">
+    <h2>
+      <h:outputText value="#{bundle.Partner}" />
+      <small><h:outputText value="#{bundle.Title_view}" /></small>
+    </h2>
+  </ui:define>
+  <ui:define name="article">
+    <h:form>
+      <h:panelGrid columns="2" styleClass="table">
+        <ui:include src="/WEB-INF/templates/output-fullName.xhtml">
+          <ui:param name="familyName" value="#{partnerAction.selected.familyName}" />
+          <ui:param name="givenName" value="#{partnerAction.selected.givenName}" />
+        </ui:include>
+        <ui:include src="/WEB-INF/templates/output-fullAlias.xhtml">
+          <ui:param name="familyAlias" value="#{partnerAction.selected.familyAlias}" />
+          <ui:param name="givenAlias" value="#{partnerAction.selected.givenAlias}" />
+        </ui:include>
+        <ui:include src="/WEB-INF/templates/output-contact.xhtml">
+          <ui:param name="label" value="#{bundle.Partner_contact}" />
+          <ui:param name="contact" value="#{partnerAction.selected.contact}" />
+        </ui:include>
+        <f:facet name="footer">
+          <ui:include src="/WEB-INF/templates/output-implicit.xhtml">
+            <ui:param name="entityAction" value="#{partnerAction}" />
+          </ui:include>
+        </f:facet>
+      </h:panelGrid>
+      <ui:include src="/WEB-INF/templates/navi-back.xhtml" />
+    </h:form>
+  </ui:define>
+</ui:composition>

@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+  xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
+  <ul class="nav nav-list">
+    <li class="#{active=='sitemap'?'active':''}"><h:link outcome="/home/admin/sitemap.xhtml">
+        <h:outputText value="#{bundle.Navi_sitemap}" />
+      </h:link></li>
+    <li class="#{active=='hotnews'?'active':''}"><h:link outcome="/home/admin/hotnews.xhtml">
+        <h:outputText value="#{bundle.Navi_hotnews}" />
+      </h:link></li>
+    <li class="#{active=='rss'?'active':''}"><h:link outcome="/home/admin/rss.xhtml">
+        <h:outputText value="#{bundle.Navi_rss}" />
+      </h:link></li>
+    <li class="#{active=='release'?'active':''}"><h:link outcome="/home/admin/release.xhtml">
+        <h:outputText value="#{bundle.Navi_release}" />
+      </h:link></li>
+    <li class="#{active=='contact'?'active':''}"><h:link outcome="/home/admin/contact.xhtml">
+        <h:outputText value="#{bundle.Navi_contact}" />
+      </h:link></li>
+    <li class="divider"></li>
+    <li class="#{active=='legal'?'active':''}"><h:link outcome="/home/admin/legal.xhtml" class="first"
+        style="padding-left:14px;">
+        <h:outputText value="#{bundle.Navi_legal}" />
+      </h:link></li>
+    <li class="#{active=='privacy'?'active':''}"><h:link outcome="/home/admin/privacy.xhtml">
+        <h:outputText value="#{bundle.Navi_privacy}" />
+      </h:link></li>
+    <li class="divider"></li>
+    <li class="#{active=='help'?'active':''}"><h:link outcome="/home/admin/help.xhtml">
+        <h:outputText value="#{bundle.Navi_help}" />
+      </h:link></li>
+  </ul>
+</ui:composition>

@@ -1,0 +1,137 @@
+/* LAYOUT */
+html {
+    background-color:#f2f2f2;
+}
+#container {
+    width:640px;
+    margin:0 auto;
+    position:relative;
+    padding:18px 20px;
+    color:#111;
+}
+.content {
+    background:#fff;
+    border:1px solid;
+    border-color:#e5e5e5 #dbdbdb #d2d2d2;
+    -webkit-box-shadow:rgba(0,0,0,0.3) 0 1px 3px;
+    -moz-box-shadow:rgba(0,0,0,0.3) 0 1px 3px;
+    box-shadow:rgba(0,0,0,0.3) 0 1px 3px;
+    padding:10px;
+}
+.content:nth-child(1n) {
+    border:none;
+}
+.content, .rounded {
+    border-radius:4px;
+    -webkit-border-radius:4px;
+    -moz-border-radius:4px;
+    -o-border-radius:4px;
+    -khtml-border-radius:4px;
+}
+.shadow {
+    -webkit-box-shadow:rgba(0,0,0,0.35) 0 1px 3px;
+    -moz-box-shadow:rgba(0,0,0,0.35) 0 1px 3px;
+    box-shadow:rgba(0,0,0,0.35) 0 1px 3px;
+}
+.callout {
+    border-radius:7px;
+    -webkit-border-radius:7px;
+    -moz-border-radius:7px;
+    -o-border-radius:7px;
+    -khtml-border-radius:7px;
+}
+/* TYPE */
+body {
+    font: 14px/18px "Lucida Grande", "Lucida Sans Unicode", "Hiragino Kaku Gothic Pro", Meiryo, 'MigMix 1P', Helvetica, Arial, Verdana, sans-serif;
+    background-color:transparent;
+    color:#333;
+    -webkit-font-smoothing:antialiased;
+    /* font-size:14px; */
+}
+h1 {
+    font-size:120%;
+}
+h2 {
+    font-size:110%;
+}
+small {
+    font-size:80%;
+}
+nav {
+    padding:6px 8px 6px 8px;
+}
+hr {
+    padding:0px;
+}
+label {
+    padding-right:6px;
+}
+label, input, textarea {
+    vertical-align: middle;
+}
+input[type="text"], input[type="password"], textarea {
+    font-size:110%;
+}
+input[type="submit"] {
+    font-size:110%;
+}
+.small {
+    font-size:70%;
+}
+.clear {
+    clear:both;
+}
+.center {
+    text-align:center;
+}
+.right {
+    text-align:right;
+}
+.left {
+    text-align:left;
+}
+.info {
+    color: green;
+}
+
+.warn {
+    font-size: 1.1em; color: orange;
+}
+
+.error {
+    font-size: 1.1em; color: red;
+}
+.fatal {
+	font-size: 1.1em; color: purple;
+}
+/* PIPED LINKS */
+.piped {
+    display:block; zoom:1;
+}
+.piped:after {
+    content:".";
+    display:block;
+    height:0;
+    clear:both;
+    visibility:hidden;
+}
+.piped li {
+    float:left;
+    display:inline;
+}
+.piped a {
+    border-left:1px solid #797c80;
+    padding:0 0 0 0.75em;
+    margin-left:0.75em;
+}
+.piped a.first {
+    border-left:0 !important;
+    padding-left:0;
+    margin-left:0 !important;
+}
+/* iPhone */
+@media screen and (max-device-width:480px) {
+    html {
+	-webkit-text-size-adjust:none;
+    }
+}

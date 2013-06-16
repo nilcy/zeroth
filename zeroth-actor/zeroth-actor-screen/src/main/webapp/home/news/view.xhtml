@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+  xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" template="_default.xhtml">
+  <f:metadata>
+    <f:viewParam id="id" name="id" value="#{newsAction.id}" label="#{bundle.Entity_id}">
+      <f:validateLongRange minimum="1" />
+    </f:viewParam>
+  </f:metadata>
+  <ui:define name="header">
+    <h2>
+      <h:outputText value="#{bundle.News}" />
+      <small><h:outputText value="#{bundle.Title_view}" /></small>
+    </h2>
+  </ui:define>
+  <ui:define name="article">
+    <h:form>
+      <h:panelGrid columns="2" styleClass="table">
+        <h:outputLabel for="title" value="#{bundle.Notice_title}" />
+        <h:outputText id="title" value="#{newsAction.selected.title}" />
+        <h:outputLabel for="description" value="#{bundle.Notice_description}" />
+        <h:outputText id="description" value="#{newsAction.selected.description}" />
+        <h:outputLabel for="published" value="#{bundle.Notice_published}" />
+        <h:outputText id="published" value="#{newsAction.selected.published}">
+          <f:convertDateTime pattern="yyyy-MM-dd HH:mm:ss" timeZone="JST" />
+        </h:outputText>
+        <h:outputLabel for="category" value="#{bundle.Notice_category}" />
+        <h:outputText id="category" value="#{newsAction.selected.category}" />
+        <f:facet name="footer">
+          <ui:include src="/WEB-INF/templates/output-implicit.xhtml">
+            <ui:param name="entityAction" value="#{newsAction}" />
+          </ui:include>
+        </f:facet>
+      </h:panelGrid>
+      <ui:include src="/WEB-INF/templates/navi-back.xhtml" />
+    </h:form>
+  </ui:define>
+</ui:composition>

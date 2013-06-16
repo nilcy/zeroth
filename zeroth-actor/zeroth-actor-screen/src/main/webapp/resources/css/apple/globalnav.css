@@ -1,0 +1,70 @@
+/*  -------------------------------------------------*/
+#globalnav {
+    width:auto;
+    padding:0;
+    margin:0;
+    list-style-type:none;
+}
+#globalnav li {
+    width:10%;
+    float:left;
+    padding:0;
+    margin:0;
+    text-align:center;
+}
+#globalnav .selected {
+    background:#333;
+    background-image:-moz-linear-gradient(top, #333 0%, #222 50%, #111 50%, #222 100%);
+    background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0, #333), color-stop(0.50, #222), color-stop(0.50, #111), color-stop(1, #222));
+    box-shadow:1px 0px 0px rgba(225,225,225,0) inset,
+    -1px 0px 0px rgba(225,225,225,0) inset,
+    0px 1px 1px rgba(0,0,0,0.1) inset,
+    0px -1px 1px rgba(0,0,0,0.3) inset,
+    0px 1px 3px #666;
+}
+#globalnav li a {
+    width:auto;
+    color:#fff;
+    font-size:110%;
+    font-weight:normal;
+    text-shadow:0 -1px 0px #333,0 1px 0px #555;
+    padding:10px 0;
+    text-decoration:none;
+    display:block;
+    background:#666;
+    background-image:-moz-linear-gradient(top, #888 0%, #777 50%, #666 50%, #777 100%);
+    background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0, #888), color-stop(0.50, #777), color-stop(0.50, #666), color-stop(1, #777));
+    border-left:1px solid #444;
+    box-shadow:1px 0px 0px rgba(225,225,225,0.3) inset,
+    -1px 0px 0px rgba(225,225,225,0.3) inset,
+    0px 1px 1px rgba(0,0,0,0.1) inset,
+    0px -1px 1px rgba(0,0,0,0.3) inset,
+    0px 1px 3px #666;
+    transition:1s;
+}
+#globalnav li:first-child a {
+    border-left:0px;
+    border-radius:5px 0 0 5px;
+    border-left:0;
+    box-shadow:-1px 0px 0px rgba(225,225,225,0.3) inset,
+    0px 1px 1px rgba(0,0,0,0.1) inset,
+    0px -1px 1px rgba(0,0,0,0.3) inset,
+    0px 1px 3px #666;
+}
+#globalnav li:last-child a {
+    border-radius:0 5px 5px 0;
+    box-shadow:1px 0px 0px rgba(225,225,225,0.3) inset,
+    0px 1px 1px rgba(0,0,0,0.1) inset,
+    0px -1px 1px rgba(0,0,0,0.3) inset,
+    0px 1px 3px #666;
+}
+#globalnav li a:hover {
+    background:#555;
+    background-image:-moz-linear-gradient(top, #555 0%, #444 50%, #333 50%, #444 100%);
+    background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0, #555), color-stop(0.50, #444), color-stop(0.50, #333), color-stop(1, #444));
+    box-shadow:1px 0px 0px rgba(225,225,225,0) inset,
+    -1px 0px 0px rgba(225,225,225,0) inset,
+    0px 1px 1px rgba(0,0,0,0.1) inset,
+    0px -1px 1px rgba(0,0,0,0.3) inset,
+    0px 1px 3px #666;
+}

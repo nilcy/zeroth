@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+  xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
+  <h:outputLabel for="#{label}" value="#{label}" />
+  <h:outputFormat id="#{label}" value="{2}:{3} {4}:{5} {6}:{7} {8}:{9}&lt;br/&gt;{0}:{1}" escape="false">
+    <f:param value="#{bundle.Contact_name}" />
+    <f:param value="#{globalAction.defaultIfBlank(contact.name)}" />
+    <f:param value="#{bundle.Contact_telno}" />
+    <f:param value="#{globalAction.defaultIfBlank(contact.telno)}" />
+    <f:param value="#{bundle.Contact_cellno}" />
+    <f:param value="#{globalAction.defaultIfBlank(contact.cellno)}" />
+    <f:param value="#{bundle.Contact_faxno}" />
+    <f:param value="#{globalAction.defaultIfBlank(contact.faxno)}" />
+    <f:param value="#{bundle.Contact_email}" />
+    <f:param value="#{globalAction.defaultIfBlank(contact.email)}" />
+  </h:outputFormat>
+</ui:composition>

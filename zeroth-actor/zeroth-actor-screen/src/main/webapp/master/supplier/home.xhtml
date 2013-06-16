@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+  xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" template="_default.xhtml">
+  <f:metadata>
+    <f:viewParam id="page" name="page" value="#{supplierAction.page}" label="page">
+      <f:validateLongRange minimum="0" />
+    </f:viewParam>
+  </f:metadata>
+  <ui:define name="header">
+    <h2>
+      <h:outputText value="#{bundle.Supplier}" />
+      <small><h:outputText value="#{bundle.Title_list}" /></small>
+    </h2>
+  </ui:define>
+  <ui:define name="article">
+    <h:form>
+      <h:outputText escape="false" value="#{bundle.ListEmpty}" rendered="#{empty supplierAction.items}" />
+      <h:panelGroup rendered="#{not empty supplierAction.items}">
+        <h:dataTable value="#{supplierAction.items}" var="item" styleClass="table">
+          <f:facet name="caption">
+            <ui:include src="/WEB-INF/templates/navi-pagination.xhtml">
+              <ui:param name="entityAction" value="#{supplierAction}" />
+            </ui:include>
+          </f:facet>
+          <h:column>
+            <f:facet name="header">
+              <h:outputText value="#{bundle.Company_officialName}" />
+            </f:facet>
+            <h:outputText value="#{item.officialName}" />
+          </h:column>
+          <h:column>
+            <f:facet name="header">
+              <h:outputText value="#{bundle.Company_aliasName}" />
+            </f:facet>
+            <h:outputText value="#{item.aliasName}" />
+          </h:column>
+          <h:column>
+            <ui:include src="/WEB-INF/templates/navi-record.xhtml">
+              <ui:param name="outcome" value="supplier" />
+            </ui:include>
+          </h:column>
+          <f:facet name="footer" />
+        </h:dataTable>
+      </h:panelGroup>
+      <ui:include src="/WEB-INF/templates/navi-home.xhtml">
+        <ui:param name="outcome" value="supplier" />
+      </ui:include>
+    </h:form>
+  </ui:define>
+</ui:composition>

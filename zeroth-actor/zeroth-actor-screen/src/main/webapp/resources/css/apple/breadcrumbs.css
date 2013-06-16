@@ -1,0 +1,112 @@
+/* apple like
+   ----------------------------------*/
+#breadcrumbs {
+    padding:10px 0px 5px 0px;
+}
+.breadcrumbs {
+    list-style:none;
+    overflow:hidden;
+    color:#555;
+    font-size:90%;
+    /* font:600 11px 'Lucida Grande', 'Lucida Sans Unicode', Arial, Verdana, sans-serif; */
+    background:#f6f6f6;
+    background:-webkit-gradient(linear, left top, left bottom, from(#fff), color-stop(0.5,#efefef), to(#efefef));
+    border:1px solid #bbb;
+    -webkit-border-radius:4px 4px 0 0;
+}
+.breadcrumbs li {
+    float:left;
+    line-height:30px;
+    text-shadow:0 1px 0 white;
+}
+.breadcrumbs li a {
+    color:#666;
+    text-decoration:none;
+   padding:0 10px 0 20px;
+    background:#c6c6c6;
+    background:-webkit-gradient(linear, left top, left bottom, from(#d6d6d6), color-stop(0.5,#c6c6c6), to(#c6c6c6));
+    display:block;
+    float:left;
+}
+.breadcrumbs li a::after {
+    position:relative;
+    display:block;
+    margin-top:-15px;
+    margin-left:auto;
+    margin-right:-15px;
+    height:15px;
+    width:10px;
+    content:" ";
+    -webkit-transform:skew(-30deg);
+    background:#c6c6c6;
+    border-right:1px solid #bbb;
+}
+.breadcrumbs li a::before {
+    float:right;
+    display:block;
+    margin-bottom:-15px;
+    margin-left:auto;
+    margin-right:-15px;
+    height:15px;
+    width:10px;
+    content:" ";
+    -webkit-transform:skew(30deg);
+    background:#c6c6c6;
+    background:-webkit-gradient(linear, left top, left bottom, from(#d6d6d6), to(#c6c6c6));
+    border-right:1px solid #bbb;
+}
+.breadcrumbs li:first-child a {
+    padding-left:10px;
+}
+.breadcrumbs li:nth-child(2) a {
+    background:#cfcfcf;
+    background:-webkit-gradient(linear, left top, left bottom, from(#dfdfdf), color-stop(0.5,#cfcfcf), to(#cfcfcf));
+}
+.breadcrumbs li:nth-child(2) a::before {
+    background:#cfcfcf;
+    background:-webkit-gradient(linear, left top, left bottom, from(#dfdfdf), to(#cfcfcf));
+}
+.breadcrumbs li:nth-child(2) a::after {
+    background:#cfcfcf;
+}
+.breadcrumbs li:nth-child(3) a {
+    background:#d6d6d6;
+    background:-webkit-gradient(linear, left top, left bottom, from(#e6e6e6), color-stop(0.5,#d6d6d6), to(#d6d6d6));
+}
+.breadcrumbs li:nth-child(3) a::before {
+    background:#d6d6d6;
+    background:-webkit-gradient(linear, left top, left bottom, from(#e6e6e6), to(#d6d6d6));
+}
+.breadcrumbs li:nth-child(3) a::after {
+    background:#d6d6d6;
+}
+.breadcrumbs li:nth-child(4) a {
+    background:#dfdfdf;
+    background:-webkit-gradient(linear, left top, left bottom, from(#efefef), color-stop(0.5,#dfdfdf), to(#dfdfdf));
+}
+.breadcrumbs li:nth-child(4) a::before {
+    background:#dfdfdf;
+    background:-webkit-gradient(linear, left top, left bottom, from(#efefef), to(#dfdfdf));
+}
+.breadcrumbs li:nth-child(4) a::after {
+    background:#dfdfdf;
+}
+.breadcrumbs li:nth-child(5) a {
+    background:#e6e6e6;
+    background:-webkit-gradient(linear, left top, left bottom, from(#f6f6f6), color-stop(0.5,#e6e6e6), to(#e6e6e6));
+}
+.breadcrumbs li:nth-child(5) a::before {
+    background:#e6e6e6;
+    background:-webkit-gradient(linear, left top, left bottom, from(#f6f6f6), to(#e6e6e6));
+}
+.breadcrumbs li:nth-child(5) a::after {
+    background:#e6e6e6;
+}
+.breadcrumbs li:last-child {
+    padding-left:20px;
+    background:transparent !important;
+    color:#111;
+}
+.breadcrumbs li a:hover {
+    color:#000;
+}

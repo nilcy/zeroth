@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+  xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" template="_default.xhtml">
+  <f:metadata>
+    <f:viewParam id="id" name="id" value="#{newsAction.id}" label="#{bundle.Entity_id}">
+      <f:validateLongRange minimum="1" />
+    </f:viewParam>
+    <f:event type="preRenderView" listener="#{organAction.beginConversation}" />
+  </f:metadata>
+  <ui:define name="header">
+    <h2>
+      <h:outputText value="#{bundle.News}" />
+      <small> <h:outputText value="#{!newsAction.managed ? bundle.Title_create : bundle.Title_edit}" />
+      </small>
+    </h2>
+  </ui:define>
+  <ui:define name="article">
+    <h:form class="form-vertical">
+      <fieldset>
+        <div class="control-group">
+          <ui:include src="/WEB-INF/templates/input-text.xhtml">
+            <ui:param name="label" value="#{bundle.Notice_title}" />
+            <ui:param name="value" value="#{newsAction.selected.title}" />
+            <ui:param name="class" value="span6" />
+            <ui:param name="required" value="true" />
+          </ui:include>
+        </div>
+        <div class="control-group">
+          <ui:include src="/WEB-INF/templates/input-textarea.xhtml">
+            <ui:param name="label" value="#{bundle.Notice_description}" />
+            <ui:param name="value" value="#{newsAction.selected.description}" />
+            <ui:param name="class" value="span8" />
+            <ui:param name="rows" value="5" />
+            <ui:param name="required" value="true" />
+          </ui:include>
+        </div>
+        <div class="control-group">
+          <ui:include src="/WEB-INF/templates/input-text.xhtml">
+            <ui:param name="label" value="#{bundle.Notice_category}" />
+            <ui:param name="value" value="#{newsAction.selected.category}" />
+            <ui:param name="class" value="span6" />
+          </ui:include>
+        </div>
+      </fieldset>
+      <ui:include src="/WEB-INF/templates/output-implicit.xhtml">
+        <ui:param name="entityAction" value="#{newsAction}" />
+      </ui:include>
+      <ui:include src="/WEB-INF/templates/navi-edit.xhtml">
+        <ui:param name="entityAction" value="#{newsAction}" />
+      </ui:include>
+    </h:form>
+  </ui:define>
+</ui:composition>

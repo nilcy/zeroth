@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sun-web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Application Server 9.0 Servlet 2.5//EN"
+        "http://www.sun.com/software/appserver/dtds/sun-web-app_2_5-0.dtd">
+<sun-web-app error-url="error.xhtml">
+  <!-- <context-root>/</context-root> -->
+  <context-root>/zeroth-actor</context-root>
+  <security-role-mapping>
+    <role-name>SPONSOR</role-name>
+    <group-name>SUPERVISOR</group-name>
+    <group-name>ADMINISTRATOR</group-name>
+  </security-role-mapping>
+  <security-role-mapping>
+    <role-name>DIRECTOR</role-name>
+    <group-name>SUPERVISOR</group-name>
+    <group-name>MANAGER</group-name>
+  </security-role-mapping>
+  <security-role-mapping>
+    <role-name>CREATOR</role-name>
+    <group-name>SUPERVISOR</group-name>
+    <group-name>ADMINISTRATOR</group-name>
+    <group-name>MANAGER</group-name>
+  </security-role-mapping>
+  <security-role-mapping>
+    <role-name>EDITOR</role-name>
+    <group-name>SUPERVISOR</group-name>
+    <group-name>ADMINISTRATOR</group-name>
+    <group-name>MANAGER</group-name>
+    <group-name>LEADER</group-name>
+  </security-role-mapping>
+  <security-role-mapping>
+    <role-name>AUDITOR</role-name>
+    <group-name>SUPERVISOR</group-name>
+    <group-name>MANAGER</group-name>
+    <group-name>LEADER</group-name>
+  </security-role-mapping>
+  <security-role-mapping>
+    <role-name>READER</role-name>
+    <group-name>SUPERVISOR</group-name>
+    <group-name>ADMINISTRATOR</group-name>
+    <group-name>MANAGER</group-name>
+    <group-name>LEADER</group-name>
+    <group-name>MEMBER</group-name>
+    <group-name>SUPPORTER</group-name>
+    <group-name>USER</group-name>
+  </security-role-mapping>
+  <session-config>
+    <cookie-properties>
+      <property name="cookieMaxAgeSeconds" value="-1" />
+    </cookie-properties>
+  </session-config>
+  <class-loader delegate="true" />
+  <jsp-config>
+    <property name="keepgenerated" value="true" />
+  </jsp-config>
+</sun-web-app>

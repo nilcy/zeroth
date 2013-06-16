@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+  xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
+  <ul class="nav nav-list">
+    <li class="#{active=='customer'?'active':''}"><h:link outcome="/master/customer/index.xhtml" styleClass="first">
+        <h:outputText value="#{bundle.Navi_customer}" />
+      </h:link></li>
+    <li class="#{active=='supplier'?'active':''}"><h:link outcome="/master/supplier/index.xhtml">
+        <h:outputText value="#{bundle.Navi_supplier}" />
+      </h:link></li>
+    <li class="#{active=='organ'?'active':''}"><h:link outcome="/master/organ/index.xhtml">
+        <h:outputText value="#{bundle.Navi_organ}" />
+      </h:link></li>
+    <li class="#{active=='member'?'active':''}"><h:link outcome="/master/member/index.xhtml">
+        <h:outputText value="#{bundle.Navi_member}" />
+      </h:link></li>
+    <li class="#{active=='partner'?'active':''}"><h:link outcome="/master/partner/index.xhtml">
+        <h:outputText value="#{bundle.Navi_partner}" />
+      </h:link></li>
+  </ul>
+</ui:composition>

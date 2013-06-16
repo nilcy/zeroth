@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+  xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
+  <h:panelGroup id="#{label}_panel">
+    <h:outputLabel for="#{label}" value="#{label}" class="control-label">
+      <ui:include src="/WEB-INF/templates/output-message.xhtml">
+        <ui:param name="label" value="#{label}" />
+      </ui:include>
+    </h:outputLabel>
+    <div class="controls">
+      <h:inputText id="#{label}" value="#{value}" label="#{label}" class="#{class}"
+        required="#{required=='true'?'true':''}">
+        <f:convertNumber type="currency" maxFractionDigits="0" currencySymbol="${bundle.CurrencySymbol}" />
+      </h:inputText>
+    </div>
+  </h:panelGroup>
+</ui:composition>

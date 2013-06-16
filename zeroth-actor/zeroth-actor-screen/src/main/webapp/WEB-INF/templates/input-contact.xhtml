@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+  xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
+  <h:panelGroup id="contactPanel">
+    <div class="control-group">
+      <ui:include src="/WEB-INF/templates/input-text.xhtml">
+        <ui:param name="label" value="#{bundle.Contact_name}" />
+        <ui:param name="value" value="#{contact.name}" />
+        <ui:param name="class" value="input-xlarge" />
+      </ui:include>
+    </div>
+    <div class="control-group">
+      <ui:include src="/WEB-INF/templates/input-text.xhtml">
+        <ui:param name="label" value="#{bundle.Contact_telno}" />
+        <ui:param name="value" value="#{contact.telno}" />
+        <ui:param name="class" value="input-small" />
+      </ui:include>
+    </div>
+    <div class="control-group">
+      <ui:include src="/WEB-INF/templates/input-text.xhtml">
+        <ui:param name="label" value="#{bundle.Contact_cellno}" />
+        <ui:param name="value" value="#{contact.cellno}" />
+        <ui:param name="class" value="input-small" />
+      </ui:include>
+    </div>
+    <div class="control-group">
+      <ui:include src="/WEB-INF/templates/input-text.xhtml">
+        <ui:param name="label" value="#{bundle.Contact_faxno}" />
+        <ui:param name="value" value="#{contact.faxno}" />
+        <ui:param name="class" value="input-small" />
+      </ui:include>
+    </div>
+    <div class="control-group">
+      <ui:include src="/WEB-INF/templates/input-text.xhtml">
+        <ui:param name="label" value="#{bundle.Contact_email}" />
+        <ui:param name="value" value="#{contact.email}" />
+        <ui:param name="class" value="input-xlarge" />
+      </ui:include>
+    </div>
+  </h:panelGroup>
+</ui:composition>

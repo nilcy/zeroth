@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+  xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" template="_default.xhtml">
+  <f:metadata>
+    <f:viewParam id="id" name="id" value="#{memberAction.id}" label="#{bundle.Entity_id}">
+      <f:validateLongRange minimum="1" />
+    </f:viewParam>
+  </f:metadata>
+  <ui:define name="header">
+    <h2>
+      <h:outputText value="#{bundle.Member}" />
+      <small><h:outputText value="#{bundle.Title_view}" /></small>
+    </h2>
+  </ui:define>
+  <ui:define name="article">
+    <h:form>
+      <h:panelGrid columns="2" styleClass="table">
+        <ui:include src="/WEB-INF/templates/output-fullName.xhtml">
+          <ui:param name="familyName" value="#{memberAction.selected.familyName}" />
+          <ui:param name="givenName" value="#{memberAction.selected.givenName}" />
+        </ui:include>
+        <ui:include src="/WEB-INF/templates/output-fullAlias.xhtml">
+          <ui:param name="familyAlias" value="#{memberAction.selected.familyAlias}" />
+          <ui:param name="givenAlias" value="#{memberAction.selected.givenAlias}" />
+        </ui:include>
+        <ui:include src="/WEB-INF/templates/output-text.xhtml">
+          <ui:param name="label" value="#{bundle.Member_organ}" />
+          <ui:param name="value" value="#{memberAction.selected.organ.name}" />
+        </ui:include>
+        <ui:include src="/WEB-INF/templates/output-text.xhtml">
+          <ui:param name="label" value="#{bundle.Member_account}" />
+          <ui:param name="value" value="#{memberAction.selected.account}" />
+        </ui:include>
+        <ui:include src="/WEB-INF/templates/output-gender.xhtml">
+          <ui:param name="label" value="#{bundle.Member_gender}" />
+          <ui:param name="value" value="#{memberAction.selected.gender}" />
+        </ui:include>
+        <ui:include src="/WEB-INF/templates/output-date.xhtml">
+          <ui:param name="label" value="#{bundle.Member_birthDate}" />
+          <ui:param name="value" value="#{memberAction.selected.birthDate}" />
+        </ui:include>
+        <ui:include src="/WEB-INF/templates/output-text.xhtml">
+          <ui:param name="label" value="#{bundle.Member_title}" />
+          <ui:param name="value" value="#{memberAction.selected.title.name}" />
+        </ui:include>
+        <ui:include src="/WEB-INF/templates/output-text.xhtml">
+          <ui:param name="label" value="#{bundle.Member_level}" />
+          <ui:param name="value" value="#{memberAction.selected.level.name}" />
+        </ui:include>
+        <ui:include src="/WEB-INF/templates/output-address.xhtml">
+          <ui:param name="label" value="#{bundle.Member_address}" />
+          <ui:param name="address" value="#{memberAction.selected.address}" />
+        </ui:include>
+        <ui:include src="/WEB-INF/templates/output-contact.xhtml">
+          <ui:param name="label" value="#{bundle.Member_contact}" />
+          <ui:param name="contact" value="#{memberAction.selected.contact}" />
+        </ui:include>
+        <f:facet name="footer">
+          <ui:include src="/WEB-INF/templates/output-implicit.xhtml">
+            <ui:param name="entityAction" value="#{memberAction}" />
+          </ui:include>
+        </f:facet>
+      </h:panelGrid>
+      <ui:include src="/WEB-INF/templates/navi-back.xhtml" />
+    </h:form>
+  </ui:define>
+</ui:composition>

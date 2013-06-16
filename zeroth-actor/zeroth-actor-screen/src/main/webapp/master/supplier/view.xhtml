@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+  xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" template="_default.xhtml">
+  <f:metadata>
+    <f:viewParam id="id" name="id" value="#{supplierAction.id}" label="#{bundle.Entity_id}">
+      <f:validateLongRange minimum="1" />
+    </f:viewParam>
+  </f:metadata>
+  <ui:define name="header">
+    <h2>
+      <h:outputText value="#{bundle.Supplier}" />
+      <small><h:outputText value="#{bundle.Title_view}" /></small>
+    </h2>
+  </ui:define>
+  <ui:define name="article">
+    <h:form>
+      <h:panelGrid columns="2" styleClass="table">
+        <ui:include src="/WEB-INF/templates/output-text.xhtml">
+          <ui:param name="label" value="#{bundle.Company_officialName}" />
+          <ui:param name="value" value="#{supplierAction.selected.officialName}" />
+        </ui:include>
+        <ui:include src="/WEB-INF/templates/output-text.xhtml">
+          <ui:param name="label" value="#{bundle.Company_aliasName}" />
+          <ui:param name="value" value="#{supplierAction.selected.aliasName}" />
+        </ui:include>
+        <ui:include src="/WEB-INF/templates/output-text.xhtml">
+          <ui:param name="label" value="#{bundle.Company_englishName}" />
+          <ui:param name="value" value="#{supplierAction.selected.englishName}" />
+        </ui:include>
+        <ui:include src="/WEB-INF/templates/output-text.xhtml">
+          <ui:param name="label" value="#{bundle.Company_summaryName}" />
+          <ui:param name="value" value="#{supplierAction.selected.summaryName}" />
+        </ui:include>
+        <ui:include src="/WEB-INF/templates/output-address.xhtml">
+          <ui:param name="label" value="#{bundle.Company_address}" />
+          <ui:param name="address" value="#{supplierAction.selected.address}" />
+        </ui:include>
+        <ui:include src="/WEB-INF/templates/output-text.xhtml">
+          <ui:param name="label" value="#{bundle.Company_telno}" />
+          <ui:param name="value" value="#{supplierAction.selected.telno}" />
+        </ui:include>
+        <ui:include src="/WEB-INF/templates/output-date.xhtml">
+          <ui:param name="label" value="#{bundle.Company_established}" />
+          <ui:param name="value" value="#{supplierAction.selected.established}" />
+        </ui:include>
+        <ui:include src="/WEB-INF/templates/output-text.xhtml">
+          <ui:param name="label" value="#{bundle.Company_industryClass}" />
+          <ui:param name="value" value="#{supplierAction.selected.industryClass.description}" />
+        </ui:include>
+        <ui:include src="/WEB-INF/templates/output-text.xhtml">
+          <ui:param name="label" value="#{bundle.Company_representative}" />
+          <ui:param name="value" value="#{supplierAction.selected.representative}" />
+        </ui:include>
+        <ui:include src="/WEB-INF/templates/output-currency.xhtml">
+          <ui:param name="label" value="#{bundle.Company_capital}" />
+          <ui:param name="value" value="#{supplierAction.selected.capital}" />
+        </ui:include>
+        <ui:include src="/WEB-INF/templates/output-text.xhtml">
+          <ui:param name="label" value="#{bundle.Company_accountingPeriod}" />
+          <ui:param name="value" value="#{supplierAction.selected.accountingPeriod}" />
+        </ui:include>
+        <ui:include src="/WEB-INF/templates/output-text.xhtml">
+          <ui:param name="label" value="#{bundle.Company_listedSection}" />
+          <ui:param name="value" value="#{supplierAction.selected.listedSection.section}" />
+        </ui:include>
+        <ui:include src="/WEB-INF/templates/output-contact.xhtml">
+          <ui:param name="label" value="#{bundle.Supplier_contact}" />
+          <ui:param name="contact" value="#{supplierAction.selected.contact}" />
+        </ui:include>
+        <f:facet name="footer">
+          <ui:include src="/WEB-INF/templates/output-implicit.xhtml">
+            <ui:param name="entityAction" value="#{supplierAction}" />
+          </ui:include>
+        </f:facet>
+      </h:panelGrid>
+      <ui:include src="/WEB-INF/templates/navi-back.xhtml" />
+    </h:form>
+  </ui:define>
+</ui:composition>

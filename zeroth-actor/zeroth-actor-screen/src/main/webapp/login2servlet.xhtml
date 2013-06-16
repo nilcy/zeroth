@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+  xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html"
+  template="/WEB-INF/templates/default.xhtml">
+  <ui:define name="header">
+    <h:outputText value="#{bundle.Header_login}" />
+  </ui:define>
+  <ui:define name="section">
+    <form action="#{request.contextPath}/login" method="POST">
+      <h:panelGrid columns="2">
+        <h:outputLabel for="account" value="#{bundle.Member_account}" styleClass="name" />
+        <h:inputText id="account" size="40" required="true" styleClass="value" label="#{bundle.Member_account}">
+        </h:inputText>
+        <h:outputLabel for="password" value="#{bundle.Member_password}" styleClass="name" />
+        <h:inputSecret id="password" size="40" required="true" styleClass="value" label="#{bundle.Member_password}">
+        </h:inputSecret>
+      </h:panelGrid>
+      <h:commandButton value="#{bundle.Action_login}" class="wii" />
+    </form>
+  </ui:define>
+</ui:composition>

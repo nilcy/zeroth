@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+  xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
+  <div class="btn-group">
+    <h:commandButton value="#{bundle.Action_save}" styleClass="btn btn-primary" action="#{entityAction.save}" />
+    <h:commandLink action="#{entityAction.cancel}" immediate="true" styleClass="btn">
+      <i class="icon-list" />
+      <h:outputText value=" #{!entityAction.managed ? bundle.Action_create : bundle.Action_edit}" />
+      <h:outputText value="#{bundle.Action_cancel}" />
+    </h:commandLink>
+    <h:commandLink action="#{entityAction.delete}" immediate="true" styleClass="btn btn-danger"
+      rendered="#{entityAction.managed}">
+      <i class="icon-white icon-trash" />
+      <h:outputText value=" #{bundle.Action_delete}" />
+    </h:commandLink>
+  </div>
+</ui:composition>
