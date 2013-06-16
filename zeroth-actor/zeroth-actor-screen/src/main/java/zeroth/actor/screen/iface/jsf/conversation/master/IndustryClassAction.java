@@ -11,13 +11,14 @@ import zeroth.actor.service.app.misc.IndustryClassApplication;
 import zeroth.actor.service.domain.misc.IndustryClass;
 import zeroth.framework.enterprise.app.SimpleRepositoryApplication;
 import zeroth.framework.screen.iface.jsf.AbstractActionImpl;
+import zeroth.framework.standard.shared.SimpleFilter;
 /**
  * Industry classification action.
  * @author nilcy
  */
 @Named(value = "industryClassAction")
 @ConversationScoped
-public class IndustryClassAction extends AbstractActionImpl<IndustryClass, Long, IndustryClass> {
+public class IndustryClassAction extends AbstractActionImpl<IndustryClass, Long, SimpleFilter> {
     /** 製品番号 */
     private static final long serialVersionUID = 7243039551620767571L;
     /** industry classification service Local-I/F. */
@@ -28,7 +29,7 @@ public class IndustryClassAction extends AbstractActionImpl<IndustryClass, Long,
         super();
     }
     @Override
-    public SimpleRepositoryApplication<IndustryClass, Long, IndustryClass> getService() {
+    public SimpleRepositoryApplication<IndustryClass, Long, SimpleFilter> getService() {
         return service;
     }
 }

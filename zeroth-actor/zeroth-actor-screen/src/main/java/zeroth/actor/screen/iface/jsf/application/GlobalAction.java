@@ -21,17 +21,13 @@ import zeroth.actor.service.app.misc.IndustryClassApplication;
 import zeroth.actor.service.app.misc.ListedSectionApplication;
 import zeroth.actor.service.domain.Gender;
 import zeroth.actor.service.domain.Level;
-import zeroth.actor.service.domain.LevelFactory;
 import zeroth.actor.service.domain.Organ;
-import zeroth.actor.service.domain.OrganFactory;
 import zeroth.actor.service.domain.Title;
-import zeroth.actor.service.domain.TitleFactory;
 import zeroth.actor.service.domain.misc.IndustryClass;
-import zeroth.actor.service.domain.misc.IndustryClassFactory;
 import zeroth.actor.service.domain.misc.ListedSection;
-import zeroth.actor.service.domain.misc.ListedSectionFactory;
 import zeroth.framework.screen.iface.jsf.FacesHelper;
 import zeroth.framework.screen.iface.jsf.FacesProfile;
+import zeroth.framework.standard.shared.FilterFactory;
 /**
  * Global action.
  * @author nilcy
@@ -45,19 +41,19 @@ public class GlobalAction implements Serializable {
     private static final long serialVersionUID = 7243039551620767571L;
     /** industry classification service Local-I/F. */
     @EJB
-    private IndustryClassApplication industryClassService;
+    private IndustryClassApplication industryClassApplication;
     /** listed section service Local-I/F. */
     @EJB
-    private ListedSectionApplication listedSectionService;
+    private ListedSectionApplication listedSectionApplication;
     /** organization service Local-I/F. */
     @EJB
-    private OrganApplication organService;
+    private OrganApplication organApplication;
     /** title Local-I/F. */
     @EJB
-    private TitleApplication titleService;
+    private TitleApplication titleApplication;
     /** level Local-I/F. */
     @EJB
-    private LevelApplication levelService;
+    private LevelApplication levelApplication;
     /** industry classification items. */
     private List<SelectItem> industryClassItems;
     /** listed section items. */
@@ -81,8 +77,8 @@ public class GlobalAction implements Serializable {
     public List<SelectItem> getIndustryClassItems() {
         if (industryClassItems == null) {
             final List<SelectItem> items = new ArrayList<>();
-            for (final IndustryClass o : industryClassService.findMany(new IndustryClassFactory()
-                .create())) {
+            for (final IndustryClass o : industryClassApplication.findMany(FilterFactory
+                .createSimpleFilter())) {
                 items.add(new SelectItem(o, o.getDescription()));
             }
             industryClassItems = items;
@@ -96,8 +92,8 @@ public class GlobalAction implements Serializable {
     public List<SelectItem> getListedSectionItems() {
         if (listedSectionItems == null) {
             final List<SelectItem> items = new ArrayList<>();
-            for (final ListedSection o : listedSectionService.findMany(new ListedSectionFactory()
-                .create())) {
+            for (final ListedSection o : listedSectionApplication.findMany(FilterFactory
+                .createSimpleFilter())) {
                 items.add(new SelectItem(o, o.getSection()));
             }
             listedSectionItems = items;
@@ -111,7 +107,7 @@ public class GlobalAction implements Serializable {
     public List<SelectItem> getOrganItems() {
         if (organItems == null) {
             final List<SelectItem> items = new ArrayList<>();
-            for (final Organ o : organService.findMany(new OrganFactory().create())) {
+            for (final Organ o : organApplication.findMany(FilterFactory.createSimpleFilter())) {
                 items.add(new SelectItem(o, o.getName()));
             }
             organItems = items;
@@ -125,7 +121,7 @@ public class GlobalAction implements Serializable {
     public List<SelectItem> getTitleItems() {
         if (titleItems == null) {
             final List<SelectItem> items = new ArrayList<>();
-            for (final Title o : titleService.findMany(new TitleFactory().create())) {
+            for (final Title o : titleApplication.findMany(FilterFactory.createSimpleFilter())) {
                 items.add(new SelectItem(o, o.getName()));
             }
             titleItems = items;
@@ -139,7 +135,7 @@ public class GlobalAction implements Serializable {
     public List<SelectItem> getLevelItems() {
         if (levelItems == null) {
             final List<SelectItem> items = new ArrayList<>();
-            for (final Level o : levelService.findMany(new LevelFactory().create())) {
+            for (final Level o : levelApplication.findMany(FilterFactory.createSimpleFilter())) {
                 items.add(new SelectItem(o, o.getName()));
             }
             levelItems = items;

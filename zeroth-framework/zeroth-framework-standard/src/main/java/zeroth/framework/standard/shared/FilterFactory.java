@@ -8,8 +8,22 @@ package zeroth.framework.standard.shared;
  * フィルタのファクトリ
  * @author nilcy
  */
-@SuppressWarnings("static-method")
 public class FilterFactory {
+    /** デフォルトのページ番号 */
+    protected static final int DEFAULT_PAGE = 1;
+    /** デフォルトのページサイズ */
+    protected static final int DEFAULT_SIZE = Integer.MAX_VALUE;
+    /**
+     * 基本フィルタの生成
+     * <dl>
+     * <dt>事後条件</dt>
+     * <dd>キーワードがNULL、ページ条件がデフォルトの基本フィルタを生成する。</dd>
+     * </dl>
+     * @return 基本フィルタ
+     */
+    public static SimpleFilter createSimpleFilter() {
+        return new SimpleFilter(null, new PageRequest(DEFAULT_PAGE, DEFAULT_SIZE));
+    }
     /**
      * 基本フィルタの生成
      * <dl>
@@ -22,8 +36,11 @@ public class FilterFactory {
      * @param pageRequest ページ条件
      * @return 基本フィルタ
      */
-    public SimpleFilter createNoticeFilter(final String keyword, final PageRequest pageRequest) {
-        assert pageRequest != null;
+    public static SimpleFilter createSimpleFilter(final String keyword,
+        final PageRequest pageRequest) {
+        if (pageRequest == null) {
+            return new SimpleFilter(keyword, new PageRequest(1, DEFAULT_SIZE));
+        }
         return new SimpleFilter(keyword, pageRequest);
     }
 }

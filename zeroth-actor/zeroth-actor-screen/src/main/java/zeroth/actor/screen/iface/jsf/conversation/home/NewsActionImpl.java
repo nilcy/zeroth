@@ -14,6 +14,7 @@ import zeroth.actor.service.domain.misc.News;
 import zeroth.actor.service.domain.misc.NewsFactory;
 import zeroth.framework.enterprise.app.SimpleRepositoryApplication;
 import zeroth.framework.screen.iface.jsf.AbstractActionImpl;
+import zeroth.framework.standard.shared.SimpleFilter;
 /**
  * News action.
  * @author nilcy
@@ -21,7 +22,8 @@ import zeroth.framework.screen.iface.jsf.AbstractActionImpl;
 @Named(value = "newsAction")
 @ConversationScoped
 @Default
-public class NewsActionImpl extends AbstractActionImpl<News, Long, News> implements NewsAction {
+public class NewsActionImpl extends AbstractActionImpl<News, Long, SimpleFilter> implements
+    NewsAction {
     /** 製品番号 */
     private static final long serialVersionUID = 7243039551620767571L;
     /** news service Local-I/F. */
@@ -32,7 +34,7 @@ public class NewsActionImpl extends AbstractActionImpl<News, Long, News> impleme
         super();
     }
     @Override
-    public SimpleRepositoryApplication<News, Long, News> getService() {
+    public SimpleRepositoryApplication<News, Long, SimpleFilter> getService() {
         return newsService;
     }
     /**

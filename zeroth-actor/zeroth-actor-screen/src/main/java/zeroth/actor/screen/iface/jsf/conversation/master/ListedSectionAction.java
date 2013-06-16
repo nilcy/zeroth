@@ -11,13 +11,14 @@ import zeroth.actor.service.app.misc.ListedSectionApplication;
 import zeroth.actor.service.domain.misc.ListedSection;
 import zeroth.framework.enterprise.app.SimpleRepositoryApplication;
 import zeroth.framework.screen.iface.jsf.AbstractActionImpl;
+import zeroth.framework.standard.shared.SimpleFilter;
 /**
  * Listed section action.
  * @author nilcy
  */
 @Named(value = "listedSectionAction")
 @ConversationScoped
-public class ListedSectionAction extends AbstractActionImpl<ListedSection, Long, ListedSection> {
+public class ListedSectionAction extends AbstractActionImpl<ListedSection, Long, SimpleFilter> {
     /** 製品番号 */
     private static final long serialVersionUID = 7243039551620767571L;
     /** listed section service Local-I/F. */
@@ -28,7 +29,7 @@ public class ListedSectionAction extends AbstractActionImpl<ListedSection, Long,
         super();
     }
     @Override
-    public SimpleRepositoryApplication<ListedSection, Long, ListedSection> getService() {
+    public SimpleRepositoryApplication<ListedSection, Long, SimpleFilter> getService() {
         return service;
     }
 }

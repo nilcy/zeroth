@@ -14,13 +14,14 @@ import zeroth.actor.service.domain.Organ;
 import zeroth.framework.enterprise.app.SimpleRepositoryApplication;
 import zeroth.framework.screen.iface.jsf.AbstractActionImpl;
 import zeroth.framework.screen.iface.jsf.FacesHelper;
+import zeroth.framework.standard.shared.SimpleFilter;
 /**
  * Organization action.
  * @author nilcy
  */
 @Named(value = "organAction")
 @ConversationScoped
-public class OrganAction extends AbstractActionImpl<Organ, Long, Organ> {
+public class OrganAction extends AbstractActionImpl<Organ, Long, SimpleFilter> {
     /** 製品番号 */
     private static final long serialVersionUID = 7243039551620767571L;
     /** organization service Local-I/F. */
@@ -31,7 +32,7 @@ public class OrganAction extends AbstractActionImpl<Organ, Long, Organ> {
         super();
     }
     @Override
-    public SimpleRepositoryApplication<Organ, Long, Organ> getService() {
+    public SimpleRepositoryApplication<Organ, Long, SimpleFilter> getService() {
         return service;
     }
     /** {@inheritDoc} false if parent >= target. */

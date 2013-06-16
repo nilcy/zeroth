@@ -6,12 +6,12 @@
 package zeroth.actor.service.app.actor;
 import javax.ejb.Local;
 import zeroth.actor.service.domain.Member;
+import zeroth.actor.service.domain.MemberFilter;
 import zeroth.framework.enterprise.app.SimpleRepositoryApplication;
-import zeroth.framework.standard.shared.SimpleFilter;
 /**
  * 社員アプリケーションI/F
  * @author nilcy
  */
 @Local
-public interface MemberApplication extends SimpleRepositoryApplication<Member, Long, SimpleFilter> {
+public interface MemberApplication extends SimpleRepositoryApplication<Member, Long, MemberFilter> {
 }

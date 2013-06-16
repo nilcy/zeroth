@@ -13,13 +13,14 @@ import zeroth.actor.service.domain.Supplier;
 import zeroth.actor.service.domain.SupplierFactory;
 import zeroth.framework.enterprise.app.SimpleRepositoryApplication;
 import zeroth.framework.screen.iface.jsf.AbstractActionImpl;
+import zeroth.framework.standard.shared.SimpleFilter;
 /**
  * Supplier action.
  * @author nilcy
  */
 @Named(value = "supplierAction")
 @ConversationScoped
-public class SupplierAction extends AbstractActionImpl<Supplier, Long, Supplier> {
+public class SupplierAction extends AbstractActionImpl<Supplier, Long, SimpleFilter> {
     /** 製品番号 */
     private static final long serialVersionUID = 873776474936603723L;
     /** supplier service Local-I/F. */
@@ -30,7 +31,7 @@ public class SupplierAction extends AbstractActionImpl<Supplier, Long, Supplier>
         super();
     }
     @Override
-    public SimpleRepositoryApplication<Supplier, Long, Supplier> getService() {
+    public SimpleRepositoryApplication<Supplier, Long, SimpleFilter> getService() {
         return service;
     }
     /** {@inheritDoc} */

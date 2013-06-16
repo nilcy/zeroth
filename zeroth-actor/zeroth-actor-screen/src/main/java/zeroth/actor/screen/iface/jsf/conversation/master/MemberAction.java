@@ -11,6 +11,7 @@ import org.apache.commons.lang3.StringUtils;
 import zeroth.actor.service.app.actor.MemberApplication;
 import zeroth.actor.service.domain.Member;
 import zeroth.actor.service.domain.MemberFactory;
+import zeroth.actor.service.domain.MemberFilter;
 import zeroth.framework.enterprise.app.SimpleRepositoryApplication;
 import zeroth.framework.screen.iface.jsf.AbstractActionImpl;
 import zeroth.framework.standard.shared.CodecUtils;
@@ -20,12 +21,12 @@ import zeroth.framework.standard.shared.CodecUtils;
  */
 @Named(value = "memberAction")
 @ConversationScoped
-public class MemberAction extends AbstractActionImpl<Member, Long, Member> {
+public class MemberAction extends AbstractActionImpl<Member, Long, MemberFilter> {
     /** 製品番号 */
     private static final long serialVersionUID = 3945061120130283444L;
     /** member service Local-I/F. */
     @EJB
-    private MemberApplication service;
+    private MemberApplication application;
     /** temporary password. */
     private String tempPassword;
     /** コンストラクタ */
@@ -33,8 +34,8 @@ public class MemberAction extends AbstractActionImpl<Member, Long, Member> {
         super();
     }
     @Override
-    public SimpleRepositoryApplication<Member, Long, Member> getService() {
-        return service;
+    public SimpleRepositoryApplication<Member, Long, MemberFilter> getService() {
+        return application;
     }
     /**
      * {@inheritDoc}

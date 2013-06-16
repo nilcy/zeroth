@@ -13,13 +13,14 @@ import zeroth.actor.service.domain.Customer;
 import zeroth.actor.service.domain.CustomerFactory;
 import zeroth.framework.enterprise.app.SimpleRepositoryApplication;
 import zeroth.framework.screen.iface.jsf.AbstractActionImpl;
+import zeroth.framework.standard.shared.SimpleFilter;
 /**
  * Customer action.
  * @author nilcy
  */
 @Named(value = "customerAction")
 @ConversationScoped
-public class CustomerAction extends AbstractActionImpl<Customer, Long, Customer> {
+public class CustomerAction extends AbstractActionImpl<Customer, Long, SimpleFilter> {
     /** 製品番号 */
     private static final long serialVersionUID = 873776474936603723L;
     /** customer service Local-I/F. */
@@ -30,7 +31,7 @@ public class CustomerAction extends AbstractActionImpl<Customer, Long, Customer>
         super();
     }
     @Override
-    public SimpleRepositoryApplication<Customer, Long, Customer> getService() {
+    public SimpleRepositoryApplication<Customer, Long, SimpleFilter> getService() {
         return service;
     }
     /** {@inheritDoc} */

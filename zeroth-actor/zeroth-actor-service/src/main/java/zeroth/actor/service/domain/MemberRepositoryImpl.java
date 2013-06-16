@@ -6,19 +6,21 @@
 package zeroth.actor.service.domain;
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
-import zeroth.actor.service.domain.Member;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
+import org.apache.commons.lang3.StringUtils;
 import zeroth.actor.service.domain.PersistenceServiceAnnotation.MemberPersistenceService;
 import zeroth.framework.enterprise.domain.AbstractQueryRepositoryImpl;
 import zeroth.framework.enterprise.infra.persistence.QueryPersistenceService;
 import zeroth.framework.enterprise.shared.Tracer;
-import zeroth.framework.standard.shared.SimpleFilter;
 /**
  * Member repository implementation.
  * @author nilcy
  */
 @Default
 @Tracer
-public class MemberRepositoryImpl extends AbstractQueryRepositoryImpl<Member, Long, SimpleFilter>
+public class MemberRepositoryImpl extends AbstractQueryRepositoryImpl<Member, Long, MemberFilter>
     implements MemberRepository {
     /** 製品番号 */
     private static final long serialVersionUID = 2537651945740718957L;
@@ -30,5 +32,24 @@ public class MemberRepositoryImpl extends AbstractQueryRepositoryImpl<Member, Lo
     @Override
     protected QueryPersistenceService<Member, Long> getPersistenceService() {
         return service;
+    }
+    /**
+     * {@inheritDoc}
+     * <dl>
+     * <dt>事前条件</dt>
+     * <dd>フィルタは非NULLであること。</dd>
+     * <dt>事後条件</dt>
+     * <dd>指定したアカウントで検索条件とする。</dd>
+     * </dl>
+     */
+    @Override
+    protected Predicate expression(final MemberFilter filter) {
+        assert filter != null;
+        if (StringUtils.isEmpty(filter.getAccount())) {
+            return super.expression(filter);
+        }
+        final CriteriaBuilder b = service.builder();
+        final Root<Member> r = service.root();
+        return b.equal(r.get(Member_.account), wrapWildcard(filter.getAccount()));
     }
 }

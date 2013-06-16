@@ -16,8 +16,8 @@ import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 import zeroth.actor.service.app.actor.MemberApplication;
+import zeroth.actor.service.domain.ActorFilterFactory;
 import zeroth.actor.service.domain.Member;
-import zeroth.actor.service.domain.MemberFactory;
 import zeroth.framework.screen.iface.jsf.FacesHelper;
 /**
  * Visitor controller.
@@ -37,7 +37,7 @@ public class VisitorAction implements Serializable {
     private Date loggedInDate;
     /** member service Local-I/F. */
     @EJB
-    private MemberApplication memberService;
+    private MemberApplication memberApplication;
     /** conversation. */
     @Inject
     private Conversation conversation;
@@ -64,8 +64,8 @@ public class VisitorAction implements Serializable {
         if ((member == null) && isLoggedIn()) {
             final String account = FacesHelper.getExternalContext().getRemoteUser();
             log.info("account = " + account);
-            final Collection<Member> members = memberService.findMany(new MemberFactory()
-                .create(account));
+            final Collection<Member> members = memberApplication.findMany(ActorFilterFactory
+                .createMemberFilter(account));
             member = members.iterator().next();
             loggedInDate = new Date();
             // InfraHelper.addSuccessBundleMessage("LoggedIn");

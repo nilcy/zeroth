@@ -7,13 +7,12 @@ package zeroth.actor.service.app.actor;
 import javax.ejb.Stateless;
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
-import zeroth.actor.service.app.actor.MemberApplication;
 import zeroth.actor.service.domain.Member;
+import zeroth.actor.service.domain.MemberFilter;
 import zeroth.actor.service.domain.MemberRepository;
 import zeroth.framework.enterprise.app.AbstractSimpleRepositoryApplication;
 import zeroth.framework.enterprise.domain.SimpleRepository;
 import zeroth.framework.enterprise.shared.Tracer;
-import zeroth.framework.standard.shared.SimpleFilter;
 /**
  * 社員アプリケーション
  * @author nilcy
@@ -22,7 +21,7 @@ import zeroth.framework.standard.shared.SimpleFilter;
 @Default
 @Tracer
 public class MemberApplicationImpl extends
-    AbstractSimpleRepositoryApplication<Member, Long, SimpleFilter> implements MemberApplication {
+    AbstractSimpleRepositoryApplication<Member, Long, MemberFilter> implements MemberApplication {
     /** 製品番号 */
     private static final long serialVersionUID = 2537651945740718957L;
     /** 社員リポジトリ */
@@ -30,7 +29,7 @@ public class MemberApplicationImpl extends
     private MemberRepository repository;
     /** {@inheritDoc} */
     @Override
-    protected SimpleRepository<Member, Long, SimpleFilter> getRepository() {
+    protected SimpleRepository<Member, Long, MemberFilter> getRepository() {
         return repository;
     }
 }
