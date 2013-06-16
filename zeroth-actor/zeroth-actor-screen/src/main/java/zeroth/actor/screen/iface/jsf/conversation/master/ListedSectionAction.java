@@ -4,16 +4,17 @@
 // http://www.gnu.org/licenses/agpl-3.0.txt
 // ========================================================================
 package zeroth.actor.screen.iface.jsf.conversation.master;
-import javax.ejb.EJB;
 import javax.enterprise.context.ConversationScoped;
+import javax.inject.Inject;
 import javax.inject.Named;
 import zeroth.actor.service.app.misc.ListedSectionApplication;
 import zeroth.actor.service.domain.misc.ListedSection;
 import zeroth.framework.enterprise.app.SimpleRepositoryApplication;
 import zeroth.framework.screen.iface.jsf.AbstractActionImpl;
+import zeroth.framework.standard.shared.FilterFactory;
 import zeroth.framework.standard.shared.SimpleFilter;
 /**
- * Listed section action.
+ * 上場先アクション
  * @author nilcy
  */
 @Named(value = "listedSectionAction")
@@ -21,15 +22,20 @@ import zeroth.framework.standard.shared.SimpleFilter;
 public class ListedSectionAction extends AbstractActionImpl<ListedSection, Long, SimpleFilter> {
     /** 製品番号 */
     private static final long serialVersionUID = 7243039551620767571L;
-    /** listed section service Local-I/F. */
-    @EJB
-    private ListedSectionApplication service;
+    /** 上場先アプリケーションI/F */
+    @Inject
+    private ListedSectionApplication listedSectionApplication;
     /** コンストラクタ */
     public ListedSectionAction() {
-        super();
     }
+    /** {@inheritDoc} */
     @Override
-    public SimpleRepositoryApplication<ListedSection, Long, SimpleFilter> getService() {
-        return service;
+    public SimpleRepositoryApplication<ListedSection, Long, SimpleFilter> getApplication() {
+        return listedSectionApplication;
+    }
+    /** {@inheritDoc} */
+    @Override
+    protected SimpleFilter createRestriction() {
+        return FilterFactory.createSimpleFilter();
     }
 }

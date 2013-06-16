@@ -4,11 +4,12 @@
 // http://www.gnu.org/licenses/agpl-3.0.txt
 // ========================================================================
 package zeroth.actor.screen.iface.jsf.conversation.master;
-import javax.ejb.EJB;
 import javax.enterprise.context.ConversationScoped;
+import javax.inject.Inject;
 import javax.inject.Named;
 import org.apache.commons.lang3.StringUtils;
 import zeroth.actor.service.app.actor.MemberApplication;
+import zeroth.actor.service.domain.ActorFilterFactory;
 import zeroth.actor.service.domain.Member;
 import zeroth.actor.service.domain.MemberFactory;
 import zeroth.actor.service.domain.MemberFilter;
@@ -16,7 +17,7 @@ import zeroth.framework.enterprise.app.SimpleRepositoryApplication;
 import zeroth.framework.screen.iface.jsf.AbstractActionImpl;
 import zeroth.framework.standard.shared.CodecUtils;
 /**
- * Member action.
+ * 社員アクション
  * @author nilcy
  */
 @Named(value = "memberAction")
@@ -24,18 +25,18 @@ import zeroth.framework.standard.shared.CodecUtils;
 public class MemberAction extends AbstractActionImpl<Member, Long, MemberFilter> {
     /** 製品番号 */
     private static final long serialVersionUID = 3945061120130283444L;
-    /** member service Local-I/F. */
-    @EJB
-    private MemberApplication application;
+    /** 社員アプリケーションI/F */
+    @Inject
+    private MemberApplication memberApplication;
     /** temporary password. */
     private String tempPassword;
     /** コンストラクタ */
     public MemberAction() {
-        super();
     }
+    /** {@inheritDoc} */
     @Override
-    public SimpleRepositoryApplication<Member, Long, MemberFilter> getService() {
-        return application;
+    public SimpleRepositoryApplication<Member, Long, MemberFilter> getApplication() {
+        return memberApplication;
     }
     /**
      * {@inheritDoc}
@@ -73,5 +74,10 @@ public class MemberAction extends AbstractActionImpl<Member, Long, MemberFilter>
      */
     public void setTempPassword(final String aTempPassword) {
         tempPassword = aTempPassword;
+    }
+    /** {@inheritDoc} */
+    @Override
+    protected MemberFilter createRestriction() {
+        return ActorFilterFactory.createMemberFilter(null);
     }
 }

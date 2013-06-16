@@ -7,7 +7,6 @@ package zeroth.actor.service.app.misc;
 import javax.ejb.Stateless;
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
-import zeroth.actor.service.app.misc.NewsApplication;
 import zeroth.actor.service.domain.misc.News;
 import zeroth.actor.service.domain.misc.NewsRepository;
 import zeroth.framework.enterprise.app.AbstractSimpleRepositoryApplication;
@@ -21,13 +20,16 @@ import zeroth.framework.standard.shared.SimpleFilter;
 @Stateless
 @Default
 @Tracer
-public class NewsApplicationImpl extends AbstractSimpleRepositoryApplication<News, Long, SimpleFilter>
-    implements NewsApplication {
+public class NewsApplicationImpl extends
+    AbstractSimpleRepositoryApplication<News, Long, SimpleFilter> implements NewsApplication {
     /** 製品番号 */
     private static final long serialVersionUID = 7126614585601195838L;
     /** お知らせリポジトリ */
     @Inject
     private NewsRepository repository;
+    /** コンストラクタ */
+    public NewsApplicationImpl() {
+    }
     /** {@inheritDoc} */
     @Override
     protected SimpleRepository<News, Long, SimpleFilter> getRepository() {

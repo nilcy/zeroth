@@ -4,16 +4,17 @@
 // http://www.gnu.org/licenses/agpl-3.0.txt
 // ========================================================================
 package zeroth.actor.screen.iface.jsf.conversation.master;
-import javax.ejb.EJB;
 import javax.enterprise.context.ConversationScoped;
+import javax.inject.Inject;
 import javax.inject.Named;
 import zeroth.actor.service.app.misc.IndustryClassApplication;
 import zeroth.actor.service.domain.misc.IndustryClass;
 import zeroth.framework.enterprise.app.SimpleRepositoryApplication;
 import zeroth.framework.screen.iface.jsf.AbstractActionImpl;
+import zeroth.framework.standard.shared.FilterFactory;
 import zeroth.framework.standard.shared.SimpleFilter;
 /**
- * Industry classification action.
+ * 業種アクション
  * @author nilcy
  */
 @Named(value = "industryClassAction")
@@ -21,15 +22,20 @@ import zeroth.framework.standard.shared.SimpleFilter;
 public class IndustryClassAction extends AbstractActionImpl<IndustryClass, Long, SimpleFilter> {
     /** 製品番号 */
     private static final long serialVersionUID = 7243039551620767571L;
-    /** industry classification service Local-I/F. */
-    @EJB
-    private IndustryClassApplication service;
+    /** 業種アプリケーションI/F */
+    @Inject
+    private IndustryClassApplication industryClassApplication;
     /** コンストラクタ */
     public IndustryClassAction() {
-        super();
     }
+    /** {@inheritDoc} */
     @Override
-    public SimpleRepositoryApplication<IndustryClass, Long, SimpleFilter> getService() {
-        return service;
+    public SimpleRepositoryApplication<IndustryClass, Long, SimpleFilter> getApplication() {
+        return industryClassApplication;
+    }
+    /** {@inheritDoc} */
+    @Override
+    protected SimpleFilter createRestriction() {
+        return FilterFactory.createSimpleFilter();
     }
 }

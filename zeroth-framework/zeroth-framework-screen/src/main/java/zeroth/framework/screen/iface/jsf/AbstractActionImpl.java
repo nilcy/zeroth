@@ -101,7 +101,7 @@ public abstract class AbstractActionImpl<E extends Persistable<ID>, ID extends S
         try {
             if (this.beforeSave()) {
                 final String key = !this.selected.isPersisted() ? "EntityCreated" : "EntityUpdated";
-                this.selected = getService().save(this.selected);
+                this.selected = getApplication().save(this.selected);
                 this.endConversation();
                 FacesHelper.addSuccessMessage(FacesHelper.getBundleMessage(key));
                 FacesHelper.keepMessage();
@@ -128,8 +128,8 @@ public abstract class AbstractActionImpl<E extends Persistable<ID>, ID extends S
         String outcome = null;
         try {
             Validate.notNull(this.getId());
-            this.selected = getService().find(this.getId());
-            getService().delete(this.selected);
+            this.selected = getApplication().find(this.getId());
+            getApplication().delete(this.selected);
             this.endConversation();
             FacesHelper.addSuccessMessage(FacesHelper.getBundleMessage("EntityDeleted"));
             FacesHelper.keepMessage();
@@ -162,15 +162,13 @@ public abstract class AbstractActionImpl<E extends Persistable<ID>, ID extends S
                 private int itemsCount;
                 @Override
                 public Collection<E> createCollection() {
-                    final Collection<E> results = AbstractActionImpl.this.getService().findMany(
-                        AbstractActionImpl.this.getRestriction());
-                    this.itemsCount = (int) AbstractActionImpl.this.getService().count(
-                        AbstractActionImpl.this.getRestriction());
+                    final Collection<E> results = getApplication().findMany(getRestriction());
+                    itemsCount = (int) getApplication().count(getRestriction());
                     return results;
                 }
                 @Override
                 public int getItemsCount() {
-                    return this.itemsCount;
+                    return itemsCount;
                 }
             };
         }
@@ -178,14 +176,14 @@ public abstract class AbstractActionImpl<E extends Persistable<ID>, ID extends S
     }
     /** {@inheritDoc} */
     @Override
-    public abstract SimpleRepositoryApplication<E, ID, F> getService();
+    public abstract SimpleRepositoryApplication<E, ID, F> getApplication();
     /**
      * インスタンスのロード
      * @return インスタンス
      */
     protected E loadInstance() {
         Validate.notNull(this.getId());
-        return getService().find(this.getId());
+        return getApplication().find(this.getId());
     }
     /**
      * エンティティの作成
@@ -206,17 +204,22 @@ public abstract class AbstractActionImpl<E extends Persistable<ID>, ID extends S
      * 検索条件の作成
      * @return 検索条件
      */
-    @SuppressWarnings("unchecked")
-    protected F createRestriction() {
-        try {
-            return ((Class<F>) ((ParameterizedType) this.getClass().getGenericSuperclass())
-                .getActualTypeArguments()[2]).newInstance();
-        } catch (final InstantiationException e) {
-            throw new EnterpriseRuntimeException(e);
-        } catch (final IllegalAccessException e) {
-            throw new EnterpriseRuntimeException(e);
-        }
-    }
+    protected abstract F createRestriction();
+    // /**
+    // * 検索条件の作成
+    // * @return 検索条件
+    // */
+    // @SuppressWarnings("unchecked")
+    // protected F createRestriction() {
+    // try {
+    // return ((Class<F>) ((ParameterizedType) this.getClass().getGenericSuperclass())
+    // .getActualTypeArguments()[2]).newInstance();
+    // } catch (final InstantiationException e) {
+    // throw new EnterpriseRuntimeException(e);
+    // } catch (final IllegalAccessException e) {
+    // throw new EnterpriseRuntimeException(e);
+    // }
+    // }
     /** {@inheritDoc} */
     @Override
     public F getRestriction() {

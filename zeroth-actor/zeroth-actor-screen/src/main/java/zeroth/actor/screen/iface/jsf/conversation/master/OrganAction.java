@@ -5,18 +5,19 @@
 // ========================================================================
 package zeroth.actor.screen.iface.jsf.conversation.master;
 import java.text.MessageFormat;
-import javax.ejb.EJB;
 import javax.enterprise.context.ConversationScoped;
 import javax.faces.application.FacesMessage;
+import javax.inject.Inject;
 import javax.inject.Named;
 import zeroth.actor.service.app.actor.OrganApplication;
 import zeroth.actor.service.domain.Organ;
 import zeroth.framework.enterprise.app.SimpleRepositoryApplication;
 import zeroth.framework.screen.iface.jsf.AbstractActionImpl;
 import zeroth.framework.screen.iface.jsf.FacesHelper;
+import zeroth.framework.standard.shared.FilterFactory;
 import zeroth.framework.standard.shared.SimpleFilter;
 /**
- * Organization action.
+ * 組織アクション
  * @author nilcy
  */
 @Named(value = "organAction")
@@ -24,16 +25,16 @@ import zeroth.framework.standard.shared.SimpleFilter;
 public class OrganAction extends AbstractActionImpl<Organ, Long, SimpleFilter> {
     /** 製品番号 */
     private static final long serialVersionUID = 7243039551620767571L;
-    /** organization service Local-I/F. */
-    @EJB
-    private OrganApplication service;
+    /** 組織アプリケーションI/F */
+    @Inject
+    private OrganApplication organApplication;
     /** コンストラクタ */
     public OrganAction() {
-        super();
     }
+    /** {@inheritDoc} */
     @Override
-    public SimpleRepositoryApplication<Organ, Long, SimpleFilter> getService() {
-        return service;
+    public SimpleRepositoryApplication<Organ, Long, SimpleFilter> getApplication() {
+        return organApplication;
     }
     /** {@inheritDoc} false if parent >= target. */
     @Override
@@ -48,5 +49,10 @@ public class OrganAction extends AbstractActionImpl<Organ, Long, SimpleFilter> {
             return false;
         }
         return super.beforeSave();
+    }
+    /** {@inheritDoc} */
+    @Override
+    protected SimpleFilter createRestriction() {
+        return FilterFactory.createSimpleFilter();
     }
 }

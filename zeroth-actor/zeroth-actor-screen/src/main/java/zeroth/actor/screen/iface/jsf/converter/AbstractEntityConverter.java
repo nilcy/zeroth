@@ -33,7 +33,7 @@ public abstract class AbstractEntityConverter implements Converter {
             return null;
         }
         final Object object = ((Action) aFacesContext.getApplication().getELResolver()
-            .getValue(aFacesContext.getELContext(), null, actionName)).getService().find(
+            .getValue(aFacesContext.getELContext(), null, actionName)).getApplication().find(
             Long.valueOf(aParam));
         return object;
     }

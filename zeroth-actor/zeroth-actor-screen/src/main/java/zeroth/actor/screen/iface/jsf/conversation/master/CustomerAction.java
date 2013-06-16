@@ -4,8 +4,8 @@
 // http://www.gnu.org/licenses/agpl-3.0.txt
 // ========================================================================
 package zeroth.actor.screen.iface.jsf.conversation.master;
-import javax.ejb.EJB;
 import javax.enterprise.context.ConversationScoped;
+import javax.inject.Inject;
 import javax.inject.Named;
 import org.apache.commons.lang3.StringUtils;
 import zeroth.actor.service.app.actor.CustomerApplication;
@@ -13,9 +13,10 @@ import zeroth.actor.service.domain.Customer;
 import zeroth.actor.service.domain.CustomerFactory;
 import zeroth.framework.enterprise.app.SimpleRepositoryApplication;
 import zeroth.framework.screen.iface.jsf.AbstractActionImpl;
+import zeroth.framework.standard.shared.FilterFactory;
 import zeroth.framework.standard.shared.SimpleFilter;
 /**
- * Customer action.
+ * 得意先アクション
  * @author nilcy
  */
 @Named(value = "customerAction")
@@ -23,16 +24,16 @@ import zeroth.framework.standard.shared.SimpleFilter;
 public class CustomerAction extends AbstractActionImpl<Customer, Long, SimpleFilter> {
     /** 製品番号 */
     private static final long serialVersionUID = 873776474936603723L;
-    /** customer service Local-I/F. */
-    @EJB
-    private CustomerApplication service;
+    /** 得意先アプリケーションI/F */
+    @Inject
+    private CustomerApplication customerApplication;
     /** コンストラクタ */
     public CustomerAction() {
-        super();
     }
+    /** {@inheritDoc} */
     @Override
-    public SimpleRepositoryApplication<Customer, Long, SimpleFilter> getService() {
-        return service;
+    public SimpleRepositoryApplication<Customer, Long, SimpleFilter> getApplication() {
+        return customerApplication;
     }
     /** {@inheritDoc} */
     @Override
@@ -48,5 +49,10 @@ public class CustomerAction extends AbstractActionImpl<Customer, Long, SimpleFil
         c.getContact().setName(
             StringUtils.defaultIfEmpty(c.getContact().getName(), c.getOfficialName()));
         return super.beforeSave();
+    }
+    /** {@inheritDoc} */
+    @Override
+    protected SimpleFilter createRestriction() {
+        return FilterFactory.createSimpleFilter();
     }
 }

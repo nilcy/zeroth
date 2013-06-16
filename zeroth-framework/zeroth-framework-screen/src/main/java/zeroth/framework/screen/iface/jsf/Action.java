@@ -59,10 +59,10 @@ public interface Action<E extends Persistable<ID>, ID extends Serializable, F ex
      */
     Pagination<E> getPagination();
     /**
-     * 基本リポジトリサービスI/Fの取得
-     * @return 基本リポジトリサービスI/F
+     * 基本リポジトリアプリケーションの取得
+     * @return 基本リポジトリアプリケーション
      */
-    SimpleRepositoryApplication<E, ID, F> getService();
+    SimpleRepositoryApplication<E, ID, F> getApplication();
     /**
      * 検索条件の取得
      * @return restriction

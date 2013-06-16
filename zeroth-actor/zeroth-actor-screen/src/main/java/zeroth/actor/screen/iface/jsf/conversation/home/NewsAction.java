@@ -8,7 +8,7 @@ import zeroth.actor.service.domain.misc.News;
 import zeroth.framework.screen.iface.jsf.Action;
 import zeroth.framework.standard.shared.SimpleFilter;
 /**
- * New Action I/F.
+ * お知らせアクションI/F
  * @author nilcy
  */
 public interface NewsAction extends Action<News, Long, SimpleFilter> {
