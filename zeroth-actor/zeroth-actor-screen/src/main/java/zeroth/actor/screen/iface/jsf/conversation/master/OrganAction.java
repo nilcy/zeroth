@@ -5,9 +5,9 @@
 // ========================================================================
 package zeroth.actor.screen.iface.jsf.conversation.master;
 import java.text.MessageFormat;
+import javax.ejb.EJB;
 import javax.enterprise.context.ConversationScoped;
 import javax.faces.application.FacesMessage;
-import javax.inject.Inject;
 import javax.inject.Named;
 import zeroth.actor.service.app.actor.OrganApplication;
 import zeroth.actor.service.domain.Organ;
@@ -26,7 +26,7 @@ public class OrganAction extends AbstractActionImpl<Organ, Long, SimpleFilter> {
     /** 製品番号 */
     private static final long serialVersionUID = 7243039551620767571L;
     /** 組織アプリケーションI/F */
-    @Inject
+    @EJB
     private OrganApplication organApplication;
     /** コンストラクタ */
     public OrganAction() {

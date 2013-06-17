@@ -24,6 +24,9 @@ public abstract class AbstractSimpleRepositoryApplication<E extends Persistable<
     implements SimpleRepositoryApplication<E, ID, F> {
     /** 製品番号 */
     private static final long serialVersionUID = 6716209657934350302L;
+    /** コンストラクタ */
+    public AbstractSimpleRepositoryApplication() {
+    }
     /**
      * {@inheritDoc}
      * <dl>

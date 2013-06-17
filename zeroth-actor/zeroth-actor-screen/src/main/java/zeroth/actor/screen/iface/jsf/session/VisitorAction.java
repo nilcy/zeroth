@@ -5,7 +5,6 @@
 // ========================================================================
 package zeroth.actor.screen.iface.jsf.session;
 import java.io.Serializable;
-import java.util.Collection;
 import java.util.Date;
 import java.util.Map;
 import java.util.logging.Logger;
@@ -18,9 +17,10 @@ import javax.inject.Named;
 import zeroth.actor.service.app.actor.MemberApplication;
 import zeroth.actor.service.domain.ActorFilterFactory;
 import zeroth.actor.service.domain.Member;
+import zeroth.actor.service.domain.MemberFilter;
 import zeroth.framework.screen.iface.jsf.FacesHelper;
 /**
- * Visitor controller.
+ * 訪問者アクション
  * @author nilcy
  */
 @Named("visitorAction")
@@ -31,14 +31,14 @@ import zeroth.framework.screen.iface.jsf.FacesHelper;
 public class VisitorAction implements Serializable {
     /** 製品番号 */
     private static final long serialVersionUID = -6272066593466089850L;
-    /** member. */
+    /** 社員 */
     private Member member;
-    /** logged in date. */
+    /** ログイン日時 */
     private Date loggedInDate;
-    /** member service Local-I/F. */
+    /** 社員アプリケーション */
     @EJB
     private MemberApplication memberApplication;
-    /** conversation. */
+    /** 会話 */
     @Inject
     private Conversation conversation;
     /** ロガー */
@@ -47,11 +47,10 @@ public class VisitorAction implements Serializable {
     private static Logger log = Logger.getGlobal();
     /** コンストラクタ */
     public VisitorAction() {
-        super();
     }
     /**
-     * Determine if logged-in.
-     * @return true if logged-in
+     * ログイン有無の確認
+     * @return ログイン有無
      */
     @SuppressWarnings("static-method")
     public boolean isLoggedIn() {
@@ -59,16 +58,17 @@ public class VisitorAction implements Serializable {
         return FacesHelper.getExternalContext().getUserPrincipal() != null;
     }
     /**
-     * {@link #member}.
+     * {@link #member} の取得
      * @return {@link #member}
      */
     public Member getMember() {
         if ((member == null) && isLoggedIn()) {
             final String account = FacesHelper.getExternalContext().getRemoteUser();
             log.info("account = " + account);
-            final Collection<Member> members = memberApplication.findMany(ActorFilterFactory
-                .createMemberFilter(account));
-            member = members.iterator().next();
+            final MemberFilter filter = ActorFilterFactory.createMemberFilter(account);
+            log.info("filter = " + filter);
+            member = memberApplication.findOne(filter);
+            log.info("member = " + member);
             loggedInDate = new Date();
             // InfraHelper.addSuccessBundleMessage("LoggedIn");
             // InfraHelper.keepMessage();
@@ -79,24 +79,24 @@ public class VisitorAction implements Serializable {
         return member;
     }
     /**
-     * {@link #loggedInDate}.
+     * {@link #loggedInDate} の取得
      * @return {@link #loggedInDate}
      */
     public Date getLoggedInDate() {
         return loggedInDate;
     }
     /**
-     * Determine if user in role.
-     * @param aRole role
-     * @return true if user in role
+     * ロール保有の確認ん
+     * @param role ロール
+     * @return ロール保有
      */
     @SuppressWarnings("static-method")
-    public boolean hasRole(final String aRole) {
-        return FacesHelper.getExternalContext().isUserInRole(aRole);
+    public boolean hasRole(final String role) {
+        return FacesHelper.getExternalContext().isUserInRole(role);
     }
     /**
-     * stack-trace.
-     * @return stack-trace
+     * スタックトレースの取得
+     * @return スタックトレース
      */
     @SuppressWarnings("static-method")
     public String getStackTrace() {
@@ -112,7 +112,7 @@ public class VisitorAction implements Serializable {
         return builder.toString();
     }
     /**
-     * {@link #conversation}.
+     * {@link #conversation} の取得
      * @return {@link #conversation}
      */
     public Conversation getConversation() {

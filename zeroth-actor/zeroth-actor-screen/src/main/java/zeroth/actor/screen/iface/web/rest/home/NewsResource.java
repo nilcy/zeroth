@@ -5,10 +5,8 @@
 // ========================================================================
 package zeroth.actor.screen.iface.web.rest.home;
 import java.util.Collection;
-import java.util.logging.Logger;
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
-import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -33,8 +31,7 @@ public class NewsResource {
     @EJB
     private NewsApplication newsService;
     /** ロガー */
-    @Inject
-    private Logger log;
+    // private final Logger log = Logger.getGlobal();
     /** コンストラクタ */
     public NewsResource() {
         super();

@@ -5,7 +5,6 @@
 // ========================================================================
 package zeroth.actor.service.app.actor;
 import javax.ejb.Stateless;
-import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 import zeroth.actor.service.domain.Member;
 import zeroth.actor.service.domain.MemberFilter;
@@ -18,7 +17,7 @@ import zeroth.framework.enterprise.shared.Tracer;
  * @author nilcy
  */
 @Stateless
-@Default
+// @Default
 @Tracer
 public class MemberApplicationImpl extends
     AbstractSimpleRepositoryApplication<Member, Long, MemberFilter> implements MemberApplication {
@@ -27,6 +26,9 @@ public class MemberApplicationImpl extends
     /** 社員リポジトリ */
     @Inject
     private MemberRepository repository;
+    /** コンストラクタ */
+    public MemberApplicationImpl() {
+    }
     /** {@inheritDoc} */
     @Override
     protected SimpleRepository<Member, Long, MemberFilter> getRepository() {
