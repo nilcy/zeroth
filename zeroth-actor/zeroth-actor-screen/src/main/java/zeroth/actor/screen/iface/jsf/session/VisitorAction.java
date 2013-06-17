@@ -55,7 +55,7 @@ public class VisitorAction implements Serializable {
      */
     @SuppressWarnings("static-method")
     public boolean isLoggedIn() {
-        log.info("getUserPrincipal = " + FacesHelper.getExternalContext().getUserPrincipal());
+        // log.info("getUserPrincipal = " + FacesHelper.getExternalContext().getUserPrincipal());
         return FacesHelper.getExternalContext().getUserPrincipal() != null;
     }
     /**

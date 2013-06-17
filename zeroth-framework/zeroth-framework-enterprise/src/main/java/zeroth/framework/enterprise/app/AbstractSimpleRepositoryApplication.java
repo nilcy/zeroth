@@ -7,7 +7,6 @@ package zeroth.framework.enterprise.app;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.logging.Logger;
 import zeroth.framework.enterprise.domain.ConstraintsException;
 import zeroth.framework.enterprise.domain.SimpleRepository;
 import zeroth.framework.enterprise.shared.Persistable;
@@ -38,6 +37,7 @@ public abstract class AbstractSimpleRepositoryApplication<E extends Persistable<
      */
     @Override
     public E save(final E entity) throws ConstraintsException {
+        // return getRepository().save(entity);
         return CommonUtils.deepCopy(getRepository().save(entity));
     }
     /**
@@ -58,7 +58,8 @@ public abstract class AbstractSimpleRepositoryApplication<E extends Persistable<
      */
     @Override
     public E find(final ID id) {
-        return CommonUtils.deepCopy(getRepository().find(id));
+        return getRepository().find(id);
+        // return CommonUtils.deepCopy(getRepository().find(id));
     }
     /**
      * {@inheritDoc}
@@ -70,9 +71,7 @@ public abstract class AbstractSimpleRepositoryApplication<E extends Persistable<
      */
     @Override
     public E findOne(final F filter) {
-        final E entity = getRepository().findOne(filter);
-        Logger.getGlobal().info("entity is " + entity);
-        return entity;
+        return getRepository().findOne(filter);
         // return CommonUtils.deepCopy(getRepository().findOne(filter));
     }
     /**
@@ -88,7 +87,8 @@ public abstract class AbstractSimpleRepositoryApplication<E extends Persistable<
         final Collection<E> entities = getRepository().findMany(filter);
         final Collection<E> results = new ArrayList<>(entities.size());
         for (final E e : entities) {
-            results.add(CommonUtils.deepCopy(e));
+            results.add(e);
+            // results.add(CommonUtils.deepCopy(e));
         }
         return results;
     }
