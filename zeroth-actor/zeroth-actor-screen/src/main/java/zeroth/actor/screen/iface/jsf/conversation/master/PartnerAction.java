@@ -8,6 +8,7 @@ import javax.enterprise.context.ConversationScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import org.apache.commons.lang3.StringUtils;
+import zeroth.actor.screen.app.ApplicationAnnotation.PartnerApplicationCDI;
 import zeroth.actor.service.app.actor.PartnerApplication;
 import zeroth.actor.service.domain.Partner;
 import zeroth.actor.service.domain.PartnerFactory;
@@ -26,6 +27,7 @@ public class PartnerAction extends AbstractActionImpl<Partner, Long, SimpleFilte
     private static final long serialVersionUID = -1406530105042380063L;
     /** 外注アプリケーションI/F */
     @Inject
+    @PartnerApplicationCDI
     private PartnerApplication partnerApplication;
     /** コンストラクタ */
     public PartnerAction() {
@@ -50,7 +52,7 @@ public class PartnerAction extends AbstractActionImpl<Partner, Long, SimpleFilte
     }
     /** {@inheritDoc} */
     @Override
-    protected SimpleFilter createRestriction() {
+    protected SimpleFilter createFilter() {
         return FilterFactory.createSimpleFilter();
     }
 }

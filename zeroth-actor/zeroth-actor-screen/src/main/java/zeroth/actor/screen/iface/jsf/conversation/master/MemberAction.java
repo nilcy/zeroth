@@ -8,6 +8,7 @@ import javax.enterprise.context.ConversationScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import org.apache.commons.lang3.StringUtils;
+import zeroth.actor.screen.app.ApplicationAnnotation.MemberApplicationCDI;
 import zeroth.actor.service.app.actor.MemberApplication;
 import zeroth.actor.service.domain.ActorFilterFactory;
 import zeroth.actor.service.domain.Member;
@@ -27,6 +28,7 @@ public class MemberAction extends AbstractActionImpl<Member, Long, MemberFilter>
     private static final long serialVersionUID = 3945061120130283444L;
     /** 社員アプリケーションI/F */
     @Inject
+    @MemberApplicationCDI
     private MemberApplication memberApplication;
     /** temporary password. */
     private String tempPassword;
@@ -77,7 +79,7 @@ public class MemberAction extends AbstractActionImpl<Member, Long, MemberFilter>
     }
     /** {@inheritDoc} */
     @Override
-    protected MemberFilter createRestriction() {
+    protected MemberFilter createFilter() {
         return ActorFilterFactory.createMemberFilter(null);
     }
 }

@@ -53,11 +53,11 @@ public interface Action<E extends Persistable<ID>, ID extends Serializable, F ex
      * @return 遷移先
      */
     String cancel();
-    // /**
-    // * ページ条件の取得
-    // * @return ページ条件
-    // */
-    // Pagination<E> getPagination();
+    /**
+     * ページ条件の取得
+     * @return ページ条件
+     */
+    Pagination<E> getPagination();
     /**
      * 基本リポジトリアプリケーションの取得
      * @return 基本リポジトリアプリケーション

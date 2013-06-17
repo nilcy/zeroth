@@ -8,6 +8,7 @@ import javax.enterprise.context.ConversationScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import org.apache.commons.lang3.StringUtils;
+import zeroth.actor.screen.app.ApplicationAnnotation.CustomerApplicationCDI;
 import zeroth.actor.service.app.actor.CustomerApplication;
 import zeroth.actor.service.domain.Customer;
 import zeroth.actor.service.domain.CustomerFactory;
@@ -26,6 +27,7 @@ public class CustomerAction extends AbstractActionImpl<Customer, Long, SimpleFil
     private static final long serialVersionUID = 873776474936603723L;
     /** 得意先アプリケーションI/F */
     @Inject
+    @CustomerApplicationCDI
     private CustomerApplication customerApplication;
     /** コンストラクタ */
     public CustomerAction() {
@@ -52,7 +54,7 @@ public class CustomerAction extends AbstractActionImpl<Customer, Long, SimpleFil
     }
     /** {@inheritDoc} */
     @Override
-    protected SimpleFilter createRestriction() {
+    protected SimpleFilter createFilter() {
         return FilterFactory.createSimpleFilter();
     }
 }

@@ -7,6 +7,7 @@ package zeroth.actor.screen.iface.jsf.conversation.master;
 import javax.enterprise.context.ConversationScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
+import zeroth.actor.screen.app.ApplicationAnnotation.ListedSectionApplicationCDI;
 import zeroth.actor.service.app.misc.ListedSectionApplication;
 import zeroth.actor.service.domain.misc.ListedSection;
 import zeroth.framework.enterprise.app.SimpleRepositoryApplication;
@@ -24,6 +25,7 @@ public class ListedSectionAction extends AbstractActionImpl<ListedSection, Long,
     private static final long serialVersionUID = 7243039551620767571L;
     /** 上場先アプリケーションI/F */
     @Inject
+    @ListedSectionApplicationCDI
     private ListedSectionApplication listedSectionApplication;
     /** コンストラクタ */
     public ListedSectionAction() {
@@ -35,7 +37,7 @@ public class ListedSectionAction extends AbstractActionImpl<ListedSection, Long,
     }
     /** {@inheritDoc} */
     @Override
-    protected SimpleFilter createRestriction() {
+    protected SimpleFilter createFilter() {
         return FilterFactory.createSimpleFilter();
     }
 }

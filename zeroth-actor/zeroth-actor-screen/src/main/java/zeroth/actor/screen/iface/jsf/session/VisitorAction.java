@@ -13,6 +13,7 @@ import javax.enterprise.context.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
+import zeroth.actor.screen.app.ApplicationAnnotation.MemberApplicationCDI;
 import zeroth.actor.service.app.actor.MemberApplication;
 import zeroth.actor.service.domain.ActorFilterFactory;
 import zeroth.actor.service.domain.Member;
@@ -36,6 +37,7 @@ public class VisitorAction implements Serializable {
     private Date loggedInDate;
     /** 社員アプリケーション */
     @Inject
+    @MemberApplicationCDI
     private MemberApplication memberApplication;
     /** 会話 */
     @Inject

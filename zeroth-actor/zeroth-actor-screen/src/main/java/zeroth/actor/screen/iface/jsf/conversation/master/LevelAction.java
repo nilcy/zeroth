@@ -7,6 +7,7 @@ package zeroth.actor.screen.iface.jsf.conversation.master;
 import javax.enterprise.context.ConversationScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
+import zeroth.actor.screen.app.ApplicationAnnotation.LevelApplicationCDI;
 import zeroth.actor.service.app.actor.LevelApplication;
 import zeroth.actor.service.domain.Level;
 import zeroth.framework.enterprise.app.SimpleRepositoryApplication;
@@ -24,6 +25,7 @@ public class LevelAction extends AbstractActionImpl<Level, Long, SimpleFilter> {
     private static final long serialVersionUID = 944558410807492976L;
     /** 職級アプリケーションI/F */
     @Inject
+    @LevelApplicationCDI
     private LevelApplication levelApplication;
     /** コンストラクタ */
     public LevelAction() {
@@ -35,7 +37,7 @@ public class LevelAction extends AbstractActionImpl<Level, Long, SimpleFilter> {
     }
     /** {@inheritDoc} */
     @Override
-    protected SimpleFilter createRestriction() {
+    protected SimpleFilter createFilter() {
         return FilterFactory.createSimpleFilter();
     }
 }

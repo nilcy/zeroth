@@ -9,6 +9,7 @@ import javax.enterprise.context.ConversationScoped;
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 import javax.inject.Named;
+import zeroth.actor.screen.app.ApplicationAnnotation.NewsApplicationCDI;
 import zeroth.actor.service.app.misc.NewsApplication;
 import zeroth.actor.service.domain.misc.News;
 import zeroth.actor.service.domain.misc.NewsFactory;
@@ -29,6 +30,7 @@ public class NewsActionImpl extends AbstractActionImpl<News, Long, SimpleFilter>
     private static final long serialVersionUID = 7243039551620767571L;
     /** お知らせアプリケーションI/F */
     @Inject
+    @NewsApplicationCDI
     private NewsApplication newsApplication;
     /** コンストラクタ */
     public NewsActionImpl() {
@@ -53,7 +55,7 @@ public class NewsActionImpl extends AbstractActionImpl<News, Long, SimpleFilter>
     }
     /** {@inheritDoc} */
     @Override
-    protected SimpleFilter createRestriction() {
+    protected SimpleFilter createFilter() {
         return FilterFactory.createSimpleFilter();
     }
 }

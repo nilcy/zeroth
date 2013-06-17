@@ -4,7 +4,7 @@
 // http://www.gnu.org/licenses/agpl-3.0.txt
 // ========================================================================
 /**
- * 関係先画面
+ * 関係先画面 | アプリケーションレイヤ
  * @author nilcy
  */
-package zeroth.actor.screen;
+package zeroth.actor.screen.app;

@@ -7,6 +7,7 @@ package zeroth.actor.screen.iface.jsf.conversation.master;
 import javax.enterprise.context.ConversationScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
+import zeroth.actor.screen.app.ApplicationAnnotation.TitleApplicationCDI;
 import zeroth.actor.service.app.actor.TitleApplication;
 import zeroth.actor.service.domain.Title;
 import zeroth.framework.enterprise.app.SimpleRepositoryApplication;
@@ -24,6 +25,7 @@ public class TitleAction extends AbstractActionImpl<Title, Long, SimpleFilter> {
     private static final long serialVersionUID = -1742312463790367432L;
     /** 職名アプリケーションI/F */
     @Inject
+    @TitleApplicationCDI
     private TitleApplication titleApplication;
     /** コンストラクタ */
     public TitleAction() {
@@ -35,7 +37,7 @@ public class TitleAction extends AbstractActionImpl<Title, Long, SimpleFilter> {
     }
     /** {@inheritDoc} */
     @Override
-    protected SimpleFilter createRestriction() {
+    protected SimpleFilter createFilter() {
         return FilterFactory.createSimpleFilter();
     }
 }
