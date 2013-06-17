@@ -11,7 +11,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
-import zeroth.framework.enterprise.domain.AbstractPersistable;
+import zeroth.framework.enterprise.domain.AbstractVersionable;
 /**
  * 職級
  * @author nilcy
@@ -20,7 +20,7 @@ import zeroth.framework.enterprise.domain.AbstractPersistable;
 @Access(AccessType.FIELD)
 @Table(name = "level", uniqueConstraints = { @UniqueConstraint(columnNames = { "name" }) })
 @Cacheable(true)
-public class Level extends AbstractPersistable<Level> {
+public class Level extends AbstractVersionable<Level> {
     /** 製品番号 */
     private static final long serialVersionUID = -5371798431488961210L;
     /** 職級 */

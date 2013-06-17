@@ -7,14 +7,14 @@ package zeroth.actor.service.domain.parts;
 import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;
 import zeroth.actor.service.domain.Title;
-import zeroth.framework.enterprise.domain.AbstractPersistable_;
+import zeroth.framework.enterprise.domain.AbstractVersionable_;
 /**
  * 職名権限のメタモデル
  * @author nilcy
  */
 // CHECKSTYLE:OFF
 @StaticMetamodel(TitleAuth.class)
-public class TitleAuth_ extends AbstractPersistable_ {
+public class TitleAuth_ extends AbstractVersionable_ {
     /** 職名 */
     public static volatile SingularAttribute<TitleAuth, Title> title;
     /** 権限 */

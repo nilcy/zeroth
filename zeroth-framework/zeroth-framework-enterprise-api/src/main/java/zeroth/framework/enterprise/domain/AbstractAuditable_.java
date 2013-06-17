@@ -13,7 +13,7 @@ import javax.persistence.metamodel.StaticMetamodel;
  */
 // CHECKSTYLE:OFF
 @StaticMetamodel(AbstractAuditable.class)
-public class AbstractAuditable_ extends AbstractPersistable_ {
+public class AbstractAuditable_ extends AbstractVersionable_ {
     /** 作成者(ID) */
     public static volatile SingularAttribute<AbstractAuditable<?>, Long> createdBy;
     /** 作成日時 */

@@ -15,7 +15,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
-import zeroth.framework.enterprise.domain.AbstractPersistable;
+import zeroth.framework.enterprise.domain.AbstractVersionable;
 /**
  * 組織
  * @author nilcy
@@ -24,7 +24,7 @@ import zeroth.framework.enterprise.domain.AbstractPersistable;
 @Access(AccessType.FIELD)
 @Table(name = "organ", uniqueConstraints = { @UniqueConstraint(columnNames = { "name" }) })
 @Cacheable(true)
-public class Organ extends AbstractPersistable<Organ> {
+public class Organ extends AbstractVersionable<Organ> {
     /** 製品番号 */
     private static final long serialVersionUID = 4009731357822225905L;
     /** 親組織 */

@@ -18,7 +18,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import zeroth.actor.service.domain.parts.Auth;
-import zeroth.framework.enterprise.domain.AbstractPersistable;
+import zeroth.framework.enterprise.domain.AbstractVersionable;
 /**
  * 社員権限
  * @author nilcy
@@ -28,7 +28,7 @@ import zeroth.framework.enterprise.domain.AbstractPersistable;
 @Table(name = "member_auth", uniqueConstraints = { @UniqueConstraint(columnNames = { "account",
     "auth" }) })
 @Cacheable(true)
-public class MemberAuth extends AbstractPersistable<MemberAuth> {
+public class MemberAuth extends AbstractVersionable<MemberAuth> {
     /** 製品番号 */
     private static final long serialVersionUID = -536967469017451589L;
     /** 社員 */

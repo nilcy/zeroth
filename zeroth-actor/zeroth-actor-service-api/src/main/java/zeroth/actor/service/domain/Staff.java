@@ -12,7 +12,7 @@ import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Table;
-import zeroth.framework.enterprise.domain.AbstractPersistable;
+import zeroth.framework.enterprise.domain.AbstractVersionable;
 /**
  * 職員
  * @param <T> 職員オブジェクト型
@@ -23,7 +23,7 @@ import zeroth.framework.enterprise.domain.AbstractPersistable;
 @Inheritance(strategy = InheritanceType.JOINED)
 @DiscriminatorColumn(name = "staff_type", discriminatorType = DiscriminatorType.STRING)
 @Cacheable(true)
-public class Staff<T extends Staff<T>> extends AbstractPersistable<T> {
+public class Staff<T extends Staff<T>> extends AbstractVersionable<T> {
     /** 製品番号 */
     private static final long serialVersionUID = -6782665199241064589L;
     /** 姓 */

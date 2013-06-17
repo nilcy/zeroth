@@ -6,14 +6,14 @@
 package zeroth.actor.service.domain.parts;
 import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;
-import zeroth.framework.enterprise.domain.AbstractPersistable_;
+import zeroth.framework.enterprise.domain.AbstractVersionable_;
 /**
  * 連絡先のメタモデル
  * @author nilcy
  */
 // CHECKSTYLE:OFF
 @StaticMetamodel(Contact.class)
-public class Contact_ extends AbstractPersistable_ {
+public class Contact_ extends AbstractVersionable_ {
     /** 連絡先宛名 */
     public static volatile SingularAttribute<Contact<?>, String> name;
     /** 電話番号 */

@@ -24,7 +24,7 @@ import javax.persistence.UniqueConstraint;
 import zeroth.actor.service.domain.misc.IndustryClass;
 import zeroth.actor.service.domain.misc.ListedSection;
 import zeroth.actor.service.domain.parts.OfficeAddress;
-import zeroth.framework.enterprise.domain.AbstractPersistable;
+import zeroth.framework.enterprise.domain.AbstractVersionable;
 /**
  * 取引先
  * @param <T> 取引先オブジェクト型
@@ -37,7 +37,7 @@ import zeroth.framework.enterprise.domain.AbstractPersistable;
 @Inheritance(strategy = InheritanceType.JOINED)
 @DiscriminatorColumn(name = "company_type", discriminatorType = DiscriminatorType.STRING)
 @Cacheable(true)
-public class Company<T extends Company<T>> extends AbstractPersistable<T> {
+public class Company<T extends Company<T>> extends AbstractVersionable<T> {
     /** 製品番号 */
     private static final long serialVersionUID = 4188961406940447335L;
     /** 正式名 */

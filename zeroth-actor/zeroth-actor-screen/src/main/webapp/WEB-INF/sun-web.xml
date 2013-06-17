@@ -52,4 +52,5 @@
   <jsp-config>
     <property name="keepgenerated" value="true" />
   </jsp-config>
+  <parameter-encoding default-charset="UTF-8" />
 </sun-web-app>

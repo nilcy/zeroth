@@ -15,7 +15,7 @@ import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import zeroth.framework.enterprise.domain.AbstractPersistable;
+import zeroth.framework.enterprise.domain.AbstractVersionable;
 /**
  * 告知
  * @param <T> 告知オブジェクト型
@@ -26,7 +26,7 @@ import zeroth.framework.enterprise.domain.AbstractPersistable;
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "notice_type", discriminatorType = DiscriminatorType.STRING)
 @Cacheable(true)
-public class Notice<T extends Notice<T>> extends AbstractPersistable<T> {
+public class Notice<T extends Notice<T>> extends AbstractVersionable<T> {
     /** 製品番号 */
     private static final long serialVersionUID = 1479222182416558368L;
     /** 表題 */

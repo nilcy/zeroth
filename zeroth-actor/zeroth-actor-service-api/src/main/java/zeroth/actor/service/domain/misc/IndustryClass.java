@@ -11,7 +11,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
-import zeroth.framework.enterprise.domain.AbstractPersistable;
+import zeroth.framework.enterprise.domain.AbstractVersionable;
 /**
  * 業種
  * <p>
@@ -25,7 +25,7 @@ import zeroth.framework.enterprise.domain.AbstractPersistable;
     @UniqueConstraint(columnNames = { "sector" }),
     @UniqueConstraint(columnNames = { "description" }) })
 @Cacheable(true)
-public class IndustryClass extends AbstractPersistable<IndustryClass> {
+public class IndustryClass extends AbstractVersionable<IndustryClass> {
     /** 製品番号 */
     private static final long serialVersionUID = -9033077500828287823L;
     /** 業種コード */

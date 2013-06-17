@@ -6,14 +6,14 @@
 package zeroth.actor.service.domain.parts;
 import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;
-import zeroth.framework.enterprise.domain.AbstractPersistable_;
+import zeroth.framework.enterprise.domain.AbstractVersionable_;
 /**
  * 住所のメタモデル
  * @author nilcy
  */
 // CHECKSTYLE:OFF
 @StaticMetamodel(Address.class)
-public class Address_ extends AbstractPersistable_ {
+public class Address_ extends AbstractVersionable_ {
     /** 住所宛名 */
     public static volatile SingularAttribute<Address<?>, String> name;
     /** 郵便番号 */

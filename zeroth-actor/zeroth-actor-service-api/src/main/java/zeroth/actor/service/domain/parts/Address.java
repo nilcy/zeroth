@@ -12,7 +12,7 @@ import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Table;
-import zeroth.framework.enterprise.domain.AbstractPersistable;
+import zeroth.framework.enterprise.domain.AbstractVersionable;
 /**
  * 住所
  * @param <T> 住所オブジェクト型
@@ -23,7 +23,7 @@ import zeroth.framework.enterprise.domain.AbstractPersistable;
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "address_type", discriminatorType = DiscriminatorType.STRING)
 @Cacheable(true)
-public class Address<T extends Address<T>> extends AbstractPersistable<T> {
+public class Address<T extends Address<T>> extends AbstractVersionable<T> {
     /** 製品番号 */
     private static final long serialVersionUID = -589669347532041227L;
     /** 住所宛名 */

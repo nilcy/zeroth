@@ -11,7 +11,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
-import zeroth.framework.enterprise.domain.AbstractPersistable;
+import zeroth.framework.enterprise.domain.AbstractVersionable;
 /**
  * 上場先
  * @author nilcy
@@ -20,7 +20,7 @@ import zeroth.framework.enterprise.domain.AbstractPersistable;
 @Access(AccessType.FIELD)
 @Table(name = "listed_section", uniqueConstraints = { @UniqueConstraint(columnNames = { "section" }) })
 @Cacheable(true)
-public class ListedSection extends AbstractPersistable<ListedSection> {
+public class ListedSection extends AbstractVersionable<ListedSection> {
     /** 製品番号 */
     private static final long serialVersionUID = 4211135076507326572L;
     /** 上場先 */

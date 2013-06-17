@@ -12,7 +12,7 @@ import javax.persistence.Entity;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Table;
-import zeroth.framework.enterprise.domain.AbstractPersistable;
+import zeroth.framework.enterprise.domain.AbstractVersionable;
 /**
  * 連絡先
  * @param <T> 連絡先オブジェクト型
@@ -23,7 +23,7 @@ import zeroth.framework.enterprise.domain.AbstractPersistable;
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "contact_type", discriminatorType = DiscriminatorType.STRING)
 @Cacheable(true)
-public class Contact<T extends Contact<T>> extends AbstractPersistable<T> {
+public class Contact<T extends Contact<T>> extends AbstractVersionable<T> {
     /** 製品番号 */
     private static final long serialVersionUID = 1317514060244911729L;
     /** 連絡先宛名 */

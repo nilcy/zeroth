@@ -11,6 +11,7 @@ import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import zeroth.framework.enterprise.shared.Auditable;
 /**
  * 監査可能エンティティ
  * <p>
@@ -21,7 +22,7 @@ import javax.persistence.TemporalType;
  */
 @MappedSuperclass
 public abstract class AbstractAuditable<E extends AbstractAuditable<E>> extends
-    AbstractPersistable<E> implements Auditable<Long, Long> {
+    AbstractVersionable<E> implements Auditable<Long, Long> {
     /** 識別番号 */
     private static final long serialVersionUID = 6992851617530122569L;
     /** 作成者(ID) */

@@ -6,14 +6,14 @@
 package zeroth.actor.service.domain;
 import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;
-import zeroth.framework.enterprise.domain.AbstractPersistable_;
+import zeroth.framework.enterprise.domain.AbstractVersionable_;
 /**
  * 職員のメタモデル
  * @author nilcy
  */
 // CHECKSTYLE:OFF
 @StaticMetamodel(Staff.class)
-public class Staff_ extends AbstractPersistable_ {
+public class Staff_ extends AbstractVersionable_ {
     /** 姓 */
     public static volatile SingularAttribute<Staff<?>, String> familyName;
     /** 名 */

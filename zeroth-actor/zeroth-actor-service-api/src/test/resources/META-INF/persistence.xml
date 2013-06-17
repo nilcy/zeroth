@@ -8,29 +8,29 @@
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>zeroth.framework.enterprise.domain.AbstractPersistable</class>
     <class>zeroth.framework.enterprise.domain.AbstractAuditable</class>
-    <class>zeroth.actor.domain.Company</class>
-    <class>zeroth.actor.domain.Customer</class>
-    <class>zeroth.actor.domain.Level</class>
-    <class>zeroth.actor.domain.Member</class>
-    <class>zeroth.actor.domain.MemberAuth</class>
-    <class>zeroth.actor.domain.Organ</class>
-    <class>zeroth.actor.domain.Partner</class>
-    <class>zeroth.actor.domain.Staff</class>
-    <class>zeroth.actor.domain.Supplier</class>
-    <class>zeroth.actor.domain.Title</class>
-    <class>zeroth.actor.domain.misc.IndustryClass</class>
-    <class>zeroth.actor.domain.misc.ListedSection</class>
-    <class>zeroth.actor.domain.misc.News</class>
-    <class>zeroth.actor.domain.misc.Notice</class>
-    <class>zeroth.actor.domain.parts.Address</class>
-    <class>zeroth.actor.domain.parts.Contact</class>
-    <class>zeroth.actor.domain.parts.CustomerContact</class>
-    <class>zeroth.actor.domain.parts.HomeAddress</class>
-    <class>zeroth.actor.domain.parts.MemberContact</class>
-    <class>zeroth.actor.domain.parts.OfficeAddress</class>
-    <class>zeroth.actor.domain.parts.PartnerContact</class>
-    <class>zeroth.actor.domain.parts.SupplierContact</class>
-    <class>zeroth.actor.domain.parts.TitleAuth</class>
+    <class>zeroth.actor.service.domain.Company</class>
+    <class>zeroth.actor.service.domain.Customer</class>
+    <class>zeroth.actor.service.domain.Level</class>
+    <class>zeroth.actor.service.domain.Member</class>
+    <class>zeroth.actor.service.domain.MemberAuth</class>
+    <class>zeroth.actor.service.domain.Organ</class>
+    <class>zeroth.actor.service.domain.Partner</class>
+    <class>zeroth.actor.service.domain.Staff</class>
+    <class>zeroth.actor.service.domain.Supplier</class>
+    <class>zeroth.actor.service.domain.Title</class>
+    <class>zeroth.actor.service.domain.misc.IndustryClass</class>
+    <class>zeroth.actor.service.domain.misc.ListedSection</class>
+    <class>zeroth.actor.service.domain.misc.News</class>
+    <class>zeroth.actor.service.domain.misc.Notice</class>
+    <class>zeroth.actor.service.domain.parts.Address</class>
+    <class>zeroth.actor.service.domain.parts.Contact</class>
+    <class>zeroth.actor.service.domain.parts.CustomerContact</class>
+    <class>zeroth.actor.service.domain.parts.HomeAddress</class>
+    <class>zeroth.actor.service.domain.parts.MemberContact</class>
+    <class>zeroth.actor.service.domain.parts.OfficeAddress</class>
+    <class>zeroth.actor.service.domain.parts.PartnerContact</class>
+    <class>zeroth.actor.service.domain.parts.SupplierContact</class>
+    <class>zeroth.actor.service.domain.parts.TitleAuth</class>
     <exclude-unlisted-classes>true</exclude-unlisted-classes>
     <shared-cache-mode>ENABLE_SELECTIVE</shared-cache-mode>
     <validation-mode>AUTO</validation-mode>

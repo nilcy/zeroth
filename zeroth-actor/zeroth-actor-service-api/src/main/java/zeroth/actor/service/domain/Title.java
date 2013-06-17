@@ -17,7 +17,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import zeroth.actor.service.domain.parts.TitleAuth;
-import zeroth.framework.enterprise.domain.AbstractPersistable;
+import zeroth.framework.enterprise.domain.AbstractVersionable;
 /**
  * 職名
  * @author nilcy
@@ -26,7 +26,7 @@ import zeroth.framework.enterprise.domain.AbstractPersistable;
 @Access(AccessType.FIELD)
 @Table(name = "title", uniqueConstraints = { @UniqueConstraint(columnNames = { "name" }) })
 @Cacheable(true)
-public class Title extends AbstractPersistable<Title> {
+public class Title extends AbstractVersionable<Title> {
     /** 製品番号 */
     private static final long serialVersionUID = 5468865843361146757L;
     /** 職名 */

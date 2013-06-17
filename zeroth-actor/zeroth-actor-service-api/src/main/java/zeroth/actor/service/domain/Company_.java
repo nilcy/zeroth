@@ -10,14 +10,14 @@ import javax.persistence.metamodel.StaticMetamodel;
 import zeroth.actor.service.domain.misc.IndustryClass;
 import zeroth.actor.service.domain.misc.ListedSection;
 import zeroth.actor.service.domain.parts.OfficeAddress;
-import zeroth.framework.enterprise.domain.AbstractPersistable_;
+import zeroth.framework.enterprise.domain.AbstractVersionable_;
 /**
  * 取引先のメタモデル
  * @author nilcy
  */
 // CHECKSTYLE:OFF
 @StaticMetamodel(Company.class)
-public class Company_ extends AbstractPersistable_ {
+public class Company_ extends AbstractVersionable_ {
     /** 正式名 */
     public static volatile SingularAttribute<Company<?>, String> officialName;
     /** カナ名 */

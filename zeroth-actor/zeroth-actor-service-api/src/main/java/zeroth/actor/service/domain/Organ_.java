@@ -6,14 +6,14 @@
 package zeroth.actor.service.domain;
 import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;
-import zeroth.framework.enterprise.domain.AbstractPersistable_;
+import zeroth.framework.enterprise.domain.AbstractVersionable_;
 /**
  * 組織のメタモデル
  * @author nilcy
  */
 // CHECKSTYLE:OFF
 @StaticMetamodel(Organ.class)
-public class Organ_ extends AbstractPersistable_ {
+public class Organ_ extends AbstractVersionable_ {
     /** 親組織 */
     public static volatile SingularAttribute<Organ, Organ> parent;
     /** 組織名 */

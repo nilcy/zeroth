@@ -6,14 +6,14 @@
 package zeroth.actor.service.domain.misc;
 import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;
-import zeroth.framework.enterprise.domain.AbstractPersistable_;
+import zeroth.framework.enterprise.domain.AbstractVersionable_;
 /**
  * 業種のメタモデル
  * @author nilcy
  */
 // CHECKSTYLE:OFF
 @StaticMetamodel(IndustryClass.class)
-public class IndustryClass_ extends AbstractPersistable_ {
+public class IndustryClass_ extends AbstractVersionable_ {
     /** 業種コード */
     public static volatile SingularAttribute<IndustryClass, String> sector;
     /** 業種 */

@@ -3,17 +3,16 @@
 // GNU AFFERO GENERAL PUBLIC LICENSE Version 3, 19 November 2007
 // http://www.gnu.org/licenses/agpl-3.0.txt
 // ========================================================================
-package zeroth.actor.service.domain.misc;
+package zeroth.framework.enterprise.domain;
 import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;
-import zeroth.framework.enterprise.domain.AbstractVersionable_;
 /**
- * 上場先のメタモデル
+ * 版管理エンティティのメタモデル
  * @author nilcy
  */
 // CHECKSTYLE:OFF
-@StaticMetamodel(ListedSection.class)
-public class ListedSection_ extends AbstractVersionable_ {
-    /** 上場先 */
-    public static volatile SingularAttribute<ListedSection, String> section;
+@StaticMetamodel(AbstractVersionable.class)
+public class AbstractVersionable_ {
+    /** 版数 */
+    public static volatile SingularAttribute<AbstractVersionable<?>, Long> version;
 }

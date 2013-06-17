@@ -6,14 +6,14 @@
 package zeroth.actor.service.domain;
 import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;
-import zeroth.framework.enterprise.domain.AbstractPersistable_;
+import zeroth.framework.enterprise.domain.AbstractVersionable_;
 /**
  * 職級のメタモデル
  * @author nilcy
  */
 // CHECKSTYLE:OFF
 @StaticMetamodel(Level.class)
-public class Level_ extends AbstractPersistable_ {
+public class Level_ extends AbstractVersionable_ {
     /** 職級 */
     public static volatile SingularAttribute<Level, String> name;
     /** 職級順 */

@@ -7,14 +7,14 @@ package zeroth.actor.service.domain.misc;
 import java.util.Date;
 import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;
-import zeroth.framework.enterprise.domain.AbstractPersistable_;
+import zeroth.framework.enterprise.domain.AbstractVersionable_;
 /**
  * 告知のメタモデル
  * @author nilcy
  */
 // CHECKSTYLE:OFF
 @StaticMetamodel(Notice.class)
-public class Notice_ extends AbstractPersistable_ {
+public class Notice_ extends AbstractVersionable_ {
     /** 表題 */
     public static volatile SingularAttribute<Notice<?>, String> title;
     /** 説明 */
