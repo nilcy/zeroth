@@ -4,8 +4,8 @@
 // http://www.gnu.org/licenses/agpl-3.0.txt
 // ========================================================================
 package zeroth.actor.screen.iface.jsf.conversation.master;
-import javax.ejb.EJB;
 import javax.enterprise.context.ConversationScoped;
+import javax.inject.Inject;
 import javax.inject.Named;
 import org.apache.commons.lang3.StringUtils;
 import zeroth.actor.service.app.actor.PartnerApplication;
@@ -25,7 +25,7 @@ public class PartnerAction extends AbstractActionImpl<Partner, Long, SimpleFilte
     /** 製品番号 */
     private static final long serialVersionUID = -1406530105042380063L;
     /** 外注アプリケーションI/F */
-    @EJB
+    @Inject
     private PartnerApplication partnerApplication;
     /** コンストラクタ */
     public PartnerAction() {

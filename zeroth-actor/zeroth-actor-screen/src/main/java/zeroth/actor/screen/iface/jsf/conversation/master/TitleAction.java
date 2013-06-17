@@ -4,8 +4,8 @@
 // http://www.gnu.org/licenses/agpl-3.0.txt
 // ========================================================================
 package zeroth.actor.screen.iface.jsf.conversation.master;
-import javax.ejb.EJB;
 import javax.enterprise.context.ConversationScoped;
+import javax.inject.Inject;
 import javax.inject.Named;
 import zeroth.actor.service.app.actor.TitleApplication;
 import zeroth.actor.service.domain.Title;
@@ -23,7 +23,7 @@ public class TitleAction extends AbstractActionImpl<Title, Long, SimpleFilter> {
     /** 製品番号 */
     private static final long serialVersionUID = -1742312463790367432L;
     /** 職名アプリケーションI/F */
-    @EJB
+    @Inject
     private TitleApplication titleApplication;
     /** コンストラクタ */
     public TitleAction() {

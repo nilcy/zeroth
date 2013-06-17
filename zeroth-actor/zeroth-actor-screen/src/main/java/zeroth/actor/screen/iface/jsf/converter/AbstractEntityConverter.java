@@ -25,6 +25,7 @@ public abstract class AbstractEntityConverter implements Converter {
     public AbstractEntityConverter(final String aActionName) {
         actionName = aActionName;
     }
+    /** {@inheritDoc} */
     @SuppressWarnings({ "rawtypes", "unchecked" })
     @Override
     public Object getAsObject(final FacesContext aFacesContext, final UIComponent aComponent,
@@ -37,6 +38,7 @@ public abstract class AbstractEntityConverter implements Converter {
             Long.valueOf(aParam));
         return object;
     }
+    /** {@inheritDoc} */
     @Override
     public String getAsString(final FacesContext aFacesContext, final UIComponent aComponent,
         final Object aObject) {

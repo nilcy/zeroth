@@ -6,6 +6,7 @@
 package zeroth.framework.enterprise.domain;
 import java.io.Serializable;
 import java.util.Collection;
+import java.util.logging.Logger;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.Predicate;
 import zeroth.framework.enterprise.infra.persistence.QueryPersistenceService;
@@ -51,6 +52,7 @@ public abstract class AbstractQueryRepositoryImpl<E extends Persistable<ID>, ID 
      * @return クエリ
      */
     private TypedQuery<E> createQuery(final F filter) {
+        Logger.getGlobal().info("filter = " + filter);
         getPersistenceService().query().select(getPersistenceService().root())
             .where(expression(filter));
         if (filter instanceof WithPageRequest) {
@@ -67,6 +69,7 @@ public abstract class AbstractQueryRepositoryImpl<E extends Persistable<ID>, ID 
      * @return WHERE句
      */
     protected Predicate expression(final F filter) {
+        Logger.getGlobal().info("filter = " + filter);
         return getPersistenceService().builder().conjunction();
     }
     /**

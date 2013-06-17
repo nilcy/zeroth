@@ -4,8 +4,8 @@
 // http://www.gnu.org/licenses/agpl-3.0.txt
 // ========================================================================
 package zeroth.actor.screen.iface.jsf.conversation.master;
-import javax.ejb.EJB;
 import javax.enterprise.context.ConversationScoped;
+import javax.inject.Inject;
 import javax.inject.Named;
 import zeroth.actor.service.app.misc.ListedSectionApplication;
 import zeroth.actor.service.domain.misc.ListedSection;
@@ -23,7 +23,7 @@ public class ListedSectionAction extends AbstractActionImpl<ListedSection, Long,
     /** 製品番号 */
     private static final long serialVersionUID = 7243039551620767571L;
     /** 上場先アプリケーションI/F */
-    @EJB
+    @Inject
     private ListedSectionApplication listedSectionApplication;
     /** コンストラクタ */
     public ListedSectionAction() {

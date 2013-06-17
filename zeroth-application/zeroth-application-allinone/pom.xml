@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<project
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
   xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
   <parent>
@@ -20,18 +19,18 @@
     <zeroth-sales-screen.version>0.0.1-SNAPSHOT</zeroth-sales-screen.version>
   </properties>
   <dependencies>
-    <!-- <dependency> -->
-    <!-- <groupId>com.github.nilcy</groupId> -->
-    <!-- <artifactId>zeroth-framework-screen</artifactId> -->
-    <!-- <version>${zeroth-framework-screen.version}</version> -->
-    <!-- </dependency> -->
-    <!-- <dependency> -->
-    <!-- <groupId>com.github.nilcy</groupId> -->
-    <!-- <artifactId>zeroth-actor-service</artifactId> -->
-    <!-- <version>${zeroth-actor-service.version}</version> -->
-    <!-- <type>ejb</type> -->
-    <!-- <scope>compile</scope> -->
-    <!-- </dependency> -->
+    <dependency>
+      <groupId>com.github.nilcy</groupId>
+      <artifactId>zeroth-framework-screen</artifactId>
+      <version>${zeroth-framework-screen.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.github.nilcy</groupId>
+      <artifactId>zeroth-actor-service</artifactId>
+      <version>${zeroth-actor-service.version}</version>
+      <type>ejb</type>
+      <scope>compile</scope>
+    </dependency>
     <dependency>
       <groupId>com.github.nilcy</groupId>
       <artifactId>zeroth-actor-screen</artifactId>
@@ -57,10 +56,10 @@
               <artifactId>zeroth-actor-screen</artifactId>
               <contextRoot>/zeroth-actor</contextRoot>
             </webModule>
-            <!-- <ejbModule> -->
-            <!-- <groupId>com.github.nilcy</groupId> -->
-            <!-- <artifactId>zeroth-actor-service</artifactId> -->
-            <!-- </ejbModule> -->
+            <ejbModule>
+              <groupId>com.github.nilcy</groupId>
+              <artifactId>zeroth-actor-service</artifactId>
+            </ejbModule>
           </modules>
           <archive>
             <manifest>
@@ -72,8 +71,8 @@
     </plugins>
     <pluginManagement>
       <plugins>
-        <!--This plugin's configuration is used to store Eclipse m2e settings 
-          only. It has no influence on the Maven build itself. -->
+        <!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence 
+          on the Maven build itself. -->
         <plugin>
           <groupId>org.eclipse.m2e</groupId>
           <artifactId>lifecycle-mapping</artifactId>

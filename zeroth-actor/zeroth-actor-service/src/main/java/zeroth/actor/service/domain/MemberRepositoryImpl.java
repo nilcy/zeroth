@@ -4,6 +4,7 @@
 // http://www.gnu.org/licenses/agpl-3.0.txt
 // ========================================================================
 package zeroth.actor.service.domain;
+import java.util.logging.Logger;
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 import javax.persistence.criteria.CriteriaBuilder;
@@ -44,12 +45,13 @@ public class MemberRepositoryImpl extends AbstractQueryRepositoryImpl<Member, Lo
      */
     @Override
     protected Predicate expression(final MemberFilter filter) {
+        Logger.getGlobal().info("filter = " + filter);
         assert filter != null;
         if (StringUtils.isEmpty(filter.getAccount())) {
             return super.expression(filter);
         }
         final CriteriaBuilder b = service.builder();
         final Root<Member> r = service.root();
-        return b.equal(r.get(Member_.account), wrapWildcard(filter.getAccount()));
+        return b.equal(r.get(Member_.account), filter.getAccount());
     }
 }

@@ -4,8 +4,8 @@
 // http://www.gnu.org/licenses/agpl-3.0.txt
 // ========================================================================
 package zeroth.actor.screen.iface.jsf.conversation.master;
-import javax.ejb.EJB;
 import javax.enterprise.context.ConversationScoped;
+import javax.inject.Inject;
 import javax.inject.Named;
 import zeroth.actor.service.app.misc.IndustryClassApplication;
 import zeroth.actor.service.domain.misc.IndustryClass;
@@ -23,7 +23,7 @@ public class IndustryClassAction extends AbstractActionImpl<IndustryClass, Long,
     /** 製品番号 */
     private static final long serialVersionUID = 7243039551620767571L;
     /** 業種アプリケーションI/F */
-    @EJB
+    @Inject
     private IndustryClassApplication industryClassApplication;
     /** コンストラクタ */
     public IndustryClassAction() {

@@ -4,8 +4,8 @@
 // http://www.gnu.org/licenses/agpl-3.0.txt
 // ========================================================================
 package zeroth.actor.screen.iface.jsf.conversation.master;
-import javax.ejb.EJB;
 import javax.enterprise.context.ConversationScoped;
+import javax.inject.Inject;
 import javax.inject.Named;
 import org.apache.commons.lang3.StringUtils;
 import zeroth.actor.service.app.actor.MemberApplication;
@@ -26,7 +26,7 @@ public class MemberAction extends AbstractActionImpl<Member, Long, MemberFilter>
     /** 製品番号 */
     private static final long serialVersionUID = 3945061120130283444L;
     /** 社員アプリケーションI/F */
-    @EJB
+    @Inject
     private MemberApplication memberApplication;
     /** temporary password. */
     private String tempPassword;

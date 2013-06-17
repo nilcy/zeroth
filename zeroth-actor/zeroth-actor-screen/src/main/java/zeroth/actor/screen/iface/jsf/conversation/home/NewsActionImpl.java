@@ -5,9 +5,9 @@
 // ========================================================================
 package zeroth.actor.screen.iface.jsf.conversation.home;
 import java.util.Date;
-import javax.ejb.EJB;
 import javax.enterprise.context.ConversationScoped;
 import javax.enterprise.inject.Default;
+import javax.inject.Inject;
 import javax.inject.Named;
 import zeroth.actor.service.app.misc.NewsApplication;
 import zeroth.actor.service.domain.misc.News;
@@ -28,8 +28,7 @@ public class NewsActionImpl extends AbstractActionImpl<News, Long, SimpleFilter>
     /** 製品番号 */
     private static final long serialVersionUID = 7243039551620767571L;
     /** お知らせアプリケーションI/F */
-    @EJB
-    // @NewsApplicationLocal
+    @Inject
     private NewsApplication newsApplication;
     /** コンストラクタ */
     public NewsActionImpl() {

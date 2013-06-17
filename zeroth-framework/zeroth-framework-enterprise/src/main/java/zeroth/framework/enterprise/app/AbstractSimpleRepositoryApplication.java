@@ -7,6 +7,7 @@ package zeroth.framework.enterprise.app;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.logging.Logger;
 import zeroth.framework.enterprise.domain.ConstraintsException;
 import zeroth.framework.enterprise.domain.SimpleRepository;
 import zeroth.framework.enterprise.shared.Persistable;
@@ -57,7 +58,7 @@ public abstract class AbstractSimpleRepositoryApplication<E extends Persistable<
      */
     @Override
     public E find(final ID id) {
-        return CommonUtils.deepCopy(this.getRepository().find(id));
+        return CommonUtils.deepCopy(getRepository().find(id));
     }
     /**
      * {@inheritDoc}
@@ -69,7 +70,10 @@ public abstract class AbstractSimpleRepositoryApplication<E extends Persistable<
      */
     @Override
     public E findOne(final F filter) {
-        return CommonUtils.deepCopy(this.getRepository().findOne(filter));
+        final E entity = getRepository().findOne(filter);
+        Logger.getGlobal().info("entity is " + entity);
+        return entity;
+        // return CommonUtils.deepCopy(getRepository().findOne(filter));
     }
     /**
      * {@inheritDoc}
@@ -81,7 +85,7 @@ public abstract class AbstractSimpleRepositoryApplication<E extends Persistable<
      */
     @Override
     public Collection<E> findMany(final F filter) {
-        final Collection<E> entities = this.getRepository().findMany(filter);
+        final Collection<E> entities = getRepository().findMany(filter);
         final Collection<E> results = new ArrayList<>(entities.size());
         for (final E e : entities) {
             results.add(CommonUtils.deepCopy(e));
@@ -94,7 +98,7 @@ public abstract class AbstractSimpleRepositoryApplication<E extends Persistable<
      */
     @Override
     public long count(final F filter) {
-        return this.getRepository().count(filter);
+        return getRepository().count(filter);
     }
     /**
      * 基本リポジトリI/Fの取得

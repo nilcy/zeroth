@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<project
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
   xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
   <parent>
@@ -58,19 +57,21 @@
       <groupId>com.github.nilcy</groupId>
       <artifactId>zeroth-framework-screen</artifactId>
       <version>${zeroth-framework-screen.version}</version>
-      <scope>compile</scope>
+      <!-- <scope>compile</scope> -->
+      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>com.github.nilcy</groupId>
       <artifactId>zeroth-actor-service-api</artifactId>
       <version>${zeroth-actor-service-api.version}</version>
-      <scope>compile</scope>
+      <!-- <scope>compile</scope> -->
+      <scope>provided</scope>
     </dependency>
-    <dependency>
-      <groupId>com.github.nilcy</groupId>
-      <artifactId>zeroth-actor-service</artifactId>
-      <version>${zeroth-actor-service.version}</version>
-      <scope>runtime</scope>
-    </dependency>
+    <!-- <dependency> -->
+    <!-- <groupId>com.github.nilcy</groupId> -->
+    <!-- <artifactId>zeroth-actor-service</artifactId> -->
+    <!-- <version>${zeroth-actor-service.version}</version> -->
+    <!-- <scope>runtime</scope> -->
+    <!-- </dependency> -->
   </dependencies>
 </project>

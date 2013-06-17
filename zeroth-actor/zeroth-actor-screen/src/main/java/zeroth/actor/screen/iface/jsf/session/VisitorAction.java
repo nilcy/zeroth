@@ -8,7 +8,6 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.Map;
 import java.util.logging.Logger;
-import javax.ejb.EJB;
 import javax.enterprise.context.Conversation;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.context.FacesContext;
@@ -36,7 +35,7 @@ public class VisitorAction implements Serializable {
     /** ログイン日時 */
     private Date loggedInDate;
     /** 社員アプリケーション */
-    @EJB
+    @Inject
     private MemberApplication memberApplication;
     /** 会話 */
     @Inject
