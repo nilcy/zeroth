@@ -8,9 +8,9 @@
     <language>en-us</language>
     <copyright>&#169;2013 nilcy</copyright>
     <item>
-      <title>File: 1,
+      <title>File: 45,
              Errors: 0,
-             Warnings: 1,
+             Warnings: 109,
              Infos: 0
       </title>
             <link>http://nilcy.github.io/zeroth/maven/site/zeroth-actor/zeroth-actor-service//checkstyle.html</link>
@@ -29,13 +29,629 @@
           <tbody>
                           <tr>
                 <td>
-                  <a href="http://nilcy.github.io/zeroth/maven/site/zeroth-actor/zeroth-actor-service//checkstyle.html#zeroth.actor.service.Example.java">zeroth/actor/service/Example.java</a>
+                  <a href="http://nilcy.github.io/zeroth/maven/site/zeroth-actor/zeroth-actor-service//checkstyle.html#zeroth.actor.service.app.ws.hello.package-info.java">zeroth/actor/service/app/ws/hello/package-info.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://nilcy.github.io/zeroth/maven/site/zeroth-actor/zeroth-actor-service//checkstyle.html#zeroth.actor.service.app.actor.OrganApplicationImpl.java">zeroth/actor/service/app/actor/OrganApplicationImpl.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  3
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://nilcy.github.io/zeroth/maven/site/zeroth-actor/zeroth-actor-service//checkstyle.html#zeroth.actor.service.domain.MemberRepository.java">zeroth/actor/service/domain/MemberRepository.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://nilcy.github.io/zeroth/maven/site/zeroth-actor/zeroth-actor-service//checkstyle.html#zeroth.actor.service.app.misc.package-info.java">zeroth/actor/service/app/misc/package-info.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://nilcy.github.io/zeroth/maven/site/zeroth-actor/zeroth-actor-service//checkstyle.html#zeroth.actor.service.app.actor.TitleApplicationImpl.java">zeroth/actor/service/app/actor/TitleApplicationImpl.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  3
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://nilcy.github.io/zeroth/maven/site/zeroth-actor/zeroth-actor-service//checkstyle.html#zeroth.actor.service.app.actor.CustomerApplicationImpl.java">zeroth/actor/service/app/actor/CustomerApplicationImpl.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  3
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://nilcy.github.io/zeroth/maven/site/zeroth-actor/zeroth-actor-service//checkstyle.html#zeroth.actor.service.domain.misc.IndustryClassRepositoryImpl.java">zeroth/actor/service/domain/misc/IndustryClassRepositoryImpl.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  3
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://nilcy.github.io/zeroth/maven/site/zeroth-actor/zeroth-actor-service//checkstyle.html#zeroth.actor.service.domain.PartnerRepository.java">zeroth/actor/service/domain/PartnerRepository.java</a>
                 </td>
                 <td>
                   0
                 </td>
                 <td>
                   1
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://nilcy.github.io/zeroth/maven/site/zeroth-actor/zeroth-actor-service//checkstyle.html#zeroth.actor.service.app.misc.ListedSectionApplicationImpl.java">zeroth/actor/service/app/misc/ListedSectionApplicationImpl.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  3
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://nilcy.github.io/zeroth/maven/site/zeroth-actor/zeroth-actor-service//checkstyle.html#zeroth.actor.service.domain.SupplierRepository.java">zeroth/actor/service/domain/SupplierRepository.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  1
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://nilcy.github.io/zeroth/maven/site/zeroth-actor/zeroth-actor-service//checkstyle.html#zeroth.actor.service.domain.LevelRepository.java">zeroth/actor/service/domain/LevelRepository.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  1
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://nilcy.github.io/zeroth/maven/site/zeroth-actor/zeroth-actor-service//checkstyle.html#zeroth.actor.service.domain.LevelRepositoryImpl.java">zeroth/actor/service/domain/LevelRepositoryImpl.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  3
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://nilcy.github.io/zeroth/maven/site/zeroth-actor/zeroth-actor-service//checkstyle.html#zeroth.actor.service.domain.TitleRepositoryImpl.java">zeroth/actor/service/domain/TitleRepositoryImpl.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  4
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://nilcy.github.io/zeroth/maven/site/zeroth-actor/zeroth-actor-service//checkstyle.html#zeroth.actor.service.app.ws.hello.HelloServiceImpl.java">zeroth/actor/service/app/ws/hello/HelloServiceImpl.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://nilcy.github.io/zeroth/maven/site/zeroth-actor/zeroth-actor-service//checkstyle.html#zeroth.actor.service.app.ws.SoapClient.java">zeroth/actor/service/app/ws/SoapClient.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://nilcy.github.io/zeroth/maven/site/zeroth-actor/zeroth-actor-service//checkstyle.html#zeroth.actor.service.app.ws.package-info.java">zeroth/actor/service/app/ws/package-info.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://nilcy.github.io/zeroth/maven/site/zeroth-actor/zeroth-actor-service//checkstyle.html#zeroth.actor.service.domain.package-info.java">zeroth/actor/service/domain/package-info.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://nilcy.github.io/zeroth/maven/site/zeroth-actor/zeroth-actor-service//checkstyle.html#zeroth.actor.service.domain.misc.PersistenceServiceAnnotation.java">zeroth/actor/service/domain/misc/PersistenceServiceAnnotation.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://nilcy.github.io/zeroth/maven/site/zeroth-actor/zeroth-actor-service//checkstyle.html#zeroth.actor.service.app.ws.GatewayServiceClient.java">zeroth/actor/service/app/ws/GatewayServiceClient.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  4
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://nilcy.github.io/zeroth/maven/site/zeroth-actor/zeroth-actor-service//checkstyle.html#zeroth.actor.service.app.actor.PartnerApplicationImpl.java">zeroth/actor/service/app/actor/PartnerApplicationImpl.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  3
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://nilcy.github.io/zeroth/maven/site/zeroth-actor/zeroth-actor-service//checkstyle.html#zeroth.actor.service.app.actor.MemberApplicationImpl.java">zeroth/actor/service/app/actor/MemberApplicationImpl.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  1
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://nilcy.github.io/zeroth/maven/site/zeroth-actor/zeroth-actor-service//checkstyle.html#zeroth.actor.service.domain.EntityManagerProducer.java">zeroth/actor/service/domain/EntityManagerProducer.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://nilcy.github.io/zeroth/maven/site/zeroth-actor/zeroth-actor-service//checkstyle.html#zeroth.actor.service.domain.TitleRepository.java">zeroth/actor/service/domain/TitleRepository.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  1
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://nilcy.github.io/zeroth/maven/site/zeroth-actor/zeroth-actor-service//checkstyle.html#zeroth.actor.service.app.actor.SupplierApplicationImpl.java">zeroth/actor/service/app/actor/SupplierApplicationImpl.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  3
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://nilcy.github.io/zeroth/maven/site/zeroth-actor/zeroth-actor-service//checkstyle.html#zeroth.actor.service.domain.CustomerRepositoryImpl.java">zeroth/actor/service/domain/CustomerRepositoryImpl.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  3
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://nilcy.github.io/zeroth/maven/site/zeroth-actor/zeroth-actor-service//checkstyle.html#zeroth.actor.service.app.actor.LevelApplicationImpl.java">zeroth/actor/service/app/actor/LevelApplicationImpl.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  3
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://nilcy.github.io/zeroth/maven/site/zeroth-actor/zeroth-actor-service//checkstyle.html#zeroth.actor.service.domain.PersistenceServiceProducer.java">zeroth/actor/service/domain/PersistenceServiceProducer.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  22
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://nilcy.github.io/zeroth/maven/site/zeroth-actor/zeroth-actor-service//checkstyle.html#zeroth.actor.service.domain.PartnerRepositoryImpl.java">zeroth/actor/service/domain/PartnerRepositoryImpl.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  3
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://nilcy.github.io/zeroth/maven/site/zeroth-actor/zeroth-actor-service//checkstyle.html#zeroth.actor.service.domain.PersistenceServiceAnnotation.java">zeroth/actor/service/domain/PersistenceServiceAnnotation.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://nilcy.github.io/zeroth/maven/site/zeroth-actor/zeroth-actor-service//checkstyle.html#zeroth.actor.service.domain.SupplierRepositoryImpl.java">zeroth/actor/service/domain/SupplierRepositoryImpl.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  4
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://nilcy.github.io/zeroth/maven/site/zeroth-actor/zeroth-actor-service//checkstyle.html#zeroth.actor.service.app.actor.package-info.java">zeroth/actor/service/app/actor/package-info.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://nilcy.github.io/zeroth/maven/site/zeroth-actor/zeroth-actor-service//checkstyle.html#zeroth.actor.service.domain.CustomerRepository.java">zeroth/actor/service/domain/CustomerRepository.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  1
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://nilcy.github.io/zeroth/maven/site/zeroth-actor/zeroth-actor-service//checkstyle.html#zeroth.actor.service.domain.misc.NewsRepository.java">zeroth/actor/service/domain/misc/NewsRepository.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://nilcy.github.io/zeroth/maven/site/zeroth-actor/zeroth-actor-service//checkstyle.html#zeroth.actor.service.domain.misc.NewsRepositoryImpl.java">zeroth/actor/service/domain/misc/NewsRepositoryImpl.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  8
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://nilcy.github.io/zeroth/maven/site/zeroth-actor/zeroth-actor-service//checkstyle.html#zeroth.actor.service.domain.OrganRepositoryImpl.java">zeroth/actor/service/domain/OrganRepositoryImpl.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  3
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://nilcy.github.io/zeroth/maven/site/zeroth-actor/zeroth-actor-service//checkstyle.html#zeroth.actor.service.app.misc.NewsApplicationImpl.java">zeroth/actor/service/app/misc/NewsApplicationImpl.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  1
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://nilcy.github.io/zeroth/maven/site/zeroth-actor/zeroth-actor-service//checkstyle.html#zeroth.actor.service.domain.OrganRepository.java">zeroth/actor/service/domain/OrganRepository.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  1
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://nilcy.github.io/zeroth/maven/site/zeroth-actor/zeroth-actor-service//checkstyle.html#zeroth.actor.service.domain.misc.ListedSectionRepositoryImpl.java">zeroth/actor/service/domain/misc/ListedSectionRepositoryImpl.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  3
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://nilcy.github.io/zeroth/maven/site/zeroth-actor/zeroth-actor-service//checkstyle.html#zeroth.actor.service.app.ws.calc.package-info.java">zeroth/actor/service/app/ws/calc/package-info.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://nilcy.github.io/zeroth/maven/site/zeroth-actor/zeroth-actor-service//checkstyle.html#zeroth.actor.service.app.ws.calc.CalcServiceImpl.java">zeroth/actor/service/app/ws/calc/CalcServiceImpl.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://nilcy.github.io/zeroth/maven/site/zeroth-actor/zeroth-actor-service//checkstyle.html#zeroth.actor.service.domain.misc.IndustryClassRepository.java">zeroth/actor/service/domain/misc/IndustryClassRepository.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  2
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://nilcy.github.io/zeroth/maven/site/zeroth-actor/zeroth-actor-service//checkstyle.html#zeroth.actor.service.app.misc.IndustryClassApplicationImpl.java">zeroth/actor/service/app/misc/IndustryClassApplicationImpl.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  3
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://nilcy.github.io/zeroth/maven/site/zeroth-actor/zeroth-actor-service//checkstyle.html#zeroth.actor.service.domain.misc.PersistenceServiceProducer.java">zeroth/actor/service/domain/misc/PersistenceServiceProducer.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  6
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://nilcy.github.io/zeroth/maven/site/zeroth-actor/zeroth-actor-service//checkstyle.html#zeroth.actor.service.domain.misc.ListedSectionRepository.java">zeroth/actor/service/domain/misc/ListedSectionRepository.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  1
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://nilcy.github.io/zeroth/maven/site/zeroth-actor/zeroth-actor-service//checkstyle.html#zeroth.actor.service.domain.MemberRepositoryImpl.java">zeroth/actor/service/domain/MemberRepositoryImpl.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  8
                 </td>
                 <td>
                   0

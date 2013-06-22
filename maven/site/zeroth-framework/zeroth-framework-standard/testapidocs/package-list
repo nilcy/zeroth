@@ -1,3 +1,5 @@
 zeroth.framework.standard
 zeroth.framework.standard.domain
 zeroth.framework.standard.shared
+zeroth.framework.standard.shared.commons.codec
+zeroth.framework.standard.shared.commons.lang

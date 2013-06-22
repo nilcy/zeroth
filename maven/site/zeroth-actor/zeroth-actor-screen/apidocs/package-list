@@ -1,1 +1,11 @@
 zeroth.actor.screen
+zeroth.actor.screen.app
+zeroth.actor.screen.iface.jsf.application
+zeroth.actor.screen.iface.jsf.conversation
+zeroth.actor.screen.iface.jsf.conversation.home
+zeroth.actor.screen.iface.jsf.conversation.master
+zeroth.actor.screen.iface.jsf.converter
+zeroth.actor.screen.iface.jsf.session
+zeroth.actor.screen.iface.web.rest
+zeroth.actor.screen.iface.web.rest.home
+zeroth.actor.screen.iface.web.servlet

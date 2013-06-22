@@ -1,1 +1,11 @@
 zeroth.actor.service
+zeroth.actor.service.app
+zeroth.actor.service.app.actor
+zeroth.actor.service.app.misc
+zeroth.actor.service.app.ws
+zeroth.actor.service.app.ws.calc
+zeroth.actor.service.app.ws.gateway
+zeroth.actor.service.app.ws.hello
+zeroth.actor.service.domain
+zeroth.actor.service.domain.misc
+zeroth.actor.service.domain.parts

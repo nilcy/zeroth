@@ -1,9 +1,12 @@
 zeroth.actor.command
 zeroth.actor.screen
+zeroth.actor.screen.iface.jsf.session
 zeroth.actor.service
+zeroth.actor.service.domain
+zeroth.actor.service.domain.misc
 zeroth.framework.coding
+zeroth.framework.command
 zeroth.framework.command.iface
-zeroth.framework.cui
 zeroth.framework.enterprise
 zeroth.framework.enterprise.domain
 zeroth.framework.enterprise.infra.messaging
@@ -14,4 +17,6 @@ zeroth.framework.service
 zeroth.framework.standard
 zeroth.framework.standard.domain
 zeroth.framework.standard.shared
+zeroth.framework.standard.shared.commons.codec
+zeroth.framework.standard.shared.commons.lang
 zeroth.framework.testing

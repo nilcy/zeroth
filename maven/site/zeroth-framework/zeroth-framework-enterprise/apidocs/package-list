@@ -1,5 +1,4 @@
-zeroth.framework.enterprise
+zeroth.framework.enterprise.app
 zeroth.framework.enterprise.domain
 zeroth.framework.enterprise.infra.messaging
 zeroth.framework.enterprise.infra.persistence
-zeroth.framework.enterprise.shared

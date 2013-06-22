@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.github.nilcy</groupId>
+    <artifactId>zeroth</artifactId>
+    <version>7.0.0-SNAPSHOT</version>
+  </parent>
+  <artifactId>zeroth-framework</artifactId>
+  <packaging>pom</packaging>
+  <name>zeroth-framework</name>
+  <description>zeroth Framework Domain.</description>
+  <modules>
+    <module>zeroth-framework-coding</module>
+    <module>zeroth-framework-testing</module>
+    <module>zeroth-framework-standard</module>
+    <module>zeroth-framework-enterprise-api</module>
+    <module>zeroth-framework-enterprise</module>
+    <module>zeroth-framework-service-api</module>
+    <module>zeroth-framework-service</module>
+    <module>zeroth-framework-screen</module>
+    <module>zeroth-framework-command</module>
+  </modules>
+  <properties>
+    <commons-lang3.version>3.1</commons-lang3.version>
+    <commons-beanutils.version>1.8.3</commons-beanutils.version>
+    <commons-codec.version>1.8</commons-codec.version>
+    <json-lib.version>2.4</json-lib.version>
+  </properties>
+</project>

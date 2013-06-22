@@ -8,7 +8,7 @@
     <language>en-us</language>
     <copyright>&#169;2013 nilcy</copyright>
     <item>
-      <title>File: 4,
+      <title>File: 3,
              Errors: 0,
              Warnings: 2,
              Infos: 0
@@ -50,20 +50,6 @@
                 </td>
                 <td>
                   1
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
-                  <a href="http://nilcy.github.io/zeroth/maven/site/zeroth-framework/zeroth-framework-command//checkstyle.html#zeroth.framework.command.Example.java">zeroth/framework/command/Example.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
                 </td>
                 <td>
                   0

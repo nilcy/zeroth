@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata modelVersion="1.1.0">
+  <groupId>com.github.nilcy</groupId>
+  <artifactId>zeroth-application</artifactId>
+  <version>7.0.0-SNAPSHOT</version>
+  <versioning>
+    <snapshot>
+      <timestamp>20130622.104518</timestamp>
+      <buildNumber>1</buildNumber>
+    </snapshot>
+    <lastUpdated>20130622104518</lastUpdated>
+    <snapshotVersions>
+      <snapshotVersion>
+        <extension>pom</extension>
+        <value>7.0.0-20130622.104518-1</value>
+        <updated>20130622104518</updated>
+      </snapshotVersion>
+    </snapshotVersions>
+  </versioning>
+</metadata>

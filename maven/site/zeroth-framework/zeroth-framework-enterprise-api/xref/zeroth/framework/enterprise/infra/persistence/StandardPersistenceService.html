@@ -15,31 +15,29 @@
 <a class="jxr_linenumber" name="5" href="#5">5</a>   <em class="jxr_comment">// ========================================================================</em>
 <a class="jxr_linenumber" name="6" href="#6">6</a>   <strong class="jxr_keyword">package</strong> zeroth.framework.enterprise.infra.persistence;
 <a class="jxr_linenumber" name="7" href="#7">7</a>   <strong class="jxr_keyword">import</strong> java.io.Serializable;
-<a class="jxr_linenumber" name="8" href="#8">8</a>   <strong class="jxr_keyword">import</strong> javax.ejb.Local;
-<a class="jxr_linenumber" name="9" href="#9">9</a>   <strong class="jxr_keyword">import</strong> javax.persistence.TypedQuery;
-<a class="jxr_linenumber" name="10" href="#10">10</a>  <strong class="jxr_keyword">import</strong> zeroth.framework.enterprise.domain.Persistable;
-<a class="jxr_linenumber" name="11" href="#11">11</a>  <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="12" href="#12">12</a>  <em class="jxr_javadoccomment"> * 標準データ永続化サービスI/F(JPA2/JPQL)</em>
-<a class="jxr_linenumber" name="13" href="#13">13</a>  <em class="jxr_javadoccomment"> * @param &lt;T&gt; エンティティ型</em>
-<a class="jxr_linenumber" name="14" href="#14">14</a>  <em class="jxr_javadoccomment"> * @param &lt;ID&gt; 識別子オブジェクト型</em>
-<a class="jxr_linenumber" name="15" href="#15">15</a>  <em class="jxr_javadoccomment"> * @author nilcy</em>
-<a class="jxr_linenumber" name="16" href="#16">16</a>  <em class="jxr_javadoccomment"> */</em>
-<a class="jxr_linenumber" name="17" href="#17">17</a>  @Local
-<a class="jxr_linenumber" name="18" href="#18">18</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">interface</strong> StandardPersistenceService&lt;T <strong class="jxr_keyword">extends</strong> Persistable&lt;ID&gt;, ID <strong class="jxr_keyword">extends</strong> Serializable&gt;
-<a class="jxr_linenumber" name="19" href="#19">19</a>      <strong class="jxr_keyword">extends</strong> PersistenceService&lt;T, ID&gt; {
-<a class="jxr_linenumber" name="20" href="#20">20</a>      <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="21" href="#21">21</a>  <em class="jxr_javadoccomment">     * クエリの作成</em>
-<a class="jxr_linenumber" name="22" href="#22">22</a>  <em class="jxr_javadoccomment">     * @param jpql JPQL</em>
-<a class="jxr_linenumber" name="23" href="#23">23</a>  <em class="jxr_javadoccomment">     * @return クエリ</em>
-<a class="jxr_linenumber" name="24" href="#24">24</a>  <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="25" href="#25">25</a>      TypedQuery&lt;T&gt; createQuery(<strong class="jxr_keyword">final</strong> String jpql);
-<a class="jxr_linenumber" name="26" href="#26">26</a>      <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="27" href="#27">27</a>  <em class="jxr_javadoccomment">     * クエリの作成</em>
-<a class="jxr_linenumber" name="28" href="#28">28</a>  <em class="jxr_javadoccomment">     * @param queryName クエリ名</em>
-<a class="jxr_linenumber" name="29" href="#29">29</a>  <em class="jxr_javadoccomment">     * @return クエリ</em>
-<a class="jxr_linenumber" name="30" href="#30">30</a>  <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="31" href="#31">31</a>      TypedQuery&lt;T&gt; createNamedQuery(<strong class="jxr_keyword">final</strong> String queryName);
-<a class="jxr_linenumber" name="32" href="#32">32</a>  }
+<a class="jxr_linenumber" name="8" href="#8">8</a>   <strong class="jxr_keyword">import</strong> javax.persistence.TypedQuery;
+<a class="jxr_linenumber" name="9" href="#9">9</a>   <strong class="jxr_keyword">import</strong> zeroth.framework.enterprise.shared.Persistable;
+<a class="jxr_linenumber" name="10" href="#10">10</a>  <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="11" href="#11">11</a>  <em class="jxr_javadoccomment"> * 標準データ永続化サービスI/F(JPA2/JPQL)</em>
+<a class="jxr_linenumber" name="12" href="#12">12</a>  <em class="jxr_javadoccomment"> * @param &lt;E&gt; エンティティ型</em>
+<a class="jxr_linenumber" name="13" href="#13">13</a>  <em class="jxr_javadoccomment"> * @param &lt;ID&gt; 識別子オブジェクト型</em>
+<a class="jxr_linenumber" name="14" href="#14">14</a>  <em class="jxr_javadoccomment"> * @author nilcy</em>
+<a class="jxr_linenumber" name="15" href="#15">15</a>  <em class="jxr_javadoccomment"> */</em>
+<a class="jxr_linenumber" name="16" href="#16">16</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">interface</strong> StandardPersistenceService&lt;E <strong class="jxr_keyword">extends</strong> Persistable&lt;ID&gt;, ID <strong class="jxr_keyword">extends</strong> Serializable&gt;
+<a class="jxr_linenumber" name="17" href="#17">17</a>      <strong class="jxr_keyword">extends</strong> SimplePersistenceService&lt;E, ID&gt; {
+<a class="jxr_linenumber" name="18" href="#18">18</a>      <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="19" href="#19">19</a>  <em class="jxr_javadoccomment">     * クエリの作成</em>
+<a class="jxr_linenumber" name="20" href="#20">20</a>  <em class="jxr_javadoccomment">     * @param jpql JPQL</em>
+<a class="jxr_linenumber" name="21" href="#21">21</a>  <em class="jxr_javadoccomment">     * @return クエリ</em>
+<a class="jxr_linenumber" name="22" href="#22">22</a>  <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="23" href="#23">23</a>      TypedQuery&lt;E&gt; createQuery(<strong class="jxr_keyword">final</strong> String jpql);
+<a class="jxr_linenumber" name="24" href="#24">24</a>      <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="25" href="#25">25</a>  <em class="jxr_javadoccomment">     * クエリの作成</em>
+<a class="jxr_linenumber" name="26" href="#26">26</a>  <em class="jxr_javadoccomment">     * @param queryName クエリ名</em>
+<a class="jxr_linenumber" name="27" href="#27">27</a>  <em class="jxr_javadoccomment">     * @return クエリ</em>
+<a class="jxr_linenumber" name="28" href="#28">28</a>  <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="29" href="#29">29</a>      TypedQuery&lt;E&gt; createNamedQuery(<strong class="jxr_keyword">final</strong> String queryName);
+<a class="jxr_linenumber" name="30" href="#30">30</a>  }
 </pre>
 <hr/><div id="footer">This page was automatically generated by <a href="http://maven.apache.org/">Maven</a></div></body>
 </html>
