@@ -17,9 +17,4 @@ public class HelloTest {
     public final void test() {
         assertThat(Hello.sayHello(), is("Hello"));
     }
-    private static final class Hello {
-        static String sayHello() {
-            return "Hello";
-        }
-    }
 }

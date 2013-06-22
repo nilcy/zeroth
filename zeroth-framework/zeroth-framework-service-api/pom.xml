@@ -5,13 +5,13 @@
   <parent>
     <groupId>com.github.nilcy</groupId>
     <artifactId>zeroth-framework</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>7.0.0-SNAPSHOT</version>
   </parent>
   <artifactId>zeroth-framework-service-api</artifactId>
   <name>zeroth-framework-service-api</name>
   <description>zeroth Framework Domain. Service-API Module.</description>
   <properties>
-    <zeroth-framework-enterprise-api.version>0.0.1-SNAPSHOT</zeroth-framework-enterprise-api.version>
+    <zeroth-framework-enterprise-api.version>7.0.0-SNAPSHOT</zeroth-framework-enterprise-api.version>
   </properties>
   <dependencies>
     <dependency>

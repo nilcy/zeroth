@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.github.nilcy</groupId>
   <artifactId>zeroth</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>7.0.0-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>zeroth</name>
   <description>Enterprise Business Application Bootstrap.</description>

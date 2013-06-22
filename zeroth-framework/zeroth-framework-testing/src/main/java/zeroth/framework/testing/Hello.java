@@ -3,18 +3,20 @@
 // GNU AFFERO GENERAL PUBLIC LICENSE Version 3, 19 November 2007
 // http://www.gnu.org/licenses/agpl-3.0.txt
 // ========================================================================
-package zeroth.actor.command;
-import static org.hamcrest.CoreMatchers.*;
-import static org.junit.Assert.*;
-import org.junit.Test;
+package zeroth.framework.testing;
 /**
- * {@link Hello} のユニットテスト
+ * サンプルコード
  * @author nilcy
  */
-@SuppressWarnings("all")
-public class HelloTest {
-    @Test
-    public final void test() {
-        assertThat(Hello.sayHello(), is("Hello"));
+public final class Hello {
+    /** 非公開コンストラクタ */
+    private Hello() {
+    }
+    /**
+     * サンプルメソッド
+     * @return サンプル応答
+     */
+    public static String sayHello() {
+        return "Hello";
     }
 }

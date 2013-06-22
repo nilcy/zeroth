@@ -45,12 +45,12 @@ h2. Application Server
 h3. JDBC-Driver
 
 // ex: Unix
-cp ~/.m2/repository/postgresql/postgresql/9.1-901-1.jdbc4/postgresql-9.1-901-1.jdbc4.jar $GLASSFISH_HOME/lib
+cp ~/.m2/repository/org/postgresql/postgresql/9.2-1002-jdbc4/postgresql-9.2-1002-jdbc4.jar $GLASSFISH_HOME/lib
 // ex: Windows
-cp $USERPROFILE/.m2/repository/postgresql/postgresql/9.1-901-1.jdbc4/postgresql-9.1-901-1.jdbc4.jar /Applications/glassfish3/glassfish/lib
+cp $USERPROFILE/.m2/repository/org/postgresql/postgresql/9.2-1002-jdbc4/postgresql-9.2-1002-jdbc4.jar /Applications/glassfish3/glassfish/lib
 
 
-h3. Run & Stop (Restart)
+h3. Start & Stop (Restart)
 
 asadmin start-domain
 asadmin stop-domain
@@ -68,7 +68,7 @@ asadmin delete-jdbc-connection-pool zeroth_pool
 
 h3. Create Auth-Realm
 
-asadmin create-auth-realm --classname com.sun.enterprise.security.auth.realm.jdbc.JDBCRealm --property jaas-context=jdbcRealm:datasource-jndi=jdbc/zeroth:user-table=public.member:group-table=public.member_auth:user-name-column=account:password-column=password:group-name-column=auth:digest-algorithm=SHA-256:encoding=Hex zeroth_auth
+asadmin create-auth-realm --classname com.sun.enterprise.security.ee.auth.realm.jdbc.JDBCRealm --property jaas-context=jdbcRealm:datasource-jndi=jdbc/zeroth:user-table=public.member:group-table=public.member_auth:user-name-column=account:password-column=password:group-name-column=auth:digest-algorithm=SHA-256:encoding=Hex zeroth_auth
 asadmin list-auth-realms
 
 // ex: Delete Auth-Realm
