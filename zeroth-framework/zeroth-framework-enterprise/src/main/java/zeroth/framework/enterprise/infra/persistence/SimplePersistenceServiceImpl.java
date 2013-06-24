@@ -67,7 +67,7 @@ public class SimplePersistenceServiceImpl<E extends Persistable<ID>, ID extends 
     }
     /** {@inheritDoc} */
     @Override
-    public void persist(final E entity) {
+    public <S extends E> void persist(final S entity) {
         manager.persist(entity);
     }
     /**
@@ -92,7 +92,7 @@ public class SimplePersistenceServiceImpl<E extends Persistable<ID>, ID extends 
     }
     /** {@inheritDoc} */
     @Override
-    public E merge(final E entity) {
+    public <S extends E> S merge(final S entity) {
         return manager.merge(entity);
     }
     /** {@inheritDoc} */
