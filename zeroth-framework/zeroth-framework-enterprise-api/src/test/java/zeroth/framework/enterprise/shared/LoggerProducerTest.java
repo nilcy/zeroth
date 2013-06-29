@@ -10,8 +10,6 @@ import java.util.logging.Logger;
 import javax.inject.Inject;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
-import org.jboss.shrinkwrap.api.ShrinkWrap;
-import org.jboss.shrinkwrap.api.asset.EmptyAsset;
 import org.jboss.shrinkwrap.api.spec.JavaArchive;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -25,10 +23,8 @@ public class LoggerProducerTest {
     @Inject
     private Logger testee;
     @Deployment
-    public static JavaArchive createDeployment() {
-        return ShrinkWrap.create(JavaArchive.class)
-            .addPackages(true, "zeroth.framework.standard", "zeroth.framework.enterprise.shared")
-            .addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml");
+    public static JavaArchive deployment() {
+        return ArquillianDeployment.defaultDeployment();
     }
     @Test
     public void test() {

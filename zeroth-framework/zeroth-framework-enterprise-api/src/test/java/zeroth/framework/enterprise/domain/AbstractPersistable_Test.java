@@ -9,8 +9,6 @@ import static org.junit.Assert.*;
 import static zeroth.framework.enterprise.domain.AbstractPersistable_.*;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
-import org.jboss.shrinkwrap.api.ShrinkWrap;
-import org.jboss.shrinkwrap.api.asset.EmptyAsset;
 import org.jboss.shrinkwrap.api.spec.JavaArchive;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -22,11 +20,8 @@ import org.junit.runner.RunWith;
 @SuppressWarnings("all")
 public class AbstractPersistable_Test {
     @Deployment
-    public static JavaArchive createDeployment() {
-        return ShrinkWrap.create(JavaArchive.class)
-            .addPackages(true, "zeroth.framework.standard", "zeroth.framework.enterprise")
-            .addAsManifestResource("META-INF/persistence.xml", "persistence.xml")
-            .addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml");
+    public static JavaArchive deployment() {
+        return ArquillianDeployment.defaultDeployment();
     }
     @Test
     public final void test() {
