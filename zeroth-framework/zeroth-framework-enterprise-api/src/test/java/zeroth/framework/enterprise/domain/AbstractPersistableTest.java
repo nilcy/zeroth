@@ -9,16 +9,20 @@ import static org.junit.Assert.*;
 import javax.enterprise.inject.Produces;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import org.jboss.arquillian.container.test.api.Deployment;
+import org.jboss.arquillian.junit.Arquillian;
+import org.jboss.arquillian.transaction.api.annotation.Transactional;
+import org.jboss.shrinkwrap.api.ShrinkWrap;
+import org.jboss.shrinkwrap.api.asset.EmptyAsset;
+import org.jboss.shrinkwrap.api.spec.JavaArchive;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import com.googlecode.jeeunit.JeeunitRunner;
-import com.googlecode.jeeunit.Transactional;
 /**
  * {@link AbstractPersistable} のユニットテスト
  * @author nilcy
  */
-@RunWith(JeeunitRunner.class)
+@RunWith(Arquillian.class)
 @Transactional
 @SuppressWarnings("all")
 public final class AbstractPersistableTest {
@@ -26,6 +30,13 @@ public final class AbstractPersistableTest {
     @Produces
     @PersistenceContext(unitName = "primary")
     private EntityManager manager;
+    @Deployment
+    public static JavaArchive createDeployment() {
+        return ShrinkWrap.create(JavaArchive.class)
+            .addPackages(true, "zeroth.framework.standard", "zeroth.framework.enterprise")
+            .addAsManifestResource("META-INF/persistence.xml", "persistence.xml")
+            .addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml");
+    }
     @Before
     public void before() {
         testee = new TestPersistable();

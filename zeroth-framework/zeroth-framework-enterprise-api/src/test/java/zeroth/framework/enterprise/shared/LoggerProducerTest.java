@@ -8,20 +8,28 @@ import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;
 import java.util.logging.Logger;
 import javax.inject.Inject;
+import org.jboss.arquillian.container.test.api.Deployment;
+import org.jboss.arquillian.junit.Arquillian;
+import org.jboss.shrinkwrap.api.ShrinkWrap;
+import org.jboss.shrinkwrap.api.asset.EmptyAsset;
+import org.jboss.shrinkwrap.api.spec.JavaArchive;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import com.googlecode.jeeunit.JeeunitRunner;
-import com.googlecode.jeeunit.Transactional;
 /**
  * {@link LoggerProducer}
  * @author nilcy
  */
-@RunWith(JeeunitRunner.class)
-@Transactional
+@RunWith(Arquillian.class)
 @SuppressWarnings("all")
 public class LoggerProducerTest {
     @Inject
     private Logger testee;
+    @Deployment
+    public static JavaArchive createDeployment() {
+        return ShrinkWrap.create(JavaArchive.class)
+            .addPackages(true, "zeroth.framework.standard", "zeroth.framework.enterprise.shared")
+            .addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml");
+    }
     @Test
     public void test() {
         assertThat(testee, is(not(nullValue())));
