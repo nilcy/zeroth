@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<faces-config version="2.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="
-        http://java.sun.com/xml/ns/javaee
-        http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd">
+<faces-config xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd"
+  version="2.2">
   <application>
     <message-bundle>FacesMessages</message-bundle>
     <locale-config>
@@ -35,10 +34,10 @@
       <from-outcome>saved</from-outcome>
       <to-view-id>/home/news/view.xhtml</to-view-id>
       <redirect>
-        <view-param>
+        <redirect-param>
           <name>id</name>
           <value>#{flash.id}</value>
-        </view-param>
+        </redirect-param>
       </redirect>
     </navigation-case>
     <navigation-case>
@@ -73,10 +72,10 @@
       <from-outcome>saved</from-outcome>
       <to-view-id>/master/customer/view.xhtml</to-view-id>
       <redirect>
-        <view-param>
+        <redirect-param>
           <name>id</name>
           <value>#{flash.id}</value>
-        </view-param>
+        </redirect-param>
       </redirect>
     </navigation-case>
     <navigation-case>
@@ -111,10 +110,10 @@
       <from-outcome>saved</from-outcome>
       <to-view-id>/master/supplier/view.xhtml</to-view-id>
       <redirect>
-        <view-param>
+        <redirect-param>
           <name>id</name>
           <value>#{flash.id}</value>
-        </view-param>
+        </redirect-param>
       </redirect>
     </navigation-case>
     <navigation-case>
@@ -149,10 +148,10 @@
       <from-outcome>saved</from-outcome>
       <to-view-id>/master/organ/view.xhtml</to-view-id>
       <redirect>
-        <view-param>
+        <redirect-param>
           <name>id</name>
           <value>#{flash.id}</value>
-        </view-param>
+        </redirect-param>
       </redirect>
     </navigation-case>
     <navigation-case>
@@ -187,10 +186,10 @@
       <from-outcome>saved</from-outcome>
       <to-view-id>/master/member/view.xhtml</to-view-id>
       <redirect>
-        <view-param>
+        <redirect-param>
           <name>id</name>
           <value>#{flash.id}</value>
-        </view-param>
+        </redirect-param>
       </redirect>
     </navigation-case>
     <navigation-case>
@@ -225,10 +224,10 @@
       <from-outcome>saved</from-outcome>
       <to-view-id>/master/partner/view.xhtml</to-view-id>
       <redirect>
-        <view-param>
+        <redirect-param>
           <name>id</name>
           <value>#{flash.id}</value>
-        </view-param>
+        </redirect-param>
       </redirect>
     </navigation-case>
     <navigation-case>
