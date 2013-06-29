@@ -5,18 +5,18 @@
   <parent>
     <groupId>com.github.nilcy</groupId>
     <artifactId>zeroth-application</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>7.0.0-SNAPSHOT</version>
   </parent>
   <artifactId>zeroth-application-allinone</artifactId>
   <packaging>ear</packaging>
   <name>zeroth-application-allinone</name>
   <description>zeroth Application Domain. All-In-One Module.</description>
   <properties>
-    <zeroth-framework-screen.version>0.0.1-SNAPSHOT</zeroth-framework-screen.version>
-    <zeroth-actor-service.version>0.0.1-SNAPSHOT</zeroth-actor-service.version>
-    <zeroth-actor-screen.version>0.0.1-SNAPSHOT</zeroth-actor-screen.version>
-    <zeroth-sales-service.version>0.0.1-SNAPSHOT</zeroth-sales-service.version>
-    <zeroth-sales-screen.version>0.0.1-SNAPSHOT</zeroth-sales-screen.version>
+    <zeroth-framework-screen.version>7.0.0-SNAPSHOT</zeroth-framework-screen.version>
+    <zeroth-actor-service.version>7.0.0-SNAPSHOT</zeroth-actor-service.version>
+    <zeroth-actor-screen.version>7.0.0-SNAPSHOT</zeroth-actor-screen.version>
+    <zeroth-sales-service.version>7.0.0-SNAPSHOT</zeroth-sales-service.version>
+    <zeroth-sales-screen.version>7.0.0-SNAPSHOT</zeroth-sales-screen.version>
   </properties>
   <dependencies>
     <dependency>

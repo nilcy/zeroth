@@ -5,14 +5,14 @@
   <parent>
     <groupId>com.github.nilcy</groupId>
     <artifactId>zeroth-framework</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>7.0.0-SNAPSHOT</version>
   </parent>
   <artifactId>zeroth-framework-service</artifactId>
   <name>zeroth-framework-service</name>
   <description>zeroth Framework Domain. Service Module.</description>
   <properties>
-    <zeroth-framework-enterprise.version>0.0.1-SNAPSHOT</zeroth-framework-enterprise.version>
-    <zeroth-framework-service-api.version>0.0.1-SNAPSHOT</zeroth-framework-service-api.version>
+    <zeroth-framework-enterprise.version>7.0.0-SNAPSHOT</zeroth-framework-enterprise.version>
+    <zeroth-framework-service-api.version>7.0.0-SNAPSHOT</zeroth-framework-service-api.version>
   </properties>
   <dependencies>
     <dependency>

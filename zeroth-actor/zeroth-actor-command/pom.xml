@@ -6,13 +6,13 @@
   <parent>
     <groupId>com.github.nilcy</groupId>
     <artifactId>zeroth-actor</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>7.0.0-SNAPSHOT</version>
   </parent>
   <artifactId>zeroth-actor-command</artifactId>
   <name>zeroth-actor-command</name>
   <description>zeroth Actor Domain. Command Line Interface Module.</description>
   <properties>
-    <zeroth-framework-cui.version>0.0.1-SNAPSHOT</zeroth-framework-cui.version>
+    <zeroth-framework-command.version>7.0.0-SNAPSHOT</zeroth-framework-command.version>
   </properties>
   <dependencies>
     <dependency>
@@ -23,8 +23,8 @@
     </dependency>
     <dependency>
       <groupId>com.github.nilcy</groupId>
-      <artifactId>zeroth-framework-cui</artifactId>
-      <version>${zeroth-framework-cui.version}</version>
+      <artifactId>zeroth-framework-command</artifactId>
+      <version>${zeroth-framework-command.version}</version>
       <scope>compile</scope>
     </dependency>
   </dependencies>

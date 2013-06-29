@@ -6,14 +6,14 @@
   <parent>
     <groupId>com.github.nilcy</groupId>
     <artifactId>zeroth-actor</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>7.0.0-SNAPSHOT</version>
   </parent>
   <artifactId>zeroth-actor-service</artifactId>
   <name>zeroth-actor-service</name>
   <description>zeroth Actor Domain. Service Module.</description>
   <properties>
-    <zeroth-framework-service.version>0.0.1-SNAPSHOT</zeroth-framework-service.version>
-    <zeroth-actor-service-api.version>0.0.1-SNAPSHOT</zeroth-actor-service-api.version>
+    <zeroth-framework-service.version>7.0.0-SNAPSHOT</zeroth-framework-service.version>
+    <zeroth-actor-service-api.version>7.0.0-SNAPSHOT</zeroth-actor-service-api.version>
   </properties>
   <dependencies>
     <dependency>

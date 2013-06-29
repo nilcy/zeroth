@@ -6,13 +6,13 @@
   <parent>
     <groupId>com.github.nilcy</groupId>
     <artifactId>zeroth-framework</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>7.0.0-SNAPSHOT</version>
   </parent>
   <artifactId>zeroth-framework-enterprise-api</artifactId>
   <name>zeroth-framework-enterprise-api</name>
   <description>zeroth Framework Domain. Enterprise-API Module.</description>
   <properties>
-    <zeroth-framework-standard.version>0.0.1-SNAPSHOT</zeroth-framework-standard.version>
+    <zeroth-framework-standard.version>7.0.0-SNAPSHOT</zeroth-framework-standard.version>
   </properties>
   <dependencies>
     <dependency>

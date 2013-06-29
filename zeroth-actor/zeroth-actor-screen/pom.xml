@@ -5,16 +5,16 @@
   <parent>
     <groupId>com.github.nilcy</groupId>
     <artifactId>zeroth-actor</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>7.0.0-SNAPSHOT</version>
   </parent>
   <artifactId>zeroth-actor-screen</artifactId>
   <packaging>war</packaging>
   <name>zeroth-actor-screen</name>
   <description>zeroth Actor Domain. Screen Module.</description>
   <properties>
-    <zeroth-framework-screen.version>0.0.1-SNAPSHOT</zeroth-framework-screen.version>
-    <zeroth-actor-service-api.version>0.0.1-SNAPSHOT</zeroth-actor-service-api.version>
-    <zeroth-actor-service.version>0.0.1-SNAPSHOT</zeroth-actor-service.version>
+    <zeroth-framework-screen.version>7.0.0-SNAPSHOT</zeroth-framework-screen.version>
+    <zeroth-actor-service-api.version>7.0.0-SNAPSHOT</zeroth-actor-service-api.version>
+    <zeroth-actor-service.version>7.0.0-SNAPSHOT</zeroth-actor-service.version>
   </properties>
   <dependencies>
     <dependency>

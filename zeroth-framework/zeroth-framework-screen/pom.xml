@@ -6,13 +6,13 @@
   <parent>
     <groupId>com.github.nilcy</groupId>
     <artifactId>zeroth-framework</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>7.0.0-SNAPSHOT</version>
   </parent>
   <artifactId>zeroth-framework-screen</artifactId>
   <name>zeroth-framework-screen</name>
   <description>zeroth Framework Domain. Screen Module.</description>
   <properties>
-    <zeroth-framework-service-api.version>0.0.1-SNAPSHOT</zeroth-framework-service-api.version>
+    <zeroth-framework-service-api.version>7.0.0-SNAPSHOT</zeroth-framework-service-api.version>
   </properties>
   <dependencies>
     <dependency>
