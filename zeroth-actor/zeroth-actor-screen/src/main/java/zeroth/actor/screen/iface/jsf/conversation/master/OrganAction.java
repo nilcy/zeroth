@@ -9,7 +9,7 @@ import javax.enterprise.context.ConversationScoped;
 import javax.faces.application.FacesMessage;
 import javax.inject.Inject;
 import javax.inject.Named;
-import zeroth.actor.screen.app.ApplicationAnnotation.OrganApplicationCDI;
+import zeroth.actor.service.app.ApplicationAnnotation.OrganApplicationCDI;
 import zeroth.actor.service.app.actor.OrganApplication;
 import zeroth.actor.service.domain.Organ;
 import zeroth.framework.enterprise.app.SimpleRepositoryApplication;

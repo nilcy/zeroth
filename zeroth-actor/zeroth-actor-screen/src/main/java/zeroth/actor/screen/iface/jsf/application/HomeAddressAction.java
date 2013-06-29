@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Serializable;
+import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Map;
 import javax.annotation.PostConstruct;
@@ -19,6 +20,7 @@ import org.apache.commons.lang3.Validate;
 import zeroth.actor.service.domain.parts.Address;
 import zeroth.actor.service.domain.parts.HomeAddress;
 import zeroth.actor.service.domain.parts.HomeAddressFactory;
+import zeroth.framework.enterprise.shared.EnterpriseRuntimeException;
 /**
  * Home address action.
  * @author nilcy
@@ -48,23 +50,29 @@ public class HomeAddressAction implements Serializable {
     }
     /**
      * Process on post-construct.
-     * @throws IOException IO Exception
      */
     @PostConstruct
-    public void postConstruct() throws IOException {
-        try (InputStream is = this.getClass().getResourceAsStream("/address/HomeAddress.csv");
-            BufferedReader br = new BufferedReader(new InputStreamReader(is, "Windows-31J"));) {
-            String line;
-            map = new HashMap<>();
-            while ((line = br.readLine()) != null) {
-                final String[] tmp = line.split(",");
-                final String code = trimQuote(tmp[POS_CODE]);
-                final String pref = trimQuote(tmp[POS_PREF]);
-                final String town = trimQuote(tmp[POS_TOWN]);
-                final String city = trimQuote(tmp[POS_CITY]);
-                final HomeAddress address = new HomeAddressFactory().create(code, pref, town, city);
-                map.put(code, address);
+    public void postConstruct() {
+        try {
+            try (InputStream is = this.getClass().getResourceAsStream("/address/HomeAddress.csv");
+                BufferedReader br = new BufferedReader(new InputStreamReader(is, "Windows-31J"));) {
+                String line;
+                map = new HashMap<>();
+                while ((line = br.readLine()) != null) {
+                    final String[] tmp = line.split(",");
+                    final String code = trimQuote(tmp[POS_CODE]);
+                    final String pref = trimQuote(tmp[POS_PREF]);
+                    final String town = trimQuote(tmp[POS_TOWN]);
+                    final String city = trimQuote(tmp[POS_CITY]);
+                    final HomeAddress address = new HomeAddressFactory().create(code, pref, town,
+                        city);
+                    map.put(code, address);
+                }
             }
+        } catch (final UnsupportedEncodingException e) {
+            throw new EnterpriseRuntimeException(e);
+        } catch (final IOException e) {
+            throw new EnterpriseRuntimeException(e);
         }
     }
     /**

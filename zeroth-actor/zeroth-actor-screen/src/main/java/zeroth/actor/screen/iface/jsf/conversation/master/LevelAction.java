@@ -7,7 +7,7 @@ package zeroth.actor.screen.iface.jsf.conversation.master;
 import javax.enterprise.context.ConversationScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
-import zeroth.actor.screen.app.ApplicationAnnotation.LevelApplicationCDI;
+import zeroth.actor.service.app.ApplicationAnnotation.LevelApplicationCDI;
 import zeroth.actor.service.app.actor.LevelApplication;
 import zeroth.actor.service.domain.Level;
 import zeroth.framework.enterprise.app.SimpleRepositoryApplication;

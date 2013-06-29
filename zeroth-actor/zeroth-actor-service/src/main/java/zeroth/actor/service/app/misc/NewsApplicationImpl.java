@@ -5,7 +5,6 @@
 // ========================================================================
 package zeroth.actor.service.app.misc;
 import javax.ejb.Stateless;
-import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 import zeroth.actor.service.domain.misc.News;
 import zeroth.actor.service.domain.misc.NewsRepository;
@@ -18,7 +17,7 @@ import zeroth.framework.standard.shared.SimpleFilter;
  * @author nilcy
  */
 @Stateless
-@Default
+// @Default
 @Tracer
 public class NewsApplicationImpl extends
     AbstractSimpleRepositoryApplication<News, Long, SimpleFilter> implements NewsApplication {

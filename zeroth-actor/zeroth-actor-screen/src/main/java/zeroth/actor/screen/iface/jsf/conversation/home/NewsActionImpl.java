@@ -9,7 +9,7 @@ import javax.enterprise.context.ConversationScoped;
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 import javax.inject.Named;
-import zeroth.actor.screen.app.ApplicationAnnotation.NewsApplicationCDI;
+import zeroth.actor.service.app.ApplicationAnnotation.NewsApplicationCDI;
 import zeroth.actor.service.app.misc.NewsApplication;
 import zeroth.actor.service.domain.misc.News;
 import zeroth.actor.service.domain.misc.NewsFactory;

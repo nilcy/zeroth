@@ -5,9 +5,7 @@
 // ========================================================================
 package zeroth.actor.service.app.misc;
 import javax.ejb.Stateless;
-import javax.enterprise.inject.Default;
 import javax.inject.Inject;
-import zeroth.actor.service.app.misc.ListedSectionApplication;
 import zeroth.actor.service.domain.misc.ListedSection;
 import zeroth.actor.service.domain.misc.ListedSectionRepository;
 import zeroth.framework.enterprise.app.AbstractSimpleRepositoryApplication;
@@ -19,7 +17,7 @@ import zeroth.framework.standard.shared.SimpleFilter;
  * @author nilcy
  */
 @Stateless
-@Default
+// @Default
 @Tracer
 public class ListedSectionApplicationImpl extends
     AbstractSimpleRepositoryApplication<ListedSection, Long, SimpleFilter> implements
@@ -29,6 +27,9 @@ public class ListedSectionApplicationImpl extends
     /** 上場先リポジトリ */
     @Inject
     private ListedSectionRepository repository;
+    /** コンストラクタ */
+    public ListedSectionApplicationImpl() {
+    }
     /** {@inheritDoc} */
     @Override
     protected SimpleRepository<ListedSection, Long, SimpleFilter> getRepository() {

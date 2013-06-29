@@ -5,9 +5,7 @@
 // ========================================================================
 package zeroth.actor.service.app.actor;
 import javax.ejb.Stateless;
-import javax.enterprise.inject.Default;
 import javax.inject.Inject;
-import zeroth.actor.service.app.actor.OrganApplication;
 import zeroth.actor.service.domain.Organ;
 import zeroth.actor.service.domain.OrganRepository;
 import zeroth.framework.enterprise.app.AbstractSimpleRepositoryApplication;
@@ -19,7 +17,7 @@ import zeroth.framework.standard.shared.SimpleFilter;
  * @author nilcy
  */
 @Stateless
-@Default
+// @Default
 @Tracer
 public class OrganApplicationImpl extends
     AbstractSimpleRepositoryApplication<Organ, Long, SimpleFilter> implements OrganApplication {
@@ -28,6 +26,9 @@ public class OrganApplicationImpl extends
     /** 組織リポジトリ */
     @Inject
     private OrganRepository repository;
+    /** コンストラクタ */
+    public OrganApplicationImpl() {
+    }
     /** {@inheritDoc} */
     @Override
     protected SimpleRepository<Organ, Long, SimpleFilter> getRepository() {

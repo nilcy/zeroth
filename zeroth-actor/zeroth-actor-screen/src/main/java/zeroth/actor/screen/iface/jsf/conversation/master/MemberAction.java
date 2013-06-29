@@ -8,7 +8,7 @@ import javax.enterprise.context.ConversationScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import org.apache.commons.lang3.StringUtils;
-import zeroth.actor.screen.app.ApplicationAnnotation.MemberApplicationCDI;
+import zeroth.actor.service.app.ApplicationAnnotation.MemberApplicationCDI;
 import zeroth.actor.service.app.actor.MemberApplication;
 import zeroth.actor.service.domain.ActorFilterFactory;
 import zeroth.actor.service.domain.Member;

@@ -5,9 +5,7 @@
 // ========================================================================
 package zeroth.actor.service.app.misc;
 import javax.ejb.Stateless;
-import javax.enterprise.inject.Default;
 import javax.inject.Inject;
-import zeroth.actor.service.app.misc.IndustryClassApplication;
 import zeroth.actor.service.domain.misc.IndustryClass;
 import zeroth.actor.service.domain.misc.IndustryClassRepository;
 import zeroth.framework.enterprise.app.AbstractSimpleRepositoryApplication;
@@ -19,7 +17,7 @@ import zeroth.framework.standard.shared.SimpleFilter;
  * @author nilcy
  */
 @Stateless
-@Default
+// @Default
 @Tracer
 public class IndustryClassApplicationImpl extends
     AbstractSimpleRepositoryApplication<IndustryClass, Long, SimpleFilter> implements
@@ -29,6 +27,9 @@ public class IndustryClassApplicationImpl extends
     /** 業種リポジトリ */
     @Inject
     private IndustryClassRepository repository;
+    /** コンストラクタ */
+    public IndustryClassApplicationImpl() {
+    }
     /** {@inheritDoc} */
     @Override
     protected SimpleRepository<IndustryClass, Long, SimpleFilter> getRepository() {

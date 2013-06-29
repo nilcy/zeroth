@@ -8,7 +8,7 @@ import javax.enterprise.context.ConversationScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import org.apache.commons.lang3.StringUtils;
-import zeroth.actor.screen.app.ApplicationAnnotation.CustomerApplicationCDI;
+import zeroth.actor.service.app.ApplicationAnnotation.CustomerApplicationCDI;
 import zeroth.actor.service.app.actor.CustomerApplication;
 import zeroth.actor.service.domain.Customer;
 import zeroth.actor.service.domain.CustomerFactory;

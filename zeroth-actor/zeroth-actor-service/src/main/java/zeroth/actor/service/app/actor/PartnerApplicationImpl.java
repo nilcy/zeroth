@@ -5,9 +5,7 @@
 // ========================================================================
 package zeroth.actor.service.app.actor;
 import javax.ejb.Stateless;
-import javax.enterprise.inject.Default;
 import javax.inject.Inject;
-import zeroth.actor.service.app.actor.PartnerApplication;
 import zeroth.actor.service.domain.Partner;
 import zeroth.actor.service.domain.PartnerRepository;
 import zeroth.framework.enterprise.app.AbstractSimpleRepositoryApplication;
@@ -19,7 +17,7 @@ import zeroth.framework.standard.shared.SimpleFilter;
  * @author nilcy
  */
 @Stateless
-@Default
+// @Default
 @Tracer
 public class PartnerApplicationImpl extends
     AbstractSimpleRepositoryApplication<Partner, Long, SimpleFilter> implements PartnerApplication {
@@ -28,6 +26,9 @@ public class PartnerApplicationImpl extends
     /** 外注リポジトリ */
     @Inject
     private PartnerRepository repository;
+    /** コンストラクタ */
+    public PartnerApplicationImpl() {
+    }
     /** {@inheritDoc} */
     @Override
     protected SimpleRepository<Partner, Long, SimpleFilter> getRepository() {
