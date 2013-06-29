@@ -5,6 +5,7 @@
 // ========================================================================
 package zeroth.framework.enterprise.domain;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import javax.persistence.EntityExistsException;
@@ -38,7 +39,7 @@ public abstract class AbstractSimpleRepositoryImpl<E extends Persistable<ID>, ID
      */
     @SuppressWarnings("unchecked")
     @Override
-    public E save(final E entity) throws ConstraintsException {
+    public <S extends E> S save(final S entity) throws ConstraintsException {
         CommonUtils.notNull(entity);
         if (this instanceof ConstraintsUK) {
             ((ConstraintsUK<E>) this).validateUK(entity);
@@ -50,6 +51,28 @@ public abstract class AbstractSimpleRepositoryImpl<E extends Persistable<ID>, ID
             return getPersistenceService().merge(entity);
         }
     }
+    /** {@inheritDoc} */
+    @Override
+    public <S extends E> S saveAndFlush(final S entity) throws ConstraintsException {
+        final S savedEntity = save(entity);
+        getPersistenceService().flush();
+        return savedEntity;
+    }
+    /** {@inheritDoc} */
+    @Override
+    public <S extends E> Collection<S> save(final Iterable<S> entities) throws ConstraintsException {
+        final Collection<S> savedEntity = new ArrayList<>();
+        for (final S entity : entities) {
+            savedEntity.add(save(entity));
+        }
+        return savedEntity;
+    }
+    /** {@inheritDoc} */
+    @Override
+    public void delete(final ID id) throws ConstraintsException {
+        Validate.notNull(id);
+        delete(find(id));
+    }
     /**
      * {@inheritDoc}
      * <p>
@@ -58,7 +81,7 @@ public abstract class AbstractSimpleRepositoryImpl<E extends Persistable<ID>, ID
      */
     @Override
     @SuppressWarnings("unchecked")
-    public void delete(final E entity) throws ConstraintsException {
+    public <S extends E> void delete(final S entity) throws ConstraintsException {
         Validate.notNull(entity);
         if (this instanceof ConstraintsFK) {
             ((ConstraintsFK<E>) this).validateFK(entity);
@@ -68,6 +91,18 @@ public abstract class AbstractSimpleRepositoryImpl<E extends Persistable<ID>, ID
         } catch (final OptimisticLockException e) {
             throw new ConstraintsException(KEY_LOCK_EXCEPTION);
         }
+    }
+    /** {@inheritDoc} */
+    @Override
+    public <S extends E> void delete(final Iterable<S> entities) throws ConstraintsException {
+        for (final S entity : entities) {
+            delete(entity);
+        }
+    }
+    /** {@inheritDoc} */
+    @Override
+    public void flush() {
+        getPersistenceService().flush();
     }
     /**
      * {@inheritDoc}
@@ -108,6 +143,11 @@ public abstract class AbstractSimpleRepositoryImpl<E extends Persistable<ID>, ID
     @Override
     public long count(final F filter) {
         return 0;
+    }
+    /** {@inheritDoc} */
+    @Override
+    public <S extends E> boolean exists(final S entity) {
+        return getPersistenceService().contains(entity);
     }
     /**
      * データ永続化サービスの取得

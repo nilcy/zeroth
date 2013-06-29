@@ -32,7 +32,7 @@ public interface SimplePersistenceService<E extends Persistable<ID>, ID extends 
      * </p>
      * @param entity エンティティ
      */
-    void persist(E entity);
+    <S extends E> void persist(S entity);
     /**
      * 管理エンティティのID検索
      * @param id 識別子
@@ -54,7 +54,7 @@ public interface SimplePersistenceService<E extends Persistable<ID>, ID extends 
      * @param entity 分離エンティティ
      * @return 管理エンティティ
      */
-    E merge(E entity);
+    <S extends E> S merge(S entity);
     /**
      * 管理エンティティの削除
      * <p>

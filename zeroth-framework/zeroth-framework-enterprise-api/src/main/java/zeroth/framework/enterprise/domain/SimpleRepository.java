@@ -23,13 +23,41 @@ public interface SimpleRepository<E extends Persistable<ID>, ID extends Serializ
      * @return エンティティ
      * @throws ConstraintsException 制約違反キャッチ例外
      */
-    E save(E entity) throws ConstraintsException;
+    <S extends E> S save(S entity) throws ConstraintsException;
+    /**
+     * エンティティ保存と反映
+     * @param entity エンティティ
+     * @return エンティティ
+     * @throws ConstraintsException 制約違反キャッチ例外
+     */
+    <S extends E> S saveAndFlush(S entity) throws ConstraintsException;
+    /**
+     * エンティティ一括保存
+     * @param entities エンティティ集合
+     * @return エンティティ集合
+     * @throws ConstraintsException 制約違反キャッチ例外
+     */
+    <S extends E> Collection<S> save(Iterable<S> entities) throws ConstraintsException;
+    /**
+     * エンティティ削除
+     * @param id 識別子
+     * @throws ConstraintsException 制約違反キャッチ例外
+     */
+    void delete(ID id) throws ConstraintsException;
     /**
      * エンティティ削除
      * @param entity エンティティ
      * @throws ConstraintsException 制約違反キャッチ例外
      */
-    void delete(E entity) throws ConstraintsException;
+    <S extends E> void delete(S entity) throws ConstraintsException;
+    /**
+     * エンティティ一括削除
+     * @param entities エンティティ集合
+     * @throws ConstraintsException 制約違反キャッチ例外
+     */
+    <S extends E> void delete(Iterable<S> entities) throws ConstraintsException;
+    /** エンティティ反映 */
+    void flush();
     /**
      * エンティティ検索
      * @param id 識別子
@@ -57,4 +85,10 @@ public interface SimpleRepository<E extends Persistable<ID>, ID extends Serializ
      * @return 件数
      */
     long count(F filter);
+    /**
+     * 管理エンティティ有無の確認
+     * @param entity エンティティ
+     * @return あるとき真。ないとき偽。
+     */
+    <S extends E> boolean exists(final S entity);
 }
