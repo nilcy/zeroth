@@ -27,5 +27,6 @@
     <commons-beanutils.version>1.8.3</commons-beanutils.version>
     <commons-codec.version>1.8</commons-codec.version>
     <json-lib.version>2.4</json-lib.version>
+    <ehcache-jcache.version>1.5.0-0.5</ehcache-jcache.version>
   </properties>
 </project>

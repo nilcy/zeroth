@@ -52,6 +52,11 @@
       <scope>provided</scope>
     </dependency>
     <dependency>
+      <groupId>net.sf.ehcache</groupId>
+      <artifactId>ehcache-jcache</artifactId>
+      <version>${ehcache-jcache.version}</version>
+    </dependency>
+    <dependency>
       <groupId>com.github.nilcy</groupId>
       <artifactId>zeroth-framework-standard</artifactId>
       <version>${zeroth-framework-standard.version}</version>
