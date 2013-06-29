@@ -4,17 +4,19 @@
 // http://www.gnu.org/licenses/agpl-3.0.txt
 // ========================================================================
 package zeroth.actor.command;
-import static org.hamcrest.CoreMatchers.*;
-import static org.junit.Assert.*;
-import org.junit.Test;
 /**
- * {@link Hello} のユニットテスト
+ * サンプルコード
  * @author nilcy
  */
-@SuppressWarnings("all")
-public class HelloTest {
-    @Test
-    public final void test() {
-        assertThat(Hello.sayHello(), is("Hello"));
+public class Hello {
+    /** コンストラクタ */
+    public Hello() {
+    }
+    /**
+     * サンプルメソッド
+     * @return "Hello"
+     */
+    public static String sayHello() {
+        return "Hello";
     }
 }
