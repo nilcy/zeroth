@@ -7,6 +7,7 @@ package zeroth.framework.enterprise.infra.persistence;
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
 import java.util.Collection;
+import java.util.Map;
 import javax.enterprise.inject.Default;
 import javax.persistence.EntityManager;
 import javax.persistence.LockModeType;
@@ -90,6 +91,26 @@ public class SimplePersistenceServiceImpl<E extends Persistable<ID>, ID extends 
     public E find(final ID id, final LockModeType lockModeType) {
         return manager.find(clazz, id, lockModeType);
     }
+    /**
+     * {@inheritDoc}
+     * <p>
+     * エンティティのクラスを指定して、ID検索する。プロパティを指定する。
+     * </p>
+     */
+    @Override
+    public E find(final ID id, final Map<String, Object> properties) {
+        return manager.find(clazz, id, properties);
+    }
+    /**
+     * {@inheritDoc}
+     * <p>
+     * エンティティのクラスを指定して、ID検索する。楽観ロック/悲観ロックなどとプロパティを指定する。
+     * </p>
+     */
+    @Override
+    public E find(final ID id, final LockModeType lockModeType, final Map<String, Object> properties) {
+        return manager.find(clazz, id, lockModeType);
+    }
     /** {@inheritDoc} */
     @Override
     public <S extends E> S merge(final S entity) {
@@ -100,19 +121,66 @@ public class SimplePersistenceServiceImpl<E extends Persistable<ID>, ID extends 
     public void remove(final E entity) {
         manager.remove(entity);
     }
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     * <p>
+     * エンティティのクラスを指定して、更新する。
+     * </p>
+     */
     @Override
     public void refresh(final E entity) {
         manager.refresh(entity);
     }
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     * <p>
+     * エンティティのクラスを指定して、更新する。楽観ロック/悲観ロックなどを指定する。
+     * </p>
+     */
     @Override
     public void refresh(final E entity, final LockModeType lockModeType) {
         manager.refresh(entity, lockModeType);
     }
-    /** {@inheritDoc} */
+    /**
+     * {@inheritDoc}
+     * <p>
+     * エンティティのクラスを指定して、更新する。プロパティを指定する。
+     * </p>
+     */
+    @Override
+    public void refresh(final E entity, final Map<String, Object> properties) {
+        manager.refresh(entity, properties);
+    }
+    /**
+     * {@inheritDoc}
+     * <p>
+     * エンティティのクラスを指定して、更新する。楽観ロック/悲観ロックなどとプロパティを指定する。
+     * </p>
+     */
+    @Override
+    public void refresh(final E entity, final LockModeType lockModeType,
+        final Map<String, Object> properties) {
+        manager.refresh(entity, lockModeType, properties);
+    }
+    /**
+     * {@inheritDoc}
+     * <p>
+     * エンティティのクラスを指定して、保護する。楽観ロック/悲観ロックなどを指定する。
+     * </p>
+     */
     @Override
     public void lock(final E entity, final LockModeType lockModeType) {
+        manager.lock(entity, lockModeType);
+    }
+    /**
+     * {@inheritDoc}
+     * <p>
+     * エンティティのクラスを指定して、保護する。楽観ロック/悲観ロックなどとプロパティを指定する。
+     * </p>
+     */
+    @Override
+    public void lock(final E entity, final LockModeType lockModeType,
+        final Map<String, Object> properties) {
         manager.lock(entity, lockModeType);
     }
     /** {@inheritDoc} */
@@ -145,5 +213,15 @@ public class SimplePersistenceServiceImpl<E extends Persistable<ID>, ID extends 
     @Override
     public E findOne(final TypedQuery<E> query) {
         return query.getSingleResult();
+    }
+    /** {@inheritDoc} */
+    @Override
+    public Map<String, Object> getProperties() {
+        return manager.getProperties();
+    }
+    /** {@inheritDoc} */
+    @Override
+    public void setProperty(final String propertyName, final Object value) {
+        manager.setProperty(propertyName, value);
     }
 }

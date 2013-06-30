@@ -6,6 +6,7 @@
 package zeroth.framework.enterprise.infra.persistence;
 import java.io.Serializable;
 import java.util.Collection;
+import java.util.Map;
 import javax.persistence.LockModeType;
 import javax.persistence.TypedQuery;
 import zeroth.framework.enterprise.shared.Persistable;
@@ -47,6 +48,21 @@ public interface SimplePersistenceService<E extends Persistable<ID>, ID extends 
      */
     E find(ID id, LockModeType lockModeType);
     /**
+     * 管理エンティティのID検索
+     * @param id 識別子
+     * @param properties プロパティ
+     * @return 管理エンティティ
+     */
+    E find(final ID id, final Map<String, Object> properties);
+    /**
+     * 管理エンティティのID検索
+     * @param id 識別子
+     * @param lockModeType ロックモードタイプ
+     * @param properties プロパティ
+     * @return 管理エンティティ
+     */
+    E find(ID id, LockModeType lockModeType, final Map<String, Object> properties);
+    /**
      * 分離エンティティの永続化
      * <p>
      * エンティティ状態の遷移は「新規→管理、管理→(無視)、分離→管理」となる。削除のとき IllegalArgumentException 例外を発生する。
@@ -75,11 +91,32 @@ public interface SimplePersistenceService<E extends Persistable<ID>, ID extends 
      */
     void refresh(final E entity, final LockModeType lockModeType);
     /**
+     * 管理エンティティの更新
+     * @param entity 管理エンティティ
+     * @param properties プロパティ
+     */
+    void refresh(final E entity, final Map<String, Object> properties);
+    /**
+     * 管理エンティティの更新
+     * @param entity 管理エンティティ
+     * @param lockModeType 保護モード
+     * @param properties プロパティ
+     */
+    void refresh(final E entity, final LockModeType lockModeType,
+        final Map<String, Object> properties);
+    /**
      * 管理エンティティの保護
      * @param entity 管理エンティティ
      * @param lockModeType 保護モード
      */
     void lock(final E entity, LockModeType lockModeType);
+    /**
+     * 管理エンティティの保護
+     * @param entity 管理エンティティ
+     * @param lockModeType 保護モード
+     * @param properties プロパティ
+     */
+    void lock(final E entity, LockModeType lockModeType, final Map<String, Object> properties);
     /** 管理エンティティのDB反映 */
     void flush();
     /**
@@ -113,4 +150,15 @@ public interface SimplePersistenceService<E extends Persistable<ID>, ID extends 
      * @return 管理エンティティ
      */
     E findOne(TypedQuery<E> query);
+    /**
+     * プロパティの取得
+     * @return プロパティ
+     */
+    Map<String, Object> getProperties();
+    /**
+     * プロパティの設定
+     * @param propertyName プロパティ名
+     * @param value プロパティ値
+     */
+    void setProperty(String propertyName, Object value);
 }
