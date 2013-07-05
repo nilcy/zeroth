@@ -8,9 +8,9 @@ package zeroth.actor.command;
  * サンプルコード
  * @author nilcy
  */
-public class Hello {
-    /** コンストラクタ */
-    public Hello() {
+public final class Hello {
+    /** 非公開コンストラクタ */
+    private Hello() {
     }
     /**
      * サンプルメソッド
