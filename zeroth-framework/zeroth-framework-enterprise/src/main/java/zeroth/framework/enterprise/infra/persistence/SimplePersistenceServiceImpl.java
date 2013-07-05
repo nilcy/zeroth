@@ -25,7 +25,7 @@ import zeroth.framework.enterprise.shared.Persistable;
  * </p>
  * @param <E> エンティティ型
  * @param <ID> 識別子オブジェクト型
- * @since JPA 1.0
+ * @since JPA 2.1
  * @author nilcy
  */
 @Default
