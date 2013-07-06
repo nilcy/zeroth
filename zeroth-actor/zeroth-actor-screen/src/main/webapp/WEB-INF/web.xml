@@ -72,7 +72,7 @@
   </error-page>
   <login-config>
     <auth-method>FORM</auth-method>
-    <realm-name>zeroth_auth</realm-name>
+    <realm-name>zeroth_primary_auth</realm-name>
     <form-login-config>
       <form-login-page>/login.xhtml</form-login-page>
       <form-error-page>/login-error.xhtml</form-error-page>

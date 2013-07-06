@@ -27,65 +27,83 @@ h3. DBユーザの作成
 
 createuser --username=postgres --createdb --encrypted --inherit --login --pwprompt --createrole --superuser zeroth
 
-// ex: Drop User
+// 例: DBユーザの削除
 dropuser --username=postgres zeroth
 
 h3. データベースの作成
 
-// ex: Unix
+// 例: Unix
 createdb --username=zeroth --encoding=UTF8 --locale=ja_JP.UTF-8 --owner=zeroth --template=template0 zeroth
-// ex: Windows
+// 例: Windows
 createdb --username=zeroth --encoding=UTF8 --locale=Japanese_Japan.932 --owner=zeroth --template=template0 zeroth
 
-// ex: Drop Database
+// 例: データベースの削除
 dropdb --username=postgres zeroth
 
-h3. Connect Database
+h3. データベースへの接続
 
 psql --username=zeroth zeroth
 
-h2. Application Server
+h2. アプリケーションサーバ(GlassFish)
 
-h3. JDBC-Driver
+h3. JDBCドライバをサーバへインストール
 
-// ex: Unix
+// 例: Unix
 cp ~/.m2/repository/org/postgresql/postgresql/9.2-1002-jdbc4/postgresql-9.2-1002-jdbc4.jar $GLASSFISH_HOME/lib
-// ex: Windows
+// 例: Windows
 cp $USERPROFILE/.m2/repository/org/postgresql/postgresql/9.2-1002-jdbc4/postgresql-9.2-1002-jdbc4.jar /Applications/glassfish3/glassfish/lib
 
-h3. Run & Stop (Restart)
+h3. 起動と停止(再起動)
 
 asadmin start-domain
 asadmin stop-domain
 (asadmin restart-domain)
 
-h3. Create JDBC Connection-Pool & Create JDBC Resource
+h3. JDBCコネクションプールの作成 と JDBCリソースの作成
 
-asadmin create-jdbc-connection-pool --datasourceclassname org.postgresql.ds.PGConnectionPoolDataSource --restype javax.sql.ConnectionPoolDataSource --property portNumber=5432:user=zeroth:password=happyhacking:serverName=localhost:databaseName=zeroth zeroth_pool
-asadmin ping-connection-pool zeroth_pool
-asadmin create-jdbc-resource --connectionpoolid zeroth_pool jdbc/zeroth
+asadmin create-jdbc-connection-pool --datasourceclassname org.postgresql.ds.PGConnectionPoolDataSource --restype javax.sql.ConnectionPoolDataSource --property portNumber=5432:user=zeroth:password=happyhacking:serverName=localhost:databaseName=zeroth zeroth_primary_pool
+asadmin ping-connection-pool zeroth_primary_pool
+asadmin list-jdbc-connection-pools
+asadmin create-jdbc-resource --connectionpoolid zeroth_primary_pool jdbc/zeroth/primaryDatabase
+asadmin list-jdbc-resources
 
-// ex: Delete JDBC Resource & Delete JDBC Connection-Pool
-asadmin delete-jdbc-resource jdbc/zeroth
-asadmin delete-jdbc-connection-pool zeroth_pool
+// 例: JDBCコネクションプールの削除 と JDBCリソースの削除
+asadmin delete-jdbc-resource jdbc/zeroth/primaryDatabase
+asadmin delete-jdbc-connection-pool zeroth_primary_pool
 
-h3. Create Auth-Realm
+h3. 認証レルムの作成
 
-asadmin create-auth-realm --classname com.sun.enterprise.security.auth.realm.jdbc.JDBCRealm --property jaas-context=jdbcRealm:datasource-jndi=jdbc/zeroth:user-table=public.member:group-table=public.member_auth:user-name-column=account:password-column=password:group-name-column=auth:digest-algorithm=SHA-256:encoding=Hex zeroth_auth
+asadmin create-auth-realm --classname com.sun.enterprise.security.ee.auth.realm.jdbc.JDBCRealm --property jaas-context=jdbcRealm:datasource-jndi=jdbc/zeroth/primaryDatabase:user-table=public.member:group-table=public.member_auth:user-name-column=account:password-column=password:group-name-column=auth:digest-algorithm=SHA-256:encoding=Hex zeroth_primary_auth
 asadmin list-auth-realms
 
-// ex: Delete Auth-Realm
-asadmin delete-auth-realm zeroth_auth
+// 例: 認証レルムの削除
+asadmin delete-auth-realm zeroth_primary_auth
 
-h3. Create JVM-Options
+h3. JavaMailリソースの作成
+
+asadmin create-javamail-resource --mailhost smtp.gmail.com --fromaddress zeroth@gmail.com --mailuser zeroth@gmail.com --transprotocol smtps --transprotocolclass com.sun.mail.smtp.SMTPSSLTransport --description "zeroth mail session" --property mail-smtps-password=xxxxxxxx:mail-smtps-auth=true mail/zeroth/primarySession
+asadmin list-javamail-resources
+
+// 例: JavaMailリソースの削除
+asadmin delete-javamail-resource mail/zeroth/primarySession
+
+h3. JMSリソースの作成
+
+asadmin create-jms-resource --restype javax.jms.ConnectionFactory jms/zeroth/primaryConnectionFactory
+asadmin create-jms-resource --restype javax.jms.Queue jms/zeroth/primaryQueue
+asadmin create-jms-resource --restype javax.jms.Topic jms/zeroth/primaryTopic
+asadmin list-jms-resources
+
+// 例: JMSリソースの削除
+asadmin delete-jms-resource jms/zeroth/primaryConnectionFactory
+asadmin delete-jms-resource jms/zeroth/primaryQueue
+asadmin delete-jms-resource jms/zeroth/primaryTopic
+
+h3. JVMオプションの作成
 
 asadmin create-jvm-options '-Dlogback.configurationFile=${com.sun.aas.instanceRoot}/config/logback.xml'
 asadmin list-jvm-options
 cp ./zeroth-fw/zeroth-fw-standard/src/test/resources/logback-test.xml $GLASSFISH_HOME/domains/domain1/config/logback.xml
 
-// ex: Delete JVM-Options
+// 例: JVMオプションの削除
 asadmin delete-jvm-options -Dlogback.configurationFile=${com.sun.aas.instanceRoot}/config/logback.xml
-
-h3. Create JavaMail Session
-
-asadmin create-javamail-resource --mailhost smtp.gmail.com --fromaddress zeroth@gmail.com --mailuser zeroth@gmail.com --transprotocol smtps --transprotocolclass com.sun.mail.smtp.SMTPSSLTransport --description "zeroth mail session" --property mail-smtps-password=xxxxxxxx:mail-smtps-auth=true mail/zerothSession
