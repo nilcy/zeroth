@@ -19,7 +19,7 @@ final class ArquillianDeployment {
      * @return デフォルトのアーカイブ
      */
     static JavaArchive defaultDeployment() {
-        return ShrinkWrap.create(JavaArchive.class)
+        return ShrinkWrap.create(JavaArchive.class, "zeroth.framework.enterprise.shared.jar")
             .addPackages(true, "zeroth.framework.standard", "zeroth.framework.enterprise.shared")
             .addAsManifestResource("META-INF/beans.xml", "beans.xml");
     }

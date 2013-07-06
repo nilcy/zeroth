@@ -5,6 +5,7 @@
 // ========================================================================
 package zeroth.framework.enterprise.domain;
 import java.math.BigDecimal;
+import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,6 +15,7 @@ import javax.persistence.PostLoad;
 import javax.persistence.PostPersist;
 import javax.persistence.PostUpdate;
 import javax.persistence.Transient;
+import javax.validation.constraints.NotNull;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import zeroth.framework.enterprise.shared.Persistable;
 import zeroth.framework.standard.domain.ReferenceObject;
@@ -34,9 +36,11 @@ public abstract class AbstractPersistable<E extends AbstractPersistable<E>> exte
     /** 識別番号 */
     private static final long serialVersionUID = 6765184066419433024L;
     /** 識別子(ID) */
-    @Column(name = "id", nullable = false, insertable = true, updatable = false)
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "id", nullable = false, insertable = true, updatable = false)
     private BigDecimal id;
     /** 永続済 */
     @Transient

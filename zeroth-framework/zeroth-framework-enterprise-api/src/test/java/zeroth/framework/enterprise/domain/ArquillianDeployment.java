@@ -20,7 +20,7 @@ final class ArquillianDeployment {
      */
     static JavaArchive defaultDeployment() {
         return ShrinkWrap
-            .create(JavaArchive.class)
+            .create(JavaArchive.class, "zeroth.framework.enterprise.domain.jar")
             .addPackages(true, "zeroth.framework.standard", "zeroth.framework.enterprise.shared",
                 "zeroth.framework.enterprise.infra", "zeroth.framework.enterprise.domain")
             .addAsManifestResource("META-INF/persistence.xml", "persistence.xml")
