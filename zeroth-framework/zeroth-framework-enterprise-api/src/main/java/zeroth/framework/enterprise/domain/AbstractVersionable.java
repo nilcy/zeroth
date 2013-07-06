@@ -23,8 +23,8 @@ public abstract class AbstractVersionable<E extends AbstractVersionable<E>> exte
     /** 識別番号 */
     private static final long serialVersionUID = 3662224470361465232L;
     /** 版数 */
-    @Column(name = "version", nullable = false, insertable = true, updatable = true)
     @Version
+    @Column(name = "version", nullable = false, insertable = true, updatable = true)
     private Long version;
     /** コンストラクタ */
     public AbstractVersionable() {
