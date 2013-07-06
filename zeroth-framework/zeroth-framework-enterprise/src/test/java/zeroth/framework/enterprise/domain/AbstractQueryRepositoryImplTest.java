@@ -6,6 +6,7 @@
 package zeroth.framework.enterprise.domain;
 import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;
+import java.math.BigDecimal;
 import java.util.Collection;
 import java.util.logging.Logger;
 import javax.inject.Inject;
@@ -38,7 +39,7 @@ public class AbstractQueryRepositoryImplTest {
         testee.save(ex00);
         assertThat(ex00.getId(), is(not(nullValue())));
         // エンティティ検索
-        final TestExample exId = testee.find(01L);
+        final TestExample exId = testee.find(BigDecimal.valueOf(1L));
         assertThat(exId.getId(), is(ex00.getId()));
         // 単一エンティティ検索
         final TestExampleValue filterOne = valueFactory.create("code-00");

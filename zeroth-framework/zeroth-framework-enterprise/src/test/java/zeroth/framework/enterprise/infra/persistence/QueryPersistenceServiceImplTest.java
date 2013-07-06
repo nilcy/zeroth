@@ -7,6 +7,7 @@ package zeroth.framework.enterprise.infra.persistence;
 import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;
 import static zeroth.framework.enterprise.domain.TestExample_.*;
+import java.math.BigDecimal;
 import java.util.Collection;
 import java.util.logging.Logger;
 import javax.inject.Inject;
@@ -17,8 +18,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import com.googlecode.jeeunit.JeeunitRunner;
 import com.googlecode.jeeunit.Transactional;
-import zeroth.framework.enterprise.domain.TestExample;
 import zeroth.framework.enterprise.domain.PersistenceServiceAnnotation.TestExamplePersistenceService;
+import zeroth.framework.enterprise.domain.TestExample;
 /**
  * {@link QueryPersistenceServiceImpl} のユニットテスト
  * @author nilcy
@@ -29,16 +30,16 @@ import zeroth.framework.enterprise.domain.PersistenceServiceAnnotation.TestExamp
 public class QueryPersistenceServiceImplTest {
     @Inject
     @TestExamplePersistenceService
-    private QueryPersistenceService<TestExample, Long> testee;
+    private QueryPersistenceService<TestExample, BigDecimal> testee;
     @Inject
     private Logger log;
     @Test
     public void testCRUD() {
         final TestExample e01 = new TestExample("code01");
         testee.persist(e01);
-        assertThat(e01.getId(), is(1L));
+        assertThat(e01.getId(), is(BigDecimal.valueOf(1L)));
         assertThat(testee.contains(e01), is(true));
-        final TestExample e01r = testee.find(1L);
+        final TestExample e01r = testee.find(BigDecimal.valueOf(1L));
         assertThat(e01r, is(e01));
         e01r.setCode("code01#1");
         testee.lock(e01r, LockModeType.PESSIMISTIC_READ);
@@ -49,7 +50,7 @@ public class QueryPersistenceServiceImplTest {
         e01r.setCode("code01#2");
         testee.merge(e01r);
         testee.remove(testee.find(e01r.getId()));
-        assertThat(testee.find(1L, LockModeType.OPTIMISTIC), is(nullValue()));
+        assertThat(testee.find(BigDecimal.valueOf(1L), LockModeType.OPTIMISTIC), is(nullValue()));
     }
     @Test
     public void testCriteria() {

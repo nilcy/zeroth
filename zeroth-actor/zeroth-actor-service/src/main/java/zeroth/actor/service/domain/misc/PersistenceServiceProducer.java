@@ -4,6 +4,7 @@
 // http://www.gnu.org/licenses/agpl-3.0.txt
 // ========================================================================
 package zeroth.actor.service.domain.misc;
+import java.math.BigDecimal;
 import javax.enterprise.inject.Produces;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
@@ -34,7 +35,7 @@ public class PersistenceServiceProducer {
      */
     @Produces
     @IndustryClassPersistenceService
-    public QueryPersistenceService<IndustryClass, Long> createIndustryClassPersistenceService() {
+    public QueryPersistenceService<IndustryClass, BigDecimal> createIndustryClassPersistenceService() {
         return factory.createQueryPersistenceService(manager, IndustryClass.class);
     }
     /**
@@ -43,7 +44,7 @@ public class PersistenceServiceProducer {
      */
     @Produces
     @ListedSectionPersistenceService
-    public QueryPersistenceService<ListedSection, Long> createListedSectionPersistenceService() {
+    public QueryPersistenceService<ListedSection, BigDecimal> createListedSectionPersistenceService() {
         return factory.createQueryPersistenceService(manager, ListedSection.class);
     }
     // /**
@@ -63,7 +64,7 @@ public class PersistenceServiceProducer {
     @SuppressWarnings("unchecked")
     @Produces
     @NewsPersistenceService
-    public QueryPersistenceService<News, Long> createNewsPersistenceService() {
+    public QueryPersistenceService<News, BigDecimal> createNewsPersistenceService() {
         return factory.createQueryPersistenceService(manager, Notice.class);
     }
 }

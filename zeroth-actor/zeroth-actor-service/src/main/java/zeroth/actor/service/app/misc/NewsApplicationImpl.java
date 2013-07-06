@@ -4,6 +4,7 @@
 // http://www.gnu.org/licenses/agpl-3.0.txt
 // ========================================================================
 package zeroth.actor.service.app.misc;
+import java.math.BigDecimal;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import zeroth.actor.service.domain.misc.News;
@@ -20,7 +21,7 @@ import zeroth.framework.standard.shared.SimpleFilter;
 // @Default
 @Tracer
 public class NewsApplicationImpl extends
-    AbstractSimpleRepositoryApplication<News, Long, SimpleFilter> implements NewsApplication {
+    AbstractSimpleRepositoryApplication<News, BigDecimal, SimpleFilter> implements NewsApplication {
     /** 製品番号 */
     private static final long serialVersionUID = 7126614585601195838L;
     /** お知らせリポジトリ */
@@ -31,7 +32,7 @@ public class NewsApplicationImpl extends
     }
     /** {@inheritDoc} */
     @Override
-    protected SimpleRepository<News, Long, SimpleFilter> getRepository() {
+    protected SimpleRepository<News, BigDecimal, SimpleFilter> getRepository() {
         return repository;
     }
 }

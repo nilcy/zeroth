@@ -4,6 +4,7 @@
 // http://www.gnu.org/licenses/agpl-3.0.txt
 // ========================================================================
 package zeroth.actor.service.domain;
+import java.math.BigDecimal;
 import java.util.logging.Logger;
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
@@ -21,17 +22,17 @@ import zeroth.framework.enterprise.shared.Tracer;
  */
 @Default
 @Tracer
-public class MemberRepositoryImpl extends AbstractQueryRepositoryImpl<Member, Long, MemberFilter>
-    implements MemberRepository {
+public class MemberRepositoryImpl extends
+    AbstractQueryRepositoryImpl<Member, BigDecimal, MemberFilter> implements MemberRepository {
     /** 製品番号 */
     private static final long serialVersionUID = 2537651945740718957L;
     /** 先進データ永続化サービス */
     @Inject
     @MemberPersistenceService
-    private QueryPersistenceService<Member, Long> service;
+    private QueryPersistenceService<Member, BigDecimal> service;
     /** {@inheritDoc} */
     @Override
-    protected QueryPersistenceService<Member, Long> getPersistenceService() {
+    protected QueryPersistenceService<Member, BigDecimal> getPersistenceService() {
         return service;
     }
     /**

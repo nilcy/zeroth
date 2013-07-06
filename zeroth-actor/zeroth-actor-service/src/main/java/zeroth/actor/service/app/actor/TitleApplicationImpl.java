@@ -4,6 +4,7 @@
 // http://www.gnu.org/licenses/agpl-3.0.txt
 // ========================================================================
 package zeroth.actor.service.app.actor;
+import java.math.BigDecimal;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import zeroth.actor.service.domain.Title;
@@ -20,7 +21,8 @@ import zeroth.framework.standard.shared.SimpleFilter;
 // @Default
 @Tracer
 public class TitleApplicationImpl extends
-    AbstractSimpleRepositoryApplication<Title, Long, SimpleFilter> implements TitleApplication {
+    AbstractSimpleRepositoryApplication<Title, BigDecimal, SimpleFilter> implements
+    TitleApplication {
     /** 製品番号 */
     private static final long serialVersionUID = -2055548765950043371L;
     /** 職名リポジトリ */
@@ -31,7 +33,7 @@ public class TitleApplicationImpl extends
     }
     /** {@inheritDoc} */
     @Override
-    protected SimpleRepository<Title, Long, SimpleFilter> getRepository() {
+    protected SimpleRepository<Title, BigDecimal, SimpleFilter> getRepository() {
         return repository;
     }
 }

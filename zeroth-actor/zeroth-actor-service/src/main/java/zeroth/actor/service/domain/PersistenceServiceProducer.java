@@ -4,16 +4,10 @@
 // http://www.gnu.org/licenses/agpl-3.0.txt
 // ========================================================================
 package zeroth.actor.service.domain;
+import java.math.BigDecimal;
 import javax.enterprise.inject.Produces;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
-import zeroth.actor.service.domain.Customer;
-import zeroth.actor.service.domain.Level;
-import zeroth.actor.service.domain.Member;
-import zeroth.actor.service.domain.Organ;
-import zeroth.actor.service.domain.Partner;
-import zeroth.actor.service.domain.Supplier;
-import zeroth.actor.service.domain.Title;
 import zeroth.actor.service.domain.PersistenceServiceAnnotation.CustomerPersistenceService;
 import zeroth.actor.service.domain.PersistenceServiceAnnotation.LevelPersistenceService;
 import zeroth.actor.service.domain.PersistenceServiceAnnotation.MemberPersistenceService;
@@ -45,7 +39,7 @@ public class PersistenceServiceProducer {
      */
     @Produces
     @CustomerPersistenceService
-    public QueryPersistenceService<Customer, Long> createCustomerPersistenceService() {
+    public QueryPersistenceService<Customer, BigDecimal> createCustomerPersistenceService() {
         return factory.createQueryPersistenceService(manager, Customer.class);
     }
     /**
@@ -54,7 +48,7 @@ public class PersistenceServiceProducer {
      */
     @Produces
     @LevelPersistenceService
-    public QueryPersistenceService<Level, Long> createLevelPersistenceService() {
+    public QueryPersistenceService<Level, BigDecimal> createLevelPersistenceService() {
         return factory.createQueryPersistenceService(manager, Level.class);
     }
     /**
@@ -63,7 +57,7 @@ public class PersistenceServiceProducer {
      */
     @Produces
     @MemberPersistenceService
-    public QueryPersistenceService<Member, Long> createMemberPersistenceService() {
+    public QueryPersistenceService<Member, BigDecimal> createMemberPersistenceService() {
         return factory.createQueryPersistenceService(manager, Member.class);
     }
     /**
@@ -72,7 +66,7 @@ public class PersistenceServiceProducer {
      */
     @Produces
     @OrganPersistenceService
-    public QueryPersistenceService<Organ, Long> createOrganPersistenceService() {
+    public QueryPersistenceService<Organ, BigDecimal> createOrganPersistenceService() {
         return factory.createQueryPersistenceService(manager, Organ.class);
     }
     /**
@@ -81,7 +75,7 @@ public class PersistenceServiceProducer {
      */
     @Produces
     @PartnerPersistenceService
-    public QueryPersistenceService<Partner, Long> createPartnerPersistenceService() {
+    public QueryPersistenceService<Partner, BigDecimal> createPartnerPersistenceService() {
         return factory.createQueryPersistenceService(manager, Partner.class);
     }
     /**
@@ -90,7 +84,7 @@ public class PersistenceServiceProducer {
      */
     @Produces
     @SupplierPersistenceService
-    public QueryPersistenceService<Supplier, Long> createSupplierPersistenceService() {
+    public QueryPersistenceService<Supplier, BigDecimal> createSupplierPersistenceService() {
         return factory.createQueryPersistenceService(manager, Supplier.class);
     }
     /**
@@ -99,7 +93,7 @@ public class PersistenceServiceProducer {
      */
     @Produces
     @TitlePersistenceService
-    public QueryPersistenceService<Title, Long> createTitlePersistenceService() {
+    public QueryPersistenceService<Title, BigDecimal> createTitlePersistenceService() {
         return factory.createQueryPersistenceService(manager, Title.class);
     }
 }

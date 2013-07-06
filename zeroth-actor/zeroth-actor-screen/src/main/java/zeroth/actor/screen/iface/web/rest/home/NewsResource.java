@@ -4,6 +4,7 @@
 // http://www.gnu.org/licenses/agpl-3.0.txt
 // ========================================================================
 package zeroth.actor.screen.iface.web.rest.home;
+import java.math.BigDecimal;
 import java.util.Collection;
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
@@ -54,7 +55,7 @@ public class NewsResource {
     @GET
     @Path("/{id}")
     @Produces({ MediaType.TEXT_XML, MediaType.APPLICATION_JSON })
-    public News getItem(@PathParam("id") final Long aId) {
+    public News getItem(@PathParam("id") final BigDecimal aId) {
         final News item = newsService.find(aId);
         if (item == null) {
             throw new ResourceException(new ResourceFault("ERR001", "GET_ERROR"));
@@ -82,7 +83,7 @@ public class NewsResource {
     @DELETE
     @Path("/{id}")
     @Consumes({ MediaType.TEXT_XML, MediaType.APPLICATION_JSON })
-    public void deleteItem(@PathParam("id") final Long aId) {
+    public void deleteItem(@PathParam("id") final BigDecimal aId) {
         try {
             newsService.delete(newsService.find(aId));
         } catch (final ConstraintsException e) {

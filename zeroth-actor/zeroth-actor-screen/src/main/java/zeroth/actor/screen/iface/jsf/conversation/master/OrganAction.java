@@ -4,6 +4,7 @@
 // http://www.gnu.org/licenses/agpl-3.0.txt
 // ========================================================================
 package zeroth.actor.screen.iface.jsf.conversation.master;
+import java.math.BigDecimal;
 import java.text.MessageFormat;
 import javax.enterprise.context.ConversationScoped;
 import javax.faces.application.FacesMessage;
@@ -23,7 +24,7 @@ import zeroth.framework.standard.shared.SimpleFilter;
  */
 @Named(value = "organAction")
 @ConversationScoped
-public class OrganAction extends AbstractActionImpl<Organ, Long, SimpleFilter> {
+public class OrganAction extends AbstractActionImpl<Organ, BigDecimal, SimpleFilter> {
     /** 製品番号 */
     private static final long serialVersionUID = 7243039551620767571L;
     /** 組織アプリケーションI/F */
@@ -35,7 +36,7 @@ public class OrganAction extends AbstractActionImpl<Organ, Long, SimpleFilter> {
     }
     /** {@inheritDoc} */
     @Override
-    public SimpleRepositoryApplication<Organ, Long, SimpleFilter> getApplication() {
+    public SimpleRepositoryApplication<Organ, BigDecimal, SimpleFilter> getApplication() {
         return organApplication;
     }
     /** {@inheritDoc} false if parent >= target. */

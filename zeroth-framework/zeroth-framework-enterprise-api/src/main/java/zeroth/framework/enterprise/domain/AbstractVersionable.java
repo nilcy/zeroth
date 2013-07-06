@@ -4,6 +4,7 @@
 // http://www.gnu.org/licenses/agpl-3.0.txt
 // ========================================================================
 package zeroth.framework.enterprise.domain;
+import java.math.BigDecimal;
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Version;
@@ -18,7 +19,7 @@ import zeroth.framework.enterprise.shared.Versionable;
  */
 @MappedSuperclass
 public abstract class AbstractVersionable<E extends AbstractVersionable<E>> extends
-    AbstractPersistable<E> implements Versionable<Long> {
+    AbstractPersistable<E> implements Versionable<BigDecimal> {
     /** 識別番号 */
     private static final long serialVersionUID = 3662224470361465232L;
     /** 版数 */

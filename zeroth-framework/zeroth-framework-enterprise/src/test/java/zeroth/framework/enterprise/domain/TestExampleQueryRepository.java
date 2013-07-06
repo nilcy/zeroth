@@ -5,6 +5,7 @@
 // ========================================================================
 package zeroth.framework.enterprise.domain;
 import static zeroth.framework.enterprise.domain.TestExample_.*;
+import java.math.BigDecimal;
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 import javax.persistence.criteria.Predicate;
@@ -16,16 +17,16 @@ import zeroth.framework.enterprise.infra.persistence.QueryPersistenceService;
  */
 @Default
 public class TestExampleQueryRepository extends
-    AbstractQueryRepositoryImpl<TestExample, Long, TestExampleValue> {
+    AbstractQueryRepositoryImpl<TestExample, BigDecimal, TestExampleValue> {
     /** 製品番号 */
     private static final long serialVersionUID = 5224122483123731291L;
     /** 拡張データ永続化サービス */
     @Inject
     @TestExamplePersistenceService
-    private QueryPersistenceService<TestExample, Long> service;
+    private QueryPersistenceService<TestExample, BigDecimal> service;
     /** {@inheritDoc} */
     @Override
-    protected QueryPersistenceService<TestExample, Long> getPersistenceService() {
+    protected QueryPersistenceService<TestExample, BigDecimal> getPersistenceService() {
         return service;
     }
     /**

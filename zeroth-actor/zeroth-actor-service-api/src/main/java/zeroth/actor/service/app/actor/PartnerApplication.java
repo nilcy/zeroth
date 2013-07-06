@@ -4,6 +4,7 @@
 // http://www.gnu.org/licenses/agpl-3.0.txt
 // ========================================================================
 package zeroth.actor.service.app.actor;
+import java.math.BigDecimal;
 import javax.ejb.Local;
 import zeroth.actor.service.domain.Partner;
 import zeroth.framework.enterprise.app.SimpleRepositoryApplication;
@@ -14,5 +15,5 @@ import zeroth.framework.standard.shared.SimpleFilter;
  */
 @Local
 public interface PartnerApplication extends
-    SimpleRepositoryApplication<Partner, Long, SimpleFilter> {
+    SimpleRepositoryApplication<Partner, BigDecimal, SimpleFilter> {
 }

@@ -5,6 +5,7 @@
 // ========================================================================
 package zeroth.actor.service.domain.misc;
 import static zeroth.actor.service.domain.misc.Notice_.*;
+import java.math.BigDecimal;
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 import javax.persistence.criteria.CriteriaBuilder;
@@ -21,17 +22,17 @@ import zeroth.framework.standard.shared.SimpleFilter;
  */
 @Default
 // @Tracer
-public class NewsRepositoryImpl extends AbstractQueryRepositoryImpl<News, Long, SimpleFilter>
+public class NewsRepositoryImpl extends AbstractQueryRepositoryImpl<News, BigDecimal, SimpleFilter>
     implements NewsRepository {
     /** 製品番号 */
     private static final long serialVersionUID = -7181173647550897989L;
     /** 先進データ永続化サービス */
     @Inject
     @NewsPersistenceService
-    private QueryPersistenceService<News, Long> service;
+    private QueryPersistenceService<News, BigDecimal> service;
     /** {@inheritDoc} */
     @Override
-    protected QueryPersistenceService<News, Long> getPersistenceService() {
+    protected QueryPersistenceService<News, BigDecimal> getPersistenceService() {
         return service;
     }
     /**

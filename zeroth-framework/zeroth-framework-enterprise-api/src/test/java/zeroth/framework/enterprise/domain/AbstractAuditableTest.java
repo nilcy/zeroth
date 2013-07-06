@@ -6,6 +6,7 @@
 package zeroth.framework.enterprise.domain;
 import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;
+import java.math.BigDecimal;
 import java.util.Date;
 import javax.enterprise.inject.Produces;
 import javax.persistence.EntityManager;
@@ -72,11 +73,11 @@ public final class AbstractAuditableTest {
         assertThat(testee.sameIdentityAs(null), is(false));
         final TestAuditable other = new TestAuditable();
         assertThat(testee.sameIdentityAs(other), is(true));
-        testee.setId(0L);
-        other.setId(0L);
+        testee.setId(BigDecimal.valueOf(0L));
+        other.setId(BigDecimal.valueOf(0L));
         assertThat(testee.sameIdentityAs(other), is(true));
-        testee.setId(0L);
-        other.setId(1L);
+        testee.setId(BigDecimal.valueOf(0L));
+        other.setId(BigDecimal.valueOf(1L));
         assertThat(testee.sameIdentityAs(other), is(false));
     }
     @Test

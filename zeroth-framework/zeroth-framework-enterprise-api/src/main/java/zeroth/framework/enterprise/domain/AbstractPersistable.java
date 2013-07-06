@@ -4,6 +4,7 @@
 // http://www.gnu.org/licenses/agpl-3.0.txt
 // ========================================================================
 package zeroth.framework.enterprise.domain;
+import java.math.BigDecimal;
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -29,14 +30,14 @@ import zeroth.framework.standard.shared.AbstractDataObject;
  */
 @MappedSuperclass
 public abstract class AbstractPersistable<E extends AbstractPersistable<E>> extends
-    AbstractDataObject implements ReferenceObject<E, Long>, Persistable<Long> {
+    AbstractDataObject implements ReferenceObject<E, BigDecimal>, Persistable<BigDecimal> {
     /** 識別番号 */
     private static final long serialVersionUID = 6765184066419433024L;
     /** 識別子(ID) */
     @Column(name = "id", nullable = false, insertable = true, updatable = false)
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private BigDecimal id;
     /** 永続済 */
     @Transient
     private boolean persisted = false;
@@ -47,19 +48,19 @@ public abstract class AbstractPersistable<E extends AbstractPersistable<E>> exte
      * {@link #id} の取得
      * @return {@link #id}
      */
-    public Long getId() {
+    public BigDecimal getId() {
         return id;
     }
     /**
      * {@link #id} の設定
      * @param id {@link #id}
      */
-    public void setId(final Long id) {
+    public void setId(final BigDecimal id) {
         this.id = id;
     }
     /** {@inheritDoc} */
     @Override
-    public Long identity() {
+    public BigDecimal identity() {
         return id;
     }
     /** {@inheritDoc} */
@@ -70,8 +71,7 @@ public abstract class AbstractPersistable<E extends AbstractPersistable<E>> exte
     /** {@inheritDoc} */
     @Override
     public boolean sameIdentityAs(final E other) {
-        return (other != null)
-            && new EqualsBuilder().append(identity(), other.identity()).isEquals();
+        return other != null && new EqualsBuilder().append(identity(), other.identity()).isEquals();
     }
     /** 登録後/更新後/取得後のコールバック */
     @PostPersist

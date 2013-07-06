@@ -4,6 +4,7 @@
 // http://www.gnu.org/licenses/agpl-3.0.txt
 // ========================================================================
 package zeroth.actor.screen.iface.jsf.conversation.master;
+import java.math.BigDecimal;
 import javax.enterprise.context.ConversationScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -22,7 +23,7 @@ import zeroth.framework.standard.shared.SimpleFilter;
  */
 @Named(value = "customerAction")
 @ConversationScoped
-public class CustomerAction extends AbstractActionImpl<Customer, Long, SimpleFilter> {
+public class CustomerAction extends AbstractActionImpl<Customer, BigDecimal, SimpleFilter> {
     /** 製品番号 */
     private static final long serialVersionUID = 873776474936603723L;
     /** 得意先アプリケーションI/F */
@@ -34,7 +35,7 @@ public class CustomerAction extends AbstractActionImpl<Customer, Long, SimpleFil
     }
     /** {@inheritDoc} */
     @Override
-    public SimpleRepositoryApplication<Customer, Long, SimpleFilter> getApplication() {
+    public SimpleRepositoryApplication<Customer, BigDecimal, SimpleFilter> getApplication() {
         return customerApplication;
     }
     /** {@inheritDoc} */

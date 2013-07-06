@@ -4,6 +4,7 @@
 // http://www.gnu.org/licenses/agpl-3.0.txt
 // ========================================================================
 package zeroth.framework.enterprise.domain;
+import java.math.BigDecimal;
 import javax.enterprise.inject.Produces;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
@@ -32,7 +33,7 @@ public class PersistenceServiceProducer {
      */
     @Produces
     @TestExamplePersistenceService
-    public QueryPersistenceService<TestExample, Long> createTestExamplePersistenceService() {
+    public QueryPersistenceService<TestExample, BigDecimal> createTestExamplePersistenceService() {
         return factory.createQueryPersistenceService(manager, TestExample.class);
     }
 }

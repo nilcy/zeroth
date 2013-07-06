@@ -6,6 +6,7 @@
 package zeroth.framework.enterprise.domain;
 import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;
+import java.math.BigDecimal;
 import javax.enterprise.inject.Produces;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -43,8 +44,8 @@ public final class AbstractPersistableTest {
     @Test
     public void testGetSetId() {
         assertThat(testee.getId(), is(nullValue()));
-        testee.setId(Long.valueOf(0L));
-        assertThat(testee.getId(), is(Long.valueOf(0L)));
+        testee.setId(BigDecimal.valueOf(0L));
+        assertThat(testee.getId(), is(BigDecimal.valueOf(0L)));
     }
     @Test
     public void testSameIdentityAs() {
@@ -52,18 +53,18 @@ public final class AbstractPersistableTest {
         assertThat(testee.sameIdentityAs(nullObject), is(false));
         final TestPersistable other = new TestPersistable();
         assertThat(testee.sameIdentityAs(other), is(true));
-        testee.setId(0L);
-        other.setId(0L);
+        testee.setId(BigDecimal.valueOf(0L));
+        other.setId(BigDecimal.valueOf(0L));
         assertThat(testee.sameIdentityAs(other), is(true));
-        testee.setId(0L);
-        other.setId(1L);
+        testee.setId(BigDecimal.valueOf(0L));
+        other.setId(BigDecimal.valueOf(1L));
         assertThat(testee.sameIdentityAs(other), is(false));
     }
     @Test
     public void testIdentity() {
         assertThat(testee.identity(), is(nullValue()));
-        testee.setId(0L);
-        assertThat(testee.identity(), is(0L));
+        testee.setId(BigDecimal.valueOf(0L));
+        assertThat(testee.identity(), is(BigDecimal.valueOf(0L)));
     }
     @Test
     public void testCallback() {

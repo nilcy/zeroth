@@ -4,6 +4,7 @@
 // http://www.gnu.org/licenses/agpl-3.0.txt
 // ========================================================================
 package zeroth.framework.enterprise.domain;
+import java.math.BigDecimal;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
@@ -22,7 +23,7 @@ import zeroth.framework.enterprise.shared.Auditable;
  */
 @MappedSuperclass
 public abstract class AbstractAuditable<E extends AbstractAuditable<E>> extends
-    AbstractVersionable<E> implements Auditable<Long, Long> {
+    AbstractVersionable<E> implements Auditable<Long, BigDecimal> {
     /** 識別番号 */
     private static final long serialVersionUID = 6992851617530122569L;
     /** 作成者(ID) */
