@@ -26,7 +26,7 @@ import zeroth.framework.enterprise.shared.Persistable;
  * @author nilcy
  */
 public abstract class AbstractActionImpl<E extends Persistable<ID>, ID extends Serializable, F extends Serializable>
-    implements Action<E, ID, F> {
+    implements SimpleAction<E, ID, F> {
     /** 製品番号 */
     private static final long serialVersionUID = -8034832957766744039L;
     /** ページサイズ */

@@ -6,11 +6,11 @@
 package zeroth.actor.screen.iface.jsf.conversation.home;
 import java.math.BigDecimal;
 import zeroth.actor.service.domain.misc.News;
-import zeroth.framework.screen.iface.jsf.Action;
+import zeroth.framework.screen.iface.jsf.SimpleAction;
 import zeroth.framework.standard.shared.SimpleFilter;
 /**
  * お知らせアクションI/F
  * @author nilcy
  */
-public interface NewsAction extends Action<News, BigDecimal, SimpleFilter> {
+public interface NewsAction extends SimpleAction<News, BigDecimal, SimpleFilter> {
 }

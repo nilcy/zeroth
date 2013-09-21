@@ -10,7 +10,7 @@ import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import org.apache.commons.lang3.StringUtils;
 import zeroth.framework.enterprise.shared.Persistable;
-import zeroth.framework.screen.iface.jsf.Action;
+import zeroth.framework.screen.iface.jsf.SimpleAction;
 /**
  * Entity converter.
  * @author nilcy
@@ -33,7 +33,7 @@ public abstract class AbstractEntityConverter implements Converter {
         if (StringUtils.isEmpty(aParam)) {
             return null;
         }
-        final Object object = ((Action) aFacesContext.getApplication().getELResolver()
+        final Object object = ((SimpleAction) aFacesContext.getApplication().getELResolver()
             .getValue(aFacesContext.getELContext(), null, actionName)).getApplication().find(
             Long.valueOf(aParam));
         return object;
