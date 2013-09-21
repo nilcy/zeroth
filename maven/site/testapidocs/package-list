@@ -1,6 +1,5 @@
 zeroth.actor.command
 zeroth.actor.screen
-zeroth.actor.screen.iface.jsf.session
 zeroth.actor.service
 zeroth.actor.service.domain
 zeroth.actor.service.domain.misc

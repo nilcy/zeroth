@@ -8,9 +8,9 @@
     <language>en-us</language>
     <copyright>&#169;2013 nilcy</copyright>
     <item>
-      <title>File: 293,
+      <title>File: 301,
              Errors: 0,
-             Warnings: 512,
+             Warnings: 530,
              Infos: 0
       </title>
             <link>http://nilcy.github.io/zeroth/maven/site//checkstyle.html</link>
@@ -189,7 +189,7 @@
                   0
                 </td>
                 <td>
-                  0
+                  1
                 </td>
                 <td>
                   0
@@ -393,6 +393,20 @@
               </tr>
                           <tr>
                 <td>
+                  <a href="http://nilcy.github.io/zeroth/maven/site//checkstyle.html#zeroth.framework.screen.iface.jsf.UploadRenderer.java">zeroth/framework/screen/iface/jsf/UploadRenderer.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  1
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
                   <a href="http://nilcy.github.io/zeroth/maven/site//checkstyle.html#zeroth.actor.service.domain.AbstractCompanyFactory.java">zeroth/actor/service/domain/AbstractCompanyFactory.java</a>
                 </td>
                 <td>
@@ -525,7 +539,7 @@
                   0
                 </td>
                 <td>
-                  1
+                  7
                 </td>
                 <td>
                   0
@@ -582,6 +596,20 @@
                 </td>
                 <td>
                   5
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://nilcy.github.io/zeroth/maven/site//checkstyle.html#zeroth.framework.screen.package-info.java">zeroth/framework/screen/package-info.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  1
                 </td>
                 <td>
                   0
@@ -945,7 +973,7 @@
                   0
                 </td>
                 <td>
-                  0
+                  2
                 </td>
                 <td>
                   0
@@ -981,20 +1009,6 @@
               </tr>
                           <tr>
                 <td>
-                  <a href="http://nilcy.github.io/zeroth/maven/site//checkstyle.html#zeroth.framework.standard.app.GatewayHeader.java">zeroth/framework/standard/app/GatewayHeader.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  12
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
                   <a href="http://nilcy.github.io/zeroth/maven/site//checkstyle.html#zeroth.actor.service.domain.parts.OfficeAddress_.java">zeroth/actor/service/domain/parts/OfficeAddress_.java</a>
                 </td>
                 <td>
@@ -1002,6 +1016,20 @@
                 </td>
                 <td>
                   0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://nilcy.github.io/zeroth/maven/site//checkstyle.html#zeroth.framework.standard.app.GatewayHeader.java">zeroth/framework/standard/app/GatewayHeader.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  12
                 </td>
                 <td>
                   0
@@ -1225,7 +1253,7 @@
                   0
                 </td>
                 <td>
-                  0
+                  1
                 </td>
                 <td>
                   0
@@ -1457,6 +1485,20 @@
               </tr>
                           <tr>
                 <td>
+                  <a href="http://nilcy.github.io/zeroth/maven/site//checkstyle.html#zeroth.framework.enterprise.shared.DefaultCacheManagerEventListenerFactory.java">zeroth/framework/enterprise/shared/DefaultCacheManagerEventListenerFactory.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
                   <a href="http://nilcy.github.io/zeroth/maven/site//checkstyle.html#zeroth.actor.screen.iface.jsf.application.AddressAction.java">zeroth/actor/screen/iface/jsf/application/AddressAction.java</a>
                 </td>
                 <td>
@@ -1471,20 +1513,6 @@
               </tr>
                           <tr>
                 <td>
-                  <a href="http://nilcy.github.io/zeroth/maven/site//checkstyle.html#zeroth.framework.screen.iface.jsf.AbstractActionImpl.java">zeroth/framework/screen/iface/jsf/AbstractActionImpl.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  5
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
                   <a href="http://nilcy.github.io/zeroth/maven/site//checkstyle.html#zeroth.actor.service.domain.parts.PartnerContactFactory.java">zeroth/actor/service/domain/parts/PartnerContactFactory.java</a>
                 </td>
                 <td>
@@ -1492,6 +1520,20 @@
                 </td>
                 <td>
                   0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://nilcy.github.io/zeroth/maven/site//checkstyle.html#zeroth.framework.screen.iface.jsf.AbstractActionImpl.java">zeroth/framework/screen/iface/jsf/AbstractActionImpl.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  5
                 </td>
                 <td>
                   0
@@ -1541,20 +1583,6 @@
               </tr>
                           <tr>
                 <td>
-                  <a href="http://nilcy.github.io/zeroth/maven/site//checkstyle.html#zeroth.framework.service.app.GatewayService.java">zeroth/framework/service/app/GatewayService.java</a>
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-                <td>
-                  0
-                </td>
-              </tr>
-                          <tr>
-                <td>
                   <a href="http://nilcy.github.io/zeroth/maven/site//checkstyle.html#zeroth.framework.enterprise.domain.AbstractAuditable.java">zeroth/framework/enterprise/domain/AbstractAuditable.java</a>
                 </td>
                 <td>
@@ -1562,6 +1590,20 @@
                 </td>
                 <td>
                   11
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://nilcy.github.io/zeroth/maven/site//checkstyle.html#zeroth.framework.service.app.GatewayService.java">zeroth/framework/service/app/GatewayService.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
                 </td>
                 <td>
                   0
@@ -2437,6 +2479,20 @@
               </tr>
                           <tr>
                 <td>
+                  <a href="http://nilcy.github.io/zeroth/maven/site//checkstyle.html#zeroth.framework.screen.infra.package-info.java">zeroth/framework/screen/infra/package-info.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  1
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
                   <a href="http://nilcy.github.io/zeroth/maven/site//checkstyle.html#zeroth.actor.service.domain.MemberRepositoryImpl.java">zeroth/actor/service/domain/MemberRepositoryImpl.java</a>
                 </td>
                 <td>
@@ -2689,6 +2745,20 @@
               </tr>
                           <tr>
                 <td>
+                  <a href="http://nilcy.github.io/zeroth/maven/site//checkstyle.html#zeroth.framework.screen.iface.jsf.StandardValidator.java">zeroth/framework/screen/iface/jsf/StandardValidator.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  3
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
                   <a href="http://nilcy.github.io/zeroth/maven/site//checkstyle.html#zeroth.actor.screen.iface.web.servlet.package-info.java">zeroth/actor/screen/iface/web/servlet/package-info.java</a>
                 </td>
                 <td>
@@ -2905,7 +2975,7 @@
                   0
                 </td>
                 <td>
-                  0
+                  1
                 </td>
                 <td>
                   0
@@ -3431,7 +3501,7 @@
               </tr>
                           <tr>
                 <td>
-                  <a href="http://nilcy.github.io/zeroth/maven/site//checkstyle.html#zeroth.framework.screen.iface.jsf.FacesHelper.java">zeroth/framework/screen/iface/jsf/FacesHelper.java</a>
+                  <a href="http://nilcy.github.io/zeroth/maven/site//checkstyle.html#zeroth.actor.service.domain.parts.OfficeAddressFactory.java">zeroth/actor/service/domain/parts/OfficeAddressFactory.java</a>
                 </td>
                 <td>
                   0
@@ -3445,7 +3515,7 @@
               </tr>
                           <tr>
                 <td>
-                  <a href="http://nilcy.github.io/zeroth/maven/site//checkstyle.html#zeroth.actor.service.domain.parts.OfficeAddressFactory.java">zeroth/actor/service/domain/parts/OfficeAddressFactory.java</a>
+                  <a href="http://nilcy.github.io/zeroth/maven/site//checkstyle.html#zeroth.framework.screen.iface.jsf.FacesHelper.java">zeroth/framework/screen/iface/jsf/FacesHelper.java</a>
                 </td>
                 <td>
                   0
@@ -3480,6 +3550,20 @@
                 </td>
                 <td>
                   0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://nilcy.github.io/zeroth/maven/site//checkstyle.html#zeroth.framework.screen.iface.package-info.java">zeroth/framework/screen/iface/package-info.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  1
                 </td>
                 <td>
                   0
@@ -3613,6 +3697,20 @@
               </tr>
                           <tr>
                 <td>
+                  <a href="http://nilcy.github.io/zeroth/maven/site//checkstyle.html#zeroth.framework.enterprise.shared.DefaultCacheManagerEventListener.java">zeroth/framework/enterprise/shared/DefaultCacheManagerEventListener.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
                   <a href="http://nilcy.github.io/zeroth/maven/site//checkstyle.html#zeroth.actor.screen.iface.jsf.converter.OrganConverter.java">zeroth/actor/screen/iface/jsf/converter/OrganConverter.java</a>
                 </td>
                 <td>
@@ -3726,6 +3824,20 @@
                           <tr>
                 <td>
                   <a href="http://nilcy.github.io/zeroth/maven/site//checkstyle.html#zeroth.framework.screen.iface.jsf.AbstractPagination.java">zeroth/framework/screen/iface/jsf/AbstractPagination.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://nilcy.github.io/zeroth/maven/site//checkstyle.html#zeroth.framework.enterprise.shared.CacheUtils.java">zeroth/framework/enterprise/shared/CacheUtils.java</a>
                 </td>
                 <td>
                   0

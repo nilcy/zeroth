@@ -32,7 +32,10 @@ zeroth.framework.enterprise.infra.messaging
 zeroth.framework.enterprise.infra.persistence
 zeroth.framework.enterprise.infra.routing
 zeroth.framework.enterprise.shared
+zeroth.framework.screen
+zeroth.framework.screen.iface
 zeroth.framework.screen.iface.jsf
+zeroth.framework.screen.infra
 zeroth.framework.service
 zeroth.framework.service.app
 zeroth.framework.standard

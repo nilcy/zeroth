@@ -77,7 +77,7 @@
 <a class="jxr_linenumber" name="67" href="#67">67</a>      }
 <a class="jxr_linenumber" name="68" href="#68">68</a>      <em class="jxr_javadoccomment">/**</em><em class="jxr_javadoccomment"> {@inheritDoc} */</em>
 <a class="jxr_linenumber" name="69" href="#69">69</a>      @Override
-<a class="jxr_linenumber" name="70" href="#70">70</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> persist(<strong class="jxr_keyword">final</strong> E entity) {
+<a class="jxr_linenumber" name="70" href="#70">70</a>      <strong class="jxr_keyword">public</strong> &lt;S <strong class="jxr_keyword">extends</strong> E&gt; <strong class="jxr_keyword">void</strong> persist(<strong class="jxr_keyword">final</strong> S entity) {
 <a class="jxr_linenumber" name="71" href="#71">71</a>          manager.persist(entity);
 <a class="jxr_linenumber" name="72" href="#72">72</a>      }
 <a class="jxr_linenumber" name="73" href="#73">73</a>      <em class="jxr_javadoccomment">/**</em>
@@ -102,7 +102,7 @@
 <a class="jxr_linenumber" name="92" href="#92">92</a>      }
 <a class="jxr_linenumber" name="93" href="#93">93</a>      <em class="jxr_javadoccomment">/**</em><em class="jxr_javadoccomment"> {@inheritDoc} */</em>
 <a class="jxr_linenumber" name="94" href="#94">94</a>      @Override
-<a class="jxr_linenumber" name="95" href="#95">95</a>      <strong class="jxr_keyword">public</strong> E merge(<strong class="jxr_keyword">final</strong> E entity) {
+<a class="jxr_linenumber" name="95" href="#95">95</a>      <strong class="jxr_keyword">public</strong> &lt;S <strong class="jxr_keyword">extends</strong> E&gt; S merge(<strong class="jxr_keyword">final</strong> S entity) {
 <a class="jxr_linenumber" name="96" href="#96">96</a>          <strong class="jxr_keyword">return</strong> manager.merge(entity);
 <a class="jxr_linenumber" name="97" href="#97">97</a>      }
 <a class="jxr_linenumber" name="98" href="#98">98</a>      <em class="jxr_javadoccomment">/**</em><em class="jxr_javadoccomment"> {@inheritDoc} */</em>

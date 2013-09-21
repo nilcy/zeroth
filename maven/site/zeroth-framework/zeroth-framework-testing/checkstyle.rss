@@ -10,7 +10,7 @@
     <item>
       <title>File: 2,
              Errors: 0,
-             Warnings: 1,
+             Warnings: 2,
              Infos: 0
       </title>
             <link>http://nilcy.github.io/zeroth/maven/site/zeroth-framework/zeroth-framework-testing//checkstyle.html</link>
@@ -35,7 +35,7 @@
                   0
                 </td>
                 <td>
-                  0
+                  1
                 </td>
                 <td>
                   0
